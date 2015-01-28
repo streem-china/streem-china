@@ -1,9 +1,10 @@
-.row
-  .medium-8.columns
-    = link_to new_topic_path, { class: 'button right small' } do
-      i.fa.fa-pencil
-      '
-      ' 发布新帖
+- if current_user
+  .row
+    .medium-8.columns
+      = link_to new_topic_path, { class: 'button right small' } do
+        i.fa.fa-pencil
+        '
+        ' 发布新帖
 .row
   .medium-8.columns
     - @topics.each do |topic|
