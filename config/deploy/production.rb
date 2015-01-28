@@ -17,7 +17,6 @@ role :db,  %w{deploy@streem-china.org}
 
 server 'streem-china.org', user: 'deploy', roles: %w{web app db}
 
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
