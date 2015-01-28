@@ -1,0 +1,28 @@
+- replies.each do |reply|
+  .row
+    .medium-2.columns
+      a
+        = image_tag src=reply.user.avatar, size: '50x50'
+
+    .medium-10.columns
+      .row
+        .medium-8.columns
+          span
+            small
+              a href='#' =reply.user.name
+              '
+              ' &middot;
+              '
+              ' 1 分钟前
+
+        .medium-4.columns
+          i.fa.fa-reply.right
+          '
+          - if current_user == reply.user
+            i.fa.fa-trash.right
+            '
+            = link_to edit_reply_path(reply) do
+              i.fa.fa-pencil.right
+        .medium-12.columns
+          p = reply.body
+

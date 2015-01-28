@@ -3,7 +3,7 @@
     ul.title-area
       li.name
         h1
-          a href='#' Streem China
+          = link_to 'Streem China', root_path
       li.toggle-topbar.menu-icon
         a href="#"
           span Menu
@@ -16,6 +16,9 @@
               img src=current_user.avatar width=30 height=30
               '
               = current_user.name
+          li
+            a
+              span.label.alert = 0
           li.divider
           li
             = link_to destroy_user_session_path do

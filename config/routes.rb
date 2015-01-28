@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics
+  resources :replies
 
   root 'topics#index'
 end

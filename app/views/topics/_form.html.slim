@@ -1,0 +1,6 @@
+= form_for topic do |f|
+  = f.text_field :title, placeholder: '标题'
+
+  = f.text_area :body, placeholder: '内容', size: 'x20'
+
+  = f.submit '提交', class: 'button small'

@@ -12,7 +12,7 @@
       .alert-box.warning data-alert=''
         = flash[:warning]
         a.close href="#" &times;
-    - elsif flash[:alert]
+    - elsif flash[:error]
       .alert-box.alert data-alert=''
-        = flash[:alert]
+        = flash[:error]
         a.close href="#" &times;

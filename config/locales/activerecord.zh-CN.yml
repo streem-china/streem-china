@@ -1,0 +1,21 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        topic:
+          attributes:
+            title:
+              blank: 不能为空
+            body:
+              blank: 不能为空
+        reply:
+          attributes:
+            body:
+              blank: 不能为空
+    attributes:
+      topic:
+        title: 标题
+        body: 内容
+      reply:
+        body: 内容
+

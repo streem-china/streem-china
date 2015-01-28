@@ -1,19 +1,34 @@
 .row
-  .medium-12.columns
-    a.button.right.small href="#"
+  .medium-8.columns
+    = link_to new_topic_path, { class: 'button right small' } do
+      i.fa.fa-pencil
+      '
       ' 发布新帖
 .row
-  .medium-12.columns
+  .medium-8.columns
     - @topics.each do |topic|
       .row
-        .small-3.medium-2.large-1.columns
-          a.th
-            img src=topic.user.avatar width=45 height=45
-        .small-9.medium-10.large-11.columns
+        .medium-2.columns
+          a
+            = image_tag src=topic.user.avatar, size: '50x50'
+        .medium-10.columns
           .row
+            .medium-10.columns
+              h5
+                = link_to topic.title, topic_path(topic)
+            .medium-2.columns
+                span.right.label = topic.replies_count
             .medium-12.columns
-              a href='' =topic.title
-            .medium-12.columns
-              a href='' =topic.user.name
+              p
+                small
+                  a href='#' =topic.user.name
+                  '
+                  ' &middot;
+                  '
+                  ' 最后由
+                  a = topic.user.name
+                  '
+                  ' 于
+                  ' 1 分钟前回复
 
       hr
