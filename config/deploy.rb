@@ -23,7 +23,7 @@ set :repo_url, 'git@gitcafe.com:streem-china/streem-china.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'db/production.sqlite3')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle')
@@ -38,6 +38,7 @@ set :rbenv_ruby, '2.2.0'
 
 set :puma_workers, 1
 set :puma_threads, [8, 8]
+set :puma_prune_bundler, true
 
 namespace :deploy do
 

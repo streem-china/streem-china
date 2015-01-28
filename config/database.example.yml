@@ -8,6 +8,7 @@ default: &default
   adapter: sqlite3
   pool: 5
   timeout: 5000
+  memory: true
 
 development:
   <<: *default
@@ -23,4 +24,3 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
-
