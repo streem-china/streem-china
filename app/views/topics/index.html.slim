@@ -1,0 +1,19 @@
+.row
+  .medium-12.columns
+    a.button.right.small href="#"
+      ' 发布新帖
+.row
+  .medium-12.columns
+    - @topics.each do |topic|
+      .row
+        .small-3.medium-2.large-1.columns
+          a.th
+            img src=topic.user.avatar width=45 height=45
+        .small-9.medium-10.large-11.columns
+          .row
+            .medium-12.columns
+              a href='' =topic.title
+            .medium-12.columns
+              a href='' =topic.user.name
+
+      hr

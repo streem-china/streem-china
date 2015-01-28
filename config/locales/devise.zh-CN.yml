@@ -1,0 +1,9 @@
+zh-CN:
+  devise:
+    omniauth_callbacks:
+      failure: "%{kind} 账户授权失败, 原因: \"%{reason}\"."
+      success: "%{kind} 账户授权成功."
+    sessions:
+      signed_in: "登录成功."
+      signed_out: "退出成功."
+      already_signed_out: "退出成功."
