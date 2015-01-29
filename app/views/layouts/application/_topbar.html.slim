@@ -1,35 +1,31 @@
 .contain-to-grid
-  nav.contain-to-grid.top-bar data-topbar='' role='navigation'
+  nav.top-bar role='navigation' data-topbar='' aria-hidden='true'
     ul.title-area
       li.name
         h1
           = link_to 'Streem China', root_path
       li.toggle-topbar.menu-icon
         a href="#"
-          span Menu
+          span
 
     section.top-bar-section
       ul.right
         - if current_user
           li
-            a
-              img src=current_user.avatar width=30 height=30
+            = link_to '#' do
+              = image_tag current_user.avatar, size: '25x25'
               '
               = current_user.name
           li
-            a
+            = link_to '#' do
               span.label.alert = 0
+              '
+              ' 消息
           li.divider
           li
-            = link_to destroy_user_session_path do
-              i.fa.fa-sign-out
-              '
-              ' 退出
+            = link_to '退出', destroy_user_session_path
         - else
           li
-            = link_to user_omniauth_authorize_path(:github) do
-              i.fa.fa-github
-              '
-              ' 登录
+            = link_to '登陆', user_omniauth_authorize_path(:github)
 
 br

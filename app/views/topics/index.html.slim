@@ -1,35 +1,31 @@
-- if current_user
-  .row
-    .medium-8.columns
-      = link_to new_topic_path, { class: 'button right small' } do
-        i.fa.fa-pencil
-        '
-        ' 发布新帖
 .row
-  .medium-8.columns
-    - @topics.each do |topic|
-      .row
-        .medium-2.columns
-          a
-            = image_tag src=topic.user.avatar, size: '50x50'
-        .medium-10.columns
-          .row
-            .medium-10.columns
-              h5
-                = link_to topic.title, topic_path(topic)
-            .medium-2.columns
-                span.right.label = topic.replies_count
-            .medium-12.columns
-              p
-                small
-                  a href='#' =topic.user.name
-                  '
-                  ' &middot;
-                  '
-                  ' 最后由
-                  a = topic.user.name
-                  '
-                  ' 于
-                  ' 1 分钟前回复
-
-      hr
+  .small-12.medium-9.large-9.columns
+    .row.collapse
+      .column
+        = link_to '发布新帖', new_topic_path, { class: 'button tiny right' }
+      .column
+        .topics
+          - @topics.each do |topic|
+            .item
+              .user-avatar
+                = link_to '#' do
+                  = image_tag topic.user.avatar
+              .info
+                .title
+                  = link_to topic.title, topic_path(topic)
+                .tips
+                  span.user-name
+                    = link_to topic.user.name, '#'
+                    '
+                    ' 1 分钟前发布
+                    '
+                  span.last-reply-user-name.show-for-medium-up
+                    '
+                    ' &middot;
+                    '
+                    = link_to topic.user.name, '#'
+                    '
+                    ' 于
+                    ' 1 分钟前回复
+              .replies-count
+                = link_to topic.replies_count, topic_path(topic), class: 'label'

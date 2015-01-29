@@ -1,0 +1,157 @@
+.topics {
+  .item {
+    margin-bottom: 1.6rem;
+
+    .user-avatar {
+      display: table-cell;
+      vertical-align: top;
+      a {
+        padding-right: 1rem;
+        display: block;
+        width: 4rem;
+      }
+    }
+
+    .info {
+      .tips {
+        span {
+          font-size: 0.8rem;
+          color: #AAAAAA;
+        }
+
+        a {
+          color: #666666;
+          text-decoration: underline;
+        }
+      }
+
+      width: 100%;
+      display: table-cell;
+      vertical-align: top;
+
+      .title {
+        word-break: break-all;
+        word-wrap: break-word;
+        line-height: 130%;
+      }
+
+      .user-name {
+        float: left;
+      }
+
+      .last-reply-user-name {
+        float: left;
+      }
+    }
+
+    .replies-count {
+      padding-left: 2rem;
+      display: table-cell;
+    }
+  }
+}
+
+.topic {
+  .user-avatar {
+    display: table-cell;
+    vertical-align: top;
+    a {
+      padding-right: 1rem;
+      display: block;
+      width: 5rem;
+    }
+  }
+
+  .info {
+    .tips {
+      span {
+        font-size: 0.8rem;
+        color: #AAAAAA;
+      }
+
+      a {
+        color: #666666;
+        text-decoration: underline;
+      }
+    }
+
+    width: 100%;
+    display: table-cell;
+    vertical-align: top;
+
+    .title h5 {
+      word-break: break-all;
+      word-wrap: break-word;
+      line-height: 130%;
+    }
+
+    .user-name {
+      float: left;
+    }
+
+    .last-reply-user-name {
+      float: left;
+    }
+
+    p {
+      word-break: break-all;
+      word-wrap: break-word;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .tools {
+    li {
+      a {
+        color: #666666;
+      }
+      margin-left: 0.3rem;
+    }
+  }
+
+  .body {
+    margin-top: 1.3rem;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  .replies {
+    .item {
+      margin-bottom: 1.6rem;
+
+      .user-avatar {
+        display: table-cell;
+        vertical-align: top;
+        a {
+          padding-right: 1rem;
+          display: block;
+          width: 4rem;
+        }
+      }
+
+      .info {
+        width: 100%;
+        display: table-cell;
+        vertical-align: top;
+
+        span {
+          font-size: 0.8rem;
+          color: #AAAAAA;
+        }
+
+        a {
+          color: #666666;
+          text-decoration: underline;
+        }
+
+        .body {
+          p {
+            word-break: break-all;
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+  }
+}

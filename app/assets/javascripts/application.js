@@ -16,6 +16,7 @@
 //= require foundation/foundation
 //= require foundation/foundation.topbar
 //= require foundation/foundation.alert
+//= require foundation/foundation.dropdown
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
