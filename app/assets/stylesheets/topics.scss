@@ -1,37 +1,51 @@
+$link-color: #666666;
+$span-color: #AAAAAA;
+
+@mixin user-avatar($width: 4rem) {
+  display: table-cell;
+  vertical-align: top;
+  a {
+    padding-right: 1rem;
+    display: block;
+    width: $width;
+  }
+}
+
+@mixin tips {
+  span {
+    font-size: 0.8rem;
+    color: $span-color;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}
+
+@mixin table-cell {
+  width: 100%;
+  display: table-cell;
+  vertical-align: top;
+}
+
 .topics {
   .item {
     margin-bottom: 1.6rem;
 
     .user-avatar {
-      display: table-cell;
-      vertical-align: top;
-      a {
-        padding-right: 1rem;
-        display: block;
-        width: 4rem;
-      }
+      @include user-avatar;
     }
 
     .info {
       .tips {
-        span {
-          font-size: 0.8rem;
-          color: #AAAAAA;
-        }
-
-        a {
-          color: #666666;
-          text-decoration: underline;
-        }
+        @include tips;
       }
 
-      width: 100%;
-      display: table-cell;
-      vertical-align: top;
+      @include table-cell;
 
       .title {
         word-break: break-all;
-        word-wrap: break-word;
         line-height: 130%;
       }
 
@@ -53,26 +67,12 @@
 
 .topic {
   .user-avatar {
-    display: table-cell;
-    vertical-align: top;
-    a {
-      padding-right: 1rem;
-      display: block;
-      width: 5rem;
-    }
+    @include user-avatar(5rem);
   }
 
   .info {
     .tips {
-      span {
-        font-size: 0.8rem;
-        color: #AAAAAA;
-      }
-
-      a {
-        color: #666666;
-        text-decoration: underline;
-      }
+      @include tips;
     }
 
     width: 100%;
@@ -81,7 +81,6 @@
 
     .title h5 {
       word-break: break-all;
-      word-wrap: break-word;
       line-height: 130%;
     }
 
@@ -95,7 +94,6 @@
 
     p {
       word-break: break-all;
-      word-wrap: break-word;
       margin-top: 0px;
       margin-bottom: 0px;
     }
@@ -104,7 +102,7 @@
   .tools {
     li {
       a {
-        color: #666666;
+        color: $link-color;
       }
       margin-left: 0.3rem;
     }
@@ -113,7 +111,6 @@
   .body {
     margin-top: 1.3rem;
     word-break: break-all;
-    word-wrap: break-word;
   }
 
   .replies {
@@ -121,34 +118,18 @@
       margin-bottom: 1.6rem;
 
       .user-avatar {
-        display: table-cell;
-        vertical-align: top;
-        a {
-          padding-right: 1rem;
-          display: block;
-          width: 4rem;
-        }
+        @include user-avatar;
+
       }
 
       .info {
-        width: 100%;
-        display: table-cell;
-        vertical-align: top;
+        @include table-cell;
 
-        span {
-          font-size: 0.8rem;
-          color: #AAAAAA;
-        }
-
-        a {
-          color: #666666;
-          text-decoration: underline;
-        }
+        @include tips;
 
         .body {
           p {
             word-break: break-all;
-            word-wrap: break-word;
           }
         }
       }
