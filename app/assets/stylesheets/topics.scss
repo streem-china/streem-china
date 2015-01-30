@@ -45,6 +45,7 @@ $span-color: #AAAAAA;
       @include table-cell;
 
       .title {
+        font-size: 120%;
         word-break: break-all;
         line-height: 130%;
       }

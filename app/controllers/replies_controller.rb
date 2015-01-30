@@ -17,6 +17,10 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.find(params[:id])
   end
 
+  def destroy
+    @reply = current_user.replies.find(params[:id]).destroy
+  end
+
   private
 
   def reply_params

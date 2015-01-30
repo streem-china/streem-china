@@ -28,7 +28,7 @@ class TopicsController < ApplicationController
 
     @topic = Topic.find(params[:id])
 
-    @replies = @topic.replies.paginate(page: page)
+    @replies = @topic.replies.with_deleted.paginate(page: page)
   end
 
   def edit
@@ -50,6 +50,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = current_user.topics.find(params[:id]).destroy
+
     flash[:success] = '帖子删除成功'
 
     redirect_to topics_path

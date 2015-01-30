@@ -5,4 +5,6 @@ class Reply < ActiveRecord::Base
   validates :user_id, presence: true
   validates :topic_id, presence: true
   validates :body, presence: true
+
+  acts_as_paranoid
 end
