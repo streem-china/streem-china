@@ -1,5 +1,7 @@
 zh-CN:
   devise:
+    failure:
+      unauthenticated: "请先登陆."
     omniauth_callbacks:
       failure: "%{kind} 账户授权失败, 原因: \"%{reason}\"."
       success: "%{kind} 账户授权成功."

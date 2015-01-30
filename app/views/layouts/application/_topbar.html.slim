@@ -18,7 +18,7 @@
               = current_user.name
           li
             = link_to '#' do
-              span.label.alert = 0
+              span.label = 0
               '
               ' 消息
           li.divider
@@ -26,6 +26,6 @@
             = link_to '退出', destroy_user_session_path
         - else
           li
-            = link_to '登陆', user_omniauth_authorize_path(:github)
+            = link_to '登陆', new_user_session_path
 
 br

@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     page = params[:page] || 1
 

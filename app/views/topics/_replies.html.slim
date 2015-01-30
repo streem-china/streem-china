@@ -15,18 +15,19 @@
           '
           ' 1 分钟前
           '
-        span.tools.right
-          ul.inline-list
-            li
-              = link_to '#' do
-                i.fa.fa-reply
-            - if current_user == reply.user
+        - if current_user
+          span.tools.right
+            ul.inline-list
               li
-                = link_to edit_reply_path(reply) do
-                  i.fa.fa-pencil
-              li
-                = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
-                  i.fa.fa-trash
+                = link_to '#' do
+                  i.fa.fa-reply
+              - if current_user == reply.user
+                li
+                  = link_to edit_reply_path(reply) do
+                    i.fa.fa-pencil
+                li
+                  = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
+                    i.fa.fa-trash
 
         .body
           = simple_format reply.body

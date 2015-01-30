@@ -1,4 +1,6 @@
 class RepliesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @reply = current_user.replies.new(reply_params)
 
