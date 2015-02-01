@@ -11,26 +11,21 @@
           = image_tag reply.user.avatar
 
       .info
-        .clearfix
-          .tips
-            span.user-name.left
-              = link_to reply.user.name, '#'
-              '
-              ' 1 分钟前
-              '
-            - if current_user
-              span.tools.right
-                ul.inline-list
-                  li
-                    = link_to '#' do
-                      i.fa.fa-reply
-                  - if current_user == reply.user
-                    li
-                      = link_to edit_reply_path(reply) do
-                        i.fa.fa-pencil
-                    li
-                      = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
-                        i.fa.fa-trash
+        .tips
+          span.user-name
+            = link_to reply.user.name, '#'
+            '
+            ' 1 分钟前
+            '
+          - if current_user
+            span.tools.right
+              = link_to '#' do
+                i.fa.fa-reply
+              - if current_user == reply.user
+                = link_to edit_reply_path(reply) do
+                  i.fa.fa-pencil
+                = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
+                  i.fa.fa-trash
 
-        .body
-          = raw reply.body_html
+      .body
+        = raw reply.body_html

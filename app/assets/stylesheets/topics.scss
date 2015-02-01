@@ -81,6 +81,17 @@ $span-color: #AAAAAA;
   }
 
   .body {
+    margin-top: 1rem;
+    word-wrap: break-word;
+
+    blockquote {
+      padding: 0.5625rem 1.25rem 0.5625rem 1.1875rem;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
     .highlight {
       border-left: 1px solid #e9e9e9;
       border-right: 1px solid #e9e9e9;
@@ -89,6 +100,7 @@ $span-color: #AAAAAA;
       padding: 0.4rem 1rem;
 
       code {
+        padding: 0;
         border: none;
       }
     }
@@ -143,35 +155,41 @@ $span-color: #AAAAAA;
         }
 
         .tools {
-          ul {
-            margin-bottom: 0;
-
-            li {
-              margin-left: 0.4rem;
-            }
-          }
-        }
-      }
-
-      .body {
-        margin-top: 1rem;
-
-        blockquote {
-          p {
-            margin-top: 0;
-          }
-        }
-
-        .highlight {
-          margin: 1rem 0rem;
-          background-color: #f8f8f8;
-          padding: 0.2rem 0.5rem;
-
-          code {
-            border: none;
+         a {
+            margin-left: 0.4rem;
           }
         }
       }
     }
+
+    .body {
+      margin-top: -1rem;
+      word-wrap: break-word;
+      padding-left: 2.5rem;
+
+      blockquote {
+        padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      .highlight {
+        overflow: auto;
+        margin: 1rem 0rem;
+        background-color: #f8f8f8;
+        padding: 0.2rem 0.5rem;
+
+        code {
+          padding: 0;
+          border: none;
+        }
+      }
+    }
   }
+}
+
+.reply-form {
+  margin-top: 1rem;
 }
