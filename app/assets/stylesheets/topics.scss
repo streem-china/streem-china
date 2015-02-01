@@ -1,136 +1,174 @@
 $link-color: #666666;
 $span-color: #AAAAAA;
 
-@mixin user-avatar($width: 4rem) {
-  display: table-cell;
-  vertical-align: top;
-  a {
-    padding-right: 1rem;
-    display: block;
-    width: $width;
-  }
-}
-
-@mixin tips {
-  span {
-    font-size: 0.8rem;
-    color: $span-color;
-  }
-
-  a {
-    color: $link-color;
-    text-decoration: underline;
-  }
-}
-
-@mixin table-cell {
-  width: 100%;
-  display: table-cell;
-  vertical-align: top;
-}
-
 .topics {
   .item {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1rem;
 
     .user-avatar {
-      @include user-avatar;
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 0.4rem;
+
+      a {
+        img {
+          width: 3rem;
+        }
+        display: block;
+        width: 4rem;
+        height: 4rem;
+      }
     }
 
     .info {
+      display: table-cell;
+      width: 100%;
+
       .tips {
-        @include tips;
-      }
+        span {
+          float: left;
+          font-size: 0.8rem;
+          color: $span-color;
+        }
 
-      @include table-cell;
-
-      .title {
-        font-size: 120%;
-        word-break: break-all;
-        line-height: 130%;
-      }
-
-      .user-name {
-        float: left;
-      }
-
-      .last-reply-user-name {
-        float: left;
+        a {
+          color: $link-color;
+          text-decoration: underline;
+        }
       }
     }
 
     .replies-count {
-      padding-left: 2rem;
       display: table-cell;
+      vertical-align: top;
+      padding-left: 1rem;
     }
   }
 }
 
 .topic {
   .user-avatar {
-    @include user-avatar(5rem);
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 0.4rem;
+
+    a {
+      img {
+        width: 3rem;
+      }
+      display: block;
+      width: 4rem;
+      height: 4rem;
+    }
   }
 
   .info {
-    .tips {
-      @include tips;
-    }
-
-    width: 100%;
     display: table-cell;
-    vertical-align: top;
+    width: 100%;
 
-    .title h5 {
-      word-break: break-all;
-      line-height: 130%;
-    }
+    .tips {
+      span {
+        float: left;
+        font-size: 0.8rem;
+        color: $span-color;
+      }
 
-    .user-name {
-      float: left;
-    }
-
-    .last-reply-user-name {
-      float: left;
-    }
-
-    p {
-      word-break: break-all;
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-  }
-
-  .tools {
-    li {
       a {
         color: $link-color;
+        text-decoration: underline;
       }
-      margin-left: 0.3rem;
     }
   }
 
   .body {
-    margin-top: 1.3rem;
-    word-break: break-all;
+    .highlight {
+      border-left: 1px solid #e9e9e9;
+      border-right: 1px solid #e9e9e9;
+      margin: 1rem -1rem;
+      background-color: #f8f8f8;
+      padding: 0.4rem 1rem;
+
+      code {
+        border: none;
+      }
+    }
   }
 
-  .replies {
-    .item {
-      margin-bottom: 1.6rem;
+  .tools {
+    ul {
+      li {
+        a {
+          color: $link-color;
+          text-decoration: underline;
+        }
+        margin-left: 0.4rem;
+      }
+    }
+  }
+}
 
-      .user-avatar {
-        @include user-avatar;
+.replies {
+  .item {
+    .user-avatar {
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 0.3rem;
 
+      a {
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+
+        img {
+          width: 2rem;
+        }
+      }
+    }
+
+    .info {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+
+      .tips {
+        span {
+          float: left;
+          font-size: 0.8rem;
+          color: $span-color;
+        }
+
+        a {
+          color: $link-color;
+          text-decoration: underline;
+        }
+
+        .tools {
+          ul {
+            margin-bottom: 0;
+
+            li {
+              margin-left: 0.4rem;
+            }
+          }
+        }
       }
 
-      .info {
-        @include table-cell;
+      .body {
+        margin-top: 1rem;
 
-        @include tips;
-
-        .body {
+        blockquote {
           p {
-            word-break: break-all;
+            margin-top: 0;
+          }
+        }
+
+        .highlight {
+          margin: 1rem 0rem;
+          background-color: #f8f8f8;
+          padding: 0.2rem 0.5rem;
+
+          code {
+            border: none;
           }
         }
       }

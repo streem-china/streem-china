@@ -1,7 +1,7 @@
 .row
   .small-12.medium-9.large-9.columns
-    .row.collapse
-      .topic.column
+    .box
+      .topic
         .user-avatar
           = link_to '#' do
             = image_tag @topic.user.avatar
@@ -24,7 +24,7 @@
               '
 
         .body
-          = simple_format @topic.body
+          = raw @topic.body_html
 
         .tools
           - if current_user == @topic.user
@@ -36,10 +36,9 @@
                 = link_to edit_topic_path(@topic) do
                   i.fa.fa-pencil
 
-        hr
+    .box
+      .replies
+        = render partial: 'replies', locals: { replies: @replies }
 
-        .replies
-          = render partial: 'replies', locals: { replies: @replies }
-
-        .reply_form
+      .reply-form
           = render partial: 'reply_form', locals: { topic: @topic }

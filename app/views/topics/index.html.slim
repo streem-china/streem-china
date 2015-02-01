@@ -1,31 +1,30 @@
 .row
   .small-12.medium-9.large-9.columns
-    .row.collapse
-      .column
+    .box
+      .clearfix
         = link_to '发布新帖', new_topic_path, { class: 'button small right' }
-      .column
-        .topics
-          - @topics.each do |topic|
-            .item
-              .user-avatar
-                = link_to '#' do
-                  = image_tag topic.user.avatar
-              .info
-                .title
-                  = link_to topic.title, topic_path(topic)
-                .tips
-                  span.user-name
-                    = link_to topic.user.name, '#'
-                    '
-                    ' 1 分钟前发布
-                    '
-                  span.last-reply-user-name.show-for-medium-up
-                    '
-                    ' &middot;
-                    '
-                    = link_to topic.user.name, '#'
-                    '
-                    ' 于
-                    ' 1 分钟前回复
-              .replies-count
-                = link_to topic.replies_count, topic_path(topic), class: 'label'
+      .topics
+        - @topics.each do |topic|
+          .item
+            .user-avatar
+              = link_to '#' do
+                = image_tag topic.user.avatar
+            .info
+              .title
+                h5 = link_to topic.title, topic_path(topic)
+              .tips
+                span.user-name
+                  = link_to topic.user.name, '#'
+                  '
+                  ' 1 分钟前发布
+                  '
+                span.last-reply-user-name.show-for-medium-up
+                  '
+                  ' &middot;
+                  '
+                  = link_to topic.user.name, '#'
+                  '
+                  ' 于
+                  ' 1 分钟前回复
+            .replies-count
+              = link_to topic.replies_count, topic_path(topic), class: 'label'

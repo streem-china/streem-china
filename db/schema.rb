@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130044925) do
+ActiveRecord::Schema.define(version: 20150130093954) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150130044925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.text     "body_html"
   end
 
   add_index "replies", ["deleted_at"], name: "index_replies_on_deleted_at"
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150130044925) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.datetime "deleted_at"
+    t.text     "body_html"
   end
 
   add_index "topics", ["deleted_at"], name: "index_topics_on_deleted_at"

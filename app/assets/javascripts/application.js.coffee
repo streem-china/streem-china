@@ -10,13 +10,21 @@
 # Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 # about supported directives.
 #
+#= require vendor/modernizr
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require foundation
+#= require foundation/foundation
+#= require foundation/foundation.topbar
 #= require foundation/foundation.dropdown
+#= require foundation/foundation.alert
+#= require jquery.autosize.min.js
 #= require_tree .
 
 $ ->
   $(document).foundation()
+
+  $(document).on 'page:change', ->
+    $('textarea').autosize()
+
   Turbolinks.enableProgressBar()

@@ -43,7 +43,7 @@ class TopicsController < ApplicationController
     if @topic.update_attributes(topic_params)
       flash[:success] = '帖子更新成功'
 
-      redirect_to topics_path
+      redirect_to topic_path(@topic)
     else
       flash.now[:error] = @topic.errors.full_messages.join(', ')
 

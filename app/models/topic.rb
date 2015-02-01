@@ -7,4 +7,6 @@ class Topic < ActiveRecord::Base
   validates :body, presence: true
 
   acts_as_paranoid
+
+  include Markdownable
 end

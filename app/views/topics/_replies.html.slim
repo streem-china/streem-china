@@ -2,32 +2,35 @@
   .item id="reply-#{reply.id}"
     - if reply.deleted?
       center
-        i
-          s 该回复已删除
+        p
+          i
+            s 该回复已删除
     - else
       .user-avatar
         = link_to '#' do
           = image_tag reply.user.avatar
 
       .info
-        span.user-name
-          = link_to reply.user.name, '#'
-          '
-          ' 1 分钟前
-          '
-        - if current_user
-          span.tools.right
-            ul.inline-list
-              li
-                = link_to '#' do
-                  i.fa.fa-reply
-              - if current_user == reply.user
-                li
-                  = link_to edit_reply_path(reply) do
-                    i.fa.fa-pencil
-                li
-                  = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
-                    i.fa.fa-trash
+        .clearfix
+          .tips
+            span.user-name.left
+              = link_to reply.user.name, '#'
+              '
+              ' 1 分钟前
+              '
+            - if current_user
+              span.tools.right
+                ul.inline-list
+                  li
+                    = link_to '#' do
+                      i.fa.fa-reply
+                  - if current_user == reply.user
+                    li
+                      = link_to edit_reply_path(reply) do
+                        i.fa.fa-pencil
+                    li
+                      = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
+                        i.fa.fa-trash
 
         .body
-          = simple_format reply.body
+          = raw reply.body_html
