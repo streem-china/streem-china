@@ -42,6 +42,11 @@ $span-color: #AAAAAA;
       display: table-cell;
       vertical-align: top;
       padding-left: 1rem;
+      padding-top: 0.2rem;
+
+      a:hover {
+        color: white;
+      }
     }
   }
 }
@@ -122,6 +127,7 @@ $span-color: #AAAAAA;
 .replies {
   .item {
     margin-top: 2rem;
+
     .user-avatar {
       display: table-cell;
       vertical-align: top;
