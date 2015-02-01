@@ -121,6 +121,7 @@ $span-color: #AAAAAA;
 
 .replies {
   .item {
+    margin-top: 2rem;
     .user-avatar {
       display: table-cell;
       vertical-align: top;
@@ -191,5 +192,5 @@ $span-color: #AAAAAA;
 }
 
 .reply-form {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
