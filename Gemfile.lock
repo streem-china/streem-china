@@ -157,6 +157,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
+    rails-timeago (2.11.1)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     railties (4.2.0)
       actionpack (= 4.2.0)
       activesupport (= 4.2.0)
@@ -224,10 +227,11 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-github
-  paranoia (~> 2.0)
+  paranoia
   pry
   puma
   rails (= 4.2.0)
+  rails-timeago
   redcarpet
   rouge
   sass-rails (~> 5.0)

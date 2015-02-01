@@ -12,16 +12,16 @@
             span.user-name
               = link_to @topic.user.name, '#'
               '
-              ' 1 分钟前发布
-              '
-            span.last-reply-user-name.show-for-medium-up
-              '
-              ' &middot;
-              '
-              = link_to @topic.user.name, '#'
-              '
-              ' 1 分钟前回复
-              '
+              time.timeago datetime=@topic.created_at =@topic.created_at
+              ' 发布
+            .show-for-medium-up
+              - if @topic.last_replied_user
+                span &nbsp;&middot;&nbsp;
+                span.last-reply-user-name
+                  = link_to @topic.user.name, '#'
+                  '
+                  time.timeago datetime=@topic.last_replied_at =@topic.last_replied_at
+                  ' 回复
 
         .body
           = raw @topic.body_html

@@ -16,15 +16,14 @@
                 span.user-name
                   = link_to topic.user.name, '#'
                   '
-                  ' 1 分钟前发布
-                  '
-                span.last-reply-user-name.show-for-medium-up
-                  '
-                  ' &middot;
-                  '
-                  = link_to topic.user.name, '#'
-                  '
-                  ' 于
-                  ' 1 分钟前回复
+                  time.timeago datetime=topic.created_at =topic.created_at
+                  ' 发布
+                - if topic.last_replied_user
+                  span &nbsp;&middot;&nbsp;
+                  span.last-replied-user-name.show-for-medium-up
+                    = link_to topic.last_replied_user.name, '#'
+                    '
+                    time.timeago datetime=topic.last_replied_at =topic.last_replied_at
+                    ' 回复
             .replies-count
               = link_to topic.replies_count, topic_path(topic), class: 'label'

@@ -15,8 +15,7 @@
           span.user-name
             = link_to reply.user.name, '#'
             '
-            ' 1 分钟前
-            '
+            time.timeago datetime=reply.created_at =reply.created_at
           - if current_user
             span.tools.right
               = link_to '#' do

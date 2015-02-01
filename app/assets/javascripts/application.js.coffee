@@ -19,12 +19,16 @@
 #= require foundation/foundation.dropdown
 #= require foundation/foundation.alert
 #= require jquery.autosize.min.js
+#= require rails-timeago
+#= require locales/jquery.timeago.zh-CN.js
 #= require_tree .
 
 $ ->
   $(document).foundation()
 
-  $(document).on 'page:change', ->
+  $(document).on 'ready page:load', ->
     $('textarea').autosize()
+    $.timeago.settings.lang = 'zh-CN'
+    $('time.timeago').timeago()
 
   Turbolinks.enableProgressBar()
