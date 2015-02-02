@@ -24,7 +24,7 @@
                   ' 回复
 
         .body
-          = raw @topic.body_html
+          = raw sanitize_body_html(@topic.body_html)
 
         .tools
           - if current_user == @topic.user
