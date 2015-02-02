@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130093954) do
+ActiveRecord::Schema.define(version: 20150202024722) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -31,22 +31,26 @@ ActiveRecord::Schema.define(version: 20150130093954) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.text     "body_html"
+    t.integer  "floor"
   end
 
   add_index "replies", ["deleted_at"], name: "index_replies_on_deleted_at"
+  add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true
   add_index "replies", ["topic_id"], name: "index_replies_on_topic_id"
 
   create_table "topics", force: :cascade do |t|
-    t.integer  "user_id",                          null: false
-    t.string   "title",                            null: false
-    t.text     "body",                             null: false
-    t.integer  "replies_count",        default: 0, null: false
+    t.integer  "user_id",                            null: false
+    t.string   "title",                              null: false
+    t.text     "body",                               null: false
+    t.integer  "replies_count",          default: 0, null: false
     t.integer  "last_replied_user_id"
     t.datetime "last_replied_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.datetime "deleted_at"
     t.text     "body_html"
+    t.integer  "last_reply_id"
+    t.string   "last_replied_user_name"
   end
 
   add_index "topics", ["deleted_at"], name: "index_topics_on_deleted_at"

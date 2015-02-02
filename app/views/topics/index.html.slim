@@ -18,12 +18,15 @@
                   '
                   time.timeago datetime=topic.created_at =topic.created_at
                   ' 发布
-                - if topic.last_replied_user
+                - if topic.last_replied_user_id
                   span &nbsp;&middot;&nbsp;
                   span.last-replied-user-name.show-for-medium-up
-                    = link_to topic.last_replied_user.name, '#'
+                    = link_to topic.last_replied_user_name, topic_path(topic)
                     '
                     time.timeago datetime=topic.last_replied_at =topic.last_replied_at
                     ' 回复
             .replies-count
-              = link_to topic.replies_count, topic_path(topic), class: 'label'
+              - if topic.replies_count.zero?
+                = link_to topic.replies_count, topic_path(topic), class: 'label'
+              - else
+                = link_to topic.replies_count, topic_path(topic, anchor: "reply-#{topic.replies_count}"), class: 'label'

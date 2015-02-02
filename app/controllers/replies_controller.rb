@@ -23,6 +23,20 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.find(params[:id]).destroy
   end
 
+  def update
+    @reply = current_user.replies.find(params[:id])
+
+    if @reply.update_attributes(reply_params)
+      flash[:success] = '回复更新成功'
+
+      redirect_to topic_path(@reply.topic)
+    else
+      flash.now[:error] = @reply.errors.full_messages.join(', ')
+
+      render :edit
+    end
+  end
+
   private
 
   def reply_params

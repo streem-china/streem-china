@@ -1,10 +1,10 @@
 - replies.each do |reply|
-  .item id="reply-#{reply.id}"
+  .item id="reply-#{reply.floor}"
     - if reply.deleted?
-      center
+      center.deleted
         p
           i
-            s 该回复已删除
+            s #{reply.floor} 楼已删除
     - else
       .user-avatar
         = link_to '#' do
@@ -12,19 +12,21 @@
 
       .info
         .tips
+          span #{reply.floor} 楼
+          span &nbsp;&middot;&nbsp;
           span.user-name
             = link_to reply.user.name, '#'
             '
             time.timeago datetime=reply.created_at =reply.created_at
           - if current_user
             span.tools.right
-              = link_to '#' do
-                i.fa.fa-reply
               - if current_user == reply.user
                 = link_to edit_reply_path(reply) do
                   i.fa.fa-pencil
                 = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
                   i.fa.fa-trash
+              = link_to '#' do
+                i.fa.fa-reply
 
       .body
         = raw reply.body_html

@@ -15,10 +15,10 @@
               time.timeago datetime=@topic.created_at =@topic.created_at
               ' 发布
             .show-for-medium-up
-              - if @topic.last_replied_user
+              - if @topic.last_replied_user_id
                 span &nbsp;&middot;&nbsp;
                 span.last-reply-user-name
-                  = link_to @topic.user.name, '#'
+                  = link_to @topic.last_replied_user_name, '#'
                   '
                   time.timeago datetime=@topic.last_replied_at =@topic.last_replied_at
                   ' 回复

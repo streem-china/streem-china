@@ -1,0 +1,7 @@
+.box
+  = form_for reply do |f|
+    = f.text_area :body, placeholder: '内容', size: 'x20'
+
+    .clearfix
+      = f.submit '提交', class: 'button small right'
+

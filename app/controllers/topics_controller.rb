@@ -47,7 +47,7 @@ class TopicsController < ApplicationController
     else
       flash.now[:error] = @topic.errors.full_messages.join(', ')
 
-      render :new
+      render :edit
     end
   end
 
