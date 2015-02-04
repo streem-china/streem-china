@@ -22,5 +22,7 @@
     - if topic.replies_count.zero?
       = link_to topic.replies_count, topic_path(topic), class: 'label'
     - else
-      = link_to topic.replies_count, topic_path(topic, anchor: "reply-#{topic.replies_count}"), class: 'label'
+      = link_to topic.replies_count, topic_path(topic,
+        page: (topic.replies_count / Reply.per_page) + 1,
+        anchor: "reply-#{topic.replies_count}"), class: 'label'
 
