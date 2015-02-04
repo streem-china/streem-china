@@ -131,15 +131,14 @@ $span-color: #AAAAAA;
   }
 
   .item {
-    .deleted p {
-      margin-top: 0.6125rem;
-      margin-bottom: 0.6125rem;
-      font-size: 0.9rem;
-      color: #333333;
-    }
-
     margin: 0.5rem -1rem;
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
+
+    .deleted p {
+      margin: 0rem auto;
+      font-size: 0.9rem;
+      color: #666666;
+    }
 
     .user-avatar {
       display: table-cell;
@@ -186,6 +185,11 @@ $span-color: #AAAAAA;
       word-wrap: break-word;
       padding-left: 2.5rem;
 
+      p {
+        margin-bottom: 0.8rem;
+        font-size: 0.9rem;
+      }
+
       blockquote {
         border-left: 2px solid #dddddd;
         padding: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -200,7 +204,7 @@ $span-color: #AAAAAA;
         margin: 1rem 0rem;
         background-color: #f8f8f8;
         padding: 0.2rem 0.5rem;
-
+        font-size: 0.9rem;
         code {
           padding: 0;
           border: none;

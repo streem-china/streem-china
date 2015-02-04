@@ -21,7 +21,7 @@ class RepliesController < ApplicationController
     if @reply.update_attributes(reply_params)
       flash[:success] = '回复更新成功'
 
-      redirect_to topic_path(@reply.topic)
+      redirect_to topic_path(@reply.topic, anchor: "reply-#{@reply.floor}")
     else
       flash.now[:error] = @reply.errors.full_messages.join(', ')
 
