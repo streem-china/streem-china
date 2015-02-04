@@ -7,4 +7,8 @@
 
 .pagination {
   margin-top: 1.25rem;
+
+  .pagination li a {
+    padding: 0.0625rem 0.325rem 0.0625rem;
+  }
 }
