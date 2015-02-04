@@ -21,6 +21,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'rails-timeago'
 gem 'gemoji'
+gem 'will_paginate-foundation'
 
 group :development, :test do
   gem 'spring'

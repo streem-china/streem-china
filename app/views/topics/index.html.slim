@@ -30,3 +30,5 @@
                 = link_to topic.replies_count, topic_path(topic), class: 'label'
               - else
                 = link_to topic.replies_count, topic_path(topic, anchor: "reply-#{topic.replies_count}"), class: 'label'
+
+        = will_paginate(@topics, renderer: FoundationPagination::Rails)
