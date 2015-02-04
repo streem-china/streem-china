@@ -1,6 +1,5 @@
 - if @reply.errors.present?
-  |
-    Flash.notify('alert', '#{@reply.errors.full_messages.join(', ')}')
+  | Flash.notify('alert', '#{@reply.errors.full_messages.join(', ')}')
 - else
   |
     $('.replies').append("#{ escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply }) }")
