@@ -1,0 +1,26 @@
+.item
+  .user-avatar
+    = link_to '#' do
+      = image_tag topic.user.avatar
+  .info
+    .title
+      h5 = link_to topic.title, topic_path(topic)
+    .tips
+      span.user-name
+        = link_to topic.user.name, '#'
+        '
+        time.timeago datetime=topic.created_at =topic.created_at
+        ' 发布
+      - if topic.last_replied_user_id
+        span.last-replied-user-name.show-for-medium-up
+          span &nbsp;&middot;&nbsp;
+          = link_to topic.last_replied_user_name, topic_path(topic)
+          '
+          time.timeago datetime=topic.last_replied_at =topic.last_replied_at
+          ' 回复
+  .replies-count
+    - if topic.replies_count.zero?
+      = link_to topic.replies_count, topic_path(topic), class: 'label'
+    - else
+      = link_to topic.replies_count, topic_path(topic, anchor: "reply-#{topic.replies_count}"), class: 'label'
+
