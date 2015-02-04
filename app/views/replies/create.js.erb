@@ -1,0 +1,8 @@
+<% if @reply.errors.present? %>
+  Flash.notify('alert', '<%= @reply.errors.full_messages.join(', ') %>')
+<% else %>
+  $('.replies').append("<%= escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply }) %>")
+  $('#new_reply #reply_body').val('')
+
+  Flash.notify('success', '回复创建成功')
+<% end %>

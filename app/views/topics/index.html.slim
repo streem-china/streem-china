@@ -1,4 +1,4 @@
-.row
+.row.small-collapse.medium-uncollapse.large-uncollapse
   .small-12.medium-9.large-9.columns
     .box
       .clearfix
@@ -19,8 +19,8 @@
                   time.timeago datetime=topic.created_at =topic.created_at
                   ' 发布
                 - if topic.last_replied_user_id
-                  span &nbsp;&middot;&nbsp;
                   span.last-replied-user-name.show-for-medium-up
+                    span &nbsp;&middot;&nbsp;
                     = link_to topic.last_replied_user_name, topic_path(topic)
                     '
                     time.timeago datetime=topic.last_replied_at =topic.last_replied_at

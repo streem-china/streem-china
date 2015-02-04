@@ -4,15 +4,7 @@ class RepliesController < ApplicationController
   def create
     @reply = current_user.replies.new(reply_params)
 
-    if @reply.save
-      flash[:success] = '回复发布成功'
-
-      redirect_to :back
-    else
-      flash[:error] = @reply.errors.full_messages.join(', ')
-
-      redirect_to :back
-    end
+    @reply.save
   end
 
   def edit

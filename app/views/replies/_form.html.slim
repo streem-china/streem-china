@@ -3,5 +3,5 @@
     = f.text_area :body, placeholder: '内容', size: 'x20'
 
     .clearfix
-      = f.submit '提交', class: 'button small right'
+      = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
 
