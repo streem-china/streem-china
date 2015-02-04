@@ -37,8 +37,6 @@
                   i.fa.fa-pencil
 
     .box
-      .replies
-        = render partial: 'replies', locals: { replies: @replies }
+      = render partial: 'replies', locals: { replies: @replies }
 
-      .reply-form
-          = render partial: 'reply_form', locals: { topic: @topic }
+      = render partial: 'reply_form', locals: { topic: @topic }
