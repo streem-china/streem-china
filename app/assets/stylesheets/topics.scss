@@ -148,11 +148,11 @@ $span-color: #AAAAAA;
 
       a {
         display: block;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.8rem;
+        height: 2.8rem;
 
         img {
-          width: 2rem;
+          width: 2.3rem;
         }
       }
     }
@@ -172,19 +172,26 @@ $span-color: #AAAAAA;
         a {
           color: $link-color;
         }
+      }
+    }
 
-        .tools {
-         a {
-            margin-left: 0.4rem;
-          }
-        }
+    .tools {
+      span {
+        float: left;
+        font-size: 0.8rem;
+        color: $span-color;
+      }
+
+      a {
+        color: $link-color;
+        margin-left: 0.3rem;
       }
     }
 
     .body {
-      margin-top: -1rem;
+      margin-top: -1.4rem;
       word-wrap: break-word;
-      padding-left: 2.5rem;
+      padding-left: 2.8rem;
 
       p {
         margin-bottom: 0.8rem;
