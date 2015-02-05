@@ -8,12 +8,15 @@
     .tips
       span.user-name
         = link_to topic.user.name, '#'
+        '
+        = timeago_tag topic.created_at, lang: 'zh-CN'
+        ' 发布
       - if topic.last_replied_user_id
         span.last-replied-user-name.show-for-medium-up
           span &nbsp;&middot;&nbsp;
           = link_to topic.last_replied_user_name, topic_path(topic)
           '
-          time.timeago datetime=topic.last_replied_at =topic.last_replied_at
+          = timeago_tag topic.last_replied_at, lang: 'zh-CN'
           ' 回复
   .replies-count
     = last_reply_link(topic)

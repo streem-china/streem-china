@@ -16,7 +16,7 @@
         span.user-name
           = link_to reply.user.name, '#'
           '
-          time.timeago datetime=reply.created_at =reply.created_at
+          = timeago_tag reply.created_at, lang: 'zh-CN'
         - if current_user
           span.tools.right
             - if current_user == reply.user
