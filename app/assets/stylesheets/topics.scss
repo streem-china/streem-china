@@ -5,6 +5,12 @@ $span-color: #AAAAAA;
   .item {
     margin-bottom: 1rem;
 
+    .title {
+      a {
+        color: black;
+      }
+    }
+
     .user-avatar {
       display: table-cell;
       vertical-align: top;

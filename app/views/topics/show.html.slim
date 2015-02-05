@@ -7,7 +7,8 @@
             = image_tag @topic.user.avatar
         .info
           .title
-            h5 = @topic.title
+            = link_to topic_path(@topic) do
+              h4 = @topic.title
           .tips
             span.user-name
               = link_to @topic.user.name, '#'
