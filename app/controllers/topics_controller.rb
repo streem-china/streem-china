@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   def index
     page = params[:page] || 1
 
-    @topics = Topic.order('id desc').paginate(page: page)
+    @topics = Topic.order('actived_at desc').paginate(page: page)
   end
 
   def new

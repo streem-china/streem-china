@@ -24,7 +24,8 @@ class Reply < ActiveRecord::Base
     topic.update_attributes(
       last_replied_user_id: user.id,
       last_replied_user_name: user.name,
-      last_replied_at: created_at
+      last_replied_at: created_at,
+      actived_at: created_at
     )
   end
 end
