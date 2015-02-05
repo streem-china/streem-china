@@ -20,5 +20,5 @@
 #= require foundation/foundation.alert
 #= require jquery.autosize.min.js
 #= require rails-timeago
-#= require locales/jquery.timeago.zh-CN.js
+#= require jquery.timeago.zh-CN.js
 #= require_tree .

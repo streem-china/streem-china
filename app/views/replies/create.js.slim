@@ -2,6 +2,8 @@
   | Flash.notify('alert', '#{@reply.errors.full_messages.join(', ')}')
 - else
   |
-    $('.replies').append("#{ escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply }) }")
+    item = '#{ escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply }) }'
+    $('.replies').append(item)
     $('#new_reply #reply_body').val('')
+    $('#reply-#{ @reply.floor } time.timeago').timeago()
     Flash.notify('success', '回复创建成功')
