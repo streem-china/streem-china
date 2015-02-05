@@ -2,4 +2,5 @@
   - replies.each do |reply|
     = render partial: 'reply_item', locals: { reply: reply }
 
-= will_paginate(replies, renderer: FoundationPagination::Rails)
+.clearfix
+  = will_paginate(replies, renderer: FoundationPagination::Rails)
