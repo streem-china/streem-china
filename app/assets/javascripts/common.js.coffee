@@ -6,3 +6,4 @@ $ ->
     $('textarea').autosize()
 
   Turbolinks.enableProgressBar()
+  Flash.init()

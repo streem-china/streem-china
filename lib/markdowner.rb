@@ -29,17 +29,33 @@ class Markdowner
     include Rouge::Plugins::Redcarpet
 
     def paragraph(text)
-      "<p>#{emojify(text)}</p>\n"
+      text = parse_emoji(text)
+      text = parse_reply_floor(text)
+      text = parse_reply_user_name(text)
+
+      "<p>#{text}</p>\n"
     end
 
     private
 
-    def emojify(text)
+    def parse_reply_floor(text)
+      text.gsub(/#(\d+)楼/) do |match|
+        %(<a href='\#reply-#{$1}'> #{match} </a>)
+      end
+    end
+
+    def parse_reply_user_name(text)
+      text.gsub(/@([\p{Han}+\w]{2,20})([\s\n\r]+|\Z)/u) do |match|
+        %(<a href='/#{$1}'> #{match} </a>)
+      end
+    end
+
+    def parse_emoji(text)
       text.gsub(/:([\w+-]+):/) do |match|
         if emoji = Emoji.find_by_alias($1)
           image_path = ActionController::Base.helpers.image_path("emoji/#{emoji.image_filename}")
-          size       = "width='20' height='20'"
-          style      = 'vertical-align: middle'
+          size = "width='20' height='20'"
+          style = 'vertical-align: middle'
 
           %(<img alt='#$1' src='#{image_path}' style=#{style} #{size} />)
         else

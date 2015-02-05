@@ -32,6 +32,7 @@ $span-color: #AAAAAA;
 
       .tips {
         font-size: 0.8rem;
+
         span {
           float: left;
           color: $span-color;
@@ -122,7 +123,6 @@ $span-color: #AAAAAA;
       li {
         a {
           color: $link-color;
-          text-decoration: underline;
         }
         margin-left: 0.4rem;
       }
@@ -139,7 +139,7 @@ $span-color: #AAAAAA;
 
   .item {
     margin: 0rem -1rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border-bottom: solid 1px #e9e9e9;
 
     .deleted p {
@@ -200,6 +200,10 @@ $span-color: #AAAAAA;
       word-wrap: break-word;
       padding-left: 2.8rem;
 
+      a:hover {
+        text-decoration: underline;
+      }
+
       p {
         margin-bottom: 0.8rem;
         font-size: 0.9rem;
@@ -231,4 +235,18 @@ $span-color: #AAAAAA;
 
 .reply-form {
   margin-top: 2rem;
+
+  .tools {
+    margin-bottom: 0.5rem;
+    span {
+      float: left;
+      font-size: 0.8rem;
+      color: $span-color;
+    }
+
+    a {
+      color: $link-color;
+      margin-left: 0.3rem;
+    }
+  }
 }

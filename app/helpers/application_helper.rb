@@ -4,7 +4,8 @@ module ApplicationHelper
              tags: %w(p br img h1 h2
                       h3 h4 blockquote pre code
                       b i strong em strike
-                      del u a ul ol li span),
+                      del u a ul ol li span
+                      hr),
              attributes: %w(href src class title alt
                             target rel width height)
   end

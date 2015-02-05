@@ -1,4 +1,12 @@
 .reply-form
+  .tools.clearfix
+    span.right
+      = link_to '#', class: 'preview' do
+        i.fa.fa-image
+    span.left
+      = link_to '#' do
+        i.fa.fa-eye
+
   = form_for topic.replies.new, remote: true do |f|
     = f.hidden_field :topic_id, value: topic.id
 

@@ -19,7 +19,7 @@
           = timeago_tag reply.created_at, lang: 'zh-CN'
         - if current_user
           span.reply.right
-            = link_to '#' do
+            = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user.name } do
               i.fa.fa-reply
 
     .body

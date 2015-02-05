@@ -4,7 +4,7 @@
   |
     item = '#{ escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply }) }';
     $('.replies').append(item);
-    $('#new_reply #reply_body').val('');
+    $('#new_reply #reply_body').css('height', '117px').val('');
     $('#reply-#{ @reply.floor } time').timeago();
     Flash.notify('success', '回复创建成功');
 
