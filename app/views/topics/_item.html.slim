@@ -6,17 +6,31 @@
     .title
       h5 = link_to topic.title, topic_path(topic)
     .tips
-      span.user-name
-        = link_to topic.user.name, '#'
-        '
-        = timeago_tag topic.created_at, lang: 'zh-CN'
-        ' 发布
-      - if topic.last_replied_user_id
-        span.last-replied-user-name.show-for-medium-up
-          span &nbsp;&middot;&nbsp;
-          = link_to topic.last_replied_user_name, topic_path(topic)
+      .show-for-small-only
+        - if topic.last_replied_user_id
+          span.last-replied-user-name
+            = link_to topic.last_replied_user_name, topic_path(topic)
+            '
+            = timeago_tag topic.last_replied_at, lang: 'zh-CN'
+            ' 回复
+        - else
+          span.user-name
+            = link_to topic.user.name, '#'
+            '
+            = timeago_tag topic.created_at, lang: 'zh-CN'
+            ' 发布
+      .show-for-medium-up
+        span.user-name
+          = link_to topic.user.name, '#'
           '
-          = timeago_tag topic.last_replied_at, lang: 'zh-CN'
-          ' 回复
+          = timeago_tag topic.created_at, lang: 'zh-CN'
+          ' 发布
+        - if topic.last_replied_user_id
+          span &nbsp;&middot;&nbsp;
+          span.last-replied-user-name
+            = link_to topic.last_replied_user_name, topic_path(topic)
+            '
+            = timeago_tag topic.last_replied_at, lang: 'zh-CN'
+            ' 回复
   .replies-count
     = last_reply_link(topic)
