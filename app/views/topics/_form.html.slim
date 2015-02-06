@@ -1,8 +1,16 @@
 .box
-  = form_for topic do |f|
-    = f.text_field :title, placeholder: '标题'
+  .topic-form
+    = form_for topic do |f|
+      = f.text_field :title, placeholder: '标题'
 
-    = f.text_area :body, placeholder: '内容', size: 'x20'
+      .tools.clearfix
+        span.right
+          = link_to '#', class: 'preview' do
+            i.fa.fa-image
+        span.left
+          = link_to '#' do
+            i.fa.fa-eye
+      = f.text_area :body, placeholder: '内容', size: 'x20'
 
-    .clearfix
-      = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
+      .clearfix
+        = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }

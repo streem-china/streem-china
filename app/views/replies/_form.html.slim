@@ -1,7 +1,15 @@
 .box
+  .reply-form
+    .tools.clearfix
+      span.right
+        = link_to '#', class: 'preview' do
+          i.fa.fa-image
+      span.left
+        = link_to '#' do
+          i.fa.fa-eye
+
   = form_for reply do |f|
     = f.text_area :body, placeholder: '内容', size: 'x20'
 
     .clearfix
       = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
-

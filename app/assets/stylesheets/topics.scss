@@ -1,48 +1,72 @@
 $link-color: #666666;
 $span-color: #AAAAAA;
 
+@mixin tools($font-size: 0.8rem) {
+  margin-bottom: 0.3rem;
+
+  span {
+    float: left;
+    font-size: $font-size;
+    color: $span-color;
+  }
+
+  a {
+    color: $link-color;
+    margin-left: 0.3rem;
+  }
+}
+
+@mixin info {
+  display: table-cell;
+  width: 100%;
+
+  .tips {
+    font-size: 0.8rem;
+
+    span {
+      float: left;
+      color: $span-color;
+    }
+
+    a {
+      color: $link-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@mixin user-avatar($a: 4rem, $img: 3rem) {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 0.2rem;
+
+  a {
+    img {
+      width: $img;
+    }
+    display: block;
+    width: $a;
+    height: $a;
+  }
+}
+
+
 .topics {
   .item {
     margin-bottom: 1rem;
 
-    .title {
-      a {
-        color: black;
-      }
-    }
-
     .user-avatar {
-      display: table-cell;
-      vertical-align: top;
-      padding-top: 0.4rem;
-
-      a {
-        img {
-          width: 3rem;
-        }
-        display: block;
-        width: 4rem;
-        height: 4rem;
-      }
+      @include user-avatar;
     }
 
     .info {
-      display: table-cell;
-      width: 100%;
+      @include info;
+    }
 
-      .tips {
-        font-size: 0.8rem;
-
-        span {
-          float: left;
-          color: $span-color;
-        }
-
-        a {
-          color: $link-color;
-          text-decoration: underline;
-        }
-      }
+    .title a {
+      color: black;
     }
 
     .replies-count {
@@ -60,39 +84,20 @@ $span-color: #AAAAAA;
 
 .topic {
   .user-avatar {
-    display: table-cell;
-    vertical-align: top;
-    padding-top: 0.4rem;
-
-    a {
-      img {
-        width: 3rem;
-      }
-      display: block;
-      width: 4rem;
-      height: 4rem;
-    }
+    @include user-avatar;
   }
 
   .info {
-    display: table-cell;
-    width: 100%;
+    @include info;
+  }
 
-    .tips {
-      font-size: 0.8rem;
-      span {
-        float: left;
-        color: $span-color;
-      }
-
-      a {
-        color: $link-color;
-      }
-    }
+  .tools {
+    @include tools(0.9rem);
   }
 
   .body {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     word-wrap: break-word;
 
     blockquote {
@@ -117,17 +122,6 @@ $span-color: #AAAAAA;
       }
     }
   }
-
-  .tools {
-    ul {
-      li {
-        a {
-          color: $link-color;
-        }
-        margin-left: 0.4rem;
-      }
-    }
-  }
 }
 
 .replies {
@@ -142,63 +136,34 @@ $span-color: #AAAAAA;
     padding: 1rem 1rem;
     border-bottom: solid 1px #e9e9e9;
 
-    .deleted p {
-      margin: 0rem auto;
-      font-size: 0.9rem;
-      color: #666666;
+    &:last-child {
+      margin-bottom: 2rem;
     }
 
     .user-avatar {
-      display: table-cell;
-      vertical-align: top;
-      padding-top: 0.3rem;
-
-      a {
-        display: block;
-        width: 2.8rem;
-        height: 2.8rem;
-
-        img {
-          width: 2.3rem;
-        }
-      }
+      @include user-avatar(3rem, 2.5rem);
     }
 
     .info {
-      display: table-cell;
-      vertical-align: top;
-      width: 100%;
-
-      .tips {
-        span {
-          float: left;
-          font-size: 0.8rem;
-          color: $span-color;
-        }
-
-        a {
-          color: $link-color;
-        }
-      }
+      @include info;
     }
 
     .tools {
-      span {
-        float: left;
-        font-size: 0.8rem;
-        color: $span-color;
-      }
+      @include tools;
+    }
 
-      a {
-        color: $link-color;
-        margin-left: 0.3rem;
+    .deleted {
+      p {
+        margin: 0rem auto;
+        font-size: 0.9rem;
+        color: #666666;
       }
     }
 
     .body {
-      margin-top: -1.4rem;
+      margin-top: -1.5rem;
       word-wrap: break-word;
-      padding-left: 2.8rem;
+      padding-left: 3rem;
 
       a:hover {
         text-decoration: underline;
@@ -219,11 +184,11 @@ $span-color: #AAAAAA;
       }
 
       .highlight {
-        overflow: auto;
         margin: 1rem 0rem;
-        background-color: #f8f8f8;
         padding: 0.2rem 0.5rem;
+        background-color: #f8f8f8;
         font-size: 0.9rem;
+
         code {
           padding: 0;
           border: none;
@@ -234,19 +199,13 @@ $span-color: #AAAAAA;
 }
 
 .reply-form {
-  margin-top: 2rem;
-
   .tools {
-    margin-bottom: 0.5rem;
-    span {
-      float: left;
-      font-size: 0.8rem;
-      color: $span-color;
-    }
+    @include tools;
+  }
+}
 
-    a {
-      color: $link-color;
-      margin-left: 0.3rem;
-    }
+.topic-form {
+  .tools {
+    @include tools;
   }
 }
