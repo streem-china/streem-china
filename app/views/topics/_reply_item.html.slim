@@ -17,7 +17,7 @@
           = link_to reply.user.name, '#'
           '
           = timeago_tag reply.created_at, lang: 'zh-CN'
-        - if current_user
+        - if signed_in?
           span.reply.right
             = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user.name } do
               i.fa.fa-reply
@@ -27,7 +27,7 @@
 
     .clearfix
       .tools.right
-        - if current_user
+        - if signed_in?
           span
             - if current_user == reply.user
               = link_to edit_reply_path(reply) do
