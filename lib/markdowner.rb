@@ -40,7 +40,11 @@ class Markdowner
 
     def parse_reply_floor(text)
       text.gsub(/#(\d+)楼/) do |match|
-        %(<a href='\#reply-#{$1}'> #{match} </a>)
+        div, mod = $1.to_i.divmod(Reply.per_page)
+
+        page = mod.zero? ? div : div + 1
+
+        %(<a href='?page=#{page}\#reply-#{$1}'> #{match} </a>)
       end
     end
 
