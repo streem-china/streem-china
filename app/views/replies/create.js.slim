@@ -3,7 +3,10 @@
 - else
   |
     item = '#{escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply })}';
+    $('#new_reply .preview-box').remove()
+    $('#new_reply .edit').parent().addClass('hide')
+    $('#new_reply .preview').parent().removeClass('hide')
     $('.replies').append(item);
-    $('#new_reply textarea').val('').trigger('autosize.resize')
+    $('#new_reply textarea').val('').trigger('autosize.resize').removeClass('hide')
     $('#reply-#{@reply.floor} time').timeago();
-    Flash.notify('success', '回复创建成功');
+    Flash.notify('success', '创建成功');
