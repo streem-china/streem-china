@@ -65,6 +65,7 @@ $span-color: #AAAAAA;
 }
 
 @mixin topic-body {
+  word-wrap: break-word;
   blockquote {
     border-left: 2px solid #dddddd;
     padding: 0.5625rem 1.25rem 0.5625rem 1.1875rem;
@@ -89,6 +90,8 @@ $span-color: #AAAAAA;
 }
 
 @mixin reply-body {
+  word-wrap: break-word;
+
   a:hover {
     text-decoration: underline;
   }
