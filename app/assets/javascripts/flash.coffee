@@ -4,22 +4,28 @@ class Flash
       $('.flash-container').fadeOut('slow')
     , 3000
 
-    setTimeout ->
-      $('.fixed-flash-container').fadeOut('slow')
-    , 3000
-
   @notify: (type, message) ->
-    flash = '<div class="alert-box ' + type + '" data-alert="">' +
-              message                                            +
-              '<a class="close" href="#"> &times; </a>'          +
+    flash = '<div class="fixed">'                                                   +
+              '<div class="row small-collapse medium-uncollapse large-uncollapse">' +
+                '<div class="small-12 column fixed-flash-container">'               +
+                  '<div class="alert-box ' + type + '" data-alert="">'              +
+                    message                                                         +
+                    '<a class="close" href="#"> &times; </a>'                       +
+                  '</div>'                                                          +
+                '</div>'                                                            +
+              '</div>'                                                              +
             '</div>'
 
-    $('.fixed-flash-container').html(flash)
+    $('body .container').prepend(flash)
 
-    $('.fixed-flash-container').show()
+    $('.fixed-flash-container').parent('fixed').show()
+
+    $('.fixed-flash-container').foundation('alert', 'reflow')
 
     setTimeout ->
       $('.fixed-flash-container').fadeOut('slow')
     , 3000
+
+    $('.fixed-flash-container').parent('fixed').remove()
 
 @Flash = Flash
