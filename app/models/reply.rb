@@ -1,19 +1,23 @@
 class Reply < ActiveRecord::Base
   include Markdownable
 
+  self.per_page = 20
+
   acts_as_paranoid
 
   belongs_to :user
   belongs_to :topic, counter_cache: true
 
   validates :user_id, presence: true
+  validates :user_name, presence: true
+  validates :user_avatar, presence: true
   validates :topic_id, presence: true
   validates :body, presence: true
   validates :floor, presence: true, uniqueness: { scope: :topic_id }
 
-  before_validation :set_floor, on: :create
+  before_validation :set_attributes_beofre_validation_on_create, on: :create
   after_create :update_topic_attributes_after_create
-  after_create :update_user_read_topic
+  after_create :update_user_read_topic_after_create
 
   def self.page_of_floor(floor)
     div, mod = floor.divmod(per_page)
@@ -23,11 +27,13 @@ class Reply < ActiveRecord::Base
 
   private
 
-  def set_floor
+  def set_attributes_beofre_validation_on_create
+    self.user_name = user.name
+    self.user_avatar = user.avatar
     self.floor = topic.replies_count + 1
   end
 
-  def update_user_read_topic
+  def update_user_read_topic_after_create
     user.update_read_topic(topic)
   end
 

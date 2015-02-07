@@ -7,26 +7,26 @@
   - else
     .user-avatar
       = link_to '#' do
-        = image_tag reply.user.avatar
+        = image_tag reply.user_avatar
 
     .info
       .tips
         span #{reply.floor} 楼
         span &nbsp;&middot;&nbsp;
         span.user-name
-          = link_to reply.user.name, '#'
+          = link_to reply.user_name, '#'
           '
           = timeago_tag reply.created_at, lang: 'zh-CN'
         - if signed_in?
           span.reply.right
-            = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user.name } do
+            = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
               i.fa.fa-reply
 
     .body
       = raw sanitize_body_html(reply.body_html)
 
     .tools.clearfix
-      - if current_user == reply.user
+      - if current_user.id == reply.user_id
         span.right
           = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
             i.fa.fa-trash

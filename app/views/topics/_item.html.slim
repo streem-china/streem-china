@@ -1,7 +1,7 @@
 .item
   .user-avatar
     = link_to '#' do
-      = image_tag topic.user.avatar
+      = image_tag topic.user_avatar
   .info
     .title
       h5 = link_to topic.title.truncate(50), topic_path(topic)
@@ -15,13 +15,13 @@
             ' 回复
         - else
           span.user-name
-            = link_to topic.user.name, '#'
+            = link_to topic.user_name, '#'
             '
             = timeago_tag topic.created_at, lang: 'zh-CN'
             ' 发布
       .show-for-medium-up
         span.user-name
-          = link_to topic.user.name, '#'
+          = link_to topic.user_name, '#'
           '
           = timeago_tag topic.created_at, lang: 'zh-CN'
           ' 发布

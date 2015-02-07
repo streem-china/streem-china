@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205124346) do
+ActiveRecord::Schema.define(version: 20150207124929) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -24,14 +24,16 @@ ActiveRecord::Schema.define(version: 20150205124346) do
   add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true
 
   create_table "replies", force: :cascade do |t|
-    t.integer  "topic_id",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "topic_id",    null: false
+    t.integer  "user_id",     null: false
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.datetime "deleted_at"
     t.text     "body_html"
     t.integer  "floor"
+    t.string   "user_name"
+    t.string   "user_avatar"
   end
 
   add_index "replies", ["deleted_at"], name: "index_replies_on_deleted_at"
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20150205124346) do
     t.integer  "last_reply_id"
     t.string   "last_replied_user_name"
     t.datetime "actived_at"
+    t.string   "user_name"
+    t.string   "user_avatar"
   end
 
   add_index "topics", ["actived_at"], name: "index_topics_on_actived_at"
