@@ -7,30 +7,30 @@
       h5 = link_to topic.title.truncate(50), topic_path(topic)
     .tips
       .show-for-small-only
-        - if topic.last_replied_user_id
+        - if topic.has_replies?
           span.last-replied-user-name
             = link_to topic.last_replied_user_name, topic_path(topic)
             '
-            = timeago_tag topic.last_replied_at, lang: 'zh-CN'
+            = timeago_tag topic.last_replied_at
             ' 回复
         - else
           span.user-name
             = link_to topic.user_name, '#'
             '
-            = timeago_tag topic.created_at, lang: 'zh-CN'
+            = timeago_tag topic.created_at
             ' 发布
       .show-for-medium-up
         span.user-name
           = link_to topic.user_name, '#'
           '
-          = timeago_tag topic.created_at, lang: 'zh-CN'
+          = timeago_tag topic.created_at
           ' 发布
-        - if topic.last_replied_user_id
+        - if topic.has_replies?
           span &nbsp;&middot;&nbsp;
           span.last-replied-user-name
             = link_to topic.last_replied_user_name, topic_path(topic)
             '
-            = timeago_tag topic.last_replied_at, lang: 'zh-CN'
+            = timeago_tag topic.last_replied_at
             ' 回复
   .replies-count
     = last_reply_link(topic)

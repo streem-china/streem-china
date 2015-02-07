@@ -16,7 +16,7 @@
         span.user-name
           = link_to reply.user_name, '#'
           '
-          = timeago_tag reply.created_at, lang: 'zh-CN'
+          = timeago_tag reply.created_at
         - if signed_in?
           span.reply.right
             = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
