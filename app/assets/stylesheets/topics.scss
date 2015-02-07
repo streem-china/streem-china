@@ -242,6 +242,10 @@ $span-color: #AAAAAA;
     .body {
       @include topic-body;
 
+      .highlight {
+        margin: 1rem 0rem;
+      }
+
       .loading {
         font-size: 0.9rem;
         color: $span-color;
