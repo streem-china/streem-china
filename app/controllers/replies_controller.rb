@@ -19,9 +19,11 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.find(params[:id])
 
     if @reply.update_attributes(reply_params)
+      page = Reply.page_of_floor(@reply.floor)
+
       flash[:success] = '回复更新成功'
 
-      redirect_to topic_path(@reply.topic, anchor: "reply-#{@reply.floor}")
+      redirect_to topic_path(@reply.topic, page: page, anchor: "reply-#{@reply.floor}")
     else
       flash.now[:error] = @reply.errors.full_messages.join(', ')
 

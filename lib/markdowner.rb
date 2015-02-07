@@ -2,6 +2,7 @@ class Markdowner
   class << self
     def renderer
       CustomRenderer.new(
+        hard_wrap: true,
         link_attributes: { target: :_blank }
       )
     end
@@ -14,7 +15,6 @@ class Markdowner
          strikethrough: true,
          space_after_headers: true,
          no_intra_emphasis: true,
-         no_styles: true,
          table: true)
     end
 
@@ -29,33 +29,37 @@ class Markdowner
     include Rouge::Plugins::Redcarpet
 
     def paragraph(text)
-      text = parse_emoji(text)
-      text = parse_reply_floor(text)
-      text = parse_reply_user_name(text)
+      parse_new_line_to_br(text)
+      parse_reply_user_name(text)
+      parse_reply_floor(text)
+      parse_emoji(text)
 
-      "<p>#{text}</p>\n"
+      "<p>#{text}</p>"
     end
 
     private
 
-    def parse_reply_floor(text)
-      text.gsub(/#(\d+)楼/) do |match|
-        div, mod = $1.to_i.divmod(Reply.per_page)
+    def parse_new_line_to_br(text)
+      text.gsub!(/\n/, '<br>')
+    end
 
-        page = mod.zero? ? div : div + 1
+    def parse_reply_user_name(text)
+      text.gsub!(/@([a-zA-Z0-9_]+)/) do |match|
+        %(<a href='/#{$1}'> #{match} </a>)
+      end
+    end
+
+
+    def parse_reply_floor(text)
+      text.gsub!(/#(\d+)楼/) do |match|
+        page = Reply.page_of_floor($1.to_i)
 
         %(<a href='?page=#{page}\#reply-#{$1}'> #{match} </a>)
       end
     end
 
-    def parse_reply_user_name(text)
-      text.gsub(/@([\p{Han}+\w]{2,20})([\s\n\r]+|\Z)/u) do |match|
-        %(<a href='/#{$1}'> #{match} </a>)
-      end
-    end
-
     def parse_emoji(text)
-      text.gsub(/:([\w+-]+):/) do |match|
+      text.gsub!(/:([\w+-]+):/) do |match|
         if emoji = Emoji.find_by_alias($1)
           image_path = ActionController::Base.helpers.image_path("emoji/#{emoji.image_filename}")
           size = "width='20' height='20'"

@@ -14,6 +14,12 @@ class Reply < ActiveRecord::Base
   before_validation :set_floor, on: :create
   after_create :update_topic_attributes_after_create
 
+  def self.page_of_floor(floor)
+    div, mod = floor.divmod(per_page)
+
+    mod.zero? ? div : div + 1
+  end
+
   private
 
   def set_floor

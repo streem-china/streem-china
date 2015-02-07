@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'sign_in',  to: 'users/sessions#new', as: :new_user_session
   end
 
+  post 'markdown/preview', to: 'markdown#preview'
+
   resources :topics
   resources :replies
 
