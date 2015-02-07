@@ -8,7 +8,16 @@ $span-color: #AAAAAA;
     float: left;
     font-size: $font-size;
     color: $span-color;
+  }
+
+  span.right {
     &:last-child a {
+      margin-left: 0rem;
+    }
+  }
+
+  span.left {
+    &:first-child a {
       margin-left: 0rem;
     }
   }
