@@ -17,6 +17,10 @@ class Topic < ActiveRecord::Base
 
   before_validation :set_attributes_beofre_validation_on_create, on: :create
 
+  def has_replies?
+    last_replied_user_id
+  end
+
   private
 
   def set_attributes_beofre_validation_on_create

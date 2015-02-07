@@ -26,12 +26,12 @@ module Users
           provider: provider,
           uid: uid)
 
-        user.save!
+        user.save
       end
 
       sign_in_and_redirect user
 
-      set_flash_message(:notice, :success, kind: 'Github') if is_navigational_format?
+      set_flash_message(:notice, :success, kind: 'Github')
     end
   end
 end

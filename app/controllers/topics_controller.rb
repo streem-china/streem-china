@@ -30,7 +30,7 @@ class TopicsController < ApplicationController
 
     @topic = Topic.find(params[:id])
 
-    current_user.update_read_topic(@topic)
+    current_user.update_read_topic(@topic) if current_user
 
     @replies = @topic.replies.with_deleted.paginate(page: page)
   end

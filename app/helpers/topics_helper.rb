@@ -10,7 +10,7 @@ module TopicsHelper
       options.merge!(page: page, anchor: "reply-#{topic.replies_count}")
     end
 
-    klass = current_user.has_read_topic?(topic) ? 'label secondary' : 'label'
+    klass = current_user && current_user.has_read_topic?(topic) ? 'label secondary' : 'label'
 
     link_to topic.replies_count, topic_path(topic, options), class: klass
   end
