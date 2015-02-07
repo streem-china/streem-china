@@ -28,7 +28,7 @@
           = raw sanitize_body_html(@topic.body_html)
 
         .tools.clearfix
-          - if current_user.id == @topic.user_id
+          - if signed_in? && current_user.id == @topic.user_id
             span.right
               = link_to topic_path(@topic), method: :delete, data: { confirm: '确定删除该贴?' } do
                 i.fa.fa-trash
