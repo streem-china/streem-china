@@ -4,7 +4,7 @@
       = image_tag topic.user.avatar
   .info
     .title
-      h5 = link_to topic.title, topic_path(topic)
+      h5 = link_to topic.title.truncate(50), topic_path(topic)
     .tips
       .show-for-small-only
         - if topic.last_replied_user_id

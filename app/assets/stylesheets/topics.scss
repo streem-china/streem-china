@@ -23,6 +23,15 @@ $span-color: #AAAAAA;
   display: table-cell;
   width: 100%;
 
+  .title {
+    word-wrap: break-word;
+    word-break: break-all;
+
+    a {
+      color: black;
+    }
+  }
+
   .tips {
     font-size: 0.8rem;
 
@@ -121,10 +130,6 @@ $span-color: #AAAAAA;
 
     .info {
       @include info;
-    }
-
-    .title a {
-      color: black;
     }
 
     .replies-count {
