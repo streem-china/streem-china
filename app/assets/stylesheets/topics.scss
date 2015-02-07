@@ -36,6 +36,10 @@ $span-color: #AAAAAA;
     word-wrap: break-word;
     word-break: break-all;
 
+    h4, h5 {
+      line-height: 100%;
+    }
+
     a {
       color: black;
     }
@@ -148,7 +152,6 @@ $span-color: #AAAAAA;
       display: table-cell;
       vertical-align: top;
       padding-left: 1rem;
-      padding-top: 0.2rem;
 
       a {
         color: white;
