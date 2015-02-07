@@ -39,6 +39,7 @@ set :rbenv_ruby, '2.2.0'
 set :puma_workers, 1
 set :puma_threads, [8, 8]
 set :puma_preload_app, false
+set :puma_prune_bundler, true
 
 namespace :deploy do
 
