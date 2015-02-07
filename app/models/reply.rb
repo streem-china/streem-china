@@ -13,6 +13,7 @@ class Reply < ActiveRecord::Base
 
   before_validation :set_floor, on: :create
   after_create :update_topic_attributes_after_create
+  after_create :update_user_read_topic
 
   def self.page_of_floor(floor)
     div, mod = floor.divmod(per_page)
@@ -24,6 +25,10 @@ class Reply < ActiveRecord::Base
 
   def set_floor
     self.floor = topic.replies_count + 1
+  end
+
+  def update_user_read_topic
+    user.update_read_topic(topic)
   end
 
   def update_topic_attributes_after_create

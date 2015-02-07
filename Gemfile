@@ -11,6 +11,7 @@ gem 'omniauth-github'
 gem 'paranoia'
 gem 'redcarpet'
 gem 'rouge'
+gem 'redis-objects'
 
 gem 'jquery-rails'
 gem 'turbolinks'

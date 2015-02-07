@@ -1,4 +1,6 @@
 class Topic < ActiveRecord::Base
+  self.per_page = 20
+
   include Markdownable
 
   acts_as_paranoid
