@@ -16,6 +16,7 @@ class Topic < ActiveRecord::Base
   validates :actived_at, presence: true
 
   before_validation :set_attributes_beofre_validation_on_create, on: :create
+  after_create :update_user_read_topic_after_create
 
   def has_replies?
     last_replied_user_id
@@ -27,5 +28,9 @@ class Topic < ActiveRecord::Base
     self.user_name = user.name
     self.user_avatar = user.avatar
     self.actived_at = Time.now
+  end
+
+  def update_user_read_topic_after_create
+    user.update_read_topic(self)
   end
 end
