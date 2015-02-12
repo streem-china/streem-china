@@ -1,6 +1,6 @@
 class Markdown
   @preview: (el) ->
-    preview_box_html = '<div class="preview-box"><div class="body"></div></div>'
+    preview_box_html = '<div class="preview-box"><div class="body markdown"></div></div>'
     loading_html = '<span class="loading">loading...</span>'
     form = $(el).parents('form')
     textarea = form.find('textarea')

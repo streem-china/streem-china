@@ -1,6 +1,7 @@
 .reply-form
   = form_for topic.replies.new, remote: true do |f|
-    .tools.clearfix
+    .clearfix
+      .lightsmall
         span.left
           = link_to '#', class: 'preview' do
             i.fa.fa-eye

@@ -2,17 +2,17 @@
   .topic-form
     = form_for topic do |f|
       = f.text_field :title, placeholder: '标题'
-
-      .tools.clearfix
-        span.left
-          = link_to '#', class: 'preview' do
-            i.fa.fa-eye
-        span.left.hide
-          = link_to '#', class: 'edit' do
-            i.fa.fa-pencil
-        span.right
-          = link_to '#' do
-            i.fa.fa-image
+      .clearfix
+        .lightsmall
+          span.left
+            = link_to '#', class: 'preview' do
+              i.fa.fa-eye
+          span.left.hide
+            = link_to '#', class: 'edit' do
+              i.fa.fa-pencil
+          span.right
+            = link_to '#' do
+              i.fa.fa-image
 
       = f.text_area :body, placeholder: '内容', size: 'x20'
 

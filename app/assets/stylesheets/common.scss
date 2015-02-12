@@ -8,7 +8,19 @@
 ul.pagination {
   margin-top: 1.5rem;
 
-  li a {
-    padding: 0.0625rem 0.425rem 0.0625rem;
+  li {
+    a {
+      padding: 0.0625rem 0.425rem 0.0625rem;
+      border-radius: 0;
+    }
+  }
+}
+
+.lightsmall {
+  color: #AAAAAA;
+  font-size: 0.8rem;
+
+  a {
+    color: #666666;
   }
 }

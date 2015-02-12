@@ -1,16 +1,28 @@
 .user {
   .avatar {
-    padding-right: 1rem;
+    display: table-cell;
+    vertical-align: top;
 
-    img {
+    a {
+      display: block;
       width: 4rem;
+      height: 4rem;
+
+      img {
+        width: 3rem;
+      }
     }
   }
 
   .info {
-    .tips {
-      font-size: 0.8rem;
-      color: #AAAAAA;
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+
+    .name {
+      word-break: break-all;
+      line-height: 1;
+      font-size: 1.2rem;
     }
   }
 }
@@ -34,42 +46,32 @@
     }
 
     #replies {
-      p.topic-title {
+      .topic-title {
         margin-bottom: 0.3rem;
+      }
+    }
+  }
+
+  #topics {
+    .item {
+      margin-bottom: 1.5rem;
+
+      .title {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  #replies {
+    .item {
+      margin-bottom: 1.5rem;
+
+      .topic-title {
+        font-size: 1.2rem;
       }
 
       .body {
-        word-wrap: break-word;
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        p {
-          margin-bottom: 0.8rem;
-          font-size: 0.9rem;
-        }
-
-        blockquote {
-          border-left: 2px solid #dddddd;
-          padding: 0.4rem 0.4rem 0.4rem 0.4rem;
-
-          p {
-            margin-bottom: 0;
-          }
-        }
-
-        .highlight {
-          margin: 1rem 0rem;
-          padding: 0.2rem 0.5rem;
-          background-color: #f8f8f8;
-          font-size: 0.9rem;
-
-          code {
-            padding: 0;
-            border: none;
-          }
-        }
+        padding: 1rem;
       }
     }
   }

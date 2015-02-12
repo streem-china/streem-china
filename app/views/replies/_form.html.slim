@@ -1,16 +1,17 @@
 .box
   .reply-form
     = form_for reply do |f|
-      .tools.clearfix
-        span.left
-          = link_to '#', class: 'preview' do
-            i.fa.fa-eye
-        span.left.hide
-          = link_to '#', class: 'edit' do
-            i.fa.fa-pencil
-        span.right
-          = link_to '#' do
-            i.fa.fa-image
+      .clearfix
+        .lightsmall
+          span.left
+            = link_to '#', class: 'preview' do
+              i.fa.fa-eye
+          span.left.hide
+            = link_to '#', class: 'edit' do
+              i.fa.fa-pencil
+          span.right
+            = link_to '#' do
+              i.fa.fa-image
 
       = f.text_area :body, placeholder: '内容', size: 'x20'
 

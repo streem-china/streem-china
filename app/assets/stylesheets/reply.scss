@@ -1,0 +1,52 @@
+.replies {
+  .item {
+    margin-bottom: 1.5rem;
+
+    .user-avatar {
+      display: table-cell;
+      vertical-align: top;
+
+      a {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+
+        img {
+          width: 3rem;
+        }
+      }
+    }
+
+    .info {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+
+      .title {
+        word-break: break-all;
+        font-size: 1.2rem;
+      }
+    }
+
+    .body {
+      margin-left: 4rem;
+      margin-top: -2.0rem;
+    }
+
+    .deleted {
+      p {
+        margin: 0rem auto;
+        font-size: 0.9rem;
+        color: #666666;
+      }
+    }
+  }
+}
+
+.reply-form {
+  .preview-box {
+    border: solid 1px #cccccc;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+  }
+}

@@ -1,34 +1,33 @@
 .item
   .user-avatar
-    = link_to '#' do
+    = link_to topic_path(topic.user_id) do
       = image_tag topic.user_avatar
   .info
-    .title
-      h5 = link_to topic.title.truncate(50), topic_path(topic)
-    .tips
+    = link_to topic.title.truncate(50), topic_path(topic), class: 'title'
+    .lightsmall
       .show-for-small-only
         - if topic.has_replies?
-          span.last-replied-user-name
+          span
             = link_to topic.last_replied_user_name, topic_path(topic)
             '
             = timeago_tag topic.last_replied_at
             ' 回复
         - else
-          span.user-name
-            = link_to topic.user_name, '#'
+          span
+            = link_to topic.user_name, user_path(topic.user_name)
             '
             = timeago_tag topic.created_at
             ' 发布
       .show-for-medium-up
-        span.user-name
-          = link_to topic.user_name, '#'
+        span
+          = link_to topic.user_name, user_path(topic.user_name)
           '
           = timeago_tag topic.created_at
           ' 发布
         - if topic.has_replies?
-          span &nbsp;&middot;&nbsp;
-          span.last-replied-user-name
-            = link_to topic.last_replied_user_name, topic_path(topic)
+          ' &middot;
+          span
+            = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
             '
             = timeago_tag topic.last_replied_at
             ' 回复

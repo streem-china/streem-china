@@ -1,160 +1,41 @@
-$link-color: #666666;
-$span-color: #AAAAAA;
-
-@mixin tools($font-size: 0.8rem) {
-  margin-bottom: 0.3rem;
-
-  span {
-    float: left;
-    font-size: $font-size;
-    color: $span-color;
-  }
-
-  span.right {
-    &:last-child a {
-      margin-left: 0rem;
-    }
-  }
-
-  span.left {
-    &:first-child a {
-      margin-left: 0rem;
-    }
-  }
-
-  a {
-    color: $link-color;
-    margin-left: 0.3rem;
-  }
-}
-
-@mixin info {
-  display: table-cell;
-  width: 100%;
-
-  .title {
-    word-wrap: break-word;
-    word-break: break-all;
-
-    h4, h5 {
-      line-height: 100%;
-    }
-
-    a {
-      color: black;
-    }
-  }
-
-  .tips {
-    font-size: 0.8rem;
-
-    span {
-      float: left;
-      color: $span-color;
-    }
-
-    a {
-      color: $link-color;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-@mixin user-avatar($a: 4rem, $img: 3rem) {
-  display: table-cell;
-  vertical-align: top;
-  padding-top: 0.2rem;
-
-  a {
-    img {
-      width: $img;
-    }
-    display: block;
-    width: $a;
-    height: $a;
-  }
-}
-
-@mixin topic-body {
-  word-wrap: break-word;
-  blockquote {
-    border-left: 2px solid #dddddd;
-    padding: 0.5625rem 1.25rem 0.5625rem 1.1875rem;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  .highlight {
-    border-left: 1px solid #e9e9e9;
-    border-right: 1px solid #e9e9e9;
-    margin: 1rem -1rem;
-    background-color: #f8f8f8;
-    padding: 0.4rem 1rem;
-
-    code {
-      padding: 0;
-      border: none;
-    }
-  }
-}
-
-@mixin reply-body {
-  word-wrap: break-word;
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  p {
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  blockquote {
-    border-left: 2px solid #dddddd;
-    padding: 0.4rem 0.4rem 0.4rem 0.4rem;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  .highlight {
-    margin: 1rem 0rem;
-    padding: 0.2rem 0.5rem;
-    background-color: #f8f8f8;
-    font-size: 0.9rem;
-
-    code {
-      padding: 0;
-      border: none;
-    }
-  }
-}
-
 .topics {
   .item {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     .user-avatar {
-      @include user-avatar;
+      display: table-cell;
+      vertical-align: top;
+
+      a {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+
+        img {
+          width: 3rem;
+        }
+      }
     }
 
     .info {
-      @include info;
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+
+      .title {
+        word-break: break-all;
+        line-height: 1;
+        font-size: 1.2rem;
+      }
     }
 
     .replies-count {
       display: table-cell;
-      vertical-align: top;
       padding-left: 1rem;
+      vertical-align: top;
 
       a {
-        color: white;
+        display: block;
       }
     }
   }
@@ -162,114 +43,48 @@ $span-color: #AAAAAA;
 
 .topic {
   .user-avatar {
-    @include user-avatar;
-  }
+    display: table-cell;
+    vertical-align: top;
+    a {
+      display: block;
+      width: 4rem;
+      height: 4rem;
 
-  .info {
-    @include info;
-  }
-
-  .tools {
-    @include tools(0.9rem);
+      img {
+        width: 3rem;
+      }
+    }
   }
 
   .body {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    word-wrap: break-word;
-
-    @include topic-body;
-  }
-}
-
-.replies {
-  :target {
-    border-left: 1px solid #e9e9e9;
-    border-right: 1px solid #e9e9e9;
-    background-color: #fffde8;
   }
 
-  .item {
-    margin: 0rem -1rem;
-    padding: 1rem 1rem;
-    border-bottom: solid 1px #e9e9e9;
+  .info {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
 
-    &:last-child {
-      margin-bottom: 2rem;
-    }
-
-    .user-avatar {
-      @include user-avatar(3rem, 2.5rem);
-    }
-
-    .info {
-      @include info;
-    }
-
-    .tools {
-      @include tools;
-    }
-
-    .deleted {
-      p {
-        margin: 0rem auto;
-        font-size: 0.9rem;
-        color: #666666;
-      }
-    }
-
-    .body {
-      margin-top: -1.5rem;
-      word-wrap: break-word;
-      padding-left: 3rem;
-
-      @include reply-body;
+    .title {
+      word-break: break-all;
+      line-height: 1;
+      padding-top: 0rem;
+      font-size: 1.2rem;
     }
   }
-}
 
-.reply-form {
-  .tools {
-    @include tools;
-  }
-
-  .preview-box {
-    border: solid 1px #cccccc;
-    margin: 0 0 1rem 0;
-    padding: 0.5rem;
-
-    .body {
-      @include reply-body;
-
-      .loading {
-        font-size: 0.9rem;
-        color: $span-color;
-      }
-    }
+  .like {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 1rem;
   }
 }
 
 .topic-form {
-  .tools {
-    @include tools;
-  }
-
   .preview-box {
     border: solid 1px #cccccc;
     margin: 0 0 1rem 0;
     padding: 0.5rem;
-
-    .body {
-      @include topic-body;
-
-      .highlight {
-        margin: 1rem 0rem;
-      }
-
-      .loading {
-        font-size: 0.9rem;
-        color: $span-color;
-      }
-    }
   }
 }

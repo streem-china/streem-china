@@ -3,39 +3,49 @@
     .box
       .topic
         .user-avatar
-          = link_to '#' do
+          = link_to user_path(@topic.user_name) do
             = image_tag @topic.user_avatar
         .info
-          .title
-            h4
-              = link_to topic_path(@topic) do
-                = @topic.title
-          .tips
-            span.user-name
-              = link_to @topic.user_name, '#'
-              '
-              = timeago_tag @topic.created_at
-              ' 发布
+          = link_to @topic.title, topic_path(@topic), class: 'title'
+          .lightsmall
+            .show-for-small-only
+              span
+                = link_to @topic.user_name, user_path(@topic.user_name)
+                '
+                = timeago_tag @topic.created_at
+                ' 发布
             .show-for-medium-up
-              - if @topic.last_replied_user_id
-                span &nbsp;&middot;&nbsp;
-                span.last-reply-user-name
-                  = link_to @topic.last_replied_user_name, '#'
+              span
+                = link_to @topic.user_name, user_path(@topic.user_name)
+                '
+                = timeago_tag @topic.created_at
+                ' 发布
+              - if @topic.has_replies?
+                ' &middot;
+                span
+                  = link_to @topic.last_replied_user_name, user_path(@topic.last_replied_user_name)
                   '
                   = timeago_tag @topic.last_replied_at
                   ' 回复
+        .like
+          .lightsmall
+            span
+              = link_to '#' do
+                i.fa.fa-heart-o
 
-        .body
+        .body.markdown
           = raw sanitize_body_html(@topic.body_html)
 
-        .tools.clearfix
-          - if signed_in? && current_user.id == @topic.user_id
-            span.right
-              = link_to topic_path(@topic), method: :delete, data: { confirm: '确定删除该贴?' } do
-                i.fa.fa-trash
-            span.right
-              = link_to edit_topic_path(@topic) do
-                i.fa.fa-pencil
+        .clearfix
+          .lightsmall
+            - if signed_in? && current_user.id == @topic.user_id
+              span.right
+                = link_to topic_path(@topic), method: :delete, data: { confirm: '确定删除该贴?' } do
+                  i.fa.fa-trash
+              span.right &nbsp;
+              span.right
+                = link_to edit_topic_path(@topic) do
+                  i.fa.fa-pencil
 
     .box
       = render partial: 'replies', locals: { replies: @replies }
