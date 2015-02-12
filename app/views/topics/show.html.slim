@@ -29,7 +29,7 @@
                   ' 回复
         .favorite
           span
-            - if current_user.favorited?(@topic)
+            - if signed_in? && current_user.favorited?(@topic)
               = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :favorited, method: :delete, remote: true do
                 i.fa.fa-heart
             - else
@@ -41,7 +41,7 @@
 
         .clearfix
           .lightsmall
-            - if signed_in? && current_user.id == @topic.user_id
+            - if signed_in? && current_user.id.eql?(@topic.user_id)
               span.right
                 = link_to topic_path(@topic), method: :delete, data: { confirm: '确定删除该贴?' } do
                   i.fa.fa-trash

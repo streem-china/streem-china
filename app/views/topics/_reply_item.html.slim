@@ -28,7 +28,7 @@
 
     .clearfix
       .lightsmall
-        - if signed_in? && current_user.id == reply.user_id
+        - if signed_in? && current_user.id.eql?(reply.user_id)
           span.right
             = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
               i.fa.fa-trash
