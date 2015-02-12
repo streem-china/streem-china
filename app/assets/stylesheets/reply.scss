@@ -8,11 +8,11 @@
 
       a {
         display: block;
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
 
         img {
-          width: 3rem;
+          width: 2.5rem;
         }
       }
     }
@@ -29,14 +29,22 @@
     }
 
     .body {
-      margin-left: 4rem;
-      margin-top: -2.0rem;
+      margin-left: 3rem;
+      margin-top: -1.5rem;
+
+      p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
+        font-size: 0.9rem;
+      }
+
+      code {
+        font-size: 0.6rem;
+      }
     }
 
     .deleted {
       p {
         margin: 0rem auto;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         color: #666666;
       }
     }
