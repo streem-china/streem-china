@@ -31,7 +31,7 @@
               - @topics.each do |topic|
                 .item
                   li
-                    = link_to topic.title.truncate(80), topic_path(topic), class: 'title'
+                    = link_to topic.title.truncate(80), topic_path(topic)
                     .lightsmall
                       span = topic.replies_count
                       ' 回复
@@ -43,7 +43,7 @@
               - @replies.each do |reply|
                 .item
                   li
-                    = link_to reply.topic.title.truncate(80), topic_path(reply.topic), class: 'topic-title'
+                    = link_to reply.topic.title.truncate(80), topic_path(reply.topic)
                     .lightsmall
                       span = "##{reply.floor}"
                       ' 楼
