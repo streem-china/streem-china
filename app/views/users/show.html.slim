@@ -1,0 +1,57 @@
+.row.small-collapse.medium-uncollapse.large-uncollapse
+  .small-12.medium-9.large-9.columns
+    .box
+      .user.clearfix
+        .avatar.left
+          = image_tag @user.avatar
+        .info.left
+          h5 =@user.name
+          .tips
+            span 第 #{@user.id} 号会员,
+            span
+              '
+              ' 于
+              = timeago_tag @user.created_at
+              '
+              ' 加入
+    .box
+      .user-history
+        ul.tabs data-tab = ''
+          li.tab-title.active
+            a href='#topics' 最近发帖
+          li.tab-title
+            a href='#replies' 最近回复
+          - if current_user == @user
+            li.tab-title
+              a href='#favorites' 我的收藏
+        .tabs-content
+          .content.active#topics
+            ul
+              - @topics.each do |topic|
+                li
+                  p = link_to topic.title.truncate(80), topic_path(topic)
+                  .info
+                    .tips
+                      span = timeago_tag topic.created_at
+                      ' 发布
+                      span &nbsp;&middot;&nbsp;
+                      span = topic.replies_count
+                      ' 回复
+                      hr
+          .content#replies
+            ul
+              - @replies.each do |reply|
+                li
+                  p.topic-title = link_to reply.topic.title.truncate(80), topic_path(reply.topic)
+                  ' #
+                  span = reply.floor
+                  ' 楼
+                  span &nbsp;&middot;&nbsp;
+                  span = timeago_tag reply.created_at
+                  ' 回复
+                  .body
+                    raw = sanitize_body_html(reply.body_html)
+                  hr
+          - if current_user == @user
+            .content#favorites
+              p This is the third panel of the basic tab example. This is the third panel of the basic tab example.

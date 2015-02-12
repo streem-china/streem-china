@@ -12,13 +12,13 @@
       ul.right
         - if current_user
           li
-            = link_to '#' do
+            = link_to user_path(current_user.name) do
               = image_tag current_user.avatar, size: '25x25'
               '
               = current_user.name
           li
-            = link_to '#' do
-              span.label.notifications-count = 0
+            = link_to user_path(current_user.name) do
+              span.label.secondary.notifications-count = 0
               '
               ' 消息
           li.divider

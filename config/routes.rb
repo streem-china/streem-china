@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :replies
 
+  get '/:username', to: 'users#show', username: /[a-zA-Z0-9_]+/, as: :user
+
   root 'topics#index'
 end

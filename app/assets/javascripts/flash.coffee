@@ -24,8 +24,7 @@ class Flash
 
     setTimeout ->
       $('.fixed-flash-container').fadeOut('slow')
+      $('.fixed-flash-container').parent('fixed').remove()
     , 3000
-
-    $('.fixed-flash-container').parent('fixed').remove()
 
 @Flash = Flash

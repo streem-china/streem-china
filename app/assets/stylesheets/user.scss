@@ -1,0 +1,76 @@
+.user {
+  .avatar {
+    padding-right: 1rem;
+
+    img {
+      width: 4rem;
+    }
+  }
+
+  .info {
+    .tips {
+      font-size: 0.8rem;
+      color: #AAAAAA;
+    }
+  }
+}
+
+.user-history {
+  .tabs {
+    .tab-title {
+      a {
+        padding: 0.475rem 1.15rem;
+      }
+    }
+  }
+
+  .tabs-content {
+    ul {
+      list-style-type: none;
+
+      li {
+        word-wrap: break-word;
+      }
+    }
+
+    #replies {
+      p.topic-title {
+        margin-bottom: 0.3rem;
+      }
+
+      .body {
+        word-wrap: break-word;
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        p {
+          margin-bottom: 0.8rem;
+          font-size: 0.9rem;
+        }
+
+        blockquote {
+          border-left: 2px solid #dddddd;
+          padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+        .highlight {
+          margin: 1rem 0rem;
+          padding: 0.2rem 0.5rem;
+          background-color: #f8f8f8;
+          font-size: 0.9rem;
+
+          code {
+            padding: 0;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

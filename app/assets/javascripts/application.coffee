@@ -19,6 +19,7 @@
 #= require foundation/foundation.dropdown
 #= require foundation/foundation.alert
 #= require foundation/foundation.reveal
+#= require foundation/foundation.tab
 #= require jquery.autosize.min.js
 #= require rails-timeago
 #= require jquery.timeago.zh-CN.js
