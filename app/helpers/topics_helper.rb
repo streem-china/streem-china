@@ -3,9 +3,7 @@ module TopicsHelper
     options = {}
 
     unless topic.replies_count.zero?
-      div, mod = topic.replies_count.divmod(Reply.per_page)
-
-      page = mod.zero? ? div : div + 1
+      page = Reply.page_of_floor(topic.replies_count)
 
       options.merge!(page: page, anchor: "reply-#{topic.replies_count}")
     end

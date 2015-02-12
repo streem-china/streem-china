@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     if @user
       @topics = @user.topics.order('id desc').limit(20)
       @replies = @user.replies.order('id desc').limit(20)
+      @favorites = @user.favorites.order('id desc').limit(20)
     else
       raise ActionController::RoutingError.new('Routing Error')
     end

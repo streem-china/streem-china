@@ -74,10 +74,22 @@
     }
   }
 
-  .like {
+  .favorite {
     display: table-cell;
     vertical-align: top;
     padding-left: 1rem;
+
+    i {
+      font-size: 1.2rem;
+    }
+
+    .favorited {
+      color: #DD1144;
+    }
+
+    .unfavorited {
+      color: #AAAAAA;
+    }
   }
 }
 

@@ -7,6 +7,7 @@ class Reply < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :topic, counter_cache: true
+  belongs_to :favoritable, polymorphic: true
 
   validates :user_id, presence: true
   validates :user_name, presence: true

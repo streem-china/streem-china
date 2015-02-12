@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207124929) do
+ActiveRecord::Schema.define(version: 20150212095541) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20150207124929) do
   end
 
   add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "favoritable_type", null: false
+    t.integer  "favoritable_id",   null: false
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true
 
   create_table "replies", force: :cascade do |t|
     t.integer  "topic_id",    null: false

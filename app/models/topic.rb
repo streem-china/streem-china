@@ -7,6 +7,7 @@ class Topic < ActiveRecord::Base
 
   belongs_to :user
   has_many :replies
+  belongs_to :favoritable, polymorphic: true
 
   validates :user_id, presence: true
   validates :user_name, presence: true

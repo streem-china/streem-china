@@ -27,10 +27,13 @@
                   '
                   = timeago_tag @topic.last_replied_at
                   ' 回复
-        .like
-          .lightsmall
-            span
-              = link_to '#' do
+        .favorite
+          span
+            - if current_user.favorited?(@topic)
+              = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :favorited, method: :delete, remote: true do
+                i.fa.fa-heart
+            - else
+              = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :unfavorited, method: :post, remote: true do
                 i.fa.fa-heart-o
 
         .body.markdown

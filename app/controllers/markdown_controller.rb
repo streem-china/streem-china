@@ -1,5 +1,5 @@
 class MarkdownController < ApplicationController
-  def preview
+  def convert
     html = Markdowner.render(params[:text])
 
     render json: { html: html }

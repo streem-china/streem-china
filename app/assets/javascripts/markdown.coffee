@@ -11,7 +11,7 @@ class Markdown
     preview_box.css('min-height', textarea.css('height')).find('.body').html(loading_html)
     textarea.addClass('hide')
 
-    $.post '/markdown/preview',
+    $.post '/markdown/convert',
       text: textarea.val()
       (data) ->
         preview_box.find('.body').html(data.html)

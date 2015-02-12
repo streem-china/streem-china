@@ -8,11 +8,13 @@ Rails.application.routes.draw do
     get 'sign_in',  to: 'users/sessions#new', as: :new_user_session
   end
 
-  post 'markdown/preview', to: 'markdown#preview'
-
   resources :topics
   resources :replies
+  resources :favorites, only: [:create, :index] do
+    delete :destroy, on: :collection
+  end
 
+  post 'markdown/preview', to: 'markdown#preview'
   get '/:username', to: 'users#show', username: /[a-zA-Z0-9_]+/, as: :user
 
   root 'topics#index'

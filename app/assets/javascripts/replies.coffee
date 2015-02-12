@@ -22,9 +22,11 @@ class Reply
     if (e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey
       button = el.parents('form').find('input[type=submit]')
 
-      button.click()
+      button.trigger('click')
 
       false
+
+@Reply = Reply
 
 $(document).on 'ready page:load', ->
   $('.reply-form').on 'click', '.preview', ->
