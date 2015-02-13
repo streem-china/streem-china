@@ -19,13 +19,13 @@
 
     .info {
       display: table-cell;
-      vertical-align: top;
       width: 100%;
 
       .title {
+        vertical-align: top;
         word-break: break-all;
         line-height: 1;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -46,6 +46,7 @@
   .user-avatar {
     display: table-cell;
     vertical-align: top;
+
     a {
       display: block;
       width: 4rem;
@@ -68,10 +69,10 @@
     width: 100%;
 
     .title {
+      vertical-align: top;
       word-break: break-all;
       line-height: 1;
-      padding-top: 0rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
 

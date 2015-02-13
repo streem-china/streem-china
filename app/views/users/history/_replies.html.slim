@@ -1,0 +1,18 @@
+ul
+  - replies.each do |reply|
+    .item
+      li
+        - if reply.topic
+          = link_to reply.topic.title.truncate(80), topic_path(reply.topic), class: :title
+        - else
+          = link_to '#', class: :title do
+            i
+              s 该主题已删除
+        .lightsmall
+          span = "##{reply.floor}"
+          ' 楼
+          ' &middot;
+          span = timeago_tag reply.created_at
+          ' 回复
+        .body.markdown
+          raw = sanitize_body_html(reply.body_html)

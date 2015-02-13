@@ -1,57 +1,7 @@
 .row.small-collapse.medium-uncollapse.large-uncollapse
   .small-12.medium-9.large-9.columns
     .box
-      .topic
-        .user-avatar
-          = link_to user_path(@topic.user_name) do
-            = image_tag @topic.user_avatar
-        .info
-          = link_to @topic.title, topic_path(@topic), class: 'title'
-          .lightsmall
-            .show-for-small-only
-              span
-                = link_to @topic.user_name, user_path(@topic.user_name)
-                '
-                = timeago_tag @topic.created_at
-                ' 发布
-            .show-for-medium-up
-              span
-                = link_to @topic.user_name, user_path(@topic.user_name)
-                '
-                = timeago_tag @topic.created_at
-                ' 发布
-              - if @topic.has_replies?
-                ' &middot;
-                span
-                  = link_to @topic.last_replied_user_name, user_path(@topic.last_replied_user_name)
-                  '
-                  = timeago_tag @topic.last_replied_at
-                  ' 回复
-        .favorite
-          span
-            - if signed_in? && current_user.favorited?(@topic)
-              = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :favorited, method: :delete, remote: true do
-                i.fa.fa-heart
-                  span.count = @topic.favorites_count
-            - else
-              = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :unfavorited, method: :post, remote: true do
-                i.fa.fa-heart-o
-                  span.count = @topic.favorites_count
-
-        .body.markdown
-          = raw sanitize_body_html(@topic.body_html)
-
-        .clearfix
-          .lightsmall
-            - if signed_in? && current_user.id.eql?(@topic.user_id)
-              span.right
-                = link_to topic_path(@topic), method: :delete, data: { confirm: '确定删除该贴?' } do
-                  i.fa.fa-trash
-              span.right &nbsp;
-              span.right
-                = link_to edit_topic_path(@topic) do
-                  i.fa.fa-pencil
-
+      = render partial: 'topic', locals: { topic: @topic }
     .box
       = render partial: 'replies', locals: { replies: @replies }
 

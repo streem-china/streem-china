@@ -1,0 +1,24 @@
+ul
+  - favorites.each do |favorite|
+    - if favorite.favoritable.is_a?(Topic)
+      - favorite.favoritable.tap do |topic|
+        .item
+          li
+            = link_to topic.title.truncate(80), topic_path(topic), class: :title
+            .lightsmall
+              span = topic.replies_count
+              ' 回复
+              ' &middot
+              span
+                = link_to topic.user_name, user_path(topic.user_name)
+                '
+                = timeago_tag topic.created_at
+                ' 发布
+                - if topic.has_favorites?
+                  ' &middot;
+                  span
+                    i.fa.fa-heart
+                      '
+                      = topic.favorites_count
+
+
