@@ -43,7 +43,12 @@
               - @replies.each do |reply|
                 .item
                   li
-                    = link_to reply.topic.title.truncate(80), topic_path(reply.topic)
+                    - if reply.topic
+                      = link_to reply.topic.title.truncate(80), topic_path(reply.topic)
+                    - else
+                      = link_to '#' do
+                        i
+                          s 该主题已删除
                     .lightsmall
                       span = "##{reply.floor}"
                       ' 楼
@@ -57,12 +62,16 @@
               ul
                 - @favorites.each do |favorite|
                   - if favorite.favoritable.is_a?(Topic)
-                  .item
-                    li
-                      = link_to favorite.favoritable.title.truncate(80), topic_path(favorite.favoritable)
-                      .lightsmall
-                        span = favorite.favoritable.replies_count
-                        ' 回复
-                        ' &middot
-                        span = timeago_tag favorite.favoritable.created_at
-                        ' 发布
+                    - favorite.favoritable.tap do |topic|
+                      .item
+                        li
+                          = link_to topic.title.truncate(80), topic_path(topic)
+                          .lightsmall
+                            span = topic.replies_count
+                            ' 回复
+                            ' &middot
+                            span
+                              = link_to topic.user_name, user_path(topic.user_name)
+                              '
+                              = timeago_tag topic.created_at
+                              ' 发布
