@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  post 'markdown/preview', to: 'markdown#preview'
+  post 'markdown/convert', to: 'markdown#convert'
   get '/:username', to: 'users#show', username: /[a-zA-Z0-9_]+/, as: :user
 
   root 'topics#index'
