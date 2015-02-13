@@ -5,9 +5,9 @@ class Reply < ActiveRecord::Base
 
   acts_as_paranoid
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :topic, counter_cache: true
-  belongs_to :favoritable, polymorphic: true
+  has_many :favorites, as: :favoritable
 
   validates :user_id, presence: true
   validates :user_name, presence: true

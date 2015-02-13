@@ -32,9 +32,11 @@
             - if signed_in? && current_user.favorited?(@topic)
               = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :favorited, method: :delete, remote: true do
                 i.fa.fa-heart
+                  span.count = @topic.favorites_count
             - else
               = link_to favorites_path(favoritable_id: @topic.id, favoritable_type: @topic.class.to_s), class: :unfavorited, method: :post, remote: true do
                 i.fa.fa-heart-o
+                  span.count = @topic.favorites_count
 
         .body.markdown
           = raw sanitize_body_html(@topic.body_html)

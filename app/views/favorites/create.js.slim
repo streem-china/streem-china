@@ -1,3 +1,5 @@
 |
-  $('.favorite .unfavorited').find('i').addClass('fa-heart').removeClass('fa-heart-o')
-  $('.favorite .unfavorited').data('method', 'delete').addClass('favorited').removeClass('unfavorited')
+  favorite = $('.favorite .unfavorited').data('method', 'delete').addClass('favorited').removeClass('unfavorited')
+  favorite.find('i').addClass('fa-heart').removeClass('fa-heart-o')
+  count = parseInt(favorite.find('i .count').text())
+  favorite.find('i .count').text(count + 1)
