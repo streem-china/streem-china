@@ -20,7 +20,11 @@ class Topic < ActiveRecord::Base
   after_create :update_user_read_topic_after_create
 
   def has_replies?
-    last_replied_user_id
+    !replies_count.zero?
+  end
+
+  def has_favorites?
+    !favorites_count.zero?
   end
 
   private

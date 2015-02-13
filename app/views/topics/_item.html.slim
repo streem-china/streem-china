@@ -18,11 +18,13 @@
             '
             = timeago_tag topic.created_at
             ' 发布
-        ' &middot;
-        span
-          i.fa.fa-heart
-            '
-            = topic.favorites_count
+        - if topic.has_favorites?
+          ' &middot;
+          span
+            i.fa.fa-heart
+              '
+              = topic.favorites_count
+
       .show-for-medium-up
         span
           = link_to topic.user_name, user_path(topic.user_name)
@@ -34,11 +36,12 @@
             '
             = timeago_tag topic.last_replied_at
             ' 回复
-        ' &middot;
-        span
-          i.fa.fa-heart
-            '
-            = topic.favorites_count
+        - if topic.has_favorites?
+          ' &middot;
+          span
+            i.fa.fa-heart
+              '
+              = topic.favorites_count
 
   .replies-count
     = last_reply_link(topic)
