@@ -57,7 +57,7 @@
                       ' 回复
                     .body.markdown
                       raw = sanitize_body_html(reply.body_html)
-          - if current_user == @user
+          - if current_user.eql?(@user)
             .content#favorites
               ul
                 - @favorites.each do |favorite|
