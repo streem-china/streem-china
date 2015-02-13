@@ -44,7 +44,7 @@ class Markdowner
     end
 
     def parse_reply_user_name(text)
-      text.gsub!(/@([a-zA-Z0-9_]+)/) do |match|
+      text.gsub!(/@(\w+)/) do |match|
         %(<a href='/#{$1}'> #{match} </a>)
       end
     end

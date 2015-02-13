@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :topics
   has_many :replies
   has_many :favorites
+  has_many :received_mentions, foreign_key: :receiver_id, class_name: 'Mention'
+  has_many :sent_mentions, foreign_key: :sender_id, class_name: 'Mention'
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
