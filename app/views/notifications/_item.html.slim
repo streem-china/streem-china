@@ -1,0 +1,7 @@
+.item
+  li
+    - case notification
+    - when Notification::Reply
+      = render partial: 'notifications/item/reply', locals: { notification: notification }
+    - when Notification::Mention
+      = render partial: 'notifications/item/mention', locals: { notification: notification }

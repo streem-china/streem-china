@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213085555) do
+ActiveRecord::Schema.define(version: 20150213162308) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -34,15 +34,24 @@ ActiveRecord::Schema.define(version: 20150213085555) do
   add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true
 
   create_table "mentions", force: :cascade do |t|
-    t.integer  "receiver_id",      null: false
-    t.integer  "sender_id",        null: false
+    t.integer  "user_id",          null: false
     t.integer  "mentionable_id",   null: false
     t.string   "mentionable_type", null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "mentions", ["sender_id", "mentionable_id", "mentionable_type", "receiver_id"], name: "user_mentionable", unique: true
+  add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id",                    null: false
+    t.integer "reply_id"
+    t.integer "mention_id"
+    t.string  "type",                       null: false
+    t.boolean "read",       default: false
+  end
+
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "replies", force: :cascade do |t|
     t.integer  "topic_id",                    null: false
@@ -86,14 +95,16 @@ ActiveRecord::Schema.define(version: 20150213085555) do
   add_index "topics", ["last_replied_at"], name: "index_topics_on_last_replied_at"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                         null: false
+    t.string   "name",                                    null: false
     t.string   "avatar"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "email",           default: "", null: false
-    t.integer  "topics_count",    default: 0
-    t.integer  "replies_count",   default: 0
-    t.integer  "favorites_count", default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "email",                      default: "", null: false
+    t.integer  "topics_count",               default: 0
+    t.integer  "replies_count",              default: 0
+    t.integer  "favorites_count",            default: 0
+    t.integer  "notifications_count",        default: 0
+    t.integer  "unread_notifications_count", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

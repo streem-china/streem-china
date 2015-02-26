@@ -1,6 +1,6 @@
 .replies
   - replies.each do |reply|
-    = render partial: 'reply_item', locals: { reply: reply }
+    = render partial: 'topics/show/reply_item', locals: { reply: reply }
 
 .clearfix
   = will_paginate(replies, renderer: FoundationPagination::Rails)

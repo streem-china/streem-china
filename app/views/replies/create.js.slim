@@ -2,7 +2,7 @@
   | Flash.notify('alert', '#{@reply.errors.full_messages.join(', ')}');
 - else
   |
-    item = '#{escape_javascript(render partial: 'topics/reply_item', locals: { reply: @reply })}';
+    item = '#{escape_javascript(render partial: 'topics/show/reply_item', locals: { reply: @reply })}';
     $('#new_reply .preview-box').remove()
     $('#new_reply .edit').parent().addClass('hide')
     $('#new_reply .preview').parent().removeClass('hide')

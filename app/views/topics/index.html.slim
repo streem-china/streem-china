@@ -5,5 +5,6 @@
         = link_to '发布新帖', new_topic_path, { class: 'button small right' }
       .topics
         - @topics.each do |topic|
-          = render partial: 'item', locals: { topic: topic }
+          = render partial: 'topics/index/item', locals: { topic: topic }
+      .clearfix
         = will_paginate(@topics, renderer: FoundationPagination::Rails)

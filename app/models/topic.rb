@@ -8,8 +8,8 @@ class Topic < ActiveRecord::Base
 
   belongs_to :user, counter_cache: true
   has_many :replies
-  has_many :favorites, as: :favoritable
-  has_many :mentions, as: :mentionable
+  has_many :favorites, as: :favoritable, dependent: :destroy
+  has_many :mentions, as: :mentionable, dependent: :destroy
 
   validates :user_id, presence: true
   validates :user_name, presence: true
@@ -32,9 +32,11 @@ class Topic < ActiveRecord::Base
   private
 
   def set_attributes_beofre_validation_on_create
-    self.user_name = user.name
-    self.user_avatar = user.avatar
-    self.actived_at = Time.now
+    assign_attributes(
+    user_name: user.name,
+    user_avatar: user.avatar,
+    actived_at: Time.now
+    )
   end
 
   def update_user_read_topic_after_create

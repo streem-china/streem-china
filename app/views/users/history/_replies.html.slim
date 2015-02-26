@@ -3,16 +3,25 @@ ul
     .item
       li
         - if reply.topic
-          = link_to reply.topic.title.truncate(80), topic_path(reply.topic), class: :title
+          = link_to reply.topic.title.truncate(50), topic_path(reply.topic), class: :title
         - else
           = link_to '#', class: :title do
             i
               s 该主题已删除
         .lightsmall
-          span = "##{reply.floor}"
-          ' 楼
+          span
+            = reply_link(reply)
+          '
           ' &middot;
-          span = timeago_tag reply.created_at
-          ' 回复
+          span
+            '
+            = timeago_tag reply.created_at
+            '
+          - if reply.has_favorites?
+            ' &middot;
+            span
+              i.fa.fa-heart
+                '
+                = reply.favorites_count
         .body.markdown
-          raw = sanitize_body_html(reply.body_html)
+          = sanitize_body_html(reply.body_html)

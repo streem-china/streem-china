@@ -1,0 +1,38 @@
+.notifications {
+  margin-top: 1rem;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      word-break: break-all;
+    }
+  }
+
+  .item {
+    margin-bottom: 1.5rem;
+
+    .readflag {
+      color: #f04124;
+      margin-left: -1.2rem;
+    }
+
+    .body {
+      border-left: 2px solid #AAAAAA;
+      margin-top: 0.5rem;
+      padding: 0rem 1rem;
+
+      p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
+        font-size: 0.9rem;
+      }
+
+      code span {
+        font-size: 0.8rem;
+      }
+    }
+
+    .title {
+      font-size: 0.9rem;
+    }
+  }
+}

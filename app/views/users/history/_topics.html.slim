@@ -2,13 +2,15 @@ ul
   - topics.each do |topic|
     .item
       li
-        = link_to topic.title.truncate(80), topic_path(topic), class: :title
+        = link_to topic.title.truncate(50), topic_path(topic), class: :title
         .lightsmall
-          span = topic.replies_count
-          ' 回复
+          span
+            = topic.replies_count
+            ' 回复
           ' &middot
-          span = timeago_tag topic.created_at
-          ' 发布
+          span
+            = timeago_tag topic.created_at
+            '
           - if topic.has_favorites?
             ' &middot;
             span

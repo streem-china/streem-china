@@ -1,24 +1,14 @@
 ul
   - favorites.each do |favorite|
-    - if favorite.favoritable.is_a?(Topic)
-      - favorite.favoritable.tap do |topic|
-        .item
-          li
-            = link_to topic.title.truncate(80), topic_path(topic), class: :title
-            .lightsmall
-              span = topic.replies_count
-              ' 回复
-              ' &middot
-              span
-                = link_to topic.user_name, user_path(topic.user_name)
-                '
-                = timeago_tag topic.created_at
-                ' 发布
-                - if topic.has_favorites?
-                  ' &middot;
-                  span
-                    i.fa.fa-heart
-                      '
-                      = topic.favorites_count
+    .item
+      li
+        - case favorite.favoritable
+        - when nil
+          = link_to '#', class: :title do
+            i
+              s 该收藏已删除
 
-
+        - when Topic
+          = render partial: 'users/history/favorites/topic', locals: { favorite: favorite }
+        - when Reply
+          = render partial: 'users/history/favorites/reply', locals: { favorite: favorite }

@@ -1,0 +1,7 @@
+.mention
+  - notification.mention.tap do |mention|
+    - case mention.mentionable
+    - when Topic
+      = render partial: 'notifications/item/mention/topic', locals: { notification: notification, mention: mention }
+    - when Reply
+      = render partial: 'notifications/item/mention/reply', locals: { notification: notification, mention: mention }

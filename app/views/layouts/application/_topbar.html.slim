@@ -13,12 +13,15 @@
         - if current_user
           li
             = link_to user_path(current_user.name) do
-              = image_tag current_user.avatar, size: '25x25'
+              = image_tag current_user.avatar, size: '25'
               '
               = current_user.name
           li
-            = link_to user_path(current_user.name) do
-              span.label.secondary.notifications-count = 0
+            = link_to notifications_path do
+              - if current_user.unread_notifications_count > 0
+                span.label.alert.notifications-count = current_user.unread_notifications_count
+              - else
+                span.label.secondary.notifications-count = current_user.unread_notifications_count
               '
               ' 消息
           li.divider

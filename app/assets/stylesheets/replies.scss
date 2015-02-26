@@ -1,14 +1,12 @@
 .replies {
   :target {
     background-color: #fffef9;
-    border-left: 1px solid #e9e9e9;
-    border-right: 1px solid #e9e9e9;
   }
 
   .item {
     margin-bottom: 1.5rem;
-    padding: 1rem 1rem;
-    margin: 1rem -1rem;
+    padding: 1rem 0.9375rem;
+    margin: 1rem -0.9375rem;
 
     .user-avatar {
       display: table-cell;
@@ -54,6 +52,16 @@
         margin: 0rem auto;
         font-size: 0.8rem;
         color: #666666;
+      }
+    }
+
+    .favorite {
+      .favorited {
+        color: #DD1144;
+      }
+
+      .unfavorited {
+        color: #AAAAAA;
       }
     }
   }

@@ -1,20 +1,19 @@
-.box
-  .topic-form
-    = form_for topic do |f|
-      = f.text_field :title, placeholder: '标题'
-      .clearfix
-        .lightsmall
-          span.left
-            = link_to '#', class: 'preview' do
-              i.fa.fa-eye
-          span.left.hide
-            = link_to '#', class: 'edit' do
-              i.fa.fa-pencil
-          span.right
-            = link_to '#' do
-              i.fa.fa-image
+.topic-form
+  = form_for topic do |f|
+    = f.text_field :title, placeholder: '标题'
+    .clearfix
+      .lightsmall
+        span.left
+          = link_to '#', class: 'preview' do
+            i.fa.fa-eye
+        span.left.hide
+          = link_to '#', class: 'edit' do
+            i.fa.fa-pencil
+        span.right
+          = link_to '#' do
+            i.fa.fa-image
 
-      = f.text_area :body, placeholder: '内容', size: 'x20'
+    = f.text_area :body, placeholder: '内容', size: 'x20'
 
-      .clearfix
-        = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
+    .clearfix
+      = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }

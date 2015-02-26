@@ -1,8 +1,9 @@
 .row.small-collapse.medium-uncollapse.large-uncollapse
   .small-12.medium-9.large-9.columns
     .box
-      = render partial: 'topic', locals: { topic: @topic }
+      = render partial: 'topics/show/topic', locals: { topic: @topic }
     .box
-      = render partial: 'replies', locals: { replies: @replies }
+      = render partial: 'topics/show/replies', locals: { replies: @replies }
 
-      = render partial: 'reply_form', locals: { topic: @topic }
+    .box
+      = render partial: 'topics/show/reply_form', locals: { topic: @topic }

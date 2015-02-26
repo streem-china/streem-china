@@ -27,64 +27,39 @@
   }
 }
 
-.history {
-  .tabs {
-    .tab-title {
-      a {
-        padding: 0.475rem 1.15rem;
+.user-history {
+  ul {
+    list-style-type: none;
+    margin-left: 0rem;
+
+    li {
+      word-break: break-all;
+    }
+  }
+
+  .tabs .tab-title  a {
+    padding: 0.475rem 1.15rem;
+  }
+
+  .item {
+    margin-bottom: 1.5rem;
+
+    .body {
+      border-left: 2px solid #AAAAAA;
+      margin-top: 0.5rem;
+      padding: 0rem 0.5rem;
+
+      p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
+        font-size: 0.9rem;
+      }
+
+      code span {
+        font-size: 0.8rem;
       }
     }
-  }
 
-  .tabs-content {
-    ul {
-      list-style-type: none;
-
-      li {
-        word-wrap: break-word;
-      }
-    }
-
-    #replies {
-      .topic-title {
-        margin-bottom: 0.3rem;
-      }
-    }
-  }
-
-  .title {
-    font-size: 0.9rem;
-  }
-
-  .deleted {
-    font-size: 0.9rem;
-  }
-
-  #topics {
-    .item {
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  #replies {
-    .item {
-      .body {
-        padding: 1rem;
-
-        p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
-          font-size: 0.9rem;
-        }
-
-        code span {
-          font-size: 0.8rem;
-        }
-      }
-    }
-  }
-
-  #favorites {
-    .item {
-      margin-bottom: 1.5rem;
+    .title {
+      font-size: 0.9rem;
     }
   }
 }

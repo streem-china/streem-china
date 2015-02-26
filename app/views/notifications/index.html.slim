@@ -1,0 +1,10 @@
+.row.small-collapse.medium-uncollapse.large-uncollapse
+  .small-12.medium-9.large-9.columns
+    .box
+      h5 通知中心
+      .notifications
+        ul
+          - @notifications.each do |notification|
+            = render partial: 'item', locals: { notification: notification }
+      .clearfix
+        = will_paginate(@notifications, renderer: FoundationPagination::Rails)

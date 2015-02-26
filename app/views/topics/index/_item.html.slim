@@ -30,9 +30,10 @@
           = link_to topic.user_name, user_path(topic.user_name)
           '
         - unless topic.has_replies?
-          '
-          = timeago_tag topic.created_at
-          ' 发布
+          span
+            '
+            = timeago_tag topic.created_at
+            ' 发布
         - else
           ' &middot;
           span
@@ -48,4 +49,4 @@
               = topic.favorites_count
 
   .replies-count
-    = last_reply_link(topic)
+    = replies_count_link(topic)

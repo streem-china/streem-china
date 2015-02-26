@@ -1,0 +1,16 @@
+span.title
+  - if notification.unread?
+    i.fa.fa-circle.readflag
+  - mention.mentionable.tap do |topic|
+    '
+    = link_to topic.user_name, user_path(topic.user_name)
+    '
+    ' 在主题
+    = link_to topic.title.truncate(50), topic_path(topic)
+    '
+    ' 中提到了你
+    .lightsmall
+      span
+        = timeago_tag topic.created_at
+
+
