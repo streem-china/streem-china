@@ -24,7 +24,6 @@ class Reply < ActiveRecord::Base
     :update_topic_attributes_after_create,
     :create_reply_notification_after_create
 
-
   def has_favorites?
     !favorites_count.zero?
   end

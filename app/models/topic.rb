@@ -33,9 +33,9 @@ class Topic < ActiveRecord::Base
 
   def set_attributes_beofre_validation_on_create
     assign_attributes(
-    user_name: user.name,
-    user_avatar: user.avatar,
-    actived_at: Time.now
+      user_name: user.name,
+      user_avatar: user.avatar,
+      actived_at: Time.now
     )
   end
 

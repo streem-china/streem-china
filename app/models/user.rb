@@ -23,7 +23,9 @@ class User < ActiveRecord::Base
   end
 
   def favorited?(favoritable)
-    favorites.exists?(favoritable_id: favoritable.id,
-                      favoritable_type: favoritable.class.to_s)
+    favorites.exists?(
+      favoritable_id: favoritable.id,
+      favoritable_type: favoritable.class.to_s
+    )
   end
 end
