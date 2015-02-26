@@ -1,8 +1,7 @@
 class Topic < ActiveRecord::Base
   include Markdownable
   include Mentionable
-
-  self.per_page = 20
+  include Favoritable
 
   acts_as_paranoid
 

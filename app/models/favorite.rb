@@ -13,9 +13,11 @@ class Favorite < ActiveRecord::Base
 
   private
 
-  def store_to_redis_after_create
+  def create_to_redis_after_create
+    favoritable.favorited_user_ids.add(user_id)
   end
 
   def destroy_from_redis_after_destroy
+    favoritable.favorited_user_ids.delete(user_id)
   end
 end

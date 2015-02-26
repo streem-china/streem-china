@@ -21,11 +21,4 @@ class User < ActiveRecord::Base
   def has_read_topic?(topic)
     read_topics[topic.id].to_i >= topic.actived_at.to_i
   end
-
-  def favorited?(favoritable)
-    favorites.exists?(
-      favoritable_id: favoritable.id,
-      favoritable_type: favoritable.class.to_s
-    )
-  end
 end

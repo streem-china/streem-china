@@ -1,5 +1,5 @@
 span
-  - if signed_in? && current_user.favorited?(favoritable)
+  - if signed_in? && favoritable.favorited_by?(current_user)
     = link_to favorites_path(favoritable_id: favoritable.id,
                              favoritable_type: favoritable.class.name),
               class: :favorited,
