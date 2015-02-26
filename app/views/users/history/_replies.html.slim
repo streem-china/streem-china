@@ -2,12 +2,7 @@ ul
   - replies.each do |reply|
     .item
       li
-        - if reply.topic
-          = link_to reply.topic.title.truncate(50), topic_path(reply.topic), class: :title
-        - else
-          = link_to '#', class: :title do
-            i
-              s 该主题已删除
+        = link_to reply.topic.title.truncate(50), topic_path(reply.topic), class: :title
         .lightsmall
           span
             = reply_link(reply)

@@ -3,11 +3,6 @@ ul
     .item
       li
         - case favorite.favoritable
-        - when nil
-          = link_to '#', class: :title do
-            i
-              s 该收藏已删除
-
         - when Topic
           = render partial: 'users/history/favorites/topic', locals: { favorite: favorite }
         - when Reply
