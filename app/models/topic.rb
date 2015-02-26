@@ -7,7 +7,7 @@ class Topic < ActiveRecord::Base
   acts_as_paranoid
 
   belongs_to :user, counter_cache: true
-  has_many :replies
+  has_many :replies, dependent: :destroy
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :mentions, as: :mentionable, dependent: :destroy
 
