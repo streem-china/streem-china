@@ -2,9 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    page = params[:page] || 1
-
-    @topics = Topic.order('actived_at desc').paginate(page: page)
+    @topics = Topic.order('actived_at desc').paginate(page: params[:page])
   end
 
   def new
@@ -26,13 +24,11 @@ class TopicsController < ApplicationController
   end
 
   def show
-    page = params[:page] || 1
-
     @topic = Topic.find(params[:id])
 
     current_user.update_read_topic(@topic) if current_user
 
-    @replies = @topic.replies.with_deleted.paginate(page: page)
+    @replies = @topic.replies.with_deleted.paginate(page: params[:page])
   end
 
   def edit

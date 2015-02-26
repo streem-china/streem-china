@@ -1,11 +1,9 @@
 class NotificationsController < ApplicationController
   def index
-    page = params[:page] || 1
-
     @notifications = current_user.
       notifications.
       order('read asc, id desc').
-      paginate(page: page)
+      paginate(page: params[:page])
 
     unread = @notifications.select(&:unread?)
 
