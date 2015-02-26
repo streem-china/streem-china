@@ -2,7 +2,7 @@ ul
   - topics.each do |topic|
     .item
       li
-        = link_to topic.title.truncate(50), topic_path(topic), class: :title
+        = link_to topic.title.truncate(40), topic_path(topic), class: :title
         .lightsmall
           span
             = topic.replies_count

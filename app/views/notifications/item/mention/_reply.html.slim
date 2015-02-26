@@ -1,12 +1,10 @@
-span.title
-  - if notification.unread?
-    i.fa.fa-circle.readflag
-  - mention.mentionable.tap do |reply|
+- mention.mentionable.tap do |reply|
+  .title
     '
-    = link_to reply.user_name, user_path(reply.user_name)
+    = link_to reply.user_name, user_path(reply.user_name), class: :light
     '
     ' 在回复主题
-    = link_to reply.topic.title.truncate(50), topic_path(reply.topic)
+    = link_to reply.topic.title.truncate(40), topic_path(reply.topic)
     '
     ' 时提到了你
     .lightsmall
@@ -16,7 +14,7 @@ span.title
       ' &middot;
       span
         = timeago_tag reply.created_at
-    .body.markdown
-      = sanitize_body_html(reply.body_html)
+  .body.markdown
+    = sanitize_body_html(reply.body_html)
 
 

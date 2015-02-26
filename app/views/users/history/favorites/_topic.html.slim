@@ -1,6 +1,6 @@
 - favorite.favoritable.tap do |topic|
   .topic
-    = link_to topic.title.truncate(50), topic_path(topic), class: :title
+    = link_to topic.title.truncate(40), topic_path(topic), class: :title
     .lightsmall
       span
         = topic.replies_count
@@ -16,3 +16,5 @@
           i.fa.fa-heart
             '
             = topic.favorites_count
+    .body.markdown
+      = sanitize_body_html(topic.body_html)

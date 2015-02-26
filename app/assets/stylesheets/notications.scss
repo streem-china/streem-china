@@ -3,6 +3,7 @@
 
   ul {
     list-style-type: none;
+    margin-left: 0rem;
 
     li {
       word-break: break-all;
@@ -11,6 +12,26 @@
 
   .item {
     margin-bottom: 1.5rem;
+
+    .user-avatar {
+      display: table-cell;
+      vertical-align: top;
+
+      a {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+
+        img {
+          width: 2.5rem;
+        }
+      }
+    }
+
+    .info {
+      display: table-cell;
+      width: 100%;
+    }
 
     .readflag {
       color: #f04124;
@@ -21,9 +42,7 @@
     }
 
     .body {
-      border-left: 2px solid #AAAAAA;
       margin-top: 0.5rem;
-      padding: 0rem 0.5rem;
 
       p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
         font-size: 0.9rem;

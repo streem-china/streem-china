@@ -1,7 +1,11 @@
 .mention
   - notification.mention.tap do |mention|
-    - case mention.mentionable
-    - when Topic
-      = render partial: 'notifications/item/mention/topic', locals: { notification: notification, mention: mention }
-    - when Reply
-      = render partial: 'notifications/item/mention/reply', locals: { notification: notification, mention: mention }
+    .user-avatar
+      = link_to user_path(mention.mentionable) do
+        = image_tag mention.mentionable.user_avatar
+    .info
+      - case mention.mentionable
+      - when Topic
+        = render partial: 'notifications/item/mention/topic', locals: { notification: notification, mention: mention }
+      - when Reply
+        = render partial: 'notifications/item/mention/reply', locals: { notification: notification, mention: mention }

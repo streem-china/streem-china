@@ -16,11 +16,49 @@ ul.pagination {
   }
 }
 
+a.light {
+  color: #666666;
+}
+
 .lightsmall {
   color: #AAAAAA;
   font-size: 0.8rem;
 
   a {
     color: #666666;
+  }
+}
+
+.markdown {
+  word-break: break-all;
+
+  a {
+    color: #666666;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  blockquote {
+    border-left: 2px solid #dddddd;
+    padding: 0.5625rem 1.25rem 0.5625rem 1.1875rem;
+    margin: 1rem 0;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .highlight {
+    background-color: #f8f8f8;
+    word-wrap: break-word;
+    padding: 0.5rem;
+    margin: 1rem 0;
+
+    code {
+      padding: 0;
+      border: none;
+    }
   }
 }

@@ -1,16 +1,14 @@
-span.title
-  - if notification.unread?
-    i.fa.fa-circle.readflag
-  - mention.mentionable.tap do |topic|
+- mention.mentionable.tap do |topic|
+  .title
     '
-    = link_to topic.user_name, user_path(topic.user_name)
+    = link_to topic.user_name, user_path(topic.user_name), class: :light
     '
     ' 在主题
-    = link_to topic.title.truncate(50), topic_path(topic)
+    = link_to topic.title.truncate(40), topic_path(topic)
     '
     ' 中提到了你
     .lightsmall
       span
         = timeago_tag topic.created_at
-
-
+  .body.markdown
+    = sanitize_body_html(topic.body_html)
