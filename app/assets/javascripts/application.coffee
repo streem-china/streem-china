@@ -20,7 +20,8 @@
 #= require foundation/foundation.alert
 #= require foundation/foundation.reveal
 #= require foundation/foundation.tab
-#= require jquery.autosize.min.js
+#= require jquery.autosize.min
 #= require rails-timeago
-#= require jquery.timeago.zh-CN.js
+#= require jquery.timeago.zh-CN
+#= require jquery.atwho
 #= require_tree .

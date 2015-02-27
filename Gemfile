@@ -23,6 +23,7 @@ gem 'font-awesome-rails'
 gem 'rails-timeago'
 gem 'gemoji'
 gem 'will_paginate-foundation'
+gem 'jquery-atwho-rails'
 
 group :development, :test do
   gem 'spring'

@@ -11,12 +11,12 @@
 
     .info
       .lightsmall
-        span
+        span.floor
           = reply.floor
           ' 楼
         ' &middot;
         span
-          = link_to reply.user_name, user_path(reply.user_name)
+          = link_to reply.user_name, user_path(reply.user_name), class: :username
           '
           = timeago_tag reply.created_at
         - if signed_in?

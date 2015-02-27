@@ -61,7 +61,7 @@ class Markdowner
     def parse_emoji(text)
       text.gsub!(/:([\w+-]+):/) do |match|
         if emoji = Emoji.find_by_alias($1)
-          image_path = ActionController::Base.helpers.image_path("emoji/#{emoji.image_filename}")
+          image_path = "/images/emoji/#{emoji.image_filename}"
           size = "width='20' height='20'"
           style = 'vertical-align: middle'
 
