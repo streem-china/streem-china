@@ -1,5 +1,5 @@
-.reply
-  - notification.reply.tap do |reply|
+- notification.reply.tap do |reply|
+  .reply
     .user-avatar
       = link_to user_path(reply.user_name) do
         = image_tag reply.user_avatar
@@ -18,6 +18,5 @@
         ' &middot;
         span
           = timeago_tag reply.created_at
-      .body.markdown
-        = sanitize_body_html(reply.body_html)
-
+    .body.markdown
+      = sanitize_body_html(reply.body_html)
