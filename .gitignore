@@ -19,4 +19,4 @@
 
 # Secrect files
 /config/database.yml
-/config/secrects.yml
+/config/secrets.yml
