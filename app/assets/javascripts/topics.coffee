@@ -30,7 +30,7 @@ $(document).on 'ready page:load', ->
     Topic.submitByKeyboard $(this), e
 
 
-  if ('.new_reply textarea').length > 0
+  if ('.new_reply textarea').length
     usernames = $.unique $('.username').map ->
       return($(this).text())
     .get()

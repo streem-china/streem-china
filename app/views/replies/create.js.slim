@@ -3,10 +3,19 @@
 - else
   |
     item = '#{escape_javascript(render partial: 'topics/show/reply_item', locals: { reply: @reply })}';
+    if ($('.replies').length) {
+      $('.replies').append(item);
+    } else {
+      box = '<div class="box">'       +
+              '<div class="replies">' +
+                item                  +
+              '</div>'                +
+           '</div>'
+      $('.reply-form').parent('.box').before(box)
+    }
     $('#new_reply .preview-box').remove()
     $('#new_reply .edit').parent().addClass('hide')
     $('#new_reply .preview').parent().removeClass('hide')
-    $('.replies').append(item);
     $('#new_reply textarea').val('').trigger('autosize.resize').removeClass('hide')
     $('#reply-#{@reply.floor} time').timeago();
     Flash.notify('success', '创建成功');

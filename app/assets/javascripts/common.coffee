@@ -4,11 +4,11 @@ $ ->
   Turbolinks.enableProgressBar()
 
   $(document).on 'ready page:load', ->
-    if $('time').length > 0
+    if $('time').length
       $('time').timeago()
-    if $('textarea').length > 0
+    if $('textarea').length
       $('textarea').autosize()
-    if $('.tabs').length > 0
+    if $('.tabs').length
       $(document).foundation('tab', 'reflow')
-    if $('.flash-container').length > 0
+    if $('.flash-container').length
       Flash.init()
