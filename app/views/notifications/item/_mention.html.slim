@@ -6,8 +6,14 @@
     .info
       - case mention.mentionable
       - when Topic
-        = render partial: 'notifications/item/mention/topic', locals: { notification: notification, mention: mention, topic: mention.mentionable }
+        = render partial: 'notifications/item/mention/topic',
+                 locals: { notification: notification,
+                           mention: mention,
+                           topic: mention.mentionable }
       - when Reply
-        = render partial: 'notifications/item/mention/reply', locals: { notification: notification, mention: mention, reply: mention.mentionable }
+        = render partial: 'notifications/item/mention/reply',
+                 locals: { notification: notification,
+                           mention: mention,
+                           reply: mention.mentionable }
     .body.markdown
       = sanitize_body_html(mention.mentionable.body_html)
