@@ -1,10 +1,15 @@
-|
-  favoritable = '#{@favorite.favoritable.class.name.underscore}'
-  favoritable_id = '#{@favorite.favoritable.id}'
-  link = $('#favorited-' + favoritable + '-' + favoritable_id)
-  link.data('method', 'post').addClass('unfavorited').removeClass('favorited')
-  link.find('i').addClass('fa-heart-o').removeClass('fa-heart')
-  count = parseInt(link.find('i .count').text())
-  link.find('i .count').text(count - 1)
-  link.attr('id', 'unfavorited-' + favoritable + '-' + favoritable_id)
+- if params[:id]
+  |
+    $('#favorite-#{@favorite.id}').fadeOut()
+    Flash.notify('success', '删除成功');
+- else
+  |
+    favoritable = '#{@favorite.favoritable.class.name.underscore}'
+    favoritable_id = '#{@favorite.favoritable.id}'
+    link = $('#favorited-' + favoritable + '-' + favoritable_id)
+    link.data('method', 'post').addClass('unfavorited').removeClass('favorited')
+    link.find('i').addClass('fa-heart-o').removeClass('fa-heart')
+    count = parseInt(link.find('i .count').text())
+    link.find('i .count').text(count - 1)
+    link.attr('id', 'unfavorited-' + favoritable + '-' + favoritable_id)
 

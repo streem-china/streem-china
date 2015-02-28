@@ -41,16 +41,17 @@
   .tabs-content {
     margin-bottom: 0rem;
   }
+
   .tabs .tab-title  a {
     padding: 0.475rem 1.15rem;
   }
 
   .item {
+    margin-bottom: 1.5rem;
+
     &:last-child {
       margin-bottom: 0rem;
     }
-
-    margin-bottom: 1.5rem;
 
     .body {
       margin-top: 0.5rem;

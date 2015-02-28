@@ -9,10 +9,14 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = current_user.favorites.where(
-      favoritable_id: params[:favoritable_id],
-      favoritable_type: params[:favoritable_type]
-    ).first
+    if params[:id]
+      @favorite = current_user.favorites.find(params[:id])
+    else
+      @favorite = current_user.favorites.where(
+        favoritable_id: params[:favoritable_id],
+        favoritable_type: params[:favoritable_type]
+      ).first
+    end
 
     @favorite.destroy if @favorite
   end

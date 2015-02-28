@@ -1,11 +1,12 @@
 - favorite.favoritable.tap do |reply|
   .reply
-    - if reply.topic
-      = link_to reply.topic.title.truncate(40), topic_path(reply.topic), class: :title
-    - else
-      = link_to '#', class: :title do
-        i
-          s 该主题已删除
+    .clearfix
+      = link_to reply.topic.title.truncate(40), topic_path(reply.topic), class: 'title left'
+      .lightsmall
+        span.right
+          = link_to favorite_path(favorite), method: :delete, remote: true, data: { confirm: '确定删除该收藏?' } do
+            i.fa.fa-trash
+
     .lightsmall
       span
         = reply_link(reply)
@@ -21,6 +22,6 @@
           i.fa.fa-heart
             '
             = reply.favorites_count
+
     .body.markdown
       = sanitize_body_html(reply.body_html)
-

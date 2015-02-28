@@ -1,3 +1,12 @@
+Array.prototype.unique = ->
+  uniqueArray= []
+
+  for e in this
+    if $.inArray(e, uniqueArray) < 0
+      uniqueArray.push e
+
+  return uniqueArray
+
 class Atwho
   @favoriteEmojiList = [
     { name: '+1',         unicode: '1f44d' },
@@ -28,9 +37,9 @@ class Atwho
     textarea.atwho({ at: '#', data: floors })
 
   @listenUsername: (textarea) ->
-    usernames = $.unique $('.username').map ->
+    usernames = $('.username').map ->
       return($(this).text())
-    .get()
+    .get().unique().reverse()
 
     textarea.atwho({ at: '@', data: usernames })
 

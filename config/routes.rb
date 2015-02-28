@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :replies
   resources :notifications, only: :index
-  resources :favorites, only: [:create, :index] do
+  resources :favorites, only: [:create, :destroy] do
     delete :destroy, on: :collection
   end
 
