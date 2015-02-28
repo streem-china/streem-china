@@ -61,6 +61,10 @@
     }
 
     .favorite {
+      .count {
+        font-size: 0.5rem;
+      }
+
       .favorited {
         color: #DD1144;
       }
