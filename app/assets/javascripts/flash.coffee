@@ -17,9 +17,7 @@ class Flash
             '</div>'
 
     $('body .container').prepend(flash)
-
     $('.fixed-flash-container').parent('fixed').show()
-
     $('.fixed-flash-container').foundation('alert', 'reflow')
 
     setTimeout ->

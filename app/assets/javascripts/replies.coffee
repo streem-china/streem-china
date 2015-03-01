@@ -1,14 +1,4 @@
 class Reply
-  @preview: (el) ->
-    Markdown.preview(el)
-
-    false
-
-  @edit: (el) ->
-    Markdown.edit(el)
-
-    false
-
   @replyFloor: (el) ->
     reply_floor = $(el).data('reply-floor')
     reply_user_name = $(el).data('reply-user-name')
@@ -20,9 +10,7 @@ class Reply
 
   @submitByKeyboard: (el, e) ->
     if (e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey
-      button = el.parents('form').find('input[type=submit]')
-
-      button.trigger('click')
+      el.parents('form').find('input[type=submit]').trigger('click')
 
       false
 
@@ -30,10 +18,14 @@ class Reply
 
 $(document).on 'ready page:load', ->
   $('.reply-form').on 'click', '.preview', ->
-    Reply.preview $(this)
+    Markdown.convert $(this)
+
+    false
 
   $('.reply-form').on 'click', '.edit', ->
-    Reply.edit $(this)
+    Markdown.edit $(this)
+
+    false
 
   $('.replies').on 'click', '.item .reply a', ->
     Reply.replyFloor $(this)

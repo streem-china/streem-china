@@ -37,6 +37,10 @@ class Markdowner
       "<p>#{text}</p>"
     end
 
+    def image(link, title, alt_text)
+      "<a href='#{link}' target='_blank'><img src='#{link}' alt='#{alt_text}'></a>"
+    end
+
     private
 
     def parse_new_line_to_br(text)
@@ -48,7 +52,6 @@ class Markdowner
         %(<a href='/#{$1}'> #{match} </a>)
       end
     end
-
 
     def parse_reply_floor(text)
       text.gsub!(/#(\d+)楼/) do |match|

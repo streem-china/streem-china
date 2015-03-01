@@ -1,14 +1,4 @@
 class Topic
-  @preview: (el) ->
-    Markdown.preview(el)
-
-    false
-
-  @edit: (el) ->
-    Markdown.edit(el)
-
-    false
-
   @submitByKeyboard: (el, e) ->
     if (e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey
       button = el.parents('form').find('input[type=submit]')
@@ -21,10 +11,14 @@ class Topic
 
 $(document).on 'ready page:load', ->
   $('.topic-form').on 'click', '.preview', ->
-    Topic.preview $(this)
+    Markdown.convert $(this)
+
+    false
 
   $('.topic-form').on 'click', '.edit', ->
-    Topic.edit $(this)
+    Markdown.edit $(this)
+
+    false
 
   $('.topic-form').on 'keydown', 'textarea', (e) ->
     Topic.submitByKeyboard $(this), e

@@ -1,5 +1,5 @@
 class Markdown
-  @preview: (el) ->
+  @convert: (el) ->
     preview_box_html = '<div class="preview-box"><div class="body markdown"></div></div>'
     loading_html = '<span class="loading">loading...</span>'
     form = $(el).parents('form')
