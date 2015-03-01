@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   post 'markdown/convert', to: 'markdown#convert'
+  get 'qiniu/uptoken', to: 'qiniu#uptoken'
   get '/:username', to: 'users#show', username: /[a-zA-Z0-9_]+/, as: :user
 
   root 'topics#index'

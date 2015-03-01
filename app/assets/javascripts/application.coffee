@@ -24,4 +24,7 @@
 #= require rails-timeago
 #= require jquery.timeago.zh-CN
 #= require jquery.atwho
+#= require qiniu.min.js
+#= require plupload.full.min
+#= require md5.min
 #= require_tree .

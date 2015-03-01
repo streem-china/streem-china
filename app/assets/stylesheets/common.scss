@@ -24,6 +24,10 @@ a.light {
   color: #AAAAAA;
   font-size: 0.8rem;
 
+  i {
+    color: #666666;
+  }
+
   a {
     color: #666666;
   }
@@ -60,5 +64,19 @@ a.light {
       padding: 0;
       border: none;
     }
+  }
+}
+
+#image-upload {
+  .image-upload-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
   }
 }

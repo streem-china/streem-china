@@ -66,11 +66,15 @@
       }
 
       .favorited {
-        color: #DD1144;
+        i {
+          color: #DD1144;
+        }
       }
 
       .unfavorited {
-        color: #AAAAAA;
+        i {
+          color: #666666;
+        }
       }
     }
   }
@@ -80,6 +84,12 @@
   .preview-box {
     border: solid 1px #cccccc;
     margin: 0 0 1rem 0;
-    padding: 0.5rem;
+    padding: 0.4rem;
+
+    .body {
+      p {
+        font-size: 0.9rem;
+      }
+    }
   }
 }

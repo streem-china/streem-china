@@ -12,6 +12,7 @@ gem 'paranoia'
 gem 'redcarpet'
 gem 'rouge'
 gem 'redis-objects'
+gem 'qiniu'
 
 gem 'jquery-rails'
 gem 'turbolinks'
