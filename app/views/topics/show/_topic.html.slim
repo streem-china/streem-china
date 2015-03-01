@@ -26,10 +26,8 @@
             ' 回复
   .favorite
     = render partial: 'topics/favorite', locals: { favoritable: topic }
-
   .body.markdown
     = sanitize_body_html(topic.body_html)
-
   .clearfix
     .lightsmall
       - if signed_in? && current_user.id.eql?(topic.user_id)

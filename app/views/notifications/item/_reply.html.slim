@@ -5,6 +5,9 @@
         = image_tag reply.user_avatar
     .info
       .title
+        - if notification.unread?
+          span.readflag &bull;
+          '
         = link_to reply.user_name, user_path(reply.user_name), class: :light
         '
         ' 在主题
@@ -18,5 +21,5 @@
         ' &middot;
         span
           = timeago_tag reply.created_at
-    .body.markdown
+    .body.markdown.small-markdown
       = sanitize_body_html(reply.body_html)

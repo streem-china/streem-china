@@ -8,7 +8,6 @@
     .user-avatar
       = link_to user_path(reply.user_name) do
         = image_tag reply.user_avatar
-
     .info
       .lightsmall
         span.floor
@@ -27,11 +26,8 @@
         span.reply
           = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
             i.fa.fa-reply
-
-
-    .body.markdown
+    .body.markdown.small-markdown
       = raw sanitize_body_html(reply.body_html)
-
     .clearfix
       .lightsmall
         - if signed_in? && current_user.id.eql?(reply.user_id)

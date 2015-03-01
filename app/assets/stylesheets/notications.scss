@@ -36,23 +36,12 @@
 
     .readflag {
       color: #f04124;
-      margin-left: -0.8rem;
-      font-size: 0.6rem;
-      margin-top: -0.2rem;
-      vertical-align: middle;
+      font-size: 1rem;
     }
 
     .body {
-      margin-top: 0.5rem;
       margin-left: 3rem;
-
-      p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
-        font-size: 0.9rem;
-      }
-
-      code span {
-        font-size: 0.8rem;
-      }
+      margin-top: 0.5rem;
     }
 
     .title {

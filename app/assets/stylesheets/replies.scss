@@ -41,15 +41,7 @@
 
     .body {
       margin-left: 3rem;
-      margin-top: -1.5rem;
-
-      p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em {
-        font-size: 0.9rem;
-      }
-
-      code span {
-        font-size: 0.8rem;
-      }
+      margin-top: -1rem;
     }
 
     .deleted {
@@ -83,6 +75,7 @@
 
         .favorited {
           color: #DD1144;
+
           i {
             color: #DD1144;
           }
@@ -90,6 +83,7 @@
 
         .unfavorited {
           color: #666666;
+
           i {
             color: #666666;
           }
@@ -100,15 +94,4 @@
 }
 
 .reply-form {
-  .preview-box {
-    border: solid 1px #cccccc;
-    margin: 0 0 1rem 0;
-    padding: 0.4rem;
-
-    .body {
-      p {
-        font-size: 0.9rem;
-      }
-    }
-  }
 }

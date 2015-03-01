@@ -1,4 +1,6 @@
 .title
+  - if notification.unread?
+    span.readflag &bull;&nbsp;
   '
   = link_to reply.user_name, user_path(reply.user_name), class: :light
   '

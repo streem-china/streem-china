@@ -19,5 +19,5 @@ ul
               i.fa.fa-heart
                 '
                 = reply.favorites_count
-        .body.markdown
+        .body.markdown.small-markdown
           = sanitize_body_html(reply.body_html)

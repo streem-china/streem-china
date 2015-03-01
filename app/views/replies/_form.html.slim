@@ -1,21 +1,20 @@
-.box
-  .reply-form
-    = form_for reply do |f|
-      .clearfix
-        .lightsmall
-          span.left
-            = link_to '#', class: 'preview' do
-              i.fa.fa-eye
-          span.left.hide
-            = link_to '#', class: 'edit' do
-              i.fa.fa-pencil
-          - if signed_in?
-            span.right
-              = link_to '#', id: 'image-upload' do
-                i.fa.fa-image
-                input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
+.reply-form
+  = form_for reply do |f|
+    .clearfix
+      .lightsmall
+        span.left
+          = link_to '#', class: 'preview' do
+            i.fa.fa-eye
+        span.left.hide
+          = link_to '#', class: 'edit' do
+            i.fa.fa-pencil
+        - if signed_in?
+          span.right
+            = link_to '#', id: 'image-upload' do
+              i.fa.fa-image
+              input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
 
-      = f.text_area :body, placeholder: '内容', size: 'x20'
+    = f.text_area :body, placeholder: '内容', size: 'x20'
 
-      .clearfix
-        = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
+    .clearfix
+      = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
