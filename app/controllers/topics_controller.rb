@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @topics = Topic.order('actived_at desc').paginate(page: params[:page])
+    @topics = Topic.without_body.order('actived_at desc').paginate(page: params[:page])
   end
 
   def new

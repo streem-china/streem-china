@@ -19,14 +19,14 @@
           = link_to reply.user_name, user_path(reply.user_name), class: :username
           '
           = timeago_tag reply.created_at
-        - if signed_in?
-          span.favorite.right
-            = render partial: 'topics/favorite', locals: { favoritable: reply }
-
-          span.right &nbsp;
-          span.reply.right
-            = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
-              i.fa.fa-reply
+    .tools
+      .lightsmall
+        span.favorite
+          = render partial: 'topics/favorite', locals: { favoritable: reply }
+        span &nbsp;
+        span.reply
+          = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
+            i.fa.fa-reply
 
 
     .body.markdown

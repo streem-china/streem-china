@@ -31,7 +31,7 @@
     .info {
       display: table-cell;
       width: 100%;
-      line-height: 100%;
+      vertical-align: top;
 
       .title {
         word-break: break-all;
@@ -60,20 +60,39 @@
       }
     }
 
-    .favorite {
-      .count {
-        font-size: 0.5rem;
+    .tools {
+      display: table-cell;
+      vertical-align: top;
+
+      .lightsmall {
+        text-align: right;
+        width: 3rem;
       }
 
-      .favorited {
-        i {
-          color: #DD1144;
+      .favorite {
+        .counter {
+          font-size: 0.5rem;
+          position: relative;
+          left: 0.8rem;
+          top: -1.2rem;
         }
-      }
 
-      .unfavorited {
-        i {
+        .count {
+          font-size: 0.5rem;
+        }
+
+        .favorited {
+          color: #DD1144;
+          i {
+            color: #DD1144;
+          }
+        }
+
+        .unfavorited {
           color: #666666;
+          i {
+            color: #666666;
+          }
         }
       }
     }

@@ -8,10 +8,11 @@
         span.left.hide
           = link_to '#', class: 'edit' do
             i.fa.fa-pencil
-        span.right
-          = link_to '#', id: 'image-upload' do
-            i.fa.fa-image
-            input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
+        - if signed_in?
+          span.right
+            = link_to '#', id: 'image-upload' do
+              i.fa.fa-image
+              input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
 
     = f.hidden_field :topic_id, value: topic.id
 
