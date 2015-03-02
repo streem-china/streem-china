@@ -17,12 +17,10 @@ class Flash
             '</div>'
 
     $('body .container').prepend(flash)
-    $('.fixed-flash-container').parent('fixed').show()
-    $('.fixed-flash-container').foundation('alert', 'reflow')
+    $('.fixed-flash-container').foundation('alert', 'reflow').parent('fixed').show()
 
     setTimeout ->
-      $('.fixed-flash-container').fadeOut('slow')
-      $('.fixed-flash-container').parent('fixed').remove()
+      $('.fixed-flash-container').fadeOut('slow').parent('fixed').remove()
     , 3000
 
 @Flash = Flash
