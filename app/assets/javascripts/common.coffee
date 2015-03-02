@@ -10,5 +10,3 @@ $ ->
       $('textarea').autosize()
     if $('.tabs').length
       $(document).foundation('tab', 'reflow')
-    if $('.flash-container').length
-      Flash.init()

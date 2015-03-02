@@ -13,11 +13,8 @@
             = link_to '#', id: 'image-upload' do
               i.fa.fa-image
               input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
-
     = f.hidden_field :topic_id, value: topic.id
-
     = f.text_area :body, placeholder: '内容', size: 'x10'
-
     .clearfix
       = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
 

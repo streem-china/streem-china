@@ -8,12 +8,10 @@
       - when Topic
         = render partial: 'notifications/item/mention/topic',
                  locals: { notification: notification,
-                           mention: mention,
                            topic: mention.mentionable }
       - when Reply
         = render partial: 'notifications/item/mention/reply',
                  locals: { notification: notification,
-                           mention: mention,
                            reply: mention.mentionable }
     .body.markdown.small-markdown
       = sanitize_body_html(mention.mentionable.body_html)

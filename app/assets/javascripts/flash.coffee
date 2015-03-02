@@ -26,3 +26,7 @@ class Flash
     , 3000
 
 @Flash = Flash
+
+$(document).on 'ready page:load', ->
+  if $('.flash-container').length
+    Flash.init()
