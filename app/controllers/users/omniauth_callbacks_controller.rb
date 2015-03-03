@@ -5,7 +5,7 @@ module Users
 
       provider = auth.provider
       uid      = auth.uid
-      name     = auth.info.name
+      name     = auth.info.login
       email    = auth.info.email
       avatar   = auth.info.image
 
