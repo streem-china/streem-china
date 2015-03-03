@@ -6,16 +6,14 @@ ul
         .lightsmall
           span
             = topic.replies_count
-            = t('topic.create')
-          ' &middot
+            = t('topic.reply')
+          '  &middot
           span
             = timeago_tag topic.created_at
-            = t('topic.reply')
-            '
+            = t('topic.create')
           - if topic.has_favorites?
-            ' &middot;
-            span
+            '  &middot;
+            span.favorite-count
               i.fa.fa-heart
-                '
-                = topic.favorites_count
+                span.count =topic.favorites_count
 

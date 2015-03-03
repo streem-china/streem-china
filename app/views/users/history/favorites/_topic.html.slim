@@ -4,20 +4,17 @@
     .lightsmall
       span
         = topic.replies_count
-        ' 回复
-      ' &middot
+        = t('topic.reply')
+      '  &middot
       span
         = timeago_tag favorite.created_at
-        ' 收藏
-        '
+        = t('favorite.name')
       - if topic.has_favorites?
-        ' &middot;
-        span
+        '  &middot;
+        span.favorite-count
           i.fa.fa-heart
-            '
-            = topic.favorites_count
-      '
-      ' &middot
+            span.count =topic.favorites_count
+      '  &middot
       span
         = link_to favorite_path(favorite), method: :delete, remote: true, data: { confirm: '确定删除该收藏?' } do
           i.fa.fa-trash

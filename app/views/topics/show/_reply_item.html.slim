@@ -3,7 +3,7 @@
     center.deleted
       p
         i
-          s = t 'reply.floor_already_deleted', floor: reply.floor
+          s =t('reply.floor_already_deleted', floor: reply.floor)
   - else
     .user-avatar
       = link_to user_path(reply.user_name) do
@@ -12,8 +12,8 @@
       .lightsmall
         span.floor
           = reply.floor
-          = t 'activerecord.attributes.reply.floor'
-        ' &middot;
+          = t('activerecord.attributes.reply.floor')
+        '  &middot;
         span
           = link_to reply.user_name, user_path(reply.user_name), class: :username
           '
@@ -29,12 +29,12 @@
     .body.markdown.small-markdown
       = raw sanitize_body_html(reply.body_html)
     .clearfix
-      .lightsmall
+      .lightsmall.right
         - if signed_in? && current_user.id.eql?(reply.user_id)
-          span.right
+          span
             = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: t('reply.are_you_sure_delete') } do
               i.fa.fa-trash
-          span.right &nbsp;
-          span.right
+          '
+          span
             = link_to edit_reply_path(reply) do
               i.fa.fa-pencil

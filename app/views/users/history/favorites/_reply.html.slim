@@ -2,22 +2,17 @@
   .reply
     = link_to reply.topic.title.truncate(40), topic_path(reply.topic), class: :title
     .lightsmall
-      span
-        = reply_link(reply)
-      '
-      ' &middot;
+      span =reply_link(reply)
+      '  &middot;
       span
         = timeago_tag favorite.created_at
         = t('favorite.name')
-        '
       - if reply.has_favorites?
-        ' &middot;
-        span
+        '  &middot;
+        span.favorite-count
           i.fa.fa-heart
-            '
-            = reply.favorites_count
-      '
-      ' &middot;
+            span.count =reply.favorites_count
+      '  &middot;
       span
         = link_to favorite_path(favorite), method: :delete, remote: true, data: { confirm: t('favorite.are_you_sure_delete') } do
           i.fa.fa-trash

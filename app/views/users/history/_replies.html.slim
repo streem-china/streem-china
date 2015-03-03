@@ -4,20 +4,15 @@ ul
       li
         = link_to reply.topic.title.truncate(40), topic_path(reply.topic), class: :title
         .lightsmall
+          span =reply_link(reply)
+          '  &middot;
           span
-            = reply_link(reply)
-          '
-          ' &middot;
-          span
-            '
             = timeago_tag reply.created_at
             = t('topic.reply')
-            '
           - if reply.has_favorites?
-            ' &middot;
-            span
+            '  &middot;
+            span.favorite-count
               i.fa.fa-heart
-                '
-                = reply.favorites_count
+                span.count =reply.favorites_count
         .body.markdown.small-markdown
           = sanitize_body_html(reply.body_html)

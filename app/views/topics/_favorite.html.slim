@@ -8,7 +8,7 @@ span
               id: "favorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
       span.counter
       i.fa.fa-heart
-        span.count = favoritable.favorites_count
+        span.count =favoritable.favorites_count
   - else
     = link_to favorites_path(favoritable_id: favoritable.id,
                              favoritable_type: favoritable.class.to_s),
@@ -18,4 +18,4 @@ span
               id: "unfavorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
       span.counter
       i.fa.fa-heart-o
-        span.count = favoritable.favorites_count
+        span.count =favoritable.favorites_count

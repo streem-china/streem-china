@@ -21,14 +21,13 @@
       .show-for-medium-up
         span
           = link_to topic.user_name, user_path(topic.user_name)
-          '
         - unless topic.has_replies?
           span
             '
             = timeago_tag topic.created_at
             = t('topic.create')
         - else
-          ' &middot;
+          '  &middot;
           span
             = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
             '

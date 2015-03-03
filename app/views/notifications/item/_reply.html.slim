@@ -6,18 +6,14 @@
     .info
       .title
         - if notification.unread?
-          span.readflag &bull;
-          '
-        = sanitize(t('notification.reply_link',
+          span.readflag &bull; 
+        = sanitize t('notification.reply_link',
                       user: link_to(reply.user_name, user_path(reply.user_name), class: :light),
                       topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),
-                   tags: %w(a))
+                   tags: %w(a)
       .lightsmall
-        span
-          = reply_link(reply)
-        '
-        ' &middot;
-        span
-          = timeago_tag reply.created_at
+        span =reply_link(reply)
+        '  &middot;
+        span =timeago_tag(reply.created_at)
     .body.markdown.small-markdown
       = sanitize_body_html(reply.body_html)

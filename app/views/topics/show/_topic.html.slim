@@ -10,31 +10,31 @@
           = link_to topic.user_name, user_path(topic.user_name), class: :username
           '
           = timeago_tag topic.created_at
-          = t 'topic.create'
+          = t('topic.create')
       .show-for-medium-up
         span
           = link_to topic.user_name, user_path(topic.user_name), class: :username
           '
           = timeago_tag topic.created_at
-          = t 'topic.create'
+          = t('topic.create')
         - if topic.has_replies?
-          ' &middot;
+          '  &middot;
           span
             = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
             '
             = timeago_tag topic.last_replied_at
-            = t 'topic.reply'
+            = t('topic.reply')
   .favorite
     = render partial: 'topics/favorite', locals: { favoritable: topic }
   .body.markdown
     = sanitize_body_html(topic.body_html)
   .clearfix
-    .lightsmall
+    .lightsmall.right
       - if signed_in? && current_user.id.eql?(topic.user_id)
-        span.right
+        span
           = link_to topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') } do
             i.fa.fa-trash
-        span.right &nbsp;
-        span.right
+        '
+        span
           = link_to edit_topic_path(topic) do
             i.fa.fa-pencil
