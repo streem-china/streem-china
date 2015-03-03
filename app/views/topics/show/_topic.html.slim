@@ -32,9 +32,9 @@
     .lightsmall.right
       - if signed_in? && current_user.id.eql?(topic.user_id)
         span
-          = link_to topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') } do
-            i.fa.fa-trash
-        '
-        span
           = link_to edit_topic_path(topic) do
             i.fa.fa-pencil
+        '
+        span
+          = link_to topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') } do
+            i.fa.fa-trash
