@@ -3,7 +3,7 @@
     center.deleted
       p
         i
-          s #{reply.floor} 楼已删除
+          s = t 'reply.floor_already_deleted', floor: reply.floor
   - else
     .user-avatar
       = link_to user_path(reply.user_name) do
@@ -12,7 +12,7 @@
       .lightsmall
         span.floor
           = reply.floor
-          ' 楼
+          = t 'activerecord.attributes.reply.floor'
         ' &middot;
         span
           = link_to reply.user_name, user_path(reply.user_name), class: :username
@@ -22,7 +22,7 @@
       .lightsmall
         span.favorite
           = render partial: 'topics/favorite', locals: { favoritable: reply }
-        span &nbsp;
+        '
         span.reply
           = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
             i.fa.fa-reply
@@ -32,7 +32,7 @@
       .lightsmall
         - if signed_in? && current_user.id.eql?(reply.user_id)
           span.right
-            = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: '确定删除该回复?' } do
+            = link_to reply_path(reply), method: :delete, remote: true, data: { confirm: t('reply.are_you_sure_delete') } do
               i.fa.fa-trash
           span.right &nbsp;
           span.right

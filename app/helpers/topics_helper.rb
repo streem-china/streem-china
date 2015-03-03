@@ -17,9 +17,11 @@ module TopicsHelper
     if reply.topic
       page = Reply.page_of_floor(reply.floor)
 
-      link_to "##{reply.floor}楼", topic_path(reply.topic, page: page, anchor: "reply-#{reply.floor}")
+      text = "##{reply.floor}#{t('activerecord.attributes.reply.floor')}"
+
+      link_to text, topic_path(reply.topic, page: page, anchor: "reply-#{reply.floor}")
     else
-      link_to "##{reply.floor}楼", '#'
+      link_to text, '#'
     end
   end
 end

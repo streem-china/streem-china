@@ -11,10 +11,7 @@ html lang='en'
     = csrf_meta_tag
 
   body
-
     = render 'layouts/application/topbar'
-
     .container
       = render 'layouts/application/flash'
-
       == yield

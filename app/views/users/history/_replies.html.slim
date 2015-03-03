@@ -11,7 +11,7 @@ ul
           span
             '
             = timeago_tag reply.created_at
-            ' 回复
+            = t('topic.reply')
             '
           - if reply.has_favorites?
             ' &middot;

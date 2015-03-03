@@ -6,6 +6,6 @@
           .icon
             i.fa.fa-github.fa-5x
           .action
-            = link_to 'Github 登陆',
+            = link_to t('sign_in_with_github'),
               user_omniauth_authorize_path(:github),
-              class: 'button', data: { disable_with: 'Github 登陆中...' }
+              class: 'button', data: { disable_with: t('signing_in_with_github') }

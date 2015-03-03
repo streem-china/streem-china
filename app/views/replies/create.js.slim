@@ -18,4 +18,4 @@
     $('#new_reply .preview').parent().removeClass('hide')
     $('#new_reply textarea').val('').trigger('autosize.resize').removeClass('hide')
     $('#reply-#{@reply.floor} time').timeago();
-    Flash.notify('success', '创建成功');
+    Flash.notify('success', '#{t("replies.created_success")}');

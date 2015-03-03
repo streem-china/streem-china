@@ -6,11 +6,11 @@ ul
         .lightsmall
           span
             = topic.replies_count
-            ' 回复
+            = t('topic.create')
           ' &middot
           span
             = timeago_tag topic.created_at
-            ' 发布
+            = t('topic.reply')
             '
           - if topic.has_favorites?
             ' &middot;

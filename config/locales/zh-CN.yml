@@ -5,3 +5,42 @@ zh-CN:
   date:
     formats:
       default: "%Y-%m-%d"
+  sign_in: 登陆
+  sign_out: 登出
+  sign_in_first: 请先登陆
+  sign_in_with_github: Github 登陆
+  signing_in_with_github: Github 登陆中...
+  notification:
+    name: 消息
+    notification_center: 消息中心
+    reply_link: "%{user} 在主题 %{topic} 中回复了你"
+    mention/topic_link: "%{user} 在主题 %{topic} 中提到了你"
+    mention/reply_link: "%{user} 在回复主题 %{topic} 时提到了你"
+  favorite:
+    name: 收藏
+    are_you_sure_delete: 确定删除该收藏?
+    deleted_success: 删除成功
+  topic:
+    create: 发布
+    reply: 回复
+    new_button: 发布新帖
+    submit: 提交
+    submiting: 提交中...
+    are_you_sure_delete: 确定删除该帖?
+    created_success: 创建成功
+    updated_success: 更新成功
+    deleted_success: 删除成功
+  reply:
+    submit: 提交
+    submiting: 提交中...
+    are_you_sure_delete: 确定删除该回复?
+    created_success: 创建成功
+    updated_success: 更新成功
+    deleted_success: 删除成功
+    floor_already_deleted: "%{floor} 楼已删除"
+  user:
+    latest_topics: 最近发帖
+    latest_replies: 最近回复
+    my_favorites: 我的收藏
+    number_label: "第 %{number} 号会员"
+    joined_time_label: "于 %{time} 加入"

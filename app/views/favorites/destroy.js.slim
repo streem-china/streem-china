@@ -1,7 +1,7 @@
 - if params[:id]
   |
     $('#favorite-#{@favorite.id}').fadeOut()
-    Flash.notify('success', '删除成功');
+    Flash.notify('success', "#{t('favorite.deleted_success')}");
 - else
   |
     favoritable = '#{@favorite.favoritable.class.name.underscore}'
@@ -13,4 +13,3 @@
     link.find('.counter').text('-1').fadeIn('slow').fadeOut('slow')
     link.find('i .count').text(count - 1)
     link.attr('id', 'unfavorited-' + favoritable + '-' + favoritable_id)
-

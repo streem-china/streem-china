@@ -23,10 +23,10 @@
               - else
                 span.label.secondary.notifications-count = current_user.unread_notifications_count
               '
-              ' 消息
+              = t('notification.name')
           li.divider
           li
-            = link_to '退出', destroy_user_session_path
+            = link_to t('sign_out'), destroy_user_session_path
         - else
           li
-            = link_to '登陆', new_user_session_path
+            = link_to t('sign_in'), new_user_session_path

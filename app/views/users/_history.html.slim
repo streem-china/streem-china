@@ -1,12 +1,12 @@
 .user-history
   ul.tabs data-tab = ''
     li.tab-title.active
-      a href='#topics' 最近发帖
+      a href='#topics' =t('user.latest_topics')
     li.tab-title
-      a href='#replies' 最近回复
+      a href='#replies' =t('user.latest_replies')
     - if current_user.eql?(user)
       li.tab-title
-        a href='#favorites' 我的收藏
+        a href='#favorites' =t('user.my_favorites')
   .tabs-content
     .content.active#topics
       = render partial: 'users/history/topics', locals: { topics: topics }

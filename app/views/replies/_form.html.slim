@@ -13,6 +13,6 @@
             = link_to '#', id: 'image-upload' do
               i.fa.fa-image
               input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
-    = f.text_area :body, placeholder: '内容', size: 'x20'
+    = f.text_area :body, placeholder: t('activerecord.attributes.reply.body'), size: 'x20'
     .clearfix
-      = f.submit '提交', class: 'button small right', data: { disable_with: '提交中...' }
+      = f.submit t('reply.submit'), class: 'button small right', data: { disable_with: t('reply.submiting') }

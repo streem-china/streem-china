@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.new(topic_params)
 
     if @topic.save
-      flash[:success] = '发布成功'
+      flash[:success] = t('topics.created_success')
 
       redirect_to topics_path
     else
@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.find(params[:id])
 
     if @topic.update_attributes(topic_params)
-      flash[:success] = '更新成功'
+      flash[:success] = t('topics.updated_success')
 
       redirect_to topic_path(@topic)
     else
@@ -52,7 +52,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic = current_user.topics.find(params[:id]).destroy
 
-    flash[:success] = '删除成功'
+    flash[:success] = t('topics.deleted_success')
 
     redirect_to topics_path
   end

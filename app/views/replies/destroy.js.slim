@@ -1,5 +1,5 @@
 |
-  center = '<center class="deleted"><p><i><s> #{@reply.floor} 楼已删除</s></i></p></center>';
+  center = '<center class="deleted"><p><i><s> #{t("floor_already_deleted", floor: @reply.floor)}</s></i></p></center>';
   $("#reply-#{@reply.floor}").html(center);
-  Flash.notify('success', '删除成功');
+  Flash.notify('success', '#{t("replies.deleted_success")}');
 

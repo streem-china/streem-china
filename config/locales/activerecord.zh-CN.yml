@@ -1,5 +1,15 @@
 zh-CN:
   activerecord:
+    models:
+      notification: 消息
+    attributes:
+      topic:
+        title: 标题
+        body: 内容
+      reply:
+        body: 内容
+        floor: 楼
+
     errors:
       models:
         topic:
@@ -12,10 +22,3 @@ zh-CN:
           attributes:
             body:
               blank: 不能为空
-    attributes:
-      topic:
-        title: 标题
-        body: 内容
-      reply:
-        body: 内容
-

@@ -8,12 +8,8 @@
         .info
           = link_to @user.name, user_path(@user.name), class: 'name'
           .lightsmall
-            span 第 #{@user.id} 号会员,
-            span
-              '
-              ' 于
-              = timeago_tag @user.created_at
-              '
-              ' 加入
+            span = t('user.number_label', number: @user.id)
+            ' ,
+            span = sanitize(t('user.joined_time_label', time: timeago_tag(@user.created_at)), tags: %w(time))
     .box
       = render partial: 'history', locals: { user: @user, topics: @topics, replies: @replies, favorites: @favorites }

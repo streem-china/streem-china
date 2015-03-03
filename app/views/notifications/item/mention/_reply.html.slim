@@ -1,13 +1,11 @@
 .title
   - if notification.unread?
     span.readflag &bull;&nbsp;
-  '
-  = link_to reply.user_name, user_path(reply.user_name), class: :light
-  '
-  ' 在回复主题
-  = link_to reply.topic.title.truncate(30), topic_path(reply.topic)
-  '
-  ' 时提到了你
+    '
+  = sanitize(t('notification.mention/reply_link',
+                user: link_to(reply.user_name, user_path(reply.user_name), class: :light),
+                topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),
+             tags: %w(a))
   .lightsmall
     span
       = reply_link(reply)
