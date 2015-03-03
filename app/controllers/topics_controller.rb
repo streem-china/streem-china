@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.new(topic_params)
 
     if @topic.save
-      flash[:success] = t('topics.created_success')
+      flash[:success] = t('topic.created_success')
 
       redirect_to topics_path
     else
@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.find(params[:id])
 
     if @topic.update_attributes(topic_params)
-      flash[:success] = t('topics.updated_success')
+      flash[:success] = t('topic.updated_success')
 
       redirect_to topic_path(@topic)
     else
