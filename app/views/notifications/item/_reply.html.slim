@@ -6,7 +6,7 @@
     .info
       .title
         - if notification.unread?
-          span.readflag &bull; 
+          span.readflag &bull;&nbsp;
         = sanitize t('notification.reply_link',
                       user: link_to(reply.user_name, user_path(reply.user_name), class: :light),
                       topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),

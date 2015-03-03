@@ -3,8 +3,7 @@
     .box
       h5 =t('notification.notification_center')
       .notifications
-        ul
-          - @notifications.each do |notification|
-            = render partial: 'item', locals: { notification: notification }
+        - @notifications.each do |notification|
+          = render partial: 'item', locals: { notification: notification }
       .clearfix
         = will_paginate @notifications, renderer: FoundationPagination::Rails

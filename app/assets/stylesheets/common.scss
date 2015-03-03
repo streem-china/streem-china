@@ -29,17 +29,31 @@
   opacity: 0.9;
   z-index: 9999;
 }
+
 .box {
   background-color: white;
-  padding: 0.9375rem;
+  padding: 1rem;
   border: 1px solid #e9e9e9;
   margin: 1rem 0;
+}
+
+.item {
+  &:first-child {
+    margin-top: 0rem !important;
+  }
+
+  &:last-child {
+    margin-bottom: 0rem !important;
+  }
 }
 
 ul.pagination {
   margin-top: 1.5rem;
 
   li {
+    &:first-child {
+      margin-left: 0rem;
+    }
     a {
       font-size: 0.8rem;
       padding: 0.0625rem 0.425rem 0.0625rem;

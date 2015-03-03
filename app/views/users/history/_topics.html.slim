@@ -1,19 +1,17 @@
-ul
-  - topics.each do |topic|
-    .item
-      li
-        = link_to topic.title.truncate(40), topic_path(topic), class: :title
-        .lightsmall
-          span
-            = topic.replies_count
-            = t('topic.reply')
-          '  &middot
-          span
-            = timeago_tag topic.created_at
-            = t('topic.create')
-          - if topic.has_favorites?
-            '  &middot;
-            span.favorite-count
-              i.fa.fa-heart
-                span.count =topic.favorites_count
+- topics.each do |topic|
+  .item
+    = link_to topic.title.truncate(40), topic_path(topic), class: :title
+    .lightsmall
+      span
+        = topic.replies_count
+        = t('topic.reply')
+      '  &middot
+      span
+        = timeago_tag topic.created_at
+        = t('topic.create')
+      - if topic.has_favorites?
+        '  &middot;
+        span.favorite-count
+          i.fa.fa-heart
+            span.count =topic.favorites_count
 

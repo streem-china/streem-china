@@ -1,15 +1,6 @@
 .row.small-collapse.medium-uncollapse.large-uncollapse
   .small-12.medium-9.large-9.columns
     .box
-      .user
-        .avatar
-          = link_to user_path(@user.name) do
-            = image_tag @user.avatar
-        .info
-          = link_to @user.name, user_path(@user.name), class: 'name'
-          .lightsmall
-            span =t('user.number_label', number: @user.id)
-            ' ,
-            span =sanitize(t('user.joined_time_label', time: timeago_tag(@user.created_at)), tags: %w(time))
+      = render partial: 'user', locals: { user: @user }
     .box
       = render partial: 'history', locals: { user: @user, topics: @topics, replies: @replies, favorites: @favorites }
