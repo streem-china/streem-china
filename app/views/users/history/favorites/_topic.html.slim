@@ -1,22 +1,21 @@
-- favorite.favoritable.tap do |topic|
-  .topic
-    = link_to topic.title.truncate(40), topic_path(topic), class: :title
-    .lightsmall
-      span
-        = topic.replies_count
-        = t('topic.reply')
-      '  &middot
-      span
-        = timeago_tag favorite.created_at
-        = t('favorite.name')
-      - if topic.has_favorites?
-        '  &middot;
-        span.favorite-count
-          i.fa.fa-heart
-            span.count =topic.favorites_count
-      '  &middot
-      span
-        = link_to favorite_path(favorite), method: :delete, remote: true, data: { confirm: '确定删除该收藏?' } do
-          i.fa.fa-trash
-    .body.markdown.small-markdown
-      = sanitize_body_html(topic.body_html)
+.topic
+  = link_to topic.title.truncate(40), topic_path(topic), class: :title
+  .lightsmall
+    span
+      = topic.replies_count
+      = t('topic.reply')
+    '  &middot
+    span
+      = timeago_tag favorite.created_at
+      = t('favorite.name')
+    - if topic.has_favorites?
+      '  &middot;
+      span.favorite-count
+        i.fa.fa-heart
+          span.count =topic.favorites_count
+    '  &middot
+    span
+      = link_to favorite_path(favorite), method: :delete, remote: true, data: { confirm: '确定删除该收藏?' } do
+        i.fa.fa-trash
+  .body.markdown.small-markdown
+    = sanitize_body_html(topic.body_html)

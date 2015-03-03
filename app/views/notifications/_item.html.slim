@@ -1,6 +1,6 @@
 .item
   - case notification
   - when Notification::Reply
-    = render partial: 'notifications/item/reply', locals: { notification: notification }
+    = render partial: 'notifications/item/reply', locals: { notification: notification, reply: notification.reply }
   - when Notification::Mention
-    = render partial: 'notifications/item/mention', locals: { notification: notification }
+    = render partial: 'notifications/item/mention', locals: { notification: notification, mention: notification.mention }

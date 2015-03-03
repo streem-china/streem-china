@@ -1,21 +1,20 @@
-span
-  - if signed_in? && favoritable.favorited_by?(current_user)
-    = link_to favorites_path(favoritable_id: favoritable.id,
-                             favoritable_type: favoritable.class.name),
-              class: :favorited,
-              method: :delete,
-              remote: true,
-              id: "favorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
-      span.counter
-      i.fa.fa-heart
-        span.count =favoritable.favorites_count
-  - else
-    = link_to favorites_path(favoritable_id: favoritable.id,
-                             favoritable_type: favoritable.class.to_s),
-              class: :unfavorited,
-              method: :post,
-              remote: true,
-              id: "unfavorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
-      span.counter
-      i.fa.fa-heart-o
-        span.count =favoritable.favorites_count
+- if signed_in? && favoritable.favorited_by?(current_user)
+  = link_to favorites_path(favoritable_id: favoritable.id,
+                           favoritable_type: favoritable.class.name),
+            class: :favorited,
+            method: :delete,
+            remote: true,
+            id: "favorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
+    span.counter
+    i.fa.fa-heart
+      span.count =favoritable.favorites_count
+- else
+  = link_to favorites_path(favoritable_id: favoritable.id,
+                           favoritable_type: favoritable.class.to_s),
+            class: :unfavorited,
+            method: :post,
+            remote: true,
+            id: "unfavorited-#{favoritable.class.name.underscore}-#{favoritable.id}" do
+    span.counter
+    i.fa.fa-heart-o
+      span.count =favoritable.favorites_count

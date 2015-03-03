@@ -2,6 +2,6 @@
   .item id="favorite-#{favorite.id}"
     - case favorite.favoritable
     - when Topic
-      = render partial: 'users/history/favorites/topic', locals: { favorite: favorite }
+      = render partial: 'users/history/favorites/topic', locals: { topic: favorite.favoritable }
     - when Reply
-      = render partial: 'users/history/favorites/reply', locals: { favorite: favorite }
+      = render partial: 'users/history/favorites/reply', locals: { reply: favorite.favoritable }
