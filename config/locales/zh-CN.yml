@@ -10,6 +10,10 @@ zh-CN:
   sign_in_first: 请先登陆
   sign_in_with_github: Github 登陆
   signing_in_with_github: Github 登陆中...
+  tip:
+    name: 小贴士
+  node:
+    name: 节点
   notification:
     name: 消息
     notification_center: 消息中心
@@ -21,6 +25,7 @@ zh-CN:
     are_you_sure_delete: 确定删除该收藏?
     deleted_success: 删除成功
   topic:
+    name: 主题
     create: 发布
     reply: 回复
     new_button: 发布新帖
@@ -31,6 +36,7 @@ zh-CN:
     updated_success: 更新成功
     deleted_success: 删除成功
   reply:
+    name: 回复
     submit: 提交
     submiting: 提交中...
     are_you_sure_delete: 确定删除该回复?

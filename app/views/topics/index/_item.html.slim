@@ -6,6 +6,9 @@
     = link_to topic.title.truncate(50), topic_path(topic), class: 'title'
     .lightsmall
       .show-for-small-only
+        span
+          = link_to topic.node.name, topics_path(node: topic.node.name)
+        '  &middot;
         - if topic.has_replies?
           span
             = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
@@ -19,6 +22,9 @@
             = timeago_tag topic.created_at
             = t('topic.create')
       .show-for-medium-up
+        span
+          = link_to topic.node.name, topics_path(node: topic.node.name)
+        '  &middot;
         span
           = link_to topic.user_name, user_path(topic.user_name)
         - unless topic.has_replies?

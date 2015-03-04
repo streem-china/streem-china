@@ -2,11 +2,21 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @topics = Topic.without_body.order('actived_at desc').paginate(page: params[:page])
+    @topics = Topic.without_body.order('actived_at desc')
+
+    if params[:node]
+      @node = Node.find_by_name(params[:node])
+
+      @topics = @topics.where(node_id: @node.id)
+    end
+
+    @topics = @topics.paginate(page: params[:page])
   end
 
   def new
-    @topic = Topic.new
+    node = Node.find_by_name(params[:node]) if params[:node]
+
+    @topic = Topic.new(node: node)
   end
 
   def create
@@ -60,6 +70,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:title, :body)
+    params.require(:topic).permit(:title, :body, :node_id)
   end
 end

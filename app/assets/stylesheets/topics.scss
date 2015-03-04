@@ -105,3 +105,28 @@
     }
   }
 }
+
+.node-box {
+  .node-label {
+    margin: 0.2rem;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  .info:hover {
+    background-color: #008cba;
+    color: white;
+  }
+}
+
+.tip-box {
+  p {
+    margin-bottom: 0rem;
+  }
+}
+
+.state-box {
+  ul {
+    margin-bottom: 0rem;
+  }
+}

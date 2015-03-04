@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213162308) do
+ActiveRecord::Schema.define(version: 20150303124348) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20150213162308) do
   end
 
   add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true
+
+  create_table "nodes", force: :cascade do |t|
+    t.string  "name"
+    t.integer "topics_count", default: 0
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id",                    null: false
@@ -88,6 +93,7 @@ ActiveRecord::Schema.define(version: 20150213162308) do
     t.string   "user_name"
     t.string   "user_avatar"
     t.integer  "favorites_count",        default: 0
+    t.integer  "node_id",                default: 1
   end
 
   add_index "topics", ["actived_at"], name: "index_topics_on_actived_at"

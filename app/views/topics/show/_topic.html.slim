@@ -7,11 +7,17 @@
     .lightsmall
       .show-for-small-only
         span
+          = link_to topic.node.name, topics_path(node: topic.node.name)
+        '  &middot;
+        span
           = link_to topic.user_name, user_path(topic.user_name), class: :username
           '
           = timeago_tag topic.created_at
           = t('topic.create')
       .show-for-medium-up
+        span
+          = link_to topic.node.name, topics_path(node: topic.node.name)
+        '  &middot;
         span
           = link_to topic.user_name, user_path(topic.user_name), class: :username
           '
