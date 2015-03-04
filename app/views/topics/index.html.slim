@@ -1,12 +1,6 @@
 .row.small-collapse.medium-uncollapse.large-uncollapse
   .small-12.medium-12.large-8.columns
     .box
-      - if @node
-        ul.breadcrumbs
-          li
-            = link_to '社区', topics_path
-          li.current
-            = link_to @node.name, '#'
       .clearfix
         = link_to t('topic.new_button'), new_topic_path(node: @node.try(:name)), { class: 'button small right' }
       .topics
