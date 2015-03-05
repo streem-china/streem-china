@@ -1,8 +1,8 @@
 .title
   - if notification.unread?
     span.readflag &bull;&nbsp;
-  = sanitize(t('notification.mention/topic_link',
-                user: link_to(topic.user_name, user_path(topic.user_name), class: :light),
+  = sanitize(t('notification.favorite/topic_link',
+                user: link_to(favorite.user.name, user_path(favorite.user.name), class: :light),
                 topic: link_to(topic.title.truncate(30), topic_path(topic))),
              tags: %w(a))
   .lightsmall

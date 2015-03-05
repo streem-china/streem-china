@@ -13,6 +13,6 @@
     .lightsmall
       span =reply_link(reply)
       '  &middot;
-      span =timeago_tag(reply.created_at)
+      span =timeago_tag(notification.created_at)
   .body.markdown.small-markdown
     = sanitize_body_html(reply.body_html)

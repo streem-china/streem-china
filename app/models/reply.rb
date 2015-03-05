@@ -21,7 +21,7 @@ class Reply < ActiveRecord::Base
   before_validation :set_attributes_beofre_validation_on_create, on: :create
   after_create :update_user_read_topic_after_create,
     :update_topic_attributes_after_create,
-    :create_reply_notification_after_create
+    :create_notification_after_create
 
   def has_favorites?
     !favorites_count.zero?
@@ -56,7 +56,7 @@ class Reply < ActiveRecord::Base
     )
   end
 
-  def create_reply_notification_after_create
+  def create_notification_after_create
     unless user_id.eql?(topic.user_id)
       create_notification(user_id: topic.user_id)
     end

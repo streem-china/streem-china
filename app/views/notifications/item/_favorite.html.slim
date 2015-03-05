@@ -1,0 +1,16 @@
+.mention
+  .user-avatar
+    = link_to user_path(favorite.favoritable) do
+      = image_tag favorite.favoritable.user_avatar
+  .info
+    - case favorite.favoritable
+    - when Topic
+      = render partial: 'notifications/item/favorite/topic',
+               locals: { notification: notification,
+                         favorite: favorite,
+                         topic: favorite.favoritable }
+    - when Reply
+      = render partial: 'notifications/item/favorite/reply',
+               locals: { notification: notification,
+                         favorite: favorite,
+                         reply: favorite.favoritable }

@@ -20,6 +20,8 @@ zh-CN:
     reply_link: "%{user} 在主题 %{topic} 中回复了你"
     mention/topic_link: "%{user} 在主题 %{topic} 中提到了你"
     mention/reply_link: "%{user} 在回复主题 %{topic} 时提到了你"
+    favorite/topic_link: "%{user} 喜欢你的主题 %{topic}"
+    favorite/reply_link: "%{user} 喜欢你在主题 %{topic} 中的回复"
   favorite:
     name: 收藏
     are_you_sure_delete: 确定删除该收藏?
@@ -28,7 +30,7 @@ zh-CN:
     name: 主题
     create: 发布
     reply: 回复
-    new_button: 发布新帖
+    new_button: 发布主题
     submit: 提交
     submiting: 提交中...
     are_you_sure_delete: 确定删除该帖?

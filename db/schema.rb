@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303124348) do
+ActiveRecord::Schema.define(version: 20150305064948) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -49,11 +49,14 @@ ActiveRecord::Schema.define(version: 20150303124348) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "user_id",                    null: false
-    t.integer "reply_id"
-    t.integer "mention_id"
-    t.string  "type",                       null: false
-    t.boolean "read",       default: false
+    t.integer  "user_id",                     null: false
+    t.integer  "reply_id"
+    t.integer  "mention_id"
+    t.string   "type",                        null: false
+    t.boolean  "read",        default: false
+    t.integer  "favorite_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
