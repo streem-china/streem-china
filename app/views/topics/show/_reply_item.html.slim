@@ -18,7 +18,7 @@
         '
         = timeago_tag reply.created_at
     .tools.lightsmall
-      .container
+      .wrapper
         span.reply
           = link_to '#', data: { reply_floor: reply.floor, reply_user_name: reply.user_name } do
             i.fa.fa-reply

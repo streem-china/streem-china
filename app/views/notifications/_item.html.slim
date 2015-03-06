@@ -12,3 +12,7 @@
     = render partial: 'notifications/item/favorite',
              locals: { notification: notification,
                        favorite: notification.favorite }
+  - when Notification::FavoritedReply
+    = render partial: 'notifications/item/favorited_reply',
+             locals: { notification: notification,
+                       reply: notification.reply }

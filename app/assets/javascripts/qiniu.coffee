@@ -2,7 +2,7 @@ $(document).on 'ready page:load', ->
   if $('#image-upload').length
     domain = $('.image-upload-input').data('qiniu_domain')
 
-    Qiniu.uploader({
+    Qiniu.uploader(
       runtimes: 'html5,flash,html4',
       browse_button: 'image-upload',
       uptoken_url: '/qiniu/uptoken',
@@ -10,7 +10,7 @@ $(document).on 'ready page:load', ->
       domain: domain,
       chunk_size: '4mb',
       auto_start: true,
-      init: {
+      init:
         FilesAdded: (up, files) ->
           plupload.each files, (file) ->
         BeforeUpload: (up, file) ->
@@ -27,5 +27,4 @@ $(document).on 'ready page:load', ->
           $('#image-upload i').text('')
         Key: (up, file) ->
           md5(Date.now())
-      }
-  })
+  )

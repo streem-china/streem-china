@@ -17,11 +17,12 @@ zh-CN:
   notification:
     name: 消息
     notification_center: 消息中心
-    reply_link: "%{user} 在主题 %{topic} 中回复了你"
+    reply_link: "%{user} 回复了你的主题 %{topic}"
+    favorited_reply_link: "你收藏的主题 %{topic} 有了新的回复"
     mention/topic_link: "%{user} 在主题 %{topic} 中提到了你"
     mention/reply_link: "%{user} 在回复主题 %{topic} 时提到了你"
-    favorite/topic_link: "%{user} 喜欢你的主题 %{topic}"
-    favorite/reply_link: "%{user} 喜欢你在主题 %{topic} 中的回复"
+    favorite/topic_link: "%{user} 喜欢了你的主题 %{topic}"
+    favorite/reply_link: "%{user} 喜欢了你在主题 %{topic} 中的回复"
   favorite:
     name: 收藏
     are_you_sure_delete: 确定删除该收藏?

@@ -10,6 +10,7 @@ class Reply < ActiveRecord::Base
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :mentions, as: :mentionable, dependent: :destroy
   has_one :notification, class_name: 'Notification::Reply', dependent: :destroy
+  has_many :favorited_reply_notifications, class_name: 'Notification::FavoritedReply', dependent: :destroy
 
   validates :user_id, presence: true
   validates :user_name, presence: true
@@ -21,7 +22,7 @@ class Reply < ActiveRecord::Base
   before_validation :set_attributes_beofre_validation_on_create, on: :create
   after_create :update_user_read_topic_after_create,
     :update_topic_attributes_after_create,
-    :create_notification_after_create
+    :create_notifications_after_create
 
   def has_favorites?
     !favorites_count.zero?
@@ -56,9 +57,15 @@ class Reply < ActiveRecord::Base
     )
   end
 
-  def create_notification_after_create
+  def create_notifications_after_create
     unless user_id.eql?(topic.user_id)
       create_notification(user_id: topic.user_id)
+    end
+
+    topic.favorites.each do |favorite|
+      unless [topic.user_id, user_id].include?(favorite.user_id)
+        favorited_reply_notifications.create(user_id: favorite.user_id)
+      end
     end
   end
 end
