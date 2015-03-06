@@ -4,7 +4,7 @@
       = image_tag topic.user_avatar
   .info
     = link_to topic.title.truncate(50), topic_path(topic), class: 'title'
-    .lightsmall
+    .tips.lightsmall
       .show-for-small-only
         span
           = link_to topic.node.name, topics_path(node: topic.node.name)

@@ -13,8 +13,8 @@
 
       a {
         display: block;
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
 
         img {
           width: 2.5rem;
@@ -25,35 +25,18 @@
     .info {
       display: table-cell;
       width: 100%;
-      vertical-align: top;
-
-      .title {
-        word-break: break-all;
-        font-size: 1.2rem;
-      }
-    }
-
-    .body {
-      margin-left: 3rem;
-      margin-top: -1rem;
-      margin-bottom: 1rem;
-    }
-
-    .deleted {
-      p {
-        margin: 0rem auto;
-        font-size: 0.8rem;
-        color: #666666;
-      }
+      line-height: 1;
+      padding-left: 0.5rem;
     }
 
     .tools {
       display: table-cell;
       vertical-align: top;
+      line-height: 1;
 
-      .lightsmall {
-        text-align: right;
+      .container {
         width: 3rem;
+        text-align: right;
       }
 
       .favorite {
@@ -85,8 +68,19 @@
         }
       }
     }
-  }
-}
 
-.reply-form {
+    .body {
+      margin-left: 3rem;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    .deleted {
+      p {
+        margin: 0rem auto;
+        font-size: 0.8rem;
+        color: #666666;
+      }
+    }
+  }
 }

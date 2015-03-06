@@ -5,8 +5,8 @@
 
     a {
       display: block;
-      width: 4rem;
-      height: 4rem;
+      width: 3rem;
+      height: 3rem;
 
       img {
         width: 3rem;
@@ -15,6 +15,7 @@
   }
 
   .info {
+    padding-left: 1rem;
     display: table-cell;
     vertical-align: top;
     width: 100%;

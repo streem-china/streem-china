@@ -7,13 +7,14 @@
     word-break: break-all;
 
     .user-avatar {
+      padding-top: 0.3rem;
       display: table-cell;
       vertical-align: top;
 
       a {
         display: block;
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
 
         img {
           width: 2.5rem;
@@ -23,8 +24,9 @@
 
     .info {
       display: table-cell;
-      vertical-align: top;
+      padding-left: 0.5rem;
       width: 100%;
+      line-height: 150%;
     }
 
     .readflag {

@@ -3,13 +3,13 @@
     margin: 1.5rem 0rem;
 
     .user-avatar {
-      display: table-cell;
       vertical-align: top;
+      display: table-cell;
 
       a {
         display: block;
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
 
         img {
           width: 3rem;
@@ -18,13 +18,14 @@
     }
 
     .info {
+      vertical-align: top;
       display: table-cell;
+      padding-left: 1rem;
+      line-height: 150%;
       width: 100%;
 
       .title {
-        vertical-align: top;
         word-break: break-all;
-        line-height: 1;
         font-size: 1.1rem;
       }
     }
@@ -32,11 +33,9 @@
     .replies-count {
       display: table-cell;
       padding-left: 1rem;
-      vertical-align: top;
 
       a {
         color: white;
-        display: block;
       }
     }
   }
@@ -49,8 +48,8 @@
 
     a {
       display: block;
-      width: 4rem;
-      height: 4rem;
+      width: 3rem;
+      height: 3rem;
 
       img {
         width: 3rem;
@@ -59,18 +58,18 @@
   }
 
   .body {
+    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
   .info {
     display: table-cell;
-    vertical-align: top;
+    padding-left: 1rem;
     width: 100%;
+    line-height: 150%;
 
     .title {
-      vertical-align: top;
       word-break: break-all;
-      line-height: 1;
       font-size: 1.1rem;
     }
   }
@@ -85,7 +84,6 @@
       position: relative;
       left: 1.0rem;
       top: -1.5rem;
-      display: none;
     }
 
     i {

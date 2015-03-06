@@ -5,8 +5,8 @@
                 user: link_to(favorite.user.name, user_path(favorite.user.name), class: :light),
                 topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),
              tags: %w(a))
-  .lightsmall
-    span =reply_link(reply)
-    '  &middot;
-    span =timeago_tag(notification.created_at)
+.tips.lightsmall
+  span =reply_link(reply)
+  '  &middot;
+  span =timeago_tag(notification.created_at)
 

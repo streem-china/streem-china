@@ -1,6 +1,6 @@
 .mention
   .user-avatar
-    = link_to user_path(favorite.favoritable) do
+    = link_to user_path(favorite.favoritable.user_name) do
       = image_tag favorite.favoritable.user_avatar
   .info
     - case favorite.favoritable
