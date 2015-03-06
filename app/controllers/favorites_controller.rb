@@ -17,7 +17,10 @@ class FavoritesController < ApplicationController
         favoritable_type: params[:favoritable_type]
       ).first
     end
-
-    @favorite.destroy if @favorite
+    if @favorite
+      @favorite.destroy
+    else
+      head :not_found
+    end
   end
 end
