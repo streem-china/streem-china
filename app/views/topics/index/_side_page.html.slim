@@ -4,7 +4,7 @@
     - Node.all.each do |node|
       = link_to topics_path(node: node.name) do
         - if node.eql?(@node)
-          span.label.node-label =node.name
+          span.secondary.node-label =node.name
         - else
           span.info.label.node-label =node.name
 
