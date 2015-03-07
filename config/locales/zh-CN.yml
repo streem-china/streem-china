@@ -35,6 +35,7 @@ zh-CN:
     submit: 提交
     submiting: 提交中...
     are_you_sure_delete: 确定删除该帖?
+    choose_a_node: 请选择节点
     created_success: 创建成功
     updated_success: 更新成功
     deleted_success: 删除成功

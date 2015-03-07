@@ -1,6 +1,6 @@
 .topic-form
   = form_for topic do |f|
-    = f.select :node_id, Node.all.map { |n| [n.name, n.id] }, class: :left
+    = f.select :node_id, Node.all.map { |n| [n.name, n.id] }, class: :left, prompt: t('topic.choose_a_node')
     = f.text_field :title, placeholder: t('activerecord.attributes.topic.title'), class: :right
     .clearfix
       .lightsmall
