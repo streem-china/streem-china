@@ -4,6 +4,7 @@ zh-CN:
       notification: 消息
     attributes:
       topic:
+        node_id: 节点
         title: 标题
         body: 内容
       reply:
@@ -14,6 +15,8 @@ zh-CN:
       models:
         topic:
           attributes:
+            node_id:
+              blank: 不能为空
             title:
               blank: 不能为空
             body:
