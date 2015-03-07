@@ -19,7 +19,7 @@ $(document).on 'ready page:load', ->
           $('#image-upload i').text(' ' + file.percent + '%')
         FileUploaded: (up, file, info) ->
           reply_textarea = $('#image-upload').parents('form').find('textarea')
-          new_value = reply_textarea.val() + '![](' + domain + JSON.parse(info).key + ')\n'
+          new_value = reply_textarea.val() + '![](' + domain + JSON.parse(info).key + '?imageView/2/w/600)\n'
           reply_textarea.val(new_value).focus().trigger('autosize.resize')
         Error: (up, err, errTip) ->
           console.log(err)
