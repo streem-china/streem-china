@@ -5,7 +5,7 @@
   .info
     = link_to @user.name, user_path(@user.name), class: :username
     .tips
-      span =t('user.number_label', number: @user.id)
+      = t('user.number_label', number: @user.id)
       ' ,
-      span =sanitize(t('user.joined_time_label', time: timeago_tag(@user.created_at)), tags: %w(time))
+      = sanitize(t('user.joined_time_label', time: timeago_tag(@user.created_at)), tags: %w(time))
 
