@@ -1,4 +1,4 @@
-.item id="reply-#{reply.floor}"
+.item id="reply-#{reply.floor}" data-reply-floor="#{reply.floor}" data-reply-id="#{reply.id}"
   - if reply.deleted?
     .deleted =t('reply.floor_already_deleted', floor: reply.floor)
   - else
@@ -32,5 +32,5 @@
               = link_to edit_reply_path(reply) do
                 i.fa.fa-pencil
             '
-            i.fa.fa-trash
+            i.fa.fa-trash.delete
 

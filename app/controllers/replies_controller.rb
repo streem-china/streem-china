@@ -13,6 +13,8 @@ class RepliesController < ApplicationController
 
   def destroy
     @reply = current_user.replies.find(params[:id]).destroy
+
+    head :no_content
   end
 
   def update

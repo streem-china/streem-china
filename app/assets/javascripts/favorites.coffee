@@ -1,13 +1,13 @@
 class Favorite
   @favorite: (favoritable_id, favoritable_type) ->
-    $.ajax '/favorites',
+    $.ajax '/favorites.js',
       method: 'post'
       data:
         favoritable_id: favoritable_id,
         favoritable_type: favoritable_type
 
   @unfavorite: (favoritable_id, favoritable_type) ->
-    $.ajax '/favorites',
+    $.ajax '/favorites.js',
       method: 'delete'
       data:
         favoritable_id: favoritable_id,
@@ -44,8 +44,7 @@ $(document).on 'ready page:load', ->
     if result
       favoritable_id = $(this).data('favoritable-id')
       favoritable_type = $(this).data('favoritable-type')
-
-      Favorite.unfavorite(favoritable_id, favoritable_type)
-
       $(this).parents('.item').fadeOut 300, ->
         $(this).remove()
+
+      Favorite.unfavorite(favoritable_id, favoritable_type)
