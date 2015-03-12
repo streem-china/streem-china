@@ -6,6 +6,8 @@ class FavoritesController < ApplicationController
       favoritable_id: params[:favoritable_id],
       favoritable_type: params[:favoritable_type]
     )
+
+    head :created
   end
 
   def destroy
@@ -19,6 +21,8 @@ class FavoritesController < ApplicationController
     end
     if @favorite
       @favorite.destroy
+
+      head :no_content
     else
       head :not_found
     end

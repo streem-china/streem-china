@@ -1,46 +1,32 @@
 .topic
-  .user-avatar
+  .avatar
     = link_to user_path(topic.user_name) do
       = image_tag topic.user_avatar
   .info
-    = link_to topic.title, topic_path(topic), class: :title
-    .tips.lightsmall
-      .show-for-small-only
-        span
-          = link_to topic.node.name, topics_path(node: topic.node.name)
-        '  &middot;
-        span
-          = link_to topic.user_name, user_path(topic.user_name), class: :username
-          '
-          = timeago_tag topic.created_at
-          = t('topic.create')
-      .show-for-medium-up
-        span
-          = link_to topic.node.name, topics_path(node: topic.node.name)
-        '  &middot;
-        span
-          = link_to topic.user_name, user_path(topic.user_name), class: :username
-          '
-          = timeago_tag topic.created_at
-          = t('topic.create')
-        - if topic.has_replies?
-          '  &middot;
-          span
-            = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
-            '
-            = timeago_tag topic.last_replied_at
-            = t('topic.reply')
+    = link_to topic.title, topic_path(topic)
+    .tips
+      = link_to topic.node.name, topics_path(node: topic.node.name)
+      '  &middot;
+      span
+        = link_to topic.user_name, user_path(topic.user_name), class: :username
+        '
+        = timeago_tag topic.created_at
+        = t('topic.create')
   .favorite
-    = render partial: 'topics/favorite', locals: { favoritable: topic }
-  .body.markdown
+    - if signed_in? && topic.favorited_by?(current_user)
+      i.favorited.fa.fa-heart data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+        span.count =topic.favorites_count
+    - else
+      i.unfavorited.fa.fa-heart-o data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+        span.count =topic.favorites_count
+  .body
     = sanitize_body_html(topic.body_html)
-  .clearfix
-    .lightsmall.right
-      - if signed_in? && current_user.id.eql?(topic.user_id)
-        span
+  .admin
+    .clearfix
+      .right
+        - if signed_in? && current_user.id.eql?(topic.user_id)
           = link_to edit_topic_path(topic) do
             i.fa.fa-pencil
-        '
-        span
+          '
           = link_to topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') } do
             i.fa.fa-trash

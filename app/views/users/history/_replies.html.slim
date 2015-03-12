@@ -1,16 +1,16 @@
 - replies.each do |reply|
   .item
-    = link_to reply.topic.title.truncate(40), topic_path(reply.topic), class: :title
-    .lightsmall
-      span =reply_link(reply)
+    .topic-title
+      = link_to reply.topic.title.truncate(40), topic_path(reply.topic)
+
+    .tips
+      = reply_link(reply)
       '  &middot;
-      span
-        = timeago_tag reply.created_at
-        = t('topic.reply')
+      = timeago_tag reply.created_at
+      = t('topic.reply')
       - if reply.has_favorites?
         '  &middot;
-        span.favorite-count
-          i.fa.fa-heart
-            span.count =reply.favorites_count
-    .body.markdown.small-markdown
+        i.fa.fa-heart
+          span.favorite-count =reply.favorites_count
+    .body.body-small
       = sanitize_body_html(reply.body_html)

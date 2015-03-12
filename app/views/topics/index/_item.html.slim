@@ -1,43 +1,21 @@
 .item
-  .user-avatar
+  .avatar
     = link_to user_path(topic.user_name) do
       = image_tag topic.user_avatar
   .info
-    = link_to topic.title.truncate(50), topic_path(topic), class: 'title'
-    .tips.lightsmall
-      .show-for-small-only
-        span
-          = link_to topic.node.name, topics_path(node: topic.node.name)
-        '  &middot;
-        - if topic.has_replies?
-          span
-            = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
-            '
-            = timeago_tag topic.last_replied_at
-            = t('topic.reply')
-        - else
-          span
-            = link_to topic.user_name, user_path(topic.user_name)
-            '
-            = timeago_tag topic.created_at
-            = t('topic.create')
-      .show-for-medium-up
-        span
-          = link_to topic.node.name, topics_path(node: topic.node.name)
-        '  &middot;
-        span
-          = link_to topic.user_name, user_path(topic.user_name)
-        - unless topic.has_replies?
-          span
-            '
-            = timeago_tag topic.created_at
-            = t('topic.create')
-        - else
-          '  &middot;
-          span
-            = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
-            '
-            = timeago_tag topic.last_replied_at
-            = t('topic.reply')
+    = link_to topic.title.truncate(50), topic_path(topic)
+    .tips
+      = link_to topic.node.name, topics_path(node: topic.node.name)
+      '  &middot;
+      - if topic.has_replies?
+        = link_to topic.last_replied_user_name, user_path(topic.last_replied_user_name)
+        '
+        = timeago_tag topic.last_replied_at
+        = t('topic.reply')
+      - else
+        = link_to topic.user_name, user_path(topic.user_name)
+        '
+        = timeago_tag topic.created_at
+        = t('topic.create')
   .replies-count
     = replies_count_link(topic)

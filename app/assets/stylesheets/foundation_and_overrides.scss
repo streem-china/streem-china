@@ -63,7 +63,7 @@
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size: 90%;
+$base-font-size: 95%;
 
 // The $base-font-size is 100% while $base-line-height is 150%
 // $base-line-height: 150%;
@@ -165,6 +165,7 @@ $body-bg: $silver;
 // $small-up: $screen;
 // $small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})";
 
+
 // $medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
 // $medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})";
 
@@ -228,13 +229,13 @@ $body-bg: $silver;
 // $subheader-bottom-margin: .5rem;
 
 // A general <small> styling
-$small-font-size: 80%;
+// $small-font-size: 80%;
 // $small-font-color: scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
-// $paragraph-font-size: 1rem;
+$paragraph-font-size: .9rem;
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
@@ -334,7 +335,7 @@ $small-font-size: 80%;
 // $include-html-alert-classes: $include-html-classes;
 
 // We use this to control alert padding.
-$alert-padding-top: rem-calc(11);
+$alert-padding-top: rem-calc(10);
 // $alert-padding-default-float: $alert-padding-top;
 // $alert-padding-opposite-direction: $alert-padding-top + rem-calc(10);
 // $alert-padding-bottom: $alert-padding-top;
@@ -1301,17 +1302,17 @@ $button-sml: rem-calc(12);
 
 // $include-html-tabs-classes: $include-html-classes;
 
-$tabs-navigation-padding: rem-calc(14);
+$tabs-navigation-padding: rem-calc(10);
 // $tabs-navigation-bg-color: $silver  ;
 // $tabs-navigation-active-bg-color: $white;
 // $tabs-navigation-hover-bg-color: scale-color($tabs-navigation-bg-color, $lightness: -6%);
 // $tabs-navigation-font-color: $jet;
 // $tabs-navigation-active-font-color: $tabs-navigation-font-color;
-// $tabs-navigation-font-size: rem-calc(16);
+$tabs-navigation-font-size: rem-calc(14);
 // $tabs-navigation-font-family: $body-font-family;
 
-// $tabs-content-margin-bottom: rem-calc(24);
-// $tabs-content-padding: ($column-gutter/2);
+$tabs-content-margin-bottom: rem-calc(0);
+// $tabs-content-padding: ($column-gutter/3);
 
 // $tabs-vertical-navigation-margin-bottom: 1.25rem;
 

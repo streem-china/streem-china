@@ -1,0 +1,36 @@
+.box.node-box
+  .title =t('node.name')
+  - Node.all.each do |node|
+    = link_to topics_path(node: node.name) do
+      - if node.eql?(@node)
+        span.label.node-label =node.name
+      - else
+        span.secondary.label.node-label =node.name
+        '
+
+.box
+  .title =t('tip.name')
+  p 如果是你 Ruby, Rails 新手，请别在 Windows 上面折腾：https://ruby-china.org/topics/1020
+
+.box
+  .title 友情社区
+  p
+    = link_to 'http://python-china.org' do
+      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
+  p
+    = link_to 'http://python-china.org' do
+      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
+  p
+    = link_to 'http://python-china.org' do
+      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
+  p
+    = link_to 'http://python-china.org' do
+      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
+
+.box
+  .title 社区状态
+  ul
+    li 会员数: 1000 人
+    li 帖子数: 10000 个
+    li 回复数: 10000 个
+

@@ -1,40 +1,46 @@
 .topics {
   .item {
-    margin: 2rem 0rem;
+    margin: 2rem 0;
 
-    .user-avatar {
-      vertical-align: top;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .avatar {
       display: table-cell;
 
       a {
+        margin-top: .2rem;
         display: block;
-        width: 3rem;
-        height: 3rem;
-
-        img {
-          width: 3rem;
-        }
+        min-height: 2.5rem;
+        width: 2.5rem;
       }
     }
 
     .info {
-      vertical-align: top;
       display: table-cell;
-      padding-left: 1rem;
-      line-height: 150%;
+      vertical-align: top;
       width: 100%;
+      padding: 0 1rem;
 
-      .title {
-        word-break: break-all;
-        font-size: 1.1rem;
+      .tips {
+        font-size: .75rem;
+        color: #AAA;
+
+        a {
+          color: #666;
+        }
       }
     }
-
     .replies-count {
+      vertical-align: top;
       display: table-cell;
-      padding-left: 1rem;
 
-      a {
+      a.label {
         color: white;
       }
     }
@@ -42,89 +48,57 @@
 }
 
 .topic {
-  .user-avatar {
+  .avatar {
     display: table-cell;
-    vertical-align: top;
 
     a {
+      margin-top: .3rem;
       display: block;
       width: 3rem;
-      height: 3rem;
-
-      img {
-        width: 3rem;
-      }
+      min-height: 3rem;
     }
-  }
-
-  .body {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 
   .info {
     display: table-cell;
-    padding-left: 1rem;
+    vertical-align: top;
     width: 100%;
-    line-height: 150%;
+    padding: 0 1rem;
+  }
 
-    .title {
-      word-break: break-all;
-      font-size: 1.1rem;
+  .tips {
+    font-size: .75rem;
+    color: #AAA;
+
+    a {
+      color: #666;
+    }
+  }
+
+  .admin {
+    a {
+      color: #666;
     }
   }
 
   .favorite {
-    display: table-cell;
     vertical-align: top;
-    padding-left: 1rem;
-
-    .counter {
-      font-size: 0.8rem;
-      position: relative;
-      left: 1.0rem;
-      top: -1.5rem;
-    }
+    display: table-cell;
 
     i {
+      cursor: pointer;
       font-size: 1.2rem;
-
-      .count {
-        font-size: 0.8rem;
-      }
-    }
-
-    .favorited {
-      color: #ef4136;
-    }
-
-    .unfavorited {
-      color: #666666;
     }
   }
 }
 
-.node-box {
-  .node-label {
-    margin: 0.2rem;
-    padding: 0.4rem;
-    font-size: 0.9rem;
-  }
-
-  .info:hover {
-    background-color: #008cba;
-    color: white;
-  }
-}
-
-.tip-box {
-  p {
-    margin-bottom: 0rem;
-  }
-}
-
-.state-box {
-  ul {
-    margin-bottom: 0rem;
+.topic-form {
+  .tools {
+    margin-bottom: .2rem;
+    color: #666;
+    font-size: .75rem;
+    i {
+      cursor: pointer;
+    }
   }
 }

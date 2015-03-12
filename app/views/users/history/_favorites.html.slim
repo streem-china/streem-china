@@ -1,5 +1,5 @@
 - favorites.each do |favorite|
-  .item id="favorite-#{favorite.id}"
+  .item
     - case favorite.favoritable
     - when Topic
       = render partial: 'users/history/favorites/topic', locals: { favorite: favorite, topic: favorite.favoritable }

@@ -1,17 +1,15 @@
 - topics.each do |topic|
   .item
-    = link_to topic.title.truncate(40), topic_path(topic), class: :title
-    .lightsmall
-      span
-        = topic.replies_count
-        = t('topic.reply')
+    .topic-title
+      = link_to topic.title.truncate(40), topic_path(topic)
+    .tips
+      = topic.replies_count
+      = t('topic.reply')
       '  &middot
-      span
-        = timeago_tag topic.created_at
-        = t('topic.create')
+      = timeago_tag topic.created_at
+      = t('topic.create')
       - if topic.has_favorites?
         '  &middot;
-        span.favorite-count
-          i.fa.fa-heart
-            span.count =topic.favorites_count
+        i.fa.fa-heart
+          span.favorite-count =topic.favorites_count
 

@@ -17,18 +17,8 @@ class Reply
 @Reply = Reply
 
 $(document).on 'ready page:load', ->
-  $('.reply-form').on 'click', '.preview', ->
-    Markdown.convert $(this)
-
-    false
-
-  $('.reply-form').on 'click', '.edit', ->
-    Markdown.edit $(this)
-
-    false
-
-  $('.replies').on 'click', '.item .reply a', ->
+  $('body').on 'click', '.replies .item .reply', ->
     Reply.replyFloor $(this)
 
-  $('.reply-form').on 'keydown', 'textarea', (e) ->
+  $('body').on 'keydown', '.reply-form textarea', (e) ->
     Reply.submitByKeyboard $(this), e

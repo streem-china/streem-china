@@ -1,9 +1,7 @@
-.title
-  - if notification.unread?
-    span.readflag &bull;&nbsp;
+.topic-title
   = sanitize(t('notification.favorite/topic_link',
-                user: link_to(favorite.user.name, user_path(favorite.user.name), class: :light),
+                user: link_to(favorite.user.name, user_path(favorite.user.name)),
                 topic: link_to(topic.title.truncate(30), topic_path(topic))),
              tags: %w(a))
-.tips.lightsmall
-  span =timeago_tag(notification.created_at)
+.tips
+  = timeago_tag(notification.created_at)

@@ -1,9 +1,0 @@
-|
-  favoritable = '#{@favorite.favoritable.class.name.underscore}'
-  favoritable_id = '#{@favorite.favoritable.id}'
-  link = $('#unfavorited-' + favoritable + '-' + favoritable_id)
-  link.data('method', 'delete').addClass('favorited').removeClass('unfavorited');
-  link.find('i').addClass('fa-heart').removeClass('fa-heart-o');
-  count = parseInt(link.find('i .count').text());
-  link.find('i .count').text(count + 1);
-  link.attr('id', 'favorited-' + favoritable + '-' + favoritable_id)

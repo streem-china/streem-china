@@ -1,5 +1,5 @@
 .mention
-  .user-avatar
+  .avatar
     = link_to user_path(mention.mentionable) do
       = image_tag mention.mentionable.user_avatar
   .info
@@ -12,5 +12,5 @@
       = render partial: 'notifications/item/mention/reply',
                locals: { notification: notification,
                          reply: mention.mentionable }
-  .body.markdown.small-markdown
+  .body.body-small
     = sanitize_body_html(mention.mentionable.body_html)

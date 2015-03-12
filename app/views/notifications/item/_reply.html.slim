@@ -1,18 +1,16 @@
 .reply
-  .user-avatar
+  .avatar
     = link_to user_path(reply.user_name) do
       = image_tag reply.user_avatar
   .info
-    .title
-      - if notification.unread?
-        span.readflag &bull;&nbsp;
+    .topic-title
       = sanitize t('notification.reply_link',
-                    user: link_to(reply.user_name, user_path(reply.user_name), class: :light),
+                    user: link_to(reply.user_name, user_path(reply.user_name)),
                     topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),
                  tags: %w(a)
-    .tips.lightsmall
-      span =reply_link(reply)
+    .tips
+      = reply_link(reply)
       '  &middot;
-      span =timeago_tag(notification.created_at)
-  .body.markdown.small-markdown
+      = timeago_tag(notification.created_at)
+  .body.body-small
     = sanitize_body_html(reply.body_html)

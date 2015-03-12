@@ -1,61 +1,59 @@
 .user {
   .avatar {
     display: table-cell;
-    vertical-align: top;
 
     a {
       display: block;
       width: 3rem;
-      height: 3rem;
-
-      img {
-        width: 3rem;
-      }
     }
   }
 
   .info {
-    padding-left: 1rem;
     display: table-cell;
     vertical-align: top;
     width: 100%;
+    padding: 0 1rem;
 
-    .name {
-      word-break: break-all;
-      line-height: 1;
-      font-size: 1.2rem;
+    .tips {
+      font-size: .75rem;
+      color: #AAA;
+
+      a {
+        color: #666;
+      }
     }
   }
 }
 
 .user-history {
-  .tabs-content {
-    margin-bottom: 0rem;
-  }
-
-  .tabs .tab-title  a {
-    padding: 0.475rem 1.15rem;
-  }
-
   .item {
-    word-break: break-all;
-    margin: 2rem 0rem;
+    padding: 1rem 1rem;
+    margin: 0 -1rem;
+    border-bottom: 1px solid #efefef;
 
     &:last-child {
-      margin-bottom: 0rem;
+      border-bottom: none;
     }
 
-    .body {
-      margin-top: 0.5rem;
+    .topic-title {
+      font-size: .85rem;
     }
 
-    .title {
-      font-size: 0.9rem;
-    }
+    .tips {
+      font-size: .75rem;
+      color: #AAA;
 
-    .favorite-count {
-      .count {
-        font-size: 0.5rem;
+      a {
+        color: #666;
+      }
+
+      .favorite-count {
+        font-size: .6rem;
+      }
+
+      .delete-favorite {
+        cursor: pointer;
+        color: #666;
       }
     }
   }

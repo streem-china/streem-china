@@ -18,10 +18,10 @@
               = current_user.name
           li
             = link_to notifications_path do
-              - if current_user.unread_notifications_count > 0
-                span.label.alert.notifications-count = current_user.unread_notifications_count
+              - if current_user.has_unread_notifications?
+                span.label.alert.unread-notifications-count = current_user.unread_notifications_count
               - else
-                span.label.secondary.notifications-count = current_user.unread_notifications_count
+                span.label.secondary.unread-notifications-count = current_user.unread_notifications_count
               '
               = t('notification.name')
           li.divider

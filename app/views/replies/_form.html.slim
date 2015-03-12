@@ -1,18 +1,12 @@
 .reply-form
-  = form_for reply do |f|
-    .clearfix
-      .lightsmall
-        span.left
-          = link_to '#', class: 'preview' do
-            i.fa.fa-eye
-        span.left.hide
-          = link_to '#', class: 'edit' do
-            i.fa.fa-pencil
+  = form_for reply, remote: reply.new_record? do |f|
+    .tools
+      .clearfix
+        i.fa.fa-eye.preview.left
         - if signed_in?
-          span.right
-            = link_to '#', id: 'image-upload' do
-              i.fa.fa-image
-              input.image-upload-input type='file' data-qiniu_domain="#{Rails.application.secrets.qiniu_domain}"
-    = f.text_area :body, placeholder: t('activerecord.attributes.reply.body'), size: 'x20'
+          i#upload.fa.fa-image.right
+            input type='file' data-qiniu-domain="#{Rails.application.secrets.qiniu_domain}"
+    = f.hidden_field :topic_id, value: topic.id
+    = f.text_area :body, placeholder: t('activerecord.attributes.reply.body'), size: "x#{reply.new_record? ? 10 : 20}"
     .clearfix
-      = f.submit t('reply.submit'), class: 'button small right', data: { disable_with: t('reply.submiting') }
+      = f.submit t('reply.submit'), class: 'button tiny right', data: { disable_with: t('reply.submiting') }

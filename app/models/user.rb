@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   include Redis::Objects
   hash_key :read_topics
 
+  def has_unread_notifications?
+    unread_notifications_count > 0
+  end
+
   def update_read_topic(topic, ts=Time.now.to_i)
     read_topics[topic.id] = ts.to_i
   end

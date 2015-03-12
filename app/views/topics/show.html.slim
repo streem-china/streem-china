@@ -2,8 +2,8 @@
   .small-12.medium-12.large-8.columns
     .box
       = render partial: 'topics/show/topic', locals: { topic: @topic }
-    - unless @topic.replies_count.zero?
+    - if @topic.has_replies?
       .box
         = render partial: 'topics/show/replies', locals: { replies: @replies }
     .box
-      = render partial: 'topics/show/reply_form', locals: { topic: @topic }
+      = render partial: 'replies/form', locals: { topic: @topic, reply: @topic.replies.new }

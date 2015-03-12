@@ -1,23 +1,4 @@
-- if flash.present?
-  .row.small-collapse.medium-uncollapse.large-uncollapse
-    .small-12.column.flash-container
-      - if flash[:success]
-        .alert-box.success data-alert=''
-          = flash[:success]
-          a.close href='#' &times;
-      - elsif flash[:notice]
-        .alert-box data-alert=''
-          = flash[:notice]
-          a.close href='#' &times;
-      - elsif flash[:warning]
-        .alert-box.warning data-alert=''
-          = flash[:warning]
-          a.close href='#' &times;
-      - elsif flash[:alert]
-        .alert-box.alert data-alert=''
-          = flash[:alert]
-          a.close href='#' &times;
-      - elsif flash[:error]
-        .alert-box.alert data-alert=''
-          = flash[:error]
-          a.close href='#' &times;
+- %i(success notice warning alert error).each do |type|
+  - if flash[type]
+    javascript:
+      Flash.notify('#{type}', '#{flash[type]}')

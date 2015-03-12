@@ -1,26 +1,30 @@
 class Markdown
-  @convert: (el) ->
-    preview_box_html = '<div class="preview-box"><div class="body markdown"></div></div>'
-    loading_html = '<span class="loading">loading...</span>'
-    form = $(el).parents('form')
-    textarea = form.find('textarea')
-    $(preview_box_html).insertBefore(textarea)
-    el.parent().addClass('hide')
-    form.find('.edit').parent().removeClass('hide')
-    preview_box = form.find('.preview-box')
-    preview_box.css('min-height', textarea.css('height')).find('.body').html(loading_html)
-    textarea.addClass('hide')
-
+  @convert: (el, text) ->
     $.post '/markdown/convert',
-      text: textarea.val()
+      text: text,
       (data) ->
-        preview_box.find('.body').html(data.html)
-
-  @edit: (el) ->
-    el.parent().addClass('hide')
-    form = $(el).parents('form')
-    form.find('.preview').parent().removeClass('hide')
-    form.find('.preview-box').remove()
-    textarea = form.find('textarea').removeClass('hide')
+        el.find('.body').html(data.html)
 
 @Markdown = Markdown
+
+$(document).on 'ready page:load', ->
+  $('body').on 'click', '.reply-form .preview, .topic-form .preview', ->
+    $(this).removeClass('preview fa-eye').addClass('edit fa-pencil')
+
+    previewer = '<div class="previewer">'                     +
+                  '<div class="body body-small">'             +
+                    '<span class="loading">loading...</span>' +
+                  '</div>'                                    +
+                '</div>'
+
+    textarea = $(this).parents('form').find('textarea')
+    $(previewer).insertBefore(textarea)
+    $('.previewer').css('min-height', textarea.css('height'))
+    textarea.hide()
+
+    Markdown.convert($('.previewer'), textarea.val())
+
+  $('body').on 'click', '.reply-form .edit, .topic-form .edit', ->
+    $(this).addClass('preview fa-eye').removeClass('edit fa-pencil')
+    $('.previewer').remove()
+    $(this).parents('form').find('textarea').show()

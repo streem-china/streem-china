@@ -1,0 +1,42 @@
+.notifications {
+  .item {
+    padding: 1rem 1rem;
+    margin: 0 -1rem;
+    border-bottom: 1px solid #efefef;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      display: table-cell;
+
+      a {
+        margin-top: .1rem;
+        display: block;
+        width: 2.5rem;
+        min-height: 2.5rem;
+      }
+    }
+
+    .info {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+      padding: 0 1rem;
+
+      .topic-title {
+        font-size: .8rem;
+      }
+
+      .tips {
+        font-size: .75rem;
+        color: #AAA;
+
+        a {
+          color: #666;
+        }
+      }
+    }
+  }
+}

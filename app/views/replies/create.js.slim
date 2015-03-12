@@ -13,9 +13,8 @@
            '</div>'
       $('.reply-form').parent('.box').before(box)
     }
-    $('#new_reply .preview-box').remove()
-    $('#new_reply .edit').parent().addClass('hide')
-    $('#new_reply .preview').parent().removeClass('hide')
-    $('#new_reply textarea').val('').trigger('autosize.resize').removeClass('hide')
+    $('#new_reply .previewer').remove()
+    $('#new_reply .edit').addClass('preview fa-eye').removeClass('edit fa-pencil')
+    $('#new_reply textarea').show().val('').trigger('autosize.resize').removeClass('hide')
     $('#reply-#{@reply.floor} time').timeago();
     Flash.notify('success', '#{t("reply.created_success")}');
