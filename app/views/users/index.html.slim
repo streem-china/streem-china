@@ -1,0 +1,12 @@
+.row.small-collapse.medium-uncollapse.large-uncollapse
+  .small-12.medium-12.large-8.columns
+    .box
+      h5 =t('user_center_title')
+      .users
+        ul.clearing-thumbs data-clearing=''
+          - @users.each do |user|
+            li
+              = link_to user_path(user.name)
+                = image_tag user.avatar
+              br
+              = link_to user.name, user_path(user.name)

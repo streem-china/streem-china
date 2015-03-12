@@ -1,11 +1,11 @@
 .box {
   background-color: white;
-  padding: 1rem;
+  padding: .8rem;
   border: 1px solid #efefef;
-  margin: 1rem 0;
+  margin: .8rem 0;
 
   .title {
-    padding: .5rem 0rem;
+    padding: .6rem 0rem;
     border-bottom: 1px solid #efefef;
     font-weight: bold;
     text-align: center;
@@ -14,7 +14,8 @@
 }
 
 ul.pagination {
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0;
 
   li {
     &:first-child {
@@ -22,7 +23,7 @@ ul.pagination {
     }
 
     a {
-      font-size: .75rem;
+      font-size: .8rem;
       padding: 0.1rem 0.5rem 0.1rem;
       border-radius: 0;
     }
@@ -31,10 +32,14 @@ ul.pagination {
 
 .body {
   word-break: break-all;
-  margin: 1rem 0;
+  margin-top: 1rem;
 
   p {
     margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0rem;
+    }
   }
 
   a {
@@ -68,11 +73,11 @@ ul.pagination {
 
 .body-small {
   p {
-    margin-bottom: .8rem;
+    margin-bottom: .9rem;
   }
 
   p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em, code {
-    font-size: .8rem;
+    font-size: .9rem;
   }
 }
 
@@ -88,19 +93,19 @@ ul.pagination {
 
 #upload input {
   position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
   opacity: 0;
   filter: alpha(opacity=0);
 }
 
 .favorited, .unfavorited {
   .count {
-    font-size: .5rem;
+    font-size: .6rem;
   }
 }
 
@@ -114,9 +119,9 @@ ul.pagination {
 
 .node-box {
   .label {
-    font-size: .8rem;
-    margin: .3rem;
+    font-size: .9rem;
     padding: .4rem;
+    margin: .4rem;
   }
 }
 
@@ -130,7 +135,6 @@ ul.pagination {
   opacity: 0.9;
   z-index: 9999;
 }
-
 
 .login-box {
   text-align: center;

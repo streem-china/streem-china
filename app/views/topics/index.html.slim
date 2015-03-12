@@ -2,7 +2,7 @@
   .small-12.medium-12.large-8.columns
     .box
       .clearfix
-        = link_to t('topic.new_button'), new_topic_path(node: @node.try(:name)), { class: 'button tiny right' }
+        = link_to t('topic.new_button'), new_topic_path(node: @node.try(:name)), { class: 'button small right' }
       .topics
         - @topics.each do |topic|
           = render partial: 'topics/index/item', locals: { topic: topic }

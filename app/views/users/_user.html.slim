@@ -3,7 +3,7 @@
     = link_to user_path(@user.name) do
       = image_tag @user.avatar
   .info
-    = link_to @user.name, user_path(@user.name)
+    = link_to @user.name, user_path(@user.name), class: :username
     .tips
       span =t('user.number_label', number: @user.id)
       ' ,

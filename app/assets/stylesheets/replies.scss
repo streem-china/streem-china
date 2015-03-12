@@ -4,9 +4,9 @@
   }
 
   .item {
-    border-bottom: 1px solid #efefef;
     padding: 1rem 1rem;
     margin: 0 -1rem;
+    border-bottom: 1px solid #efefef;
 
     &:last-child {
       border-bottom: none;
@@ -17,7 +17,7 @@
       font-style: italic;
       text-decoration: line-through;
       color: #AAA;
-      font-size: .75rem;
+      font-size: .9rem;
     }
 
     .avatar {
@@ -35,8 +35,8 @@
       display: table-cell;
       vertical-align: top;
       width: 100%;
-      padding: 0 .85rem;
-      font-size: .85rem;
+      padding: 0 .8rem;
+      font-size: .9rem;
       color: #AAA;
 
       a {
@@ -52,7 +52,7 @@
         text-align: right;
         width: 3rem;
         color: #666;
-        font-size: .75rem;
+        font-size: .9rem;
 
         i {
           cursor: pointer;
@@ -61,10 +61,11 @@
     }
 
     .admin {
+      margin-top: 1rem;
       i {
         cursor: pointer;
         color: #666;
-        font-size: .75rem;
+        font-size: .9rem;
       }
     }
   }
@@ -74,10 +75,14 @@
   .tools {
     margin-bottom: .2rem;
     color: #666;
-    font-size: .75rem;
+    font-size: .9rem;
 
     i {
       cursor: pointer;
     }
+  }
+
+  input[type=submit] {
+    margin-bottom: 0;
   }
 }

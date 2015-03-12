@@ -28,9 +28,8 @@
       .clearfix
         .right
           - if signed_in? && current_user.id.eql?(reply.user_id)
-            span
-              = link_to edit_reply_path(reply) do
-                i.fa.fa-pencil
+            = link_to edit_reply_path(reply) do
+              i.fa.fa-pencil
             '
             i.fa.fa-trash.delete
 

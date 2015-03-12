@@ -1,4 +1,4 @@
-.user-history
+.activity
   ul.tabs data-tab = ''
     li.tab-title.active
       a href='#topics' =t('user.latest_topics')
@@ -9,9 +9,9 @@
         a href='#favorites' =t('user.my_favorites')
   .tabs-content
     .content.active#topics
-      = render partial: 'users/history/topics', locals: { topics: topics }
+      = render partial: 'users/activity/topics', locals: { topics: topics }
     .content#replies
-      = render partial: 'users/history/replies', locals: { replies: replies }
+      = render partial: 'users/activity/replies', locals: { replies: replies }
     - if current_user.eql?(user)
       .content#favorites
-        = render partial: 'users/history/favorites', locals: { favorites: favorites }
+        = render partial: 'users/activity/favorites', locals: { favorites: favorites }

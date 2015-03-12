@@ -14,7 +14,7 @@
       display: table-cell;
 
       a {
-        margin-top: .2rem;
+        margin-top: .3rem;
         display: block;
         min-height: 2.5rem;
         width: 2.5rem;
@@ -25,10 +25,14 @@
       display: table-cell;
       vertical-align: top;
       width: 100%;
-      padding: 0 1rem;
+      padding: 0 .8rem;
+
+      .topic-title {
+        font-size: 1.1rem;
+      }
 
       .tips {
-        font-size: .75rem;
+        font-size: .8rem;
         color: #AAA;
 
         a {
@@ -63,11 +67,15 @@
     display: table-cell;
     vertical-align: top;
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 .8rem;
+
+    .topic-title {
+      font-size: 1.1rem;
+    }
   }
 
   .tips {
-    font-size: .75rem;
+    font-size: .8rem;
     color: #AAA;
 
     a {
@@ -76,6 +84,7 @@
   }
 
   .admin {
+    margin-top: 1rem;
     a {
       color: #666;
     }
@@ -96,9 +105,13 @@
   .tools {
     margin-bottom: .2rem;
     color: #666;
-    font-size: .75rem;
+    font-size: .8rem;
     i {
       cursor: pointer;
     }
+  }
+
+  input[type=submit] {
+    margin-bottom: 0;
   }
 }

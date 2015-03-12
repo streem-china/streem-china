@@ -3,7 +3,7 @@
     = link_to user_path(topic.user_name) do
       = image_tag topic.user_avatar
   .info
-    = link_to topic.title.truncate(50), topic_path(topic)
+    = link_to topic.title.truncate(50), topic_path(topic), class: 'topic-title'
     .tips
       = link_to topic.node.name, topics_path(node: topic.node.name)
       '  &middot;

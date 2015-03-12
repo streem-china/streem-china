@@ -3,8 +3,10 @@
     display: table-cell;
 
     a {
+      margin-top: .2rem;
       display: block;
       width: 3rem;
+      min-height: 3rem;
     }
   }
 
@@ -14,8 +16,12 @@
     width: 100%;
     padding: 0 1rem;
 
+    .username {
+      font-size: 1.1rem;
+    }
+
     .tips {
-      font-size: .75rem;
+      font-size: .8rem;
       color: #AAA;
 
       a {
@@ -25,36 +31,46 @@
   }
 }
 
-.user-history {
+.activity {
   .item {
+    border-bottom: 1px solid #efefef;
     padding: 1rem 1rem;
     margin: 0 -1rem;
-    border-bottom: 1px solid #efefef;
 
     &:last-child {
       border-bottom: none;
     }
 
-    .topic-title {
-      font-size: .85rem;
-    }
-
     .tips {
-      font-size: .75rem;
+      font-size: .8rem;
       color: #AAA;
 
       a {
         color: #666;
       }
 
-      .favorite-count {
+      .favorites-count {
         font-size: .6rem;
       }
 
-      .delete-favorite {
+      .delete {
         cursor: pointer;
         color: #666;
       }
+    }
+  }
+}
+
+.users {
+  padding: 1rem 0;
+
+  li {
+    width: 7rem;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    img {
+      width: 3rem;
     }
   }
 }

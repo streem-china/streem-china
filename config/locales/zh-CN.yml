@@ -10,13 +10,16 @@ zh-CN:
   sign_in_first: 请先登陆
   sign_in_with_github: Github 登陆
   signing_in_with_github: Github 登陆中...
-  tip:
-    name: 小贴士
-  node:
-    name: 节点
+  community_nav_link: 社区
+  user_nav_link: 会员
+  tip_box_title: 小贴士
+  node_box_title: 节点
+  link_box_title: 友情社区
+  community_box_title: 社区状态
+  notification_center_title: 消息中心
+  user_center_title: 用户中心
   notification:
     name: 消息
-    notification_center: 消息中心
     reply_link: "%{user} 回复了你的主题 %{topic}"
     favorited_reply_link: "你收藏的主题 %{topic} 有了新的回复"
     mention/topic_link: "%{user} 在主题 %{topic} 中提到了你"

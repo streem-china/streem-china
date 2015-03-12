@@ -38,7 +38,7 @@ $(document).on 'ready page:load', ->
 
     Favorite.favorite(favoritable_id, favoritable_type)
 
-  $('body').on 'click', '.delete-favorite', ->
+  $('body').on 'click', '.activity #favorites .delete', ->
     result = confirm('确定删除该收藏?')
 
     if result

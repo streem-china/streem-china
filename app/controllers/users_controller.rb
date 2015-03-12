@@ -10,4 +10,8 @@ class UsersController < ApplicationController
       raise ActionController::RoutingError.new('Routing Error')
     end
   end
+
+  def index
+    @users = User.limit(50)
+  end
 end

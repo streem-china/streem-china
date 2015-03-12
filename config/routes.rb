@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :topics
   resources :replies
+  resources :users, only: :index
   resources :notifications, only: :index
   resources :favorites, only: [:create, :destroy] do
     delete :destroy, on: :collection

@@ -3,12 +3,12 @@
     = link_to user_path(topic.user_name) do
       = image_tag topic.user_avatar
   .info
-    = link_to topic.title, topic_path(topic)
+    = link_to topic.title, topic_path(topic), class: 'topic-title'
     .tips
       = link_to topic.node.name, topics_path(node: topic.node.name)
       '  &middot;
       span
-        = link_to topic.user_name, user_path(topic.user_name), class: :username
+        = link_to topic.user_name, user_path(topic.user_name)
         '
         = timeago_tag topic.created_at
         = t('topic.create')
