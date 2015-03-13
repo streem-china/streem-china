@@ -11,7 +11,7 @@ class Favorite < ActiveRecord::Base
 
   after_destroy :destroy_from_redis_after_destroy
   after_create :create_to_redis_after_create,
-    :create_notification_after_create
+               :create_notification_after_create
 
   private
 

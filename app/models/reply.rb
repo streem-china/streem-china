@@ -21,8 +21,8 @@ class Reply < ActiveRecord::Base
 
   before_validation :set_attributes_beofre_validation_on_create, on: :create
   after_create :update_user_read_topic_after_create,
-    :update_topic_attributes_after_create,
-    :create_notifications_after_create
+               :update_topic_attributes_after_create,
+               :create_notifications_after_create
 
   def has_favorites?
     !favorites_count.zero?
