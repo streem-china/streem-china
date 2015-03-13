@@ -1,7 +1,9 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action { @topbar = :community }
 
   def index
+    @tip = Tip.order('random()').first
     @topics = Topic.without_body.order(actived_at: :desc)
 
     if params[:node]

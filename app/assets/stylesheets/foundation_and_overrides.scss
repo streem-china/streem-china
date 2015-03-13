@@ -99,8 +99,8 @@ $row-width: rem-calc(1000);
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
-// $white-smoke : #F5F5F5;
-$silver      : #EFEFEF;
+$white-smoke : #F5F5F5;
+// $silver      : #EFEFEF;
 // $smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
 // $iron        : #CCCCCC;
@@ -124,7 +124,7 @@ $silver      : #EFEFEF;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: $silver;
+$body-bg: $white-smoke;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -335,7 +335,7 @@ $paragraph-font-size: .9rem;
 // $include-html-alert-classes: $include-html-classes;
 
 // We use this to control alert padding.
-$alert-padding-top: rem-calc(10);
+$alert-padding-top: rem-calc(12);
 // $alert-padding-default-float: $alert-padding-top;
 // $alert-padding-opposite-direction: $alert-padding-top + rem-calc(10);
 // $alert-padding-bottom: $alert-padding-top;

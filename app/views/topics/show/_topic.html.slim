@@ -5,7 +5,7 @@
   .info
     = link_to topic.title, topic_path(topic), class: 'topic-title'
     .tips
-      = link_to topic.node.name, topics_path(node: topic.node.name)
+      = link_to topic.node_name, topics_path(node: topic.node_name)
       '  &middot;
       span
         = link_to topic.user_name, user_path(topic.user_name)

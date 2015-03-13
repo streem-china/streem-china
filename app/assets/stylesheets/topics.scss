@@ -63,6 +63,13 @@
     }
   }
 
+  .favorite {
+    .favorited, .unfavorited {
+      margin-top: .3rem;
+    }
+  }
+
+
   .info {
     display: table-cell;
     vertical-align: top;

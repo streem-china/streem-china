@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305064948) do
+ActiveRecord::Schema.define(version: 20150313133644) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(version: 20150305064948) do
   add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true
   add_index "replies", ["topic_id"], name: "index_replies_on_topic_id"
 
+  create_table "tips", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.integer  "user_id",                            null: false
     t.string   "title",                              null: false
@@ -97,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150305064948) do
     t.string   "user_avatar"
     t.integer  "favorites_count",        default: 0
     t.integer  "node_id",                default: 1
+    t.string   "node_name"
   end
 
   add_index "topics", ["actived_at"], name: "index_topics_on_actived_at"

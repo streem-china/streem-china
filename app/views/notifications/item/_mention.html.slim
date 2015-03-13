@@ -12,5 +12,5 @@
       = render partial: 'notifications/item/mention/reply',
                locals: { notification: notification,
                          reply: mention.mentionable }
-  .body.body-small
+  .body
     = sanitize_body_html(mention.mentionable.body_html)

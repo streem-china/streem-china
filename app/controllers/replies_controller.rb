@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
   before_action :authenticate_user!
+  before_action { @topbar = :community }
 
   def create
     @reply = current_user.replies.new(reply_params)

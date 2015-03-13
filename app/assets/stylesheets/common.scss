@@ -31,6 +31,7 @@ ul.pagination {
 }
 
 .body {
+  font-size: .9rem;
   word-break: break-all;
   margin-top: 1rem;
 
@@ -43,8 +44,6 @@ ul.pagination {
   }
 
   a {
-    color: #666666;
-
     &:hover {
       text-decoration: underline;
     }
@@ -53,6 +52,8 @@ ul.pagination {
   blockquote {
     border-left: 2px solid #dddddd;
     padding: .4rem .8rem .4rem .8rem;
+    line-height: 1;
+    font-style: italic;
 
     p {
       margin-bottom: 0;
@@ -61,23 +62,15 @@ ul.pagination {
 
   .highlight {
     background-color: #f8f8f8;
-    word-wrap: break-word;
-    padding: .5rem;
+    padding: .8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    overflow: scroll;
 
     code {
       padding: 0;
       border: none;
     }
-  }
-}
-
-.body-small {
-  p {
-    margin-bottom: .9rem;
-  }
-
-  p, a, ul, li, ol, strong, i, b, strike, s, span, del, u, em, code {
-    font-size: .9rem;
   }
 }
 

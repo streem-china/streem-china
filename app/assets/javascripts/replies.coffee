@@ -14,10 +14,6 @@ $(document).on 'ready page:load', ->
     reply_textarea.val(new_value).focus().trigger('autosize.resize')
 
 
-  $('body').on 'keydown', '.reply-form textarea', (e) ->
-    if (e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey
-      $(this).parents('form').find('input[type=submit]').trigger('click')
-
   $('body').on 'click', '.replies .item .delete', (e) ->
     result = confirm('确定删除该回复?')
 

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action { @topbar = :user }
+
   def show
     @user = User.find_by_name(params[:username])
 
