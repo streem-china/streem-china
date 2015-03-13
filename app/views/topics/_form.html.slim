@@ -7,9 +7,10 @@
         span.left.preview
           i.fa.fa-eye
         - if signed_in?
-          span#upload.right
-            i.fa.fa-image
-            input type='file' data-qiniu-domain="#{Rails.application.secrets.qiniu_domain}"
+          span.right
+            span#upload
+              i.fa.fa-image
+              = f.file_field nil, data: { qiniu_domain: "#{Rails.application.secrets.qiniu_domain}" }, disabled: true
     = f.text_area :body, placeholder: t('activerecord.attributes.topic.body'), size: 'x20'
     .clearfix
       = f.submit t('topic.submit'), class: 'button small right', data: { disable_with: t('topic.submiting') }
