@@ -2,8 +2,8 @@
   = form_for reply, remote: reply.new_record? do |f|
     .tools
       .clearfix
-        span.left
-          i.fa.fa-eye.preview
+        span.left.preview
+          i.fa.fa-eye
         - if signed_in?
           span#upload.right
             i.fa.fa-image

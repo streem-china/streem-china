@@ -4,8 +4,8 @@
     = f.text_field :title, placeholder: t('activerecord.attributes.topic.title')
     .tools
       .clearfix
-        span.left
-          i.fa.fa-eye.preview
+        span.left.preview
+          i.fa.fa-eye
         - if signed_in?
           span#upload.right
             i.fa.fa-image
