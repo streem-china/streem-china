@@ -97,11 +97,14 @@ ul.pagination {
   cursor: pointer;
   right: 0;
   top: 0;
-  width: 1rem;
   margin: 0;
   padding: 0;
   opacity: 0;
   filter: alpha(opacity=0);
+}
+
+.moxie-shim {
+  width: 1rem !important;
 }
 
 .favorited, .unfavorited {
