@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @topics = Topic.without_body.order('actived_at desc')
+    @topics = Topic.without_body.order(actived_at: :desc)
 
     if params[:node]
       @node = Node.find_by_name(params[:node])
@@ -62,7 +62,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic = current_user.topics.find(params[:id]).destroy
 
-    flash[:success] = t('topics.deleted_success')
+    flash[:success] = t('topic.deleted_success')
 
     redirect_to topics_path
   end
