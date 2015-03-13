@@ -23,7 +23,7 @@
           i.unfavorited.fa.fa-heart-o data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
             span.count =reply.favorites_count
     .body.body-small
-      = raw sanitize_body_html(reply.body_html)
+      = sanitize_body_html(reply.body_html)
     .admin
       .clearfix
         .right
