@@ -6,7 +6,7 @@
         ul.clearing-thumbs data-clearing=''
           - @users.each do |user|
             li
-              = link_to user_path(user.name).
+              = link_to user_path(user.name)
                 = image_tag user.avatar
               br
               = link_to user.name, user_path(user.name)
