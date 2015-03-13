@@ -3,6 +3,7 @@
     .box.login-box
       i.fa.fa-github.fa-5x
       br
+      br
       = link_to t('sign_in_with_github'),
         user_omniauth_authorize_path(:github),
         class: 'button small', data: { disable_with: t('signing_in_with_github') }
