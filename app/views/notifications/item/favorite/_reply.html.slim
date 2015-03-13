@@ -1,4 +1,4 @@
-.topic-title
+.notification-title
   = sanitize(t('notification.favorite/reply_link',
                 user: link_to(favorite.user.name, user_path(favorite.user.name)),
                 topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),

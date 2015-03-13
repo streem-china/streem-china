@@ -1,4 +1,9 @@
 .notifications {
+  .notification-title {
+    word-break: break-all;
+    font-size: .9rem;
+  }
+
   .unread {
     background-color: #fffef1;
   }

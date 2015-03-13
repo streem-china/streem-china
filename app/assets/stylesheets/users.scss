@@ -10,6 +10,7 @@
     }
   }
 
+
   .info {
     display: table-cell;
     vertical-align: top;
@@ -39,6 +40,11 @@
 
     &:last-child {
       border-bottom: none;
+    }
+
+    .topic-title {
+      word-break: break-all;
+      font-size: .9rem;
     }
 
     .tips {
