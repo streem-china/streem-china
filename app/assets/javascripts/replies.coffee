@@ -32,3 +32,4 @@ $(document).on 'ready page:load', ->
 
       Reply.delete(reply_id)
 
+      false

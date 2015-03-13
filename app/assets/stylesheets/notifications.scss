@@ -1,7 +1,11 @@
 .notifications {
+  .unread {
+    background-color: #fffef1;
+  }
+
   .item {
     padding: 1rem 1rem;
-    margin: 0 -1rem;
+    margin: 0 -.8rem;
     border-bottom: 1px solid #efefef;
 
     &:last-child {

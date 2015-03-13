@@ -14,9 +14,9 @@ $(document).on 'ready page:load', ->
         FilesAdded: (up, files) ->
           plupload.each files, (file) ->
         BeforeUpload: (up, file) ->
-          $('#upload').text(' 0%')
+          $('#upload i').text(' 0%')
         UploadProgress: (up, file) ->
-          $('#upload').text(' ' + file.percent + '%')
+          $('#upload i').text(' ' + file.percent + '%')
         FileUploaded: (up, file, info) ->
           reply_textarea = $('#upload').parents('form').find('textarea')
           new_value = reply_textarea.val() + '![](' + domain + JSON.parse(info).key + '?imageView/2/w/600)\n'
@@ -24,7 +24,7 @@ $(document).on 'ready page:load', ->
         Error: (up, err, errTip) ->
           console.log(err)
         UploadComplete: ->
-          $('#upload').text('')
+          $('#upload i').text('')
         Key: (up, file) ->
           md5(Date.now())
   )

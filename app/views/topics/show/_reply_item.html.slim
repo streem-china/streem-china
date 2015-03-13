@@ -31,5 +31,6 @@
             = link_to edit_reply_path(reply) do
               i.fa.fa-pencil
             '
-            i.fa.fa-trash.delete
+            = link_to '#', class: :delete do
+              i.fa.fa-trash
 
