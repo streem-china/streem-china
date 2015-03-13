@@ -1,5 +1,5 @@
 - if flash.present?
-  - %i(success notice warning alert error).each do |type|
+  - %i(success notice warning alert).each do |type|
     - if flash[type]
       javascript:
         Flash.notify('#{type}', '#{flash[type]}')

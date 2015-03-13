@@ -28,7 +28,7 @@ class RepliesController < ApplicationController
 
       redirect_to topic_path(@reply.topic, page: page, anchor: "reply-#{@reply.floor}")
     else
-      flash.now[:error] = @reply.errors.full_messages.join(', ')
+      flash.now[:alert] = @reply.errors.full_messages.join(', ')
 
       render :edit
     end

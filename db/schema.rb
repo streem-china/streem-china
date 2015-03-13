@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313133644) do
+ActiveRecord::Schema.define(version: 20150313131334) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -37,45 +37,49 @@ ActiveRecord::Schema.define(version: 20150313133644) do
     t.integer  "user_id",          null: false
     t.integer  "mentionable_id",   null: false
     t.string   "mentionable_type", null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true
 
   create_table "nodes", force: :cascade do |t|
-    t.string  "name"
-    t.integer "topics_count", default: 0
+    t.string   "name"
+    t.integer  "topics_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id",                     null: false
     t.integer  "reply_id"
     t.integer  "mention_id"
+    t.integer  "favorite_id"
     t.string   "type",                        null: false
     t.boolean  "read",        default: false
-    t.integer  "favorite_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id"
+  add_index "notifications", ["mention_id"], name: "index_notifications_on_mention_id"
+  add_index "notifications", ["reply_id"], name: "index_notifications_on_reply_id"
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "replies", force: :cascade do |t|
     t.integer  "topic_id",                    null: false
     t.integer  "user_id",                     null: false
-    t.text     "body"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "floor",           default: 1, null: false
+    t.integer  "favorites_count", default: 0, null: false
+    t.string   "user_name",                   null: false
+    t.string   "user_avatar",                 null: false
+    t.text     "body",                        null: false
+    t.text     "body_html",                   null: false
     t.datetime "deleted_at"
-    t.text     "body_html"
-    t.integer  "floor"
-    t.string   "user_name"
-    t.string   "user_avatar"
-    t.integer  "favorites_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "replies", ["deleted_at"], name: "index_replies_on_deleted_at"
   add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true
   add_index "replies", ["topic_id"], name: "index_replies_on_topic_id"
 
@@ -87,40 +91,37 @@ ActiveRecord::Schema.define(version: 20150313133644) do
 
   create_table "topics", force: :cascade do |t|
     t.integer  "user_id",                            null: false
-    t.string   "title",                              null: false
-    t.text     "body",                               null: false
+    t.integer  "node_id",                            null: false
     t.integer  "replies_count",          default: 0, null: false
+    t.integer  "favorites_count",        default: 0, null: false
     t.integer  "last_replied_user_id"
-    t.datetime "last_replied_at"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.datetime "deleted_at"
-    t.text     "body_html"
-    t.integer  "last_reply_id"
+    t.string   "node_name",                          null: false
+    t.string   "title",                              null: false
     t.string   "last_replied_user_name"
-    t.datetime "actived_at"
-    t.string   "user_name"
-    t.string   "user_avatar"
-    t.integer  "favorites_count",        default: 0
-    t.integer  "node_id",                default: 1
-    t.string   "node_name"
+    t.string   "user_name",                          null: false
+    t.string   "user_avatar",                        null: false
+    t.datetime "actived_at",                         null: false
+    t.datetime "last_replied_at"
+    t.text     "body",                               null: false
+    t.text     "body_html",                          null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "topics", ["actived_at"], name: "index_topics_on_actived_at"
-  add_index "topics", ["deleted_at"], name: "index_topics_on_deleted_at"
-  add_index "topics", ["last_replied_at"], name: "index_topics_on_last_replied_at"
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                                    null: false
     t.string   "avatar"
+    t.integer  "topics_count",               default: 0,  null: false
+    t.integer  "replies_count",              default: 0,  null: false
+    t.integer  "favorites_count",            default: 0,  null: false
+    t.integer  "notifications_count",        default: 0,  null: false
+    t.integer  "unread_notifications_count", default: 0,  null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "email",                      default: "", null: false
-    t.integer  "topics_count",               default: 0
-    t.integer  "replies_count",              default: 0
-    t.integer  "favorites_count",            default: 0
-    t.integer  "notifications_count",        default: 0
-    t.integer  "unread_notifications_count", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -29,7 +29,7 @@ class TopicsController < ApplicationController
 
       redirect_to topics_path
     else
-      flash.now[:error] = @topic.errors.full_messages.join(', ')
+      flash.now[:alert] = @topic.errors.full_messages.join(', ')
 
       render :new
     end
@@ -55,7 +55,7 @@ class TopicsController < ApplicationController
 
       redirect_to topic_path(@topic)
     else
-      flash.now[:error] = @topic.errors.full_messages.join(', ')
+      flash.now[:alert] = @topic.errors.full_messages.join(', ')
 
       render :edit
     end
