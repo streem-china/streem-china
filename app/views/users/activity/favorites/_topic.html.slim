@@ -1,5 +1,5 @@
 .topic-title
-  = link_to topic.title.truncate(40), topic_path(topic)
+  = link_to topic.title, topic_path(topic)
 .tips
   = topic.replies_count
   = t('topic.reply')

@@ -6,7 +6,7 @@
     .notification-title
       = sanitize t('notification.reply_link',
                     user: link_to(reply.user_name, user_path(reply.user_name)),
-                    topic: link_to(reply.topic.title.truncate(30), topic_path(reply.topic))),
+                    topic: link_to(reply.topic.title, topic_path(reply.topic))),
                  tags: %w(a)
     .tips
       = reply_link(reply)

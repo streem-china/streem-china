@@ -1,7 +1,7 @@
 - replies.each do |reply|
   .item
     .topic-title
-      = link_to reply.topic.title.truncate(40), topic_path(reply.topic)
+      = link_to reply.topic.title, topic_path(reply.topic)
 
     .tips
       = reply_link(reply)

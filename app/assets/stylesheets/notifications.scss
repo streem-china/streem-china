@@ -8,11 +8,11 @@
     background-color: #fffef1;
 
     &:first-child {
-      border-top: 1px solid #efefef;
+      border-top: 1px solid #efefef !important;
     }
 
     &:last-child {
-      border-bottom: 1px solid #efefef;
+      border-bottom: 1px solid #efefef !important;
     }
   }
 
