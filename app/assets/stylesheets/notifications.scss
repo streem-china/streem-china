@@ -6,6 +6,14 @@
 
   .unread {
     background-color: #fffef1;
+
+    &:first-child {
+      border-top: 1px solid #efefef;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid #efefef;
+    }
   }
 
   .item {
