@@ -4,12 +4,10 @@
     = f.text_field :title, placeholder: t('activerecord.attributes.topic.title')
     .tools
       .clearfix
-        span.left
-          i.fa.fa-eye.preview
+        i.fa.fa-eye.preview.left
         - if signed_in?
-          span#upload.right
-            i.fa.fa-image
-              input type='file' data-qiniu-domain="#{Rails.application.secrets.qiniu_domain}"
+          i#upload.fa.fa-image.right
+            input type='file' data-qiniu-domain="#{Rails.application.secrets.qiniu_domain}"
     = f.text_area :body, placeholder: t('activerecord.attributes.topic.body'), size: 'x20'
     .clearfix
       = f.submit t('topic.submit'), class: 'button small right', data: { disable_with: t('topic.submiting') }
