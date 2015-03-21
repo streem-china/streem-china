@@ -1,28 +1,43 @@
-== README
+## Streem China
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
 
-Things you may want to cover:
+[![Build Status](https://travis-ci.org/streem-china/streem-china.svg)](https://travis-ci.org/streem-china/streem-china)
 
-* Ruby version
+This is the source code of [Streem China](http://streem-china.org) website.
 
-* System dependencies
+**Note**: Streem China is still in the development stage. Stay tuned.
 
-* Configuration
+## Dependencies
 
-* Database creation
+---
 
-* Database initialization
+* Ruby
 
-* How to run the test suite
+* Redis
 
-* Services (job queues, cache servers, search engines, etc.)
+* Sqlite
 
-* Deployment instructions
+## Usage
 
-* ...
+---
 
+```ruby
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rails s
+```
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Testing
+
+---
+
+```ruby
+bundle exec rake test
+```
+
+## License
+
+---
+
+MIT license (© 2015 Streem China)
