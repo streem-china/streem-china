@@ -60,12 +60,19 @@ ul.pagination {
     }
   }
 
+  code {
+    color: #DD1144;
+  }
+
   .highlight {
     background-color: #f8f8f8;
     padding: .8rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.4;
     overflow: scroll;
+    margin-left: -.8rem;
+    margin-right: -.8rem;
+    margin-bottom: 1rem;
+    font-size: .8rem;
 
     code {
       padding: 0;
@@ -143,6 +150,7 @@ ul.pagination {
     font-size: .9rem;
 
     i {
+      color: #666;
       cursor: pointer;
     }
   }
