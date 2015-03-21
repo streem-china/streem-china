@@ -15,7 +15,8 @@
       = timeago_tag reply.created_at
     .tools
       .wrapper
-        i.fa.fa-reply.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}'
+        a.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}'
+          i.fa.fa-reply
         '
         - if signed_in? && reply.favorited_by?(current_user)
           i.favorited.fa.fa-heart data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'

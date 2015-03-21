@@ -51,8 +51,11 @@
       .wrapper {
         text-align: right;
         width: 3rem;
-        color: #666;
         font-size: .9rem;
+
+        a {
+          color: #666;
+        }
 
         i {
           cursor: pointer;
