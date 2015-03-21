@@ -1,5 +1,5 @@
 language: ruby
-bundler_args: --without development
+bundler_args: --without development production
 rvm:
   - 2.2.0
 env:
@@ -9,4 +9,6 @@ services:
 before_script:
   - cp config/database.example.yml config/database.yml
   - cp config/secrets.example.yml config/secrets.yml
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 script: RAILS_ENV=test bundle exec rake test
