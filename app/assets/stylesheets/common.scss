@@ -113,17 +113,17 @@ ul.pagination {
   width: 1rem !important;
 }
 
-.favorited, .unfavorited {
+a.favorited, a.unfavorited {
   .count {
     font-size: .7rem;
   }
 }
 
-.favorited {
+a.favorited {
   color: #ef4136;
 }
 
-.unfavorited {
+a.unfavorited {
   color: #666666;
 }
 
