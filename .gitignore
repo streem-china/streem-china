@@ -9,13 +9,17 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
-/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log
 /tmp
-*.swp
 
 # Secrect files
 /config/database.yml
 /config/secrets.yml
+
+# Ignore capistrano metrics
+.capistrano
+
+# Ignore swp files
+*.swp
