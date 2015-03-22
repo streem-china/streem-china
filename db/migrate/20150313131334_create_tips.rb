@@ -3,7 +3,7 @@ class CreateTips < ActiveRecord::Migration
     create_table :tips do |t|
       t.text :body
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

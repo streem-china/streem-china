@@ -17,7 +17,7 @@ class CreateTopics < ActiveRecord::Migration
       t.text :body_html, null: false
       t.datetime :deleted_at
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :topics, :user_id

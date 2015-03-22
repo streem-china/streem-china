@@ -4,7 +4,7 @@ class CreateNodes < ActiveRecord::Migration
       t.string :name
       t.integer :topics_count, default: 0
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

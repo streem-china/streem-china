@@ -5,7 +5,7 @@ class CreateMentions < ActiveRecord::Migration
       t.integer :mentionable_id, null: false
       t.string :mentionable_type, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :mentions, [:user_id, :mentionable_id, :mentionable_type], unique: true, name: :user_mentionable
