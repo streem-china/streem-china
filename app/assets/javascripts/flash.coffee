@@ -1,5 +1,5 @@
-class Flash
-  @notify: (type, message) ->
+class @Flash
+  @notify: (message, type) ->
     flash = '<div class="fixed">'                                                   +
               '<div class="row small-collapse medium-uncollapse large-uncollapse">' +
                 '<div class="small-12 column flash-container">'                     +
@@ -17,5 +17,3 @@ class Flash
     setTimeout ->
       $('.flash-container').fadeOut('slow').parent('fixed').remove()
     , 3000
-
-@Flash = Flash

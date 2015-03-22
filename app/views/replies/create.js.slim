@@ -1,5 +1,5 @@
 - if @reply.errors.present?
-  | Flash.notify('alert', '#{@reply.errors.full_messages.join(', ')}');
+  | Flash.notify('#{@reply.errors.full_messages.join(', ')}', 'alert');
 - else
   |
     item = '#{escape_javascript(render partial: 'topics/show/reply_item', locals: { reply: @reply })}';
@@ -18,4 +18,4 @@
     $('#new_reply .edit').addClass('preview').removeClass('edit')
     $('#new_reply textarea').show().val('').trigger('autosize.resize').removeClass('hide')
     $('#reply-#{@reply.floor} time').timeago();
-    Flash.notify('success', '#{t("reply.created_success")}');
+    Flash.notify('#{t("reply.created_success")}', 'success');

@@ -28,6 +28,7 @@ gem 'rails-timeago'
 gem 'gemoji'
 gem 'will_paginate-foundation'
 gem 'jquery-atwho-rails'
+gem 'i18n-js'
 
 group :development, :test do
   gem 'spring'

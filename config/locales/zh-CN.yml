@@ -34,6 +34,8 @@ zh-CN:
     name: 主题
     create: 发布
     reply: 回复
+    body: 内容
+    title: 标题
     new_button: 发布主题
     submit: 提交
     submiting: 提交中...
@@ -44,6 +46,8 @@ zh-CN:
     deleted_success: 删除成功
   reply:
     name: 回复
+    floor: 楼
+    body: 内容
     submit: 提交
     submiting: 提交中...
     are_you_sure_delete: 确定删除该回复?

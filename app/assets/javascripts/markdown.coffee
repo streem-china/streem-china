@@ -1,14 +1,19 @@
-class Markdown
-  @convert: (el, text) ->
-    if text
-      $.post '/markdown/convert',
-        text: text,
-        (data) ->
-          el.find('.body').html(data.html)
-    else
-      el.find('.body').html('')
+class @Markdown
+  constructor: (ele, text) ->
+    @ele = ele
+    @text = text
 
-@Markdown = Markdown
+  convert: ->
+    if this.text
+      $.ajax '/markdown/convert',
+        method: 'post',
+        context: this,
+        data:
+          text: this.text,
+        success: (data) ->
+          this.ele.find('.body').html(data.html)
+    else
+      this.ele.find('.body').html('')
 
 $(document).on 'ready page:load', ->
   $('body').on 'click', '.reply-form .preview, .topic-form .preview', ->
@@ -22,11 +27,12 @@ $(document).on 'ready page:load', ->
                 '</div>'
 
     textarea = $(this).parents('form').find('textarea')
-    $(previewer).insertBefore(textarea)
-    $('.previewer').css('min-height', textarea.css('height'))
+    $(previewer).insertBefore(textarea).css('min-height', textarea.css('height'))
     textarea.hide()
 
-    Markdown.convert($('.previewer'), textarea.val())
+    markdown = new Markdown($('.previewer'), textarea.val())
+
+    markdown.convert()
 
   $('body').on 'click', '.reply-form .edit, .topic-form .edit', ->
     $(this).removeClass('edit').addClass('preview')

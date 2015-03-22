@@ -2,7 +2,7 @@ $(document).on 'ready page:load', ->
   if $('#upload').length
     domain = $('#upload input').data('qiniu-domain')
 
-    Qiniu.uploader(
+    Qiniu.uploader
       runtimes: 'html5,flash,html4',
       browse_button: 'upload',
       uptoken_url: '/qiniu/uptoken',
@@ -27,4 +27,3 @@ $(document).on 'ready page:load', ->
           $('#upload i').text('')
         Key: (up, file) ->
           md5(Date.now())
-  )

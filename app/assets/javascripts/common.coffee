@@ -1,7 +1,8 @@
 $ ->
   $(document).foundation()
-  $.timeago.settings.lang = 'zh-CN'
   Turbolinks.enableProgressBar()
+  $.timeago.settings.lang = 'zh-CN'
+  I18n.locale = 'zh-CN'
 
   $(document).on 'ready page:load', ->
     if $('time').length

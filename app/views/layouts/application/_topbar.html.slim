@@ -10,9 +10,9 @@
 
     section.top-bar-section
       ul.left.show-for-medium-up
-        li class=(:active if @topbar.eql?(:community))
+        li class=(:active if topbar.eql?(:community))
           = link_to t('community_nav_link'), topics_path
-        li class=(:active if @topbar.eql?(:user))
+        li class=(:active if topbar.eql?(:user))
           = link_to t('user_nav_link'), users_path
       ul.right
         - if current_user

@@ -8,7 +8,7 @@
     .info
       span.floor
         = reply.floor
-        = t('activerecord.attributes.reply.floor')
+        = t('reply.floor')
       '  &middot;
       = link_to reply.user_name, user_path(reply.user_name), class: :username
       '
@@ -35,6 +35,5 @@
             = link_to edit_reply_path(reply) do
               i.fa.fa-pencil
             '
-            = link_to '#', class: :delete do
+            a.delete
               i.fa.fa-trash
-

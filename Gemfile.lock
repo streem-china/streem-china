@@ -88,6 +88,8 @@ GEM
     hashie (3.3.2)
     hike (1.2.3)
     i18n (0.7.0)
+    i18n-js (2.1.2)
+      i18n
     jquery-atwho-rails (1.0.1)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
@@ -244,6 +246,7 @@ DEPENDENCIES
   font-awesome-rails
   foundation-rails
   gemoji
+  i18n-js
   jquery-atwho-rails
   jquery-rails
   mysql2

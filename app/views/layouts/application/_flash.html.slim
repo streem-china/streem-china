@@ -2,4 +2,4 @@
   - %i(success notice warning alert).each do |type|
     - if flash[type]
       javascript:
-        Flash.notify('#{type}', '#{flash[type]}')
+        Flash.notify('#{flash[type]}', '#{type}')

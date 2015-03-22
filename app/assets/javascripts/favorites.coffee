@@ -1,19 +1,23 @@
-class Favorite
-  @favorite: (favoritable_id, favoritable_type) ->
+class @Favorite
+  constructor: (favoritable_id, favoritable_type) ->
+    @favoritable_id = favoritable_id
+    @favoritable_type = favoritable_type
+
+  create: ->
     $.ajax '/favorites.js',
+      context: $(this),
       method: 'post'
       data:
-        favoritable_id: favoritable_id,
-        favoritable_type: favoritable_type
+        favoritable_id: this.favoritable_id,
+        favoritable_type: this.favoritable_type
 
-  @unfavorite: (favoritable_id, favoritable_type) ->
+  delete: ->
     $.ajax '/favorites.js',
+      context: $(this)
       method: 'delete'
       data:
-        favoritable_id: favoritable_id,
-        favoritable_type: favoritable_type
-
-@Favorite = Favorite
+        favoritable_id: this.favoritable_id,
+        favoritable_type: this.favoritable_type
 
 $(document).on 'ready page:load', ->
   $('body').on 'click', '.favorited', ->
@@ -29,7 +33,9 @@ $(document).on 'ready page:load', ->
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count-1)
 
-    Favorite.unfavorite(favoritable_id, favoritable_type)
+    favorite = new Favorite(favoritable_id, favoritable_type)
+
+    favorite.delete(favoritable_id, favoritable_type)
 
   $('body').on 'click', '.unfavorited', ->
     favoritable_id = $(this).data('favoritable-id')
@@ -44,10 +50,12 @@ $(document).on 'ready page:load', ->
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count+1)
 
-    Favorite.favorite(favoritable_id, favoritable_type)
+    favorite = new Favorite(favoritable_id, favoritable_type)
+
+    favorite.create()
 
   $('body').on 'click', '.activity #favorites .delete', ->
-    result = confirm('确定删除该收藏?')
+    result = confirm(I18n.t('favorite.are_you_sure_delete'))
 
     if result
       favoritable_id = $(this).data('favoritable-id')
@@ -55,4 +63,8 @@ $(document).on 'ready page:load', ->
       $(this).parents('.item').fadeOut 300, ->
         $(this).remove()
 
-      Favorite.unfavorite(favoritable_id, favoritable_type)
+      Flash.notify(I18n.t('favorite.deleted_success'), 'success')
+
+      favorite = new Favorite(favoritable_id, favoritable_type)
+
+      favorite.delete()

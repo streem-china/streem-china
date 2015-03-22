@@ -5,10 +5,13 @@ Array.prototype.unique = ->
     if $.inArray(e, uniqueArray) < 0
       uniqueArray.push e
 
-  return uniqueArray
+  uniqueArray
 
-class Atwho
-  @favoriteEmojiList = [
+class @Atwho
+  constructor: (textarea) ->
+    @textarea = textarea
+
+  favoriteEmojis: [
     { name: '+1',         unicode: '1f44d' },
     { name: '-1',         unicode: '1f44e' },
     { name: 'heart',      unicode: '2764'  },
@@ -21,39 +24,40 @@ class Atwho
     { name: 'shit',       unicode: '1f4a9' }
   ]
 
-  @listenEmoji: (textarea) ->
-    textarea.atwho({
+  listenEmoji: ->
+    this.textarea.atwho
       at: ':',
-      data: Atwho.favoriteEmojiList,
+      data: this.favoriteEmojis,
       displayTpl: "<li><img src='/images/emoji/unicode/${unicode}.png' height='20' width='20' style='vertical-align: middle;'/> :${name}: </li>",
       insertTpl: ":${name}:"
-    })
 
-  @listenFloor: (textarea) ->
-    floors= $('.floor').map ->
-      return($(this).text())
+  listenFloor:  ->
+    floors= $('.floor').map (i, ele) ->
+      $(ele).text()
     .get().reverse()
 
-    textarea.atwho({ at: '#', data: floors })
+    this.textarea.atwho({ at: '#', data: floors })
 
-  @listenUsername: (textarea) ->
-    usernames = $('.username').map ->
-      return($(this).text())
+  listenUsername: ->
+    usernames = $('.username').map (i, ele) ->
+      $(ele).text()
     .get().unique().reverse()
 
-    textarea.atwho({ at: '@', data: usernames })
+    this.textarea.atwho({ at: '@', data: usernames })
 
-  @listenAll: (textarea) ->
-    Atwho.listenEmoji(textarea)
-    Atwho.listenFloor(textarea)
-    Atwho.listenUsername(textarea)
-
-@Atwho = Atwho
+  listenAll: ->
+    this.listenEmoji(this.textarea)
+    this.listenFloor(this.textarea)
+    this.listenUsername(this.textarea)
 
 $(document).on 'ready page:load', ->
   if $('.new_reply textarea').length
-    Atwho.listenAll($('.new_reply textarea'))
+    atwho = new Atwho($('.new_reply textarea'))
+
+    atwho.listenAll()
 
   if $('textarea').length
-    Atwho.listenEmoji($('textarea'))
+    atwho = new Atwho($('textarea'))
+
+    atwho.listenEmoji()
 
