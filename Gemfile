@@ -1,8 +1,10 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '4.2.0'
-gem 'sqlite3'
-gem 'will_paginate'
+gem 'sqlite3', group: :sqlite
+gem 'mysql2', group: :mysql
+gem 'pg', group: :postgres
+
 gem 'puma'
 gem 'slim'
 gem 'devise'
@@ -13,6 +15,7 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'redis-objects'
 gem 'qiniu'
+gem 'will_paginate'
 
 gem 'jquery-rails'
 gem 'turbolinks'

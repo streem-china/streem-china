@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150313131334) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
     t.string   "uid",        null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true
+  add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true, using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.string   "favoritable_type", null: false
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true
+  add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true, using: :btree
 
   create_table "mentions", force: :cascade do |t|
     t.integer  "user_id",          null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at"
   end
 
-  add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true
+  add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true, using: :btree
 
   create_table "nodes", force: :cascade do |t|
     t.string   "name"
@@ -61,10 +64,10 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at"
   end
 
-  add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id"
-  add_index "notifications", ["mention_id"], name: "index_notifications_on_mention_id"
-  add_index "notifications", ["reply_id"], name: "index_notifications_on_reply_id"
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+  add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id", using: :btree
+  add_index "notifications", ["mention_id"], name: "index_notifications_on_mention_id", using: :btree
+  add_index "notifications", ["reply_id"], name: "index_notifications_on_reply_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "replies", force: :cascade do |t|
     t.integer  "topic_id",                    null: false
@@ -80,8 +83,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at"
   end
 
-  add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true
-  add_index "replies", ["topic_id"], name: "index_replies_on_topic_id"
+  add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true, using: :btree
+  add_index "replies", ["topic_id"], name: "index_replies_on_topic_id", using: :btree
 
   create_table "tips", force: :cascade do |t|
     t.text     "body"
@@ -109,7 +112,7 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "updated_at"
   end
 
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                                    null: false
@@ -124,7 +127,7 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.string   "email",                      default: "", null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["name"], name: "index_users_on_name", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
 
 end

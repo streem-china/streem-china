@@ -106,6 +106,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.3.17)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -132,6 +133,7 @@ GEM
     orm_adapter (0.5.0)
     paranoia (2.1.0)
       activerecord (~> 4.0)
+    pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -244,9 +246,11 @@ DEPENDENCIES
   gemoji
   jquery-atwho-rails
   jquery-rails
+  mysql2
   omniauth
   omniauth-github
   paranoia
+  pg
   pry
   puma
   qiniu
