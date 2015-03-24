@@ -46,8 +46,6 @@ class Topic < ActiveRecord::Base
   end
 
   def set_node_name_before_save
-    if node_id_changed?
-      self.node_name = node.name
-    end
+    self.node_name = node.name if node_id_changed?
   end
 end
