@@ -22,7 +22,6 @@
 #= require foundation/foundation.tab
 #= require jquery.autosize.min
 #= require rails-timeago
-#= require jquery.timeago.zh-CN
 #= require jquery.atwho
 #= require qiniu.min.js
 #= require plupload.full.min
