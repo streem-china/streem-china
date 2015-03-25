@@ -26,6 +26,7 @@
 #= require qiniu.min.js
 #= require plupload.full.min
 #= require md5.min
+#= require locales
 #= require i18n
 #= require i18n/translations
 #= require_tree .
