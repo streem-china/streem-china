@@ -18,7 +18,6 @@ class Topic < ActiveRecord::Base
   validates :body, presence: true
   validates :actived_at, presence: true
   validates :node_id, presence: true
-  validates :node_name, presence: true
 
   before_validation :set_attributes_beofre_validation_on_create, on: :create
   before_validation :set_node_name_before_validation
@@ -47,6 +46,6 @@ class Topic < ActiveRecord::Base
   end
 
   def set_node_name_before_validation
-    self.node_name = node.name
+    self.node_name = node.name if node
   end
 end
