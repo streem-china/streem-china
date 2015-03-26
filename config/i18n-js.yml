@@ -1,0 +1,3 @@
+translations:
+  - file: 'lib/assets/javascripts/locales.js'
+    only: '*'
