@@ -1,4 +1,10 @@
 zh-CN:
+  time:
+    formats:
+      default: '%H:%M:%S'
+  date:
+    formats:
+      default: '%Y-%m-%d'
   timeago:
     prefixAgo: ''
     prefixFromNow: 从现在开始
