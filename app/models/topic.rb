@@ -18,9 +18,10 @@ class Topic < ActiveRecord::Base
   validates :body, presence: true
   validates :actived_at, presence: true
   validates :node_id, presence: true
+  validates :node_name, presence: true
 
   before_validation :set_attributes_beofre_validation_on_create, on: :create
-  before_save :set_node_name_before_save
+  before_validation :set_node_name_before_validation
   after_create :update_user_read_topic_after_create
 
   def has_replies?
@@ -45,7 +46,7 @@ class Topic < ActiveRecord::Base
     user.update_read_topic(self)
   end
 
-  def set_node_name_before_save
-    self.node_name = node.name if node_id_changed?
+  def set_node_name_before_validation
+    self.node_name = node.name
   end
 end
