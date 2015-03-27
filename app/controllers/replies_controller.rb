@@ -13,7 +13,7 @@ class RepliesController < ApplicationController
   end
 
   def destroy
-    @reply = current_user.replies.find(params[:id]).destroy
+    current_user.replies.find(params[:id]).destroy
 
     head :no_content
   end
@@ -22,9 +22,9 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.find(params[:id])
 
     if @reply.update_attributes(reply_params)
-      page = Reply.page_of_floor(@reply.floor)
-
       flash[:success] = t('reply.updated_success')
+
+      page = Reply.page_of_floor(@reply.floor)
 
       redirect_to topic_path(@reply.topic, page: page, anchor: "reply-#{@reply.floor}")
     else

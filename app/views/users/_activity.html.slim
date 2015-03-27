@@ -12,6 +12,5 @@
       = render partial: 'users/activity/topics', locals: { topics: topics }
     .content#replies
       = render partial: 'users/activity/replies', locals: { replies: replies }
-    - if current_user.eql?(user)
-      .content#favorites
-        = render partial: 'users/activity/favorites', locals: { favorites: favorites }
+    .content#favorites
+      = render partial: 'users/activity/favorites', locals: { favorites: favorites }

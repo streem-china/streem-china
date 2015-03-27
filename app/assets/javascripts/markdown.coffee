@@ -21,7 +21,7 @@ $(document).on 'ready page:load', ->
     $(this).find('i').removeClass('fa-eye').addClass('fa-pencil')
 
     previewer = '<div class="previewer">'                     +
-                  '<div class="body">'             +
+                  '<div class="body">'                        +
                     '<span class="loading">loading...</span>' +
                   '</div>'                                    +
                 '</div>'

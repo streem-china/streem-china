@@ -4,7 +4,7 @@
   border: 1px solid #efefef;
   margin: .8rem 0;
 
-  .title {
+  > .title {
     padding: .6rem 0rem;
     border-bottom: 1px solid #efefef;
     font-weight: bold;
@@ -163,5 +163,15 @@ a.unfavorited {
 
   input[type=submit] {
     margin-bottom: 0;
+  }
+}
+
+.item {
+  padding: 1rem .8rem;
+  margin: 0 -.8rem;
+  border-bottom: 1px solid #efefef;
+
+  &:last-child {
+    border-bottom: none;
   }
 }

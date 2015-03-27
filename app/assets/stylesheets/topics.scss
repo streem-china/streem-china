@@ -1,15 +1,5 @@
 .topics {
   .item {
-    margin: 2rem 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
     .avatar {
       display: table-cell;
 
@@ -27,7 +17,7 @@
       width: 100%;
       padding: 0 .8rem;
 
-      .topic-title {
+      .title {
         word-break: break-all;
       }
 
@@ -40,6 +30,7 @@
         }
       }
     }
+
     .replies-count {
       vertical-align: top;
       display: table-cell;

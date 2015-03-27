@@ -13,23 +13,20 @@
 
 .box
   .title =t('link_box_title')
-  p
-    = link_to 'http://python-china.org' do
-      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
-  p
-    = link_to 'http://python-china.org' do
-      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
-  p
-    = link_to 'http://python-china.org' do
-      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
-  p
-    = link_to 'http://python-china.org' do
-      img src='https://ruby-china-files.b0.upaiyun.com/photo/25e6c754403099b489ab68bcd21ca32d.jpg'
+  ul
+    li
+      = link_to 'Python China', 'http://python-china.org'
+    li
+      = link_to 'Ruby China', 'https://ruby-china.org'
+    li
+      = link_to 'CNode', 'https://cnodejs.org'
+    li
+      = link_to 'Golangtc', 'https://golangtc.com'
 
 .box
   .title =t('community_box_title')
   ul
-    li 会员数: #{User.count} 人
-    li 帖子数: #{Topic.count} 个
-    li 回复数: #{Reply.count} 个
+    li #{t('users_count')}: #{User.count} 人
+    li #{t('topics_count')}: #{Topic.count} 个
+    li #{t('replies_count')}: #{Reply.count} 个
 

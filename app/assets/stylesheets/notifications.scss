@@ -6,25 +6,9 @@
 
   .unread {
     background-color: #fffef1;
-
-    &:first-child {
-      border-top: 1px solid #efefef !important;
-    }
-
-    &:last-child {
-      border-bottom: 1px solid #efefef !important;
-    }
   }
 
   .item {
-    padding: 1rem .8rem;
-    margin: 0 -.8rem;
-    border-bottom: 1px solid #efefef;
-
-    &:last-child {
-      border-bottom: none;
-    }
-
     .avatar {
       display: table-cell;
 

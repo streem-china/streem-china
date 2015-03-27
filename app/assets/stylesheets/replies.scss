@@ -4,14 +4,6 @@
   }
 
   .item {
-    padding: 1rem .8rem;
-    margin: 0 -.8rem;
-    border-bottom: 1px solid #efefef;
-
-    &:last-child {
-      border-bottom: none;
-    }
-
     .deleted {
       text-align: center;
       font-style: italic;

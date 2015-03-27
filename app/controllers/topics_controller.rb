@@ -40,7 +40,7 @@ class TopicsController < ApplicationController
 
     current_user.update_read_topic(@topic) if current_user
 
-    @replies = @topic.replies.with_deleted.paginate(page: params[:page])
+    @replies = @topic.replies.with_deleted.order(:floor).paginate(page: params[:page])
   end
 
   def edit

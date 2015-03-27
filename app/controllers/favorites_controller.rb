@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @favorite = current_user.favorites.create(
+    favorite = current_user.favorites.create(
       favoritable_id: params[:favoritable_id],
       favoritable_type: params[:favoritable_type]
     )
@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = if params[:id]
+    favorite = if params[:id]
                   current_user.favorites.find(params[:id])
                 else
                   current_user.favorites.where(
@@ -20,8 +20,8 @@ class FavoritesController < ApplicationController
                   ).first
                 end
 
-    if @favorite
-      @favorite.destroy
+    if favorite
+      favorite.destroy
 
       head :no_content
     else
