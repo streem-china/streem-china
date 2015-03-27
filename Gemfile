@@ -1,4 +1,8 @@
-source 'http://ruby.taobao.org'
+if ENV['TRAVIS']
+  source 'https://rubygems.org'
+else
+  source 'http://ruby.taobao.org'
+end
 
 gem 'rails', '4.2.0'
 gem 'sqlite3', group: :sqlite
