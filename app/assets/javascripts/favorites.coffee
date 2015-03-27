@@ -26,7 +26,6 @@ $(document).on 'ready page:load', ->
 
     $(this).removeClass('favorited')
       .addClass('unfavorited')
-      .find('i')
       .removeClass('fa-heart')
       .addClass('fa-heart-o')
 
@@ -43,7 +42,6 @@ $(document).on 'ready page:load', ->
 
     $(this).removeClass('unfavorited')
       .addClass('favorited')
-      .find('i')
       .removeClass('fa-heart-o')
       .addClass('fa-heart')
 

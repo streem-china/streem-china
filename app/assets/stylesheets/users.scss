@@ -6,7 +6,12 @@
       margin-top: .2rem;
       display: block;
       width: 3rem;
-      min-height: 3rem;
+      height: 3rem;
+
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
 

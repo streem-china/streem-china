@@ -3,7 +3,7 @@
     = link_to user_path(topic.user_name) do
       = image_tag topic.user_avatar
   .info
-    = link_to topic.title, topic_path(topic), class: 'topic-title'
+    = link_to topic.title, topic_path(topic), class: :title
     .tips
       = link_to topic.node_name, topics_path(node: topic.node_name)
       '  &middot;
@@ -14,13 +14,11 @@
         = t('topic.create')
   .favorite
     - if signed_in? && topic.favorited_by?(current_user)
-      a.favorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
-        i.fa.fa-heart
-          span.count =topic.favorites_count
+      a.fa.fa-heart.favorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+        span.count =topic.favorites_count
     - else
-      a.unfavorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
-        i.fa.fa-heart-o
-          span.count =topic.favorites_count
+      a.fa.fa-heart-o.unfavorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+        span.count =topic.favorites_count
   .body
     = sanitize_body_html(topic.body_html)
   .admin

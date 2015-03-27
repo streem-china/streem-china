@@ -1,6 +1,6 @@
 $(document).on 'ready page:load', ->
   if $('#upload').length
-    domain = $('#upload input').data('qiniu-domain')
+    domain = $('#upload').data('qiniu-domain')
 
     Qiniu.uploader
       runtimes: 'html5,flash,html4',

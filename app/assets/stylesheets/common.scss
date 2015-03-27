@@ -97,22 +97,6 @@ ul.pagination {
   }
 }
 
-#upload input {
-  position: absolute;
-  overflow: hidden;
-  cursor: pointer;
-  right: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-.moxie-shim {
-  width: 1rem !important;
-}
-
 a.favorited, a.unfavorited {
   .count {
     font-size: .7rem;
@@ -152,12 +136,12 @@ a.unfavorited {
 
 .reply-form, .topic-form {
   .tools {
+    margin-bottom: .3rem;
     color: #666;
     font-size: .9rem;
 
-    i {
+    a {
       color: #666;
-      cursor: pointer;
     }
   }
 

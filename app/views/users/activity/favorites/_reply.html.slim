@@ -10,7 +10,6 @@
     i.fa.fa-heart
       span.favorites-count =reply.favorites_count
   '  &middot;
-  a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
-    i.fa.fa-trash
+  a.fa.fa-trash.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
 .body
   = sanitize_body_html(reply.body_html)
