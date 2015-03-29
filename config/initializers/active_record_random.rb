@@ -5,9 +5,7 @@ module ActiveRecord
 
       random_fun = adapter.eql?('Mysql2') ? 'rand()' : 'random()'
 
-      define_method :random do |count=1|
-        order(random_fun).limit(count)
-      end
+      define_method :random, -> { order(random_fun) }
     end
   end
 end

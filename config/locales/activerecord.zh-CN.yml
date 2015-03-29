@@ -3,6 +3,13 @@ zh-CN:
     models:
       notification: 消息
     attributes:
+      user:
+        login: 邮箱/昵称
+        email: 邮箱
+        name: 昵称
+        password: 密码
+        confirmation_token: 验证码
+        password_confirmation: 密码确认
       topic:
         node_id: 节点
         title: 标题
@@ -10,9 +17,31 @@ zh-CN:
       reply:
         body: 内容
         floor: 楼
-
     errors:
       models:
+        user:
+          attributes:
+            confirmation_token:
+              blank: 不能为空
+              invalid: 不正确
+            name:
+              blank: 不能为空
+              too_short: 不能少于 %{count} 个字符
+              too_long: 不能多于 %{count} 个字符
+              invalid: 只能是数字, 字母或下划线
+              taken: 已被占用
+            email:
+              blank: 不能为空
+              not_found: 不存在
+              already_confirmed: 已验证
+              blank: 不能为空
+              taken: 已被占用
+            password:
+              blank: 不能为空
+              too_short: 不能少于 %{count} 个字符
+              too_long: 不能多于 %{count} 个字符
+            password_confirmation:
+              confirmation: 不一致
         topic:
           attributes:
             node_id:

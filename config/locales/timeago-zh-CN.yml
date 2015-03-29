@@ -1,9 +1,9 @@
 zh-CN:
   timeago:
-    prefixAgo: ''
+    prefixAgo:
     prefixFromNow: 从现在开始
     suffixAgo: 前
-    suffixFromNow: ''
+    suffixFromNow:
     seconds: 1分钟
     minute: 1分钟
     minutes: '%d分钟'
@@ -15,6 +15,6 @@ zh-CN:
     months: '%d月'
     year: 1年
     years: '%d年'
-    numbers: '[]'
-    wordSeparator: ''
+    numbers: []
+    wordSeparator:
 

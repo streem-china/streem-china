@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action { @topbar = :user }
 
   def show
-    @user = User.find_by_name(params[:username])
+    @user = User.where('lower(name) = ?', params[:username].downcase).first
 
     if @user
       @topics = @user.topics.without_body.order('id desc').limit(20)

@@ -1,28 +1,55 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, omniauth_providers: [:github]
+  DEFAULT_AVATAR = '/images/avatar.png'
 
-  has_one :authorization
+  include TopicReadable
+
+  attr_accessor :login
+
+  devise :database_authenticatable,
+         :registerable,
+         :omniauthable,
+         :validatable,
+         :recoverable,
+         :confirmable,
+         :trackable,
+         authentication_keys: [:login],
+         omniauth_providers: [:github]
+
+  has_many :authorizations
   has_many :topics
   has_many :replies
   has_many :favorites
   has_many :mentions
   has_many :notifications, class_name: 'Notification::Base'
 
-  validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :name,
+    uniqueness: { case_sensitive: false },
+    length: { in: 3..20 },
+    format: { with: /\A\w+\z/ }
 
-  include Redis::Objects
-  hash_key :read_topics
+  before_save :set_default_avatar_before_save
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+
+    login = conditions.delete(:login)
+
+    where(conditions).
+      where('lower(name) = :value OR lower(email) = :value', { value: login.downcase }).
+      first
+  end
 
   def has_unread_notifications?
     unread_notifications_count > 0
   end
 
-  def update_read_topic(topic, ts=Time.now.to_i)
-    read_topics[topic.id] = ts.to_i
+  def password_required?
+    (authorizations.blank? || password.present?) && super
   end
 
-  def has_read_topic?(topic)
-    read_topics[topic.id].to_i >= topic.actived_at.to_i
+  private
+
+  def set_default_avatar_before_save
+    self.avatar = DEFAULT_AVATAR if avatar.blank?
   end
 end

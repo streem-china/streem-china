@@ -10,11 +10,6 @@ module Users
       avatar   = auth.info.image
 
       if authorization = Authorization.find_by_provider_and_uid(provider, uid)
-        authorization.user.update_attributes(
-          name: name,
-          email: email,
-          avatar: avatar)
-
         user = authorization.user
       else
         user = User.new(
@@ -22,16 +17,18 @@ module Users
           email: email,
           avatar: avatar)
 
-        user.authorization = Authorization.new(
-          provider: provider,
-          uid: uid)
+        user.skip_confirmation!
 
-        user.save
+        user.authorizations.build(provider: provider, uid: uid)
+
+        unless user.save
+          flash[:alert] = user.errors.full_messages.join(', ')
+          return(redirect_to new_user_session_path)
+        end
       end
 
+      set_flash_message(:notice, :success, kind: :Github)
       sign_in_and_redirect user
-
-      set_flash_message(:notice, :success, kind: 'Github')
     end
   end
 end

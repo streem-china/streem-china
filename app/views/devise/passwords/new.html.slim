@@ -1,0 +1,21 @@
+.row.small-collapse.medium-uncollapse
+  .large-8.large-offset-2.columns
+    .box.devise-box
+      .title
+        h5 =t('find_password')
+      = form_for(resource, url: password_path(resource), html: { method: :post }) do |f|
+        .row.small-collapse
+          .small-9.small-offset-3.columns
+            .small-12.columns
+              = devise_error_messages!
+
+          .clearfix
+            .small-3.columns
+              = f.label :email, class: 'right inline'
+            .small-9.columns
+              = f.email_field :email
+
+          .small-9.small-offset-3.columns
+            .small-12.columns
+              = f.submit t('send'), class: 'button expand small', data: { disable_with: t('sending') }
+

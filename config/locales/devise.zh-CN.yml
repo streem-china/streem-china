@@ -1,11 +1,35 @@
 zh-CN:
   devise:
+    confirmations:
+      confirmed: 邮件确认成功.
+      send_instructions: 邮件已发送, 请查看以激活账号.
     failure:
-      unauthenticated: "请先登陆."
+      unauthenticated: 请先登陆.
+      already_authenticated: 您已登陆.
+      not_found_in_database: 登录失败, 邮箱/昵称 或 密码错误.
+      user:
+        invalid: 登录失败, 邮箱/昵称 或 密码错误.
+        unconfirmed: 登录失败, 请查看邮箱激活账号.
+    mailer:
+      confirmation_instructions:
+        subject: StreemChina 账号确认
+      reset_password_instructions:
+        subject: StreemChina 重置密码确认
     omniauth_callbacks:
-      failure: "%{kind} 账户授权失败, 原因: \"%{reason}\"."
-      success: "%{kind} 账户授权成功."
+      failure: '%{kind} 账户授权失败, 原因: %{reason}.'
+      success: '%{kind} 账户授权成功.'
+    passwords:
+      send_instructions: 邮件已发送, 请查看以修改密码.
+      updated: 密码更改成功
     sessions:
-      signed_in: "登录成功."
-      signed_out: "退出成功."
-      already_signed_out: "退出成功."
+      signed_in: 登录成功.
+      signed_out: 退出成功.
+      already_signed_out: 退出成功.
+    registrations:
+      signed_up: 注册成功, 欢迎来到 Streem China.
+      signed_up_but_unconfirmed: 注册成功, 请查看邮箱激活账号.
+  errors:
+    messages:
+      not_saved:
+        one: 操作失败
+        other: 操作失败

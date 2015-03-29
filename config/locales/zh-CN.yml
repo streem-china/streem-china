@@ -1,15 +1,23 @@
 zh-CN:
-  time:
-    formats:
-      default: '%H:%M:%S'
-  date:
-    formats:
-      default: '%Y-%m-%d'
   sign_in: 登陆
+  signing_in: 登陆中...
   sign_out: 登出
   sign_in_first: 请先登陆
-  sign_in_with_github: Github 登陆
-  signing_in_with_github: Github 登陆中...
+  sign_in_with_github: 通过 Github 登陆
+  sign_in_with_twitter: 通过 Twitter 登陆
+  email: 邮箱
+  confirm: 账号确认
+  password: 密码
+  username: 昵称
+  password_confirmation: 密码确认
+  send: 发送
+  sending: 发送中...
+  register: 注册
+  registering: 注册中...
+  forget_password: 忘记密码?
+  find_password: 找回密码
+  change_password: 更改密码
+  have_not_received_confirmation: 没有收到确认邮件?
   community_nav_link: 社区
   user_nav_link: 会员
   tip_box_title: 小贴士
@@ -23,6 +31,12 @@ zh-CN:
   replies_count: 回复数
   submit: 提交
   submiting: 提交中...
+  time:
+    formats:
+      default: '%H:%M:%S'
+  date:
+    formats:
+      default: '%Y-%m-%d'
   notification:
     name: 消息
     reply_link: '%{user} 回复了你的主题 %{topic}'

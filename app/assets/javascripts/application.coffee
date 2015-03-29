@@ -20,6 +20,7 @@
 #= require foundation/foundation.alert
 #= require foundation/foundation.reveal
 #= require foundation/foundation.tab
+#= require foundation/foundation.tooltip
 #= require jquery.autosize.min
 #= require rails-timeago
 #= require jquery.atwho

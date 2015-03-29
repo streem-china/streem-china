@@ -20,6 +20,7 @@ gem 'rouge'
 gem 'redis-objects'
 gem 'qiniu'
 gem 'will_paginate'
+gem 'mailgun_rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -45,6 +46,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
 
-  gem 'pry'
+  gem 'byebug'
 end
 

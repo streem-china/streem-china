@@ -9,7 +9,11 @@
     border-bottom: 1px solid #efefef;
     font-weight: bold;
     text-align: center;
-    margin: -1rem -1rem 1rem -1rem;
+    margin: -.8rem -.8rem .8rem -.8rem;
+
+    h5 {
+      margin-bottom: .2rem;
+    }
   }
 }
 
@@ -130,10 +134,6 @@ a.unfavorited {
   z-index: 9999;
 }
 
-.login-box {
-  text-align: center;
-}
-
 .reply-form, .topic-form {
   .tools {
     margin-bottom: .3rem;
@@ -157,5 +157,37 @@ a.unfavorited {
 
   &:last-child {
     border-bottom: none;
+  }
+}
+
+.devise-box {
+  border: solid 1px #e3e3e3;
+
+  a.thirdpart-login {
+    color: #666;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  a.resend-confirmation {
+    font-size: .8rem;
+  }
+
+  a.forget-password {
+    font-size: .8rem;
+  }
+}
+
+#error_explanation {
+  h2 {
+    font-size: 1rem;
+    color: #ef4136;
+  }
+
+  li {
+    font-size: .8rem;
+    color: #ef4136;
   }
 }

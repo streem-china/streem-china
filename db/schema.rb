@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.integer  "user_id",          null: false
     t.integer  "mentionable_id",   null: false
     t.string   "mentionable_type", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true, using: :btree
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
   create_table "nodes", force: :cascade do |t|
     t.string   "name"
     t.integer  "topics_count", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.integer  "favorite_id"
     t.string   "type",                        null: false
     t.boolean  "read",        default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id", using: :btree
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.text     "body",                        null: false
     t.text     "body_html",                   null: false
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true, using: :btree
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
 
   create_table "tips", force: :cascade do |t|
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "topics", force: :cascade do |t|
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.text     "body",                               null: false
     t.text     "body_html",                          null: false
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
@@ -125,9 +125,28 @@ ActiveRecord::Schema.define(version: 20150313131334) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "email",                      default: "", null: false
+    t.string   "encrypted_password",         default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",              default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",            default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
 end
