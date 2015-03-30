@@ -26,8 +26,8 @@ This is the source code of [Streem China](http://streem-china.org) website.
 ### Usage
 
 ```ruby
-cp config/database.sqlite.yml config/database.yml (Edit)
-cp config/secrets.example.yml config/secrets.yml (Edit)
+cp config/database.sqlite.yml config/database.yml (Change to your real config)
+cp config/secrets.example.yml config/secrets.yml (Change to your real config)
 bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rails s
