@@ -4,9 +4,8 @@
       a href='#topics' =t('user.latest_topics')
     li.tab-title
       a href='#replies' =t('user.latest_replies')
-    - if current_user.eql?(user)
-      li.tab-title
-        a href='#favorites' =t('user.my_favorites')
+    li.tab-title
+      a href='#favorites' =t('user.lastest_favorites')
   .tabs-content
     .content.active#topics
       = render partial: 'users/activity/topics', locals: { topics: topics }
