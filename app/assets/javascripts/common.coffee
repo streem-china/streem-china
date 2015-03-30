@@ -12,3 +12,5 @@ $ ->
       $('textarea').autosize()
     if $('.tabs').length
       $(document).foundation('tab', 'reflow')
+    if $('.has-tooltip').length
+      $(document).foundation('tooltip', 'reflow')

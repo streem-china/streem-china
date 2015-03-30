@@ -28,9 +28,9 @@
           .clearfix
             .right
               = link_to user_omniauth_authorize_path(:github), class: 'thirdpart-login'  do
-                i.fa.fa-github.fa-lg.tip-top data-tooltip='' title='#{t("sign_in_with_github")}'
+                i.fa.fa-github.fa-lg.has-tooltip.tip-top data-tooltip='' title='#{t("sign_in_with_github")}'
               '
               = link_to '#', class: 'thirdpart-login'  do
-                i.fa.fa-twitter.fa-lg.tip-top data-tooltip='' title='#{t("sign_in_with_twitter")}'
+                i.fa.fa-twitter.fa-lg.has-tooltip.tip-top data-tooltip='' title='#{t("sign_in_with_twitter")}'
               '
               = link_to t('forget_password'), new_user_password_path, class: 'forget-password'
