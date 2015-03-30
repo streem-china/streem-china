@@ -1,26 +1,26 @@
 .row.small-collapse.medium-uncollapse
-  .large-8.large-offset-2.columns
+  .large-8.large-offset-2.medium-10.medium-offset-1.small-12.columns
     .box.devise-box
       .title
         h5 =t('sign_in')
       = form_for(resource, url: session_path(resource)) do |f|
         .row.small-collapse
           .clearfix
-            .small-3.columns
+            .small-3.columns.no-padding-left
               = f.label :login, class: 'right inline'
-            .small-9.columns
+            .small-9.columns.no-padding-right
               = f.text_field :login
 
           .clearfix
-            .small-3.columns
+            .small-3.columns.no-padding-left
               = f.label :password, class: 'right inline'
-            .small-9.columns
+            .small-9.columns.no-padding-right
               = f.password_field :password
 
-          .small-9.small-offset-3.columns
-            .small-6.columns
+          .small-9.small-offset-3
+            .small-6.columns.no-padding-left
               = f.submit t('sign_in'), class: 'button expand small', data: { disable_with: t('signing_in') }
-            .small-6.columns
+            .small-6.columns.no-padding-right
               = link_to t('register'), new_user_registration_path(resource), class: 'button expand small success'
 
       .row

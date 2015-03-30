@@ -6,24 +6,24 @@
       = form_for(resource, url: password_path(resource), html: { method: :put }) do |f|
         .row.small-collapse
           .small-9.small-offset-3.columns
-            .small-12.columns
+            .small-12.columns.no-padding-left
               = devise_error_messages!
               = f.hidden_field :reset_password_token
 
           .clearfix
-            .small-3.columns
-              = f.label :password, '新密码', class: 'right inline'
-            .small-9.columns
+            .small-3.columns.no-padding-left
+              = f.label :password, t('new_password'), class: 'right inline'
+            .small-9.columns.no-padding-right
               = f.password_field :password
 
           .clearfix
-            .small-3.columns
-              = f.label :password_confirmation, '密码确认', class: 'right inline'
-            .small-9.columns
+            .small-3.columns.no-padding-left
+              = f.label :password_confirmation, class: 'right inline'
+            .small-9.columns.no-padding-right
               = f.password_field :password_confirmation
 
           .small-9.small-offset-3.columns
-            .small-12.columns
+            .small-12.columns.no-padding-left.no-padding-right
               = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
 
 

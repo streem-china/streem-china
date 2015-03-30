@@ -21,6 +21,7 @@ zh-CN:
     passwords:
       send_instructions: 邮件已发送, 请查看以修改密码.
       updated: 密码更改成功
+      updated_not_active: 密码更改成功
     sessions:
       signed_in: 登录成功.
       signed_out: 退出成功.

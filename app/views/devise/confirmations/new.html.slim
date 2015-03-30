@@ -6,15 +6,15 @@
       = form_for(resource, url: confirmation_path(resource), html: { method: :post }) do |f|
         .row.small-collapse
           .small-9.small-offset-3.columns
-            .small-12.columns
+            .small-12.columns.no-padding-left.no-padding-right
               = devise_error_messages!
 
           .clearfix
-            .small-3.columns
+            .small-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
-            .small-9.columns
+            .small-9.columns.no-padding-right
               = f.email_field :email
 
           .small-9.small-offset-3.columns
-            .small-12.columns
+            .small-12.columns.no-padding-left.no-padding-right
               = f.submit t('send'), class: 'button expand small', data: { disable_with: t('sending') }

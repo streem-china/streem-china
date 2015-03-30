@@ -9,6 +9,7 @@ zh-CN:
   confirm: 账号确认
   password: 密码
   username: 昵称
+  new_password: 新密码
   password_confirmation: 密码确认
   send: 发送
   sending: 发送中...

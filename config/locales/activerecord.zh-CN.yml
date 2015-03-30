@@ -10,6 +10,7 @@ zh-CN:
         password: 密码
         confirmation_token: 验证码
         password_confirmation: 密码确认
+        reset_password_token: 重置密码 token
       topic:
         node_id: 节点
         title: 标题
@@ -21,9 +22,11 @@ zh-CN:
       models:
         user:
           attributes:
+            reset_password_token:
+              invalid: 验证失败
             confirmation_token:
               blank: 不能为空
-              invalid: 不正确
+              invalid: 验证失败
             name:
               blank: 不能为空
               too_short: 不能少于 %{count} 个字符
