@@ -7,7 +7,7 @@ This is the source code of [Streem China](http://streem-china.org) website.
 
 **Note**: Streem China is still in the development stage. Stay tuned.
 
-## Dependencies
+### Dependencies
 
 * Ruby
 
@@ -15,17 +15,25 @@ This is the source code of [Streem China](http://streem-china.org) website.
 
 * SQLite / MySQL / PostgreSQL
 
-## Usage
+### External Service
+
+* Github(Oauth2)
+
+* Qiniu
+
+* Mailgun
+
+### Usage
 
 ```ruby
-cp config/database.sqlite.yml config/database.yml
-cp config/secrets.example.yml config/secrets.yml
+cp config/database.sqlite.yml config/database.yml (Edit)
+cp config/secrets.example.yml config/secrets.yml (Edit)
 bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rails s
 ```
 
-## Testing
+### Testing
 
 ```ruby
 bundle exec rake test
