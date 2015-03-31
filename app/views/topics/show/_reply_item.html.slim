@@ -15,13 +15,16 @@
       = timeago_tag reply.created_at
     .tools
       .wrapper
-        a.fa.fa-reply.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}'
+        a.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}'
+          i.fa.fa-reply
         '
         - if signed_in? && reply.favorited_by?(current_user)
-          a.fa.fa-heart.favorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
+          a.favorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
+            i.fa.fa-heart
             span.count =reply.favorites_count
         - else
-          a.fa.fa-heart-o.unfavorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
+          a.unfavorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
+            i.fa.fa-heart-o
             span.count =reply.favorites_count
     .body
       = sanitize_body_html(reply.body_html)

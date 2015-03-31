@@ -9,7 +9,7 @@
 
 .box
   .title =t('tip_box_title')
-  p =@tip.body if @tip
+  = simple_format Tip.random.first.try(:body)
 
 .box
   .title =t('link_box_title')

@@ -4,9 +4,11 @@
     = f.text_field :title, placeholder: t('topic.title')
     .tools
       .clearfix
-        a.left.preview.fa.fa-eye
+        a.left.preview
+          i.fa.fa-eye
         - if signed_in?
-          a.right.fa.fa-image#upload  data-qiniu-domain='#{Rails.application.secrets.qiniu_domain}'
+          a.right#upload data-qiniu-domain='#{Rails.application.secrets.qiniu_domain}'
+            i.fa.fa-image
     = f.text_area :body, placeholder: t('topic.body'), size: 'x20'
     .clearfix
       = f.submit t('submit'), class: 'button small right', data: { disable_with: t('submiting') }

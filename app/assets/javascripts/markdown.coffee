@@ -17,11 +17,8 @@ class @Markdown
 
 $(document).on 'ready page:load', ->
   $('body').on 'click', '.reply-form .preview, .topic-form .preview', ->
-    $(this)
-      .removeClass('preview')
-      .addClass('edit')
-      .removeClass('fa-eye')
-      .addClass('fa-pencil')
+    $(this).removeClass('preview').addClass('edit')
+    $(this).find('i').removeClass('fa-eye').addClass('fa-pencil')
 
     previewer = '<div class="previewer">'                     +
                   '<div class="body">'                        +
@@ -38,11 +35,8 @@ $(document).on 'ready page:load', ->
     markdown.convert()
 
   $('body').on 'click', '.reply-form .edit, .topic-form .edit', ->
-    $(this)
-      .removeClass('edit')
-      .addClass('preview')
-      .removeClass('fa-pencil')
-      .addClass('fa-eye')
+    $(this).removeClass('edit').addClass('preview')
+    $(this).find('i').removeClass('fa-pencil').addClass('fa-eye')
 
     $('.previewer').remove()
 

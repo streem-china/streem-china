@@ -13,12 +13,15 @@
         = timeago_tag topic.created_at
         = t('topic.create')
   .favorite
-    - if signed_in? && topic.favorited_by?(current_user)
-      a.fa.fa-heart.favorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
-        span.count =topic.favorites_count
-    - else
-      a.fa.fa-heart-o.unfavorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
-        span.count =topic.favorites_count
+    .wrapper
+      - if signed_in? && topic.favorited_by?(current_user)
+        a.favorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+          i.fa.fa-heart
+          span.count =topic.favorites_count
+      - else
+        a.unfavorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}'
+          i.fa.fa-heart-o
+          span.count =topic.favorites_count
   .body
     = sanitize_body_html(topic.body_html)
   .admin

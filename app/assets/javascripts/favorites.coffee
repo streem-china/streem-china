@@ -24,10 +24,8 @@ $(document).on 'ready page:load', ->
     favoritable_id = $(this).data('favoritable-id')
     favoritable_type = $(this).data('favoritable-type')
 
-    $(this).removeClass('favorited')
-      .addClass('unfavorited')
-      .removeClass('fa-heart')
-      .addClass('fa-heart-o')
+    $(this).removeClass('favorited').addClass('unfavorited')
+    $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o')
 
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count-1)
@@ -40,10 +38,8 @@ $(document).on 'ready page:load', ->
     favoritable_id = $(this).data('favoritable-id')
     favoritable_type = $(this).data('favoritable-type')
 
-    $(this).removeClass('unfavorited')
-      .addClass('favorited')
-      .removeClass('fa-heart-o')
-      .addClass('fa-heart')
+    $(this).removeClass('unfavorited').addClass('favorited')
+    $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart')
 
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count+1)

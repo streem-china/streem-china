@@ -95,6 +95,12 @@
   .favorite {
     vertical-align: top;
     display: table-cell;
-    font-size: 1.2rem;
+
+    .wrapper {
+      font-size: 1.2rem;
+      text-align: right;
+      display: block;
+      width: 3rem;
+    }
   }
 }
