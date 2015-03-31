@@ -3,15 +3,16 @@
 .tips
   = topic.replies_count
   = t('topic.reply')
-  ' &middot
+  '  &middot
   = timeago_tag favorite.created_at
   = t('favorite.name')
   - if topic.has_favorites?
-    ' &middot;
+    '  &middot;
     i.fa.fa-heart
       span.favorites-count =topic.favorites_count
-  '  &middot
-  a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
-    i.fa.fa-trash
+  - if current_user.eql?(@user)
+    '  &middot
+    a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
+      i.fa.fa-trash
 .body
   = sanitize_body_html(topic.body_html)
