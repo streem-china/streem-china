@@ -1,0 +1,54 @@
+.box.markdown-tips-box
+  .title =t('markdown_tips')
+  ul
+    li
+      span 链接
+      pre
+        | [Streem-China](http://streem-china.org)
+    li
+      span 图片
+      pre
+        | ![Avatar](http://streem-china.org/images/avatar.png)
+    li
+      span 强调
+      pre
+        | **StreemChina**
+    li
+      span 删除线
+      pre
+        | ~~StreemChina~~
+    li
+      span 斜体
+      pre
+        | *StreemChina*
+    li
+      span 分割线
+      pre
+        | ---
+    li
+      span 引用
+      pre
+        | > Streem is a stream based concurrent scripting language
+    li
+      span 行内代码
+      pre
+        | `STDIN | STDOUT`
+    li
+      span 块级代码
+      pre
+        | ```streem
+          seq(100) | {x ->
+            if x % 15 == 0 {
+              "FizzBuzz"
+            }
+            else if x % 3 == 0 {
+              "Fizz"
+            }
+            else if x % 5 == 0 {
+              "Buzz"
+            }
+            else {
+              x
+            }
+          } | STDOUT
+          ```

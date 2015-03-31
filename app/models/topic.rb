@@ -31,6 +31,22 @@ class Topic < ActiveRecord::Base
     !favorites_count.zero?
   end
 
+  def similars(count)
+    self.class.
+      where(node_id: node_id).
+      where('id != ?', id).
+      order(id: :desc).
+      first(count)
+  end
+
+  def user_others(count)
+    self.class.
+      where(user: user_id).
+      where('id != ?', id).
+      order(id: :desc).
+      first(count)
+  end
+
   private
 
   def set_attributes_beofre_validation_on_create

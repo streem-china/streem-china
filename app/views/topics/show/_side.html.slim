@@ -1,0 +1,13 @@
+.box.similar-topics-box
+  .title =t('similar_topics')
+  ul
+    - @topic.similars(5).each do |topic|
+      li
+        = link_to topic.title, topic_path(topic), class: 'topic-title'
+
+.box.similar-topics-box
+  .title =t('user_other_topics')
+  ul
+    - @topic.user_others(5).each do |topic|
+      li
+        = link_to topic.title, topic_path(topic), class: 'topic-title'

@@ -115,11 +115,25 @@ a.unfavorited {
   color: #666666;
 }
 
-.node-box {
+.nodes-box {
   .label {
     font-size: .9rem;
     padding: .4rem;
     margin: .4rem;
+  }
+}
+
+.similar-topics-box {
+  .topic-title {
+    word-break: break-all;
+  }
+}
+
+.markdown-tips-box {
+  pre {
+    margin: .5rem 0;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
 
