@@ -11,7 +11,7 @@
     i.fa.fa-heart
       span.favorites-count =topic.favorites_count
   - if current_user.eql?(@user)
-    '  &middot
+    '  &middot;
     a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
       i.fa.fa-trash
 .body
