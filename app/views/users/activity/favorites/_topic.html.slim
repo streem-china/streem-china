@@ -10,7 +10,7 @@
     '  &middot;
     i.fa.fa-heart
       span.favorites-count =topic.favorites_count
-  - if current_user.eql?(@user)
+  - if signed_in? && current_user.eql?(@user)
     '  &middot;
     a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
       i.fa.fa-trash
