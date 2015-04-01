@@ -17,7 +17,7 @@ This is the source code of [Streem China](http://streem-china.org) website.
 
 ### External Service
 
-* Github(Oauth2)
+* Github Oauth2
 
 * Qiniu
 
@@ -28,8 +28,7 @@ This is the source code of [Streem China](http://streem-china.org) website.
 ```ruby
 cp config/database.sqlite.yml config/database.yml (Change to your real config)
 cp config/secrets.example.yml config/secrets.yml (Change to your real config)
-bundle exec rake db:create
-bundle exec rake db:migrate
+bundle exec rake db:setup
 bundle exec rails s
 ```
 
