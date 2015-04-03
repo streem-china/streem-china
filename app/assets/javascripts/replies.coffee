@@ -14,6 +14,8 @@ $(document).on 'ready page:load', ->
     new_value = reply_textarea.val() + '#' + reply_floor + I18n.t('reply.floor') + ' @' + reply_user_name + '\n'
     reply_textarea.val(new_value).focus().trigger('autosize.resize')
 
+    false
+
 
   $('body').on 'click', '.replies .item .delete', (e) ->
     result = confirm(I18n.t('reply.are_you_sure_delete'))
@@ -30,3 +32,5 @@ $(document).on 'ready page:load', ->
       reply = new Reply(reply_id)
 
       reply.delete()
+
+      false

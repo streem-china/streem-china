@@ -15,16 +15,13 @@
       = timeago_tag reply.created_at
     .tools
       .wrapper
-        a.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}'
-          i.fa.fa-reply
+        a.fa.fa-reply.reply data-reply-floor='#{reply.floor}' data-reply-user-name='#{reply.user_name}' href='#'
         '
         - if signed_in? && reply.favorited_by?(current_user)
-          a.favorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
-            i.fa.fa-heart
+          a.fa.fa-heart.favorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}' href='#'
             span.count =reply.favorites_count
         - else
-          a.unfavorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}'
-            i.fa.fa-heart-o
+          a.fa.fa-heart-o.unfavorited data-favoritable-id='#{reply.id}' data-favoritable-type='#{reply.class}' href='#'
             span.count =reply.favorites_count
     .body
       = sanitize_body_html(reply.body_html)
@@ -32,8 +29,6 @@
       .clearfix
         .right
           - if signed_in? && current_user.id.eql?(reply.user_id)
-            = link_to edit_reply_path(reply) do
-              i.fa.fa-pencil
+            = link_to '', edit_reply_path(reply), class: 'fa fa-pencil'
             '
-            a.delete
-              i.fa.fa-trash
+            a.fa.fa-trash.delete href='#'

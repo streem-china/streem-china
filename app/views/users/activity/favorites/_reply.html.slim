@@ -11,7 +11,6 @@
       span.favorites-count =reply.favorites_count
   - if signed_in? && current_user.eql?(@user)
     '  &middot;
-    a.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}'
-      i.fa.fa-trash
+    a.fa.fa-trash.delete data-favoritable-id='#{favorite.favoritable_id}' data-favoritable-type='#{favorite.favoritable_type}' href='#'
 .body
   = sanitize_body_html(reply.body_html)

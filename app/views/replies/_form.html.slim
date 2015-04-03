@@ -2,11 +2,9 @@
   = form_for reply, remote: reply.new_record? do |f|
     .tools
       .clearfix
-        a.left.preview
-          i.fa.fa-eye
+        a.fa.fa-eye.left.preview href='#'
         - if signed_in?
-          a.right#upload data-qiniu-domain='#{Rails.application.secrets.qiniu_domain}'
-            i.fa.fa-image
+          a.fa.fa-image.right#upload data-qiniu-domain='#{Rails.application.secrets.qiniu_domain}'
     = f.hidden_field :topic_id, value: topic.id
     = f.text_area :body, placeholder: t('reply.body'), size: "x#{reply.new_record? ? 10 : 20}"
     .clearfix

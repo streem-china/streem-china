@@ -18,7 +18,7 @@ class @Markdown
 $(document).on 'ready page:load', ->
   $('body').on 'click', '.reply-form .preview, .topic-form .preview', ->
     $(this).removeClass('preview').addClass('edit')
-    $(this).find('i').removeClass('fa-eye').addClass('fa-pencil')
+    $(this).removeClass('fa-eye').addClass('fa-pencil')
 
     previewer = '<div class="previewer">'                     +
                   '<div class="body">'                        +
@@ -27,17 +27,23 @@ $(document).on 'ready page:load', ->
                 '</div>'
 
     textarea = $(this).parents('form').find('textarea')
+
     $(previewer).insertBefore(textarea).css('min-height', textarea.css('height'))
+
     textarea.hide()
 
     markdown = new Markdown($('.previewer'), textarea.val())
 
     markdown.convert()
 
+    false
+
   $('body').on 'click', '.reply-form .edit, .topic-form .edit', ->
     $(this).removeClass('edit').addClass('preview')
-    $(this).find('i').removeClass('fa-pencil').addClass('fa-eye')
+    $(this).removeClass('fa-pencil').addClass('fa-eye')
 
     $('.previewer').remove()
 
     $(this).parents('form').find('textarea').show()
+
+    false

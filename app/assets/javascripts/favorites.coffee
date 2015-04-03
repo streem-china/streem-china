@@ -25,21 +25,23 @@ $(document).on 'ready page:load', ->
     favoritable_type = $(this).data('favoritable-type')
 
     $(this).removeClass('favorited').addClass('unfavorited')
-    $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o')
+    $(this).removeClass('fa-heart').addClass('fa-heart-o')
 
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count-1)
 
     favorite = new Favorite(favoritable_id, favoritable_type)
 
-    favorite.delete(favoritable_id, favoritable_type)
+    favorite.delete()
+
+    false
 
   $('body').on 'click', '.unfavorited', ->
     favoritable_id = $(this).data('favoritable-id')
     favoritable_type = $(this).data('favoritable-type')
 
     $(this).removeClass('unfavorited').addClass('favorited')
-    $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart')
+    $(this).removeClass('fa-heart-o').addClass('fa-heart')
 
     count = parseInt($(this).find('.count').text())
     $(this).find('.count').text(count+1)
@@ -48,17 +50,20 @@ $(document).on 'ready page:load', ->
 
     favorite.create()
 
+    false
+
   $('body').on 'click', '.activity #favorites .delete', ->
     result = confirm(I18n.t('favorite.are_you_sure_delete'))
 
     if result
       favoritable_id = $(this).data('favoritable-id')
       favoritable_type = $(this).data('favoritable-type')
-      $(this).parents('.item').fadeOut 300, ->
-        $(this).remove()
+      $(this).parents('.item').fadeOut 300, -> $(this).remove()
 
       Flash.notify(I18n.t('favorite.deleted_success'), 'success')
 
       favorite = new Favorite(favoritable_id, favoritable_type)
 
       favorite.delete()
+
+      false
