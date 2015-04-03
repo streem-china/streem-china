@@ -80,3 +80,14 @@ zh-CN:
     lastest_favorites: 最近收藏
     number_label: '第 %{number} 号会员'
     joined_time_label: '于 %{time} 加入'
+  markdown:
+    link: 连接
+    image: 图片
+    strong: 强调
+    strikethrough: 删除线
+    italic: 斜体
+    horizontal_rules: 分割线
+    blockquote: 引用
+    list: 列表
+    inline_code: 行内代码
+    block_code: 块级代码

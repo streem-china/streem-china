@@ -2,39 +2,45 @@
   .title =t('markdown_tips')
   ul
     li
-      span 链接
+      span =t('markdown.link')
       pre
         | [Streem-China](http://streem-china.org)
     li
-      span 图片
+      span =t('markdown.image')
       pre
         | ![Avatar](http://streem-china.org/images/avatar.png)
     li
-      span 强调
+      span =t('markdown.strong')
       pre
         | **StreemChina**
     li
-      span 删除线
+      span =t('markdown.strikethrough')
       pre
         | ~~StreemChina~~
     li
-      span 斜体
+      span =t('markdown.italic')
       pre
         | *StreemChina*
     li
-      span 分割线
+      span =t('markdown.horizontal_rules')
       pre
         | ---
     li
-      span 引用
+      span =t('markdown.blockquote')
       pre
         | > Streem is a stream based concurrent scripting language
     li
-      span 行内代码
+      span =t('markdown.list')
+      pre
+        | * Streem
+          * Ruby
+          * Python
+    li
+      span =t('markdown.inline_code')
       pre
         | `STDIN | STDOUT`
     li
-      span 块级代码
+      span =t('markdown.block_code')
       pre
         | ```streem
           seq(100) | {x ->
