@@ -15,7 +15,11 @@ class @Mention
     this.textarea.atwho
       at: ':',
       data: window.FavoriteEmojis,
-      displayTpl: "<li><img src='/images/emoji/${filename}' height='20' width='20' style='vertical-align: middle;'/> :${name}: </li>",
+      displayTpl: "<li>" +
+                    "<img src='/images/emoji/${filename}'" +
+                      "height='20' width='20' style='vertical-align: middle;'/>" +
+                        ":${name}:" +
+                  "</li>",
       insertTpl: ":${name}:"
 
   listenFloor:  ->
