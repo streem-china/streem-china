@@ -66,4 +66,4 @@ $(document).on 'ready page:load', ->
 
       favorite.delete()
 
-      false
+    false
