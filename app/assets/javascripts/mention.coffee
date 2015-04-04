@@ -7,28 +7,15 @@ Array.prototype.unique = ->
 
   uniqueArray
 
-class @Atwho
+class @Mention
   constructor: (textarea) ->
     @textarea = textarea
-
-  favoriteEmojis: [
-    { name: '+1',         unicode: '1f44d' },
-    { name: '-1',         unicode: '1f44e' },
-    { name: 'heart',      unicode: '2764'  },
-    { name: 'clap',       unicode: '1f44f' },
-    { name: 'smile',      unicode: '1f604' },
-    { name: 'joy',        unicode: '1f602' },
-    { name: 'scream',     unicode: '1f631' },
-    { name: 'sparkles',   unicode: '2728'  },
-    { name: 'cold_sweat', unicode: '1f630' },
-    { name: 'shit',       unicode: '1f4a9' }
-  ]
 
   listenEmoji: ->
     this.textarea.atwho
       at: ':',
-      data: this.favoriteEmojis,
-      displayTpl: "<li><img src='/images/emoji/unicode/${unicode}.png' height='20' width='20' style='vertical-align: middle;'/> :${name}: </li>",
+      data: window.FavoriteEmojis,
+      displayTpl: "<li><img src='/images/emoji/${filename}' height='20' width='20' style='vertical-align: middle;'/> :${name}: </li>",
       insertTpl: ":${name}:"
 
   listenFloor:  ->
@@ -52,12 +39,12 @@ class @Atwho
 
 $(document).on 'ready page:load', ->
   if $('.new_reply textarea').length
-    atwho = new Atwho($('.new_reply textarea'))
+    mention = new Mention($('.new_reply textarea'))
 
-    atwho.listenAll()
+    mention.listenAll()
 
   if $('textarea').length
-    atwho = new Atwho($('textarea'))
+    mention = new Mention($('textarea'))
 
-    atwho.listenEmoji()
+    mention.listenEmoji()
 

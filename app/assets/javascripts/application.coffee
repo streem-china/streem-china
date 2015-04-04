@@ -27,6 +27,7 @@
 #= require qiniu.min.js
 #= require plupload.full.min
 #= require md5.min
+#= require favorite_emojis
 #= require i18n
 #= require locales
 #= require_tree .
