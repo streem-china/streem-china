@@ -11,6 +11,7 @@ zh-CN:
         confirmation_token: 验证码
         password_confirmation: 密码确认
         reset_password_token: 重置密码 token
+        remember_me: 记住我
       topic:
         node_id: 节点
         title: 标题

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
          :recoverable,
          :confirmable,
          :trackable,
+         :rememberable,
          authentication_keys: [:login],
          omniauth_providers: [:github]
 

@@ -17,6 +17,12 @@
             .small-9.columns.no-padding-right
               = f.password_field :password
 
+          .clearfix
+            .small-3.columns.no-padding-left
+            .small-9.columns.no-padding-right
+              = f.check_box :remember_me
+              = f.label :remember_me
+
           .small-9.small-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('sign_in'), class: 'button expand small', data: { disable_with: t('signing_in') }
