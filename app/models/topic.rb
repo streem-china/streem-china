@@ -31,12 +31,11 @@ class Topic < ActiveRecord::Base
     !favorites_count.zero?
   end
 
-  def similars(count)
+  def node_others(count)
     self.class.
       where(node_id: node_id).
       where('id != ?', id).
-      order(id: :desc).
-      first(count)
+      order(id: :desc)
   end
 
   def user_others(count)
