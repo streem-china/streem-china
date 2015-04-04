@@ -14,6 +14,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.limit(50)
+    @users = User.paginate(page: params[:page], per_page: 50)
   end
 end

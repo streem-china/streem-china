@@ -1,6 +1,7 @@
 $(document).on 'ready page:load', ->
   if $('#upload').length
     domain = $('#upload').data('qiniu-domain')
+    topic_id = $('#upload').data('topic-id')
 
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
@@ -20,8 +21,7 @@ $(document).on 'ready page:load', ->
         FileUploaded: (up, file, info) ->
           reply_textarea = $('#upload').parents('form').find('textarea')
           old_value = reply_textarea.val()
-          if old_value
-            old_value = old_value + '\n'
+          old_value = old_value + '\n' if old_value
           new_value = old_value + '![](' + domain + JSON.parse(info).key + '?imageView/2/w/600)\n'
           reply_textarea.val(new_value).focus().trigger('autosize.resize')
         Error: (up, err, errTip) ->
@@ -29,4 +29,4 @@ $(document).on 'ready page:load', ->
         UploadComplete: ->
           $('#upload').text('')
         Key: (up, file) ->
-          md5(Date.now())
+          "topics/#{topic_id}/#{md5(Date.now())}"

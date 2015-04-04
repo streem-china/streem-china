@@ -10,3 +10,5 @@
                 = image_tag user.avatar
               br
               = link_to user.name, user_path(user.name)
+      .clearfix
+        = will_paginate(@users, renderer: FoundationPagination::Rails)

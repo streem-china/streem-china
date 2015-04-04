@@ -15,7 +15,10 @@
       = timeago_tag reply.created_at
     .tools
       .wrapper
-        = link_to '', '#', class: 'fa fa-reply reply', data: { reply_floor: reply.floor, reply_user_name: reply.user_name }
+        = link_to '', '#',
+          class: 'fa fa-reply reply',
+          data: { reply_floor: reply.floor,
+                  reply_user_name: reply.user_name }
         '
         - if signed_in? && reply.favorited_by?(current_user)
           = favorited_link(reply)

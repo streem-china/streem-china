@@ -4,7 +4,11 @@
       .clearfix
         = link_to '', '#', class: 'fa fa-eye left preview'
         - if signed_in?
-          = link_to '', '#', class: 'fa fa-image right', id: 'upload', data: { qiniu_domain: Rails.application.secrets.qiniu_domain }
+          = link_to '', '#',
+            class: 'fa fa-image right',
+            id: 'upload',
+            data: { qiniu_domain: Rails.application.secrets.qiniu_domain,
+                    topic_id: topic.id }
     = f.hidden_field :topic_id, value: topic.id
     = f.text_area :body, placeholder: t('reply.body'), size: "x#{reply.new_record? ? 10 : 20}"
     .clearfix
