@@ -1,7 +1,7 @@
 .row.small-collapse.medium-uncollapse
   .columns
     .box
-      h5 =t('notification_center_title')
+      h5 =t('notification.title')
       .notifications
         - @notifications.each do |notification|
           = render partial: 'item', locals: { notification: notification }

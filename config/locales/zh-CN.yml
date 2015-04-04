@@ -25,16 +25,13 @@ zh-CN:
   node_box_title: 节点
   link_box_title: 友情社区
   community_box_title: 社区状态
-  notification_center_title: 消息中心
   user_center_title: 用户中心
   users_count: 会员数
   topics_count: 帖子数
   replies_count: 回复数
+  markdown_tips: Markdown 小贴士
   submit: 提交
   submiting: 提交中...
-  node_other_topics: 节点其他主题
-  user_other_topics: 作者其他主题
-  markdown_tips: Markdown 小贴士
   time:
     formats:
       default: '%H:%M:%S'
@@ -43,6 +40,7 @@ zh-CN:
       default: '%Y-%m-%d'
   notification:
     name: 消息
+    title: 消息中心
     reply_link: '%{user} 回复了你的主题 %{topic}'
     favorited_reply_link: '你收藏的主题 %{topic} 有了新的回复'
     mention/topic_link: '%{user} 在主题 %{topic} 中提到了你'
@@ -65,6 +63,8 @@ zh-CN:
     created_success: 主题创建成功
     updated_success: 主题更新成功
     deleted_success: 主题删除成功
+    node_others: 节点其他主题
+    user_others: 作者其他主题
   reply:
     name: 回复
     floor: 楼

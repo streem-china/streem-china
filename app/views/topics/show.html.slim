@@ -8,4 +8,4 @@
     .box
       = render partial: 'replies/form', locals: { topic: @topic, reply: @topic.replies.new }
   .show-for-large-up.large-4.columns
-    = render partial: 'topics/show/side', locales: { node: @node }
+    = render partial: 'topics/show/side', locals: { topic: @topic }

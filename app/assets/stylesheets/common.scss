@@ -101,7 +101,9 @@ ul.pagination {
   }
 }
 
-a.favorited, a.unfavorited {
+a.unfavorited {
+  color: #666666;
+
   .count {
     font-size: .7rem;
   }
@@ -109,10 +111,10 @@ a.favorited, a.unfavorited {
 
 a.favorited {
   color: #ef4136;
-}
 
-a.unfavorited {
-  color: #666666;
+  .count {
+    font-size: .7rem;
+  }
 }
 
 .nodes-box {
@@ -123,7 +125,7 @@ a.unfavorited {
   }
 }
 
-.similar-topics-box {
+.other-topics-box {
   .topic-title {
     word-break: break-all;
   }
@@ -137,9 +139,32 @@ a.unfavorited {
   }
 }
 
+.devise-box {
+  border: solid 1px #e3e3e3;
+
+  a.thirdpart-login {
+    color: #666;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  a.resend-confirmation {
+    font-size: .8rem;
+  }
+
+  a.forget-password {
+    font-size: .8rem;
+  }
+}
+
 .unread-notifications-count {
   width: 25px;
-  padding: .5rem 0;
+  height: 25px;
+  vertical-align: middle;
+  padding-top: 7px;
+  line-height: 1;
 }
 
 .flash-container {
@@ -174,26 +199,6 @@ a.unfavorited {
   }
 }
 
-.devise-box {
-  border: solid 1px #e3e3e3;
-
-  a.thirdpart-login {
-    color: #666;
-
-    &:hover {
-      color: #333;
-    }
-  }
-
-  a.resend-confirmation {
-    font-size: .8rem;
-  }
-
-  a.forget-password {
-    font-size: .8rem;
-  }
-}
-
 #error_explanation {
   h2 {
     font-size: 1rem;
@@ -210,7 +215,10 @@ a.unfavorited {
   padding-left: 0;
 }
 
-.no-padding-right{
+.no-padding-right {
   padding-right: 0;
-  padding-left: 0;
+}
+
+.no-padding {
+  padding: 0;
 }

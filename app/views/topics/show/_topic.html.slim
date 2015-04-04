@@ -14,19 +14,15 @@
         = t('topic.create')
   .favorite
     - if signed_in? && topic.favorited_by?(current_user)
-      a.fa.fa-heart.favorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}' href='#'
-        span.count =topic.favorites_count
+      = favorited_link(topic)
     - else
-      a.fa.fa-heart-o.unfavorited data-favoritable-id='#{topic.id}' data-favoritable-type='#{topic.class}' href='#'
-        span.count =topic.favorites_count
+      = unfavorited_link(topic)
   .body
     = sanitize_body_html(topic.body_html)
-  .admin
+  .manage
     .clearfix
       .right
         - if signed_in? && current_user.id.eql?(topic.user_id)
-          = link_to edit_topic_path(topic) do
-            i.fa.fa-pencil
+          = link_to '', edit_topic_path(topic), class: 'fa fa-pencil'
           '
-          = link_to topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') } do
-            i.fa.fa-trash
+          = link_to '', topic_path(topic), method: :delete, data: { confirm: t('topic.are_you_sure_delete') }, class: 'fa fa-trash'

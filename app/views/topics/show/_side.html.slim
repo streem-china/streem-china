@@ -1,13 +1,11 @@
-.box.similar-topics-box
-  .title =t('node_other_topics')
+.box.other-topics-box
+  .title =t('topic.node_others')
   ul
-    - @topic.node_others(5).each do |topic|
-      li
-        = link_to topic.title, topic_path(topic), class: 'topic-title'
+    - topic.node_others(5).each do |topic|
+      li =link_to topic.title, topic_path(topic), class: 'topic-title'
 
-.box.similar-topics-box
-  .title =t('user_other_topics')
+.box.other-topics-box
+  .title =t('topic.user_others')
   ul
-    - @topic.user_others(5).each do |topic|
-      li
-        = link_to topic.title, topic_path(topic), class: 'topic-title'
+    - topic.user_others(5).each do |topic|
+      li =link_to topic.title, topic_path(topic), class: 'topic-title'

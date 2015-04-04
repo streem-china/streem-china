@@ -1,11 +1,11 @@
 .user
   .avatar
-    = link_to user_path(@user.name) do
-      = image_tag @user.avatar
+    = link_to user_path(user.name) do
+      = image_tag user.avatar
   .info
-    = link_to @user.name, user_path(@user.name), class: :username
+    = link_to user.name, user_path(user.name), class: :username
     .tips
-      = t('user.number_label', number: @user.id)
+      = t('user.number_label', number: user.id)
       ' ,
-      = sanitize(t('user.joined_time_label', time: timeago_tag(@user.created_at)), tags: %w(time))
+      = sanitize(t('user.joined_time_label', time: timeago_tag(user.created_at)), tags: %w(time))
 

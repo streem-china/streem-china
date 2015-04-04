@@ -33,4 +33,4 @@ $(document).on 'ready page:load', ->
 
       reply.delete()
 
-      false
+    false

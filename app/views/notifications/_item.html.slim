@@ -1,4 +1,4 @@
-.item class='#{notification.unread? ? 'unread' : nil}'
+.item class=(:unread if notification.unread?)
   - case notification
   - when Notification::Reply
     = render partial: 'notifications/item/reply',

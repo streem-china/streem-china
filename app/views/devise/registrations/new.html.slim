@@ -12,37 +12,36 @@
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :name, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.text_field :name
 
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.email_field :email
 
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :password, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.password_field :password
 
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :password_confirmation, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.password_field :password_confirmation
 
 
           .small-9.small-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('register'), class: 'button expand small', data: { disable_with: t('registering') }
-            .small-6.columns.no-padding-right
+            .small-6.columns.no-padding
               = link_to t('sign_in'), new_user_session_path(resource), class: 'button expand small success'
 
       .row
-        .columns
+        .columns.no-padding-right
           .clearfix
             .right
               = link_to t('have_not_received_confirmation'), new_user_confirmation_path, class: 'resend-confirmation'
-

@@ -3,4 +3,8 @@
     .box
       = render partial: 'user', locals: { user: @user }
     .box
-      = render partial: 'activity', locals: { user: @user, topics: @topics, replies: @replies, favorites: @favorites }
+      = render partial: 'activity',
+               locals: { user: @user,
+                         topics: @topics,
+                         replies: @replies,
+                         favorites: @favorites }

@@ -8,35 +8,38 @@
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :login, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.text_field :login
 
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :password, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.password_field :password
 
           .clearfix
             .small-3.columns.no-padding-left
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.check_box :remember_me
               = f.label :remember_me
 
           .small-9.small-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('sign_in'), class: 'button expand small', data: { disable_with: t('signing_in') }
-            .small-6.columns.no-padding-right
+            .small-6.columns.no-padding
               = link_to t('register'), new_user_registration_path(resource), class: 'button expand small success'
-
       .row
-        .columns
+        .columns.no-padding-right
           .clearfix
             .right
-              = link_to user_omniauth_authorize_path(:github), class: 'thirdpart-login'  do
-                i.fa.fa-github.fa-lg.has-tooltip.tip-top data-tooltip='' title='#{t("sign_in_with_github")}'
+              = link_to '', user_omniauth_authorize_path(:github),
+                data: { tooltip: true },
+                class: 'fa fa-github fa-lg has-tooltip tip-top thirdpart-login',
+                title: t('sign_in_with_github')
               '
-              = link_to '#', class: 'thirdpart-login'  do
-                i.fa.fa-twitter.fa-lg.has-tooltip.tip-top data-tooltip='' title='#{t("sign_in_with_twitter")}'
+              = link_to '', '#',
+                data: { tooltip: true },
+                class: 'fa fa-twitter fa-lg has-tooltip tip-top thirdpart-login',
+                title: t('sign_in_with_twitter')
               '
               = link_to t('forget_password'), new_user_password_path, class: 'forget-password'

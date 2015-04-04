@@ -13,17 +13,17 @@
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :password, t('new_password'), class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.password_field :password
 
           .clearfix
             .small-3.columns.no-padding-left
               = f.label :password_confirmation, class: 'right inline'
-            .small-9.columns.no-padding-right
+            .small-9.columns.no-padding
               = f.password_field :password_confirmation
 
           .small-9.small-offset-3.columns
-            .small-12.columns.no-padding-left.no-padding-right
+            .columns.no-padding
               = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
 
 
