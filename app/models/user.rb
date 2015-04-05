@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     (authorizations.blank? || password.present?) && super
   end
 
+  def email_required?
+    authorizations.blankr && super
+  end
+
   private
 
   def set_default_avatar_before_save
