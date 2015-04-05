@@ -1,6 +1,6 @@
 .user
   .avatar
-    - if current_user.eql?(user)
+    - if signed_in? && current_user.eql?(user)
       = link_to '#',
         data: { tooltip: true,
                 user_id: user.id,
