@@ -1,16 +1,16 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def github
-      sign_in(request.env['omniauth.auth'])
+      process(request.env['omniauth.auth'])
     end
 
     def twitter
-      sign_in(request.env['omniauth.auth'])
+      process(request.env['omniauth.auth'])
     end
 
     private
 
-    def sign_in(auth)
+    def process(auth)
       provider = auth.provider
       uid      = auth.uid
       name     = auth.info.nickname
