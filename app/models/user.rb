@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
          :trackable,
          :rememberable,
          authentication_keys: [:login],
-         omniauth_providers: [:github]
+         omniauth_providers: [:github, :twitter]
 
   has_many :authorizations
   has_many :topics

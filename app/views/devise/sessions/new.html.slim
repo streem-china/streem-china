@@ -33,13 +33,9 @@
           .clearfix
             .right
               = link_to '', user_omniauth_authorize_path(:github),
-                data: { tooltip: true },
-                class: 'fa fa-github fa-lg has-tooltip tip-top thirdpart-login',
-                title: t('sign_in_with_github')
+                class: 'fa fa-github fa-lg thirdpart-login'
               '
-              = link_to '', '#',
-                data: { tooltip: true },
-                class: 'fa fa-twitter fa-lg has-tooltip tip-top thirdpart-login',
-                title: t('sign_in_with_twitter')
+              = link_to '', user_omniauth_authorize_path(:twitter),
+                class: 'fa fa-twitter fa-lg thirdpart-login'
               '
               = link_to t('forget_password'), new_user_password_path, class: 'forget-password'
