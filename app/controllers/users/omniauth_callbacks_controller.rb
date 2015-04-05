@@ -14,7 +14,7 @@ module Users
       provider = auth.provider
       uid      = auth.uid
       name     = auth.info.nickname
-      email    = auth.info.email.to_s
+      email    = auth.info.email
       avatar   = auth.info.image
 
       if authorization = Authorization.find_by_provider_and_uid(provider, uid)
