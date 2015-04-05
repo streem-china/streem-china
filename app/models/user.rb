@@ -46,11 +46,11 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    (authorizations.blank? || password.present?) && super
+    authorizations.blank? && super
   end
 
   def email_required?
-    authorizations.blankr && super
+    authorizations.blank? && super
   end
 
   private
