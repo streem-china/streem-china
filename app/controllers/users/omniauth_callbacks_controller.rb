@@ -3,6 +3,18 @@ module Users
     def github
       auth = request.env['omniauth.auth']
 
+      sign_in(auth)
+    end
+
+    def twitter
+      auth = request.env['omniauth.twitter']
+
+      sign_in(auth)
+    end
+
+    private
+
+    def sign_in(auth)
       provider = auth.provider
       uid      = auth.uid
       name     = auth.info.nickname
@@ -27,7 +39,7 @@ module Users
         end
       end
 
-      set_flash_message(:notice, :success, kind: :Github)
+      set_flash_message(:notice, :success, kind: provider.capitalize)
       sign_in_and_redirect user
     end
   end
