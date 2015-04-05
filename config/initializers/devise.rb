@@ -234,13 +234,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :github,
     Rails.application.secrets.github_client_id,
-    Rails.application.secrets.github_client_secret,
-    scope: 'user'
+    Rails.application.secrets.github_client_secret
 
   config.omniauth :twitter,
     Rails.application.secrets.twitter_api_key,
-    Rails.application.secrets.twitter_api_secret,
-    scope: 'user'
+    Rails.application.secrets.twitter_api_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
