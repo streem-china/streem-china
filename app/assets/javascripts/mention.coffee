@@ -51,4 +51,3 @@ $(document).on 'ready page:load', ->
     mention = new Mention($('textarea'))
 
     mention.listenEmoji()
-

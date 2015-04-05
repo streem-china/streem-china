@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy] do
     delete :destroy, on: :collection
   end
+  resource :avatar, only: :update
 
   post 'markdown/convert', to: 'markdown#convert'
   get 'qiniu/uptoken', to: 'qiniu#uptoken'
-  get '/:username', to: 'users#show', username: /[a-zA-Z0-9_]+/, as: :user
+  get '/:username', to: 'users#show', username: /\w+/, as: :user
 
   root 'topics#index'
 end

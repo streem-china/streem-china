@@ -1,7 +1,17 @@
 .user
   .avatar
-    = link_to user_path(user.name) do
-      = image_tag user.avatar
+    - if current_user.eql?(user)
+      = link_to '#',
+        data: { tooltip: true,
+                user_id: user.id,
+                qiniu_domain: Rails.application.secrets.qiniu_domain },
+        class: 'has-tooltip',
+        id: 'upload',
+        title: t('user.change_avatar')  do
+        = image_tag user.avatar
+    - else
+      = link_to user_path(user.name) do
+        = image_tag user.avatar
   .info
     = link_to user.name, user_path(user.name), class: :username
     .tips

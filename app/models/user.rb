@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
     format: { with: /\A\w+\z/ }
 
   before_save :set_default_avatar_before_save
+  after_update :set_topics_and_replies_user_avatar_after_update, if: :avatar_changed?
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -52,5 +53,10 @@ class User < ActiveRecord::Base
 
   def set_default_avatar_before_save
     self.avatar = DEFAULT_AVATAR if avatar.blank?
+  end
+
+  def set_topics_and_replies_user_avatar_after_update
+    topics.update_all(user_avatar: avatar)
+    replies.update_all(user_avatar: avatar)
   end
 end

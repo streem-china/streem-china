@@ -1,32 +1,78 @@
 $(document).on 'ready page:load', ->
-  if $('#upload').length
-    domain = $('#upload').data('qiniu-domain')
-    topic_id = $('#upload').data('topic-id')
+  if $('.topic-form #upload, .reply-form #upload').length
+    uploader = $('#upload')
+    domain = uploader.data('qiniu-domain')
+    topic_id = uploader.data('topic-id')
+
+    console.log(domain)
 
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
       browse_button: 'upload',
       uptoken_url: '/qiniu/uptoken',
-      max_file_size: '20mb',
+      max_file_size: '4mb',
       domain: domain,
-      chunk_size: '4mb',
       auto_start: true,
       init:
         FilesAdded: (up, files) ->
           plupload.each files, (file) ->
         BeforeUpload: (up, file) ->
-          $('#upload').text(' 0%')
+          uploader.text(' 0%')
         UploadProgress: (up, file) ->
-          $('#upload').text(' ' + file.percent + '%')
+          uploader.text(' ' + file.percent + '%')
         FileUploaded: (up, file, info) ->
-          reply_textarea = $('#upload').parents('form').find('textarea')
+          reply_textarea = uploader.parents('form').find('textarea')
           old_value = reply_textarea.val()
           old_value = old_value + '\n' if old_value
           new_value = old_value + '![](' + domain + JSON.parse(info).key + '?imageView/2/w/600)\n'
           reply_textarea.val(new_value).focus().trigger('autosize.resize')
         Error: (up, err, errTip) ->
-          console.log(err)
+          if err.message
+            Flash.notify(err.message, 'alert')
+          else
+            Flash.notify(err.response, 'alert')
         UploadComplete: ->
-          $('#upload').text('')
+          uploader.text('')
         Key: (up, file) ->
           "topics/#{topic_id}/#{md5(Date.now())}"
+
+  if $('.user .avatar #upload').length
+    uploader = $('#upload')
+    old_url = uploader.find('img').attr('src')
+    domain = uploader.data('qiniu-domain')
+    user_id = uploader.data('user-id')
+
+    Qiniu.uploader
+      runtimes: 'html5,flash,html4',
+      browse_button: 'upload',
+      uptoken_url: '/qiniu/uptoken',
+      max_file_size: '2mb',
+      domain: domain,
+      auto_start: true,
+      init:
+        FilesAdded: (up, files) ->
+          plupload.each files, (file) ->
+        BeforeUpload: (up, file) ->
+          uploader.html('<i class="fa fa-spin fa-spinner" style="position: absolute; left: 1rem; top: 1rem;"></i>')
+        UploadProgress: (up, file) ->
+        FileUploaded: (up, file, info) ->
+          url = domain + JSON.parse(info).key + '?imageView/1/w/150'
+          image = '<img src="' + url + '" alt="Avatar">'
+          $.ajax '/avatar.js',
+            method: 'put'
+            data:
+              url: url
+          uploader.html(image)
+
+          Flash.notify(I18n.t('user.change_avatar_success'), 'success')
+        Error: (up, err, errTip) ->
+          image = '<img src="' + old_url + '" alt="Avatar">'
+          uploader.html(image)
+
+          if err.message
+            Flash.notify(err.message, 'alert')
+          else
+            Flash.notify(err.response, 'alert')
+        UploadComplete: ->
+        Key: (up, file) ->
+          "avatars/#{user_id}/#{md5(Date.now())}"

@@ -80,6 +80,8 @@ zh-CN:
     lastest_favorites: 最近收藏
     number_label: '第 %{number} 号会员'
     joined_time_label: '于 %{time} 加入'
+    change_avatar: 更改头像
+    change_avatar_success: 更改头像成功
   markdown:
     link: 连接
     image: 图片
