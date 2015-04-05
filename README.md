@@ -17,7 +17,9 @@ This is the source code of [Streem China](http://streem-china.org) website.
 
 ### External Service
 
-* Github Oauth2
+* Github OAuth
+
+* Twitter OAuth
 
 * Qiniu
 
