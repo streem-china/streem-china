@@ -21,6 +21,8 @@ This is the source code of [Streem China](http://streem-china.org) website.
 
 * Twitter OAuth
 
+* New Relic
+
 * Qiniu
 
 * Mailgun
