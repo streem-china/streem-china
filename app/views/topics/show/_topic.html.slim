@@ -13,10 +13,7 @@
         = timeago_tag topic.created_at
         = t('topic.create')
   .favorite
-    - if signed_in? && topic.favorited_by?(current_user)
-      = favorited_link(topic)
-    - else
-      = unfavorited_link(topic)
+    = favorite_link(topic)
   .body
     = sanitize_body_html(topic.body_html)
   .manage

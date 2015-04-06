@@ -20,10 +20,7 @@
           data: { reply_floor: reply.floor,
                   reply_user_name: reply.user_name }
         '
-        - if signed_in? && reply.favorited_by?(current_user)
-          = favorited_link(reply)
-        - else
-          = unfavorited_link(reply)
+        = favorite_link(reply)
     .body
       = sanitize_body_html(reply.body_html)
     .manage

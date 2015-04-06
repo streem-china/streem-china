@@ -22,16 +22,12 @@ module TopicsHelper
     link_to text, topic_path(reply.topic, page: page, anchor: anchor)
   end
 
-  def favorited_link(favoritable)
-    link_to '#', class: 'fa fa-heart favorited',
-                 data: { favoritable_id: favoritable.id,
-                         favoritable_type: favoritable.class.name } do
-      content_tag :span, favoritable.favorites_count, class: 'count'
-    end
-  end
+  def favorite_link(favoritable)
+    favorite_klass =
+      (signed_in? && favoritable.favorited_by?(current_user)) ?
+        'fa fa-heart favorited' : 'fa fa-heart-o unfavorited'
 
-  def unfavorited_link(favoritable)
-    link_to '#', class: 'fa fa-heart-o unfavorited',
+    link_to '#', class: favorite_klass,
                  data: { favoritable_id: favoritable.id,
                          favoritable_type: favoritable.class.name } do
       content_tag :span, favoritable.favorites_count, class: 'count'
