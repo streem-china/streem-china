@@ -3,7 +3,6 @@
     .box.devise-box
       .title
         h5 =t('sign_in')
-
       = form_for(resource, url: session_path(resource)) do |f|
         .row.small-collapse
           .clearfix
@@ -11,19 +10,16 @@
               = f.label :login, class: 'right inline'
             .medium-9.columns.no-padding
               = f.text_field :login, placeholder: t('user.login')
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :password, class: 'right inline'
             .medium-9.columns.no-padding
               = f.password_field :password, placeholder: t('user.password')
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
             .medium-9.columns.no-padding
               = f.check_box :remember_me
               = f.label :remember_me
-
           .medium-9.medium-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('sign_in'), class: 'button expand small', data: { disable_with: t('signing_in') }

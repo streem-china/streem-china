@@ -3,19 +3,16 @@
     .box.devise-box
       .title
         h5 =t('confirm')
-
       = form_for(resource, url: confirmation_path(resource), html: { method: :post }) do |f|
         .row.small-collapse
           .medium-9.medium-offset-3.columns
             .columns.no-padding
               = devise_error_messages!
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
             .medium-9.columns.no-padding
               = f.email_field :email, placeholder: t('user.email')
-
           .medium-9.medium-offset-3.columns
             .columns.no-padding-left.no-padding-right
               = f.submit t('send'), class: 'button expand small', data: { disable_with: t('sending') }

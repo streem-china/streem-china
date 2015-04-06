@@ -3,37 +3,31 @@
     .box.devise-box
       .title
         h5 =t('change_password')
-
       = form_for(resource, url: registration_path(resource)) do |f|
         .row.small-collapse
           .medium-9.medium-offset-3.columns
             .columns.no-padding
               = devise_error_messages!
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
             .medium-9.columns.no-padding
               = f.email_field :email, disabled: true
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :current_password, class: 'right inline'
             .medium-9.columns.no-padding
               = f.password_field :current_password, placeholder: t('user.current_password')
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :password, t('user.new_password'), class: 'right inline'
             .medium-9.columns.no-padding
               = f.password_field :password, placeholder: t('user.new_password')
-
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :password_confirmation, class: 'right inline'
             .medium-9.columns.no-padding
               = f.password_field :password_confirmation, placeholder: t('user.password_confirmation')
-
           .medium-9.medium-offset-3
             .columns.no-padding
               = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
