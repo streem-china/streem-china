@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
          authentication_keys: [:login],
          omniauth_providers: [:github, :twitter]
 
-  has_many :authorizations
+  has_one :authorization
   has_many :topics
   has_many :replies
   has_many :favorites
@@ -46,11 +46,11 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    authorizations.blank? && super
+    authorization.blank? && super
   end
 
   def email_required?
-    authorizations.blank? && super
+    authorization.blank? && super
   end
 
   private

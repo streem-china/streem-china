@@ -29,6 +29,7 @@ zh-CN:
     registrations:
       signed_up: 注册成功, 欢迎来到 Streem China.
       signed_up_but_unconfirmed: 注册成功, 请查看邮箱激活账号.
+      updated: 账号更新成功
   errors:
     messages:
       not_saved:

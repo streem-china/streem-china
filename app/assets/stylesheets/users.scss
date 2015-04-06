@@ -19,7 +19,16 @@
     display: table-cell;
     vertical-align: top;
     width: 100%;
-    padding: 0 .8rem;
+    padding-left: .8rem;
+
+    .edit {
+      color: #666;
+    }
+
+    .email {
+      color: #AAA;
+      font-size: .8rem;
+    }
 
     .username {
       font-size: 1.1rem;

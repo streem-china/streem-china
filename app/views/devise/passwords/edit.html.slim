@@ -7,7 +7,7 @@
       = form_for(resource, url: password_path(resource), html: { method: :put }) do |f|
         .row.small-collapse
           .medium-9.medium-offset-3.columns
-            .columns.no-padding-left
+            .columns.no-padding
               = devise_error_messages!
               = f.hidden_field :reset_password_token
 

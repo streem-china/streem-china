@@ -7,6 +7,7 @@ zh-CN:
         login: 邮箱/昵称
         email: 邮箱
         name: 昵称
+        current_password: 当前密码
         password: 密码
         confirmation_token: 验证码
         password_confirmation: 密码确认
@@ -46,6 +47,9 @@ zh-CN:
               too_long: 不能多于 %{count} 个字符
             password_confirmation:
               confirmation: 不一致
+            current_password:
+              blank: 不能为空
+              invalid: 验证失败
         topic:
           attributes:
             node_id:
