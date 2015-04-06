@@ -12,15 +12,15 @@
 
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :name, class: 'right inline'
+              = f.label :name, "#{t('user.name')}(#{t('can_not_change')})", class: 'right inline'
             .medium-9.columns.no-padding
-              = f.text_field :name, placeholder: t('user.name')
+              = f.text_field :name, placeholder: "#{t('user.name')}(#{t('can_not_change')})"
 
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :email, class: 'right inline'
+              = f.label :email, "#{t('user.email')}(#{t('can_not_change')})", class: 'right inline'
             .medium-9.columns.no-padding
-              = f.email_field :email, placeholder: t('user.email')
+              = f.email_field :email, placeholder: "#{t('user.email')}(#{t('can_not_change')})"
 
           .clearfix
             .show-for-medium-up.medium-3.columns.no-padding-left
