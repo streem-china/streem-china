@@ -65,7 +65,7 @@ class Markdowner
       text.gsub!(/:([\w+-]+):/) do |match|
         if emoji = Emoji.find_by_alias($1)
           image_path = "/images/emoji/#{emoji.image_filename}"
-          size = "width='20' height='20'"
+          size = "width='16' height='16'"
           style = 'vertical-align: middle'
 
           %(<img alt='#$1' src='#{image_path}' style=#{style} #{size} />)
