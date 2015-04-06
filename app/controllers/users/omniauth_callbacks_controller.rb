@@ -27,7 +27,7 @@ module Users
 
         user.skip_confirmation!
 
-        user.authorization.build(provider: provider, uid: uid)
+        user.build_authorization(provider: provider, uid: uid)
 
         unless user.save
           flash[:alert] = user.errors.full_messages.join(', ')
