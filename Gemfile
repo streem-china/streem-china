@@ -22,6 +22,7 @@ gem 'redis-objects'
 gem 'qiniu'
 gem 'will_paginate'
 gem 'mailgun_rails'
+gem 'newrelic_rpm'
 
 gem 'jquery-rails'
 gem 'turbolinks'

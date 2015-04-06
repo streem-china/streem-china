@@ -17,9 +17,12 @@
 # Secrect files
 /config/database.yml
 /config/secrets.yml
+/config/newrelic.yml
 
 # Ignore capistrano metrics
 .capistrano
 
 # Ignore swp files
 *.swp
+
+.DS_Store
