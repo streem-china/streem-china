@@ -3,7 +3,6 @@
   ul
     - topic.node_others(5).each do |topic|
       li =link_to topic.title, topic_path(topic), class: 'topic-title'
-
 .box.other-topics-box
   .title =t('topic.user_others')
   ul

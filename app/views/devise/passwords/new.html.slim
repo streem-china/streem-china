@@ -3,19 +3,20 @@
     .box.devise-box
       .title
         h5 =t('find_password')
+
       = form_for(resource, url: password_path(resource), html: { method: :post }) do |f|
         .row.small-collapse
-          .small-9.small-offset-3.columns
-            .small-12.columns.no-padding-left
+          .medium-9.medium-offset-3.columns
+            .columns.no-padding-left
               = devise_error_messages!
 
           .clearfix
-            .small-3.columns.no-padding-left
+            .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
-            .small-9.columns.no-padding
-              = f.email_field :email
+            .medium-9.columns.no-padding
+              = f.email_field :email, placeholder: t('user.password')
 
-          .small-9.small-offset-3.columns
+          .medium-9.medium-offset-3.columns
             .columns.no-padding
               = f.submit t('send'), class: 'button expand small', data: { disable_with: t('sending') }
 

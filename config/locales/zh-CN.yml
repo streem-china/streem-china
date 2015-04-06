@@ -3,14 +3,7 @@ zh-CN:
   signing_in: 登陆中...
   sign_out: 登出
   sign_in_first: 请先登陆
-  sign_in_with_github: 通过 Github 登陆
-  sign_in_with_twitter: 通过 Twitter 登陆
-  email: 邮箱
   confirm: 账号确认
-  password: 密码
-  username: 昵称
-  new_password: 新密码
-  password_confirmation: 密码确认
   send: 发送
   sending: 发送中...
   register: 注册
@@ -18,7 +11,7 @@ zh-CN:
   forget_password: 忘记密码?
   find_password: 找回密码
   change_password: 更改密码
-  have_not_received_confirmation: 没有收到确认邮件?
+  had_not_received_confirmation: 没有收到确认邮件?
   community_nav_link: 社区
   user_nav_link: 会员
   tip_box_title: 小贴士
@@ -75,6 +68,12 @@ zh-CN:
     deleted_success: 回复删除成功
     floor_already_deleted: '%{floor} 楼已删除'
   user:
+    login: 邮箱/昵称
+    email: 邮箱
+    name: 昵称
+    password: 密码
+    password_confirmation: 密码确认
+    new_password: 新密码
     latest_topics: 最近发帖
     latest_replies: 最近回复
     lastest_favorites: 最近收藏

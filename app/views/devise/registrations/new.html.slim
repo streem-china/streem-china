@@ -3,38 +3,38 @@
     .box.devise-box
       .title
         h5 =t('register')
+
       = form_for(resource, url: registration_path(resource)) do |f|
         .row.small-collapse
-          .small-9.small-offset-3.columns
-            .small-12.columns.no-padding-left
+          .medium-9.medium-offset-3.columns
+            .columns.no-padding-left
               = devise_error_messages!
 
           .clearfix
-            .small-3.columns.no-padding-left
+            .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :name, class: 'right inline'
-            .small-9.columns.no-padding
-              = f.text_field :name
+            .medium-9.columns.no-padding
+              = f.text_field :name, placeholder: t('user.name')
 
           .clearfix
-            .small-3.columns.no-padding-left
+            .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :email, class: 'right inline'
-            .small-9.columns.no-padding
-              = f.email_field :email
+            .medium-9.columns.no-padding
+              = f.email_field :email, placeholder: t('user.email')
 
           .clearfix
-            .small-3.columns.no-padding-left
+            .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :password, class: 'right inline'
-            .small-9.columns.no-padding
-              = f.password_field :password
+            .medium-9.columns.no-padding
+              = f.password_field :password, placeholder: t('user.password')
 
           .clearfix
-            .small-3.columns.no-padding-left
+            .show-for-medium-up.medium-3.columns.no-padding-left
               = f.label :password_confirmation, class: 'right inline'
-            .small-9.columns.no-padding
-              = f.password_field :password_confirmation
+            .medium-9.columns.no-padding
+              = f.password_field :password_confirmation, placeholder: t('user.password_confirmation')
 
-
-          .small-9.small-offset-3
+          .medium-9.medium-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('register'), class: 'button expand small', data: { disable_with: t('registering') }
             .small-6.columns.no-padding
@@ -44,4 +44,4 @@
         .columns.no-padding-right
           .clearfix
             .right
-              = link_to t('have_not_received_confirmation'), new_user_confirmation_path, class: 'resend-confirmation'
+              = link_to t('had_not_received_confirmation'), new_user_confirmation_path, class: 'resend-confirmation'

@@ -6,11 +6,9 @@
         span.label.node-label =node.name
       - else
         span.secondary.label.node-label =node.name
-
 .box
   .title =t('tip_box_title')
   = simple_format Tip.random.first.try(:body)
-
 .box
   .title =t('link_box_title')
   ul
@@ -18,7 +16,6 @@
     li =link_to 'Ruby China', 'https://ruby-china.org'
     li =link_to 'CNode', 'https://cnodejs.org'
     li =link_to 'Golangtc', 'http://golangtc.com'
-
 .box
   .title =t('community_box_title')
   ul
