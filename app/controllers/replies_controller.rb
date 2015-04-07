@@ -13,9 +13,13 @@ class RepliesController < ApplicationController
   end
 
   def destroy
-    current_user.replies.find(params[:id]).destroy
+    if current_user.replies.find(params[:id])
+      ReplyDestroyJob.perform_later(params[:id])
 
-    head :no_content
+      head :no_content
+    else
+      head :not_found
+    end
   end
 
   def update

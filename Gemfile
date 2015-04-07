@@ -23,6 +23,8 @@ gem 'qiniu'
 gem 'will_paginate'
 gem 'mailgun_rails'
 gem 'newrelic_rpm'
+gem 'sidekiq'
+gem 'sinatra'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -47,6 +49,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
+  gem 'capistrano-sidekiq'
 
   gem 'byebug'
 end

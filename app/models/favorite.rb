@@ -1,7 +1,9 @@
 class Favorite < ActiveRecord::Base
   belongs_to :favoritable, polymorphic: true, counter_cache: true
   belongs_to :user, counter_cache: true
-  has_one :notification, class_name: 'Notification::Favorite', dependent: :destroy
+  has_one :notification,
+    class_name: 'Notification::Favorite',
+    dependent: :destroy
 
   validates :user_id,
     presence: true,

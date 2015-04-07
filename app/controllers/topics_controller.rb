@@ -61,11 +61,15 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = current_user.topics.find(params[:id]).destroy
+    if current_user.topics.find(params[:id])
+      TopicDestroyJob.perform_later(params[:id])
 
-    flash[:success] = t('topic.deleted_success')
+      flash[:success] = t('topic.deleted_success')
 
-    redirect_to topics_path
+      redirect_to topics_path
+    else
+      head :not_found
+    end
   end
 
   private
