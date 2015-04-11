@@ -45,6 +45,10 @@ group :development, :test do
   gem 'minitest-spec-rails'
 end
 
+group :test do
+  gem 'codeclimate-test-reporter'
+end
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-rbenv'

@@ -6,3 +6,7 @@ require 'minitest/spec'
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
 end
+
+require 'codeclimate-test-reporter'
+
+CodeClimate::TestReporter.start

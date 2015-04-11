@@ -9,6 +9,5 @@ services:
 before_script:
   - cp config/database.sqlite.yml config/database.yml
   - cp config/secrets.example.yml config/secrets.yml
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-script: RAILS_ENV=test bundle exec rake test
+  - RAILS_ENV=test bundle exec rake db:setup
+script: CODECLIMATE_REPO_TOKEN=1632e8154ae461cb75f2af554bd962764d220ad8d305f971b64b6e79a5726902 RAILS_ENV=test bundle exec rake test
