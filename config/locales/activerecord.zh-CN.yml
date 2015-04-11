@@ -21,6 +21,8 @@ zh-CN:
         body: 内容
         floor: 楼
     errors:
+      messages:
+        record_invalid: '验证失败 %{errors}'
       models:
         user:
           attributes:

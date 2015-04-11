@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
   validates :name,
     uniqueness: { case_sensitive: false },
     length: { in: 3..20 },
-    format: { with: /\A\w+\z/ }
+    format: { with: /\A\w+\Z/ }
 
-  before_save :set_default_avatar_before_save
-  after_update :set_topics_and_replies_user_avatar_after_update, if: :avatar_changed?
+  before_save :set_default_avatar, unless: :has_avatar?
+  after_update :set_topics_and_replies_user_avatar, if: :avatar_changed?
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -37,12 +37,17 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
 
     where(conditions).
-      where('lower(name) = :value OR lower(email) = :value', { value: login.downcase }).
+      where('lower(name) = :value OR lower(email) = :value',
+            { value: login.downcase }).
       first
   end
 
   def has_unread_notifications?
     unread_notifications_count > 0
+  end
+
+  def has_avatar?
+    avatar.present?
   end
 
   def password_required?
@@ -55,11 +60,11 @@ class User < ActiveRecord::Base
 
   private
 
-  def set_default_avatar_before_save
+  def set_default_avatar
     self.avatar = DEFAULT_AVATAR if avatar.blank?
   end
 
-  def set_topics_and_replies_user_avatar_after_update
+  def set_topics_and_replies_user_avatar
     topics.update_all(user_avatar: avatar)
     replies.update_all(user_avatar: avatar)
   end

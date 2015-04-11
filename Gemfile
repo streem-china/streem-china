@@ -10,7 +10,7 @@ gem 'mysql2', group: :mysql
 gem 'pg', group: :postgres
 
 gem 'puma'
-gem 'slim'
+gem 'slim-rails'
 gem 'devise'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
@@ -41,6 +41,8 @@ gem 'i18n-js'
 
 group :development, :test do
   gem 'spring'
+  gem 'factory_girl_rails'
+  gem 'minitest-spec-rails'
 end
 
 group :development do
