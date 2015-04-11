@@ -31,9 +31,9 @@ This is the source code of [Streem China](http://streem-china.org) website.
 ### Usage
 
 ```ruby
-cp config/database.sqlite.yml config/database.yml (Change to your real config)
-cp config/secrets.example.yml config/secrets.yml (Change to your real config)
-cp config/newrelic.example.yml config/newrelic.yml (Change to your real config)
+cp config/database.sqlite.yml config/database.yml
+cp config/secrets.example.yml config/secrets.yml
+cp config/newrelic.example.yml config/newrelic.yml
 bundle exec rake db:setup
 bundle exec rails s
 ```
