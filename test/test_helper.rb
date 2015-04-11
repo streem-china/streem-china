@@ -5,6 +5,8 @@ require 'minitest/spec'
 
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
+
+  before { Redis.current.flushdb }
 end
 
 require 'codeclimate-test-reporter'
