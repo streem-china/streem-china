@@ -1,5 +1,5 @@
 language: ruby
-bundler_args: --without development production mysql2 postgres
+bundler_args: --without development production
 rvm:
   - 2.2.0
 env:
