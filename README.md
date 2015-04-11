@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/streem-china/streem-china.svg)](https://travis-ci.org/streem-china/streem-china)
 [![Code Climate](https://codeclimate.com/github/streem-china/streem-china/badges/gpa.svg)](https://codeclimate.com/github/streem-china/streem-china)
+[![Test Coverage](https://codeclimate.com/github/streem-china/streem-china/badges/coverage.svg)](https://codeclimate.com/github/streem-china/streem-china)
 
 This is the source code of [Streem China](http://streem-china.org) website.
 
