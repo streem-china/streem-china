@@ -1,7 +1,5 @@
-Sidekiq.configure_server do |config|
-  config.redis = { url: 'redis://localhost:6379/7', namespace: 'streem-china' }
-end
+config = { url: 'redis://localhost:6379/2', namespace: 'streem-china' }
 
-Sidekiq.configure_client do |config|
-  config.redis = { url: 'redis://localhost:6379/7', namespace: 'streem-china' }
-end
+Sidekiq.configure_server { |config| config.redis = config }
+
+Sidekiq.configure_client { |config| config.redis = config }
