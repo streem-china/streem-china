@@ -23,7 +23,7 @@ class Reply < ActiveRecord::Base
   validates :body, presence: true
   validates :floor, presence: true, uniqueness: { scope: :topic_id }
 
-  before_validation :set_attributes_beofre_validation_on_create, on: :create
+  before_validation :set_attributes_before_validation_on_create, on: :create
   after_create :update_user_read_topic_after_create,
                :update_topic_attributes_after_create,
                :create_notifications_after_create
@@ -44,7 +44,7 @@ class Reply < ActiveRecord::Base
     user.update_read_topic(topic)
   end
 
-  def set_attributes_beofre_validation_on_create
+  def set_attributes_before_validation_on_create
     assign_attributes(
       user_name: user.name,
       user_avatar: user.avatar,

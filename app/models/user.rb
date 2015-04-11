@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
     length: { in: 3..20 },
     format: { with: /\A\w+\Z/ }
 
-  before_save :set_default_avatar, unless: :has_avatar?
-  after_update :set_topics_and_replies_user_avatar, if: :avatar_changed?
+  before_save :set_default_avatar_before_save, unless: :has_avatar?
+  after_update :set_topics_and_replies_user_avatar_after_update, if: :avatar_changed?
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -60,11 +60,11 @@ class User < ActiveRecord::Base
 
   private
 
-  def set_default_avatar
+  def set_default_avatar_before_save
     self.avatar = DEFAULT_AVATAR if avatar.blank?
   end
 
-  def set_topics_and_replies_user_avatar
+  def set_topics_and_replies_user_avatar_after_update
     topics.update_all(user_avatar: avatar)
     replies.update_all(user_avatar: avatar)
   end

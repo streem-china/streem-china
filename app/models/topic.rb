@@ -19,7 +19,7 @@ class Topic < ActiveRecord::Base
   validates :actived_at, presence: true
   validates :node_id, presence: true
 
-  before_validation :set_attributes_beofre_validation_on_create, on: :create
+  before_validation :set_attributes_before_validation, on: :create
   before_validation :set_node_name_before_validation
   after_create :update_user_read_topic_after_create
 
@@ -31,14 +31,15 @@ class Topic < ActiveRecord::Base
     !favorites_count.zero?
   end
 
-  def node_others(count)
+  def node_others(count=0)
     self.class.
       where(node_id: node_id).
       where('id != ?', id).
-      order(id: :desc)
+      order(id: :desc).
+      first(count)
   end
 
-  def user_others(count)
+  def user_others(count=0)
     self.class.
       where(user: user_id).
       where('id != ?', id).
@@ -48,7 +49,7 @@ class Topic < ActiveRecord::Base
 
   private
 
-  def set_attributes_beofre_validation_on_create
+  def set_attributes_before_validation
     assign_attributes(
       user_name: user.name,
       user_avatar: user.avatar,
@@ -56,11 +57,11 @@ class Topic < ActiveRecord::Base
     )
   end
 
-  def update_user_read_topic_after_create
-    user.update_read_topic(self)
-  end
-
   def set_node_name_before_validation
     self.node_name = node.name if node
+  end
+
+  def update_user_read_topic_after_create
+    user.update_read_topic(self)
   end
 end

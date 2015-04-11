@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe User do
+class UserTest < ActiveSupport::TestCase
   let(:user) { create(:user) }
 
   describe 'validations' do
@@ -61,12 +61,12 @@ describe User do
     before { create(:user) }
 
     it 'should return a user by email login' do
-      user = User.find_for_database_authentication(login: 'us@streem-china.org')
+      user = User.find_for_database_authentication(login: User.first.email)
       user.must_be_kind_of User
     end
 
     it 'should return a user by name login' do
-      user = User.find_for_database_authentication(login: 'streem')
+      user = User.find_for_database_authentication(login: User.first.name)
       user.must_be_kind_of User
     end
 

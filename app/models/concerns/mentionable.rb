@@ -18,7 +18,9 @@ module Mentionable
       end
     end
 
-    create_new_mentions(user_ids)
+    if user_ids.present?
+      create_new_mentions(user_ids)
+    end
 
     delete_old_mentions(user_ids)
   end

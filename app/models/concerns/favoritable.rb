@@ -9,4 +9,11 @@ module Favoritable
   def favorited_by?(user)
     favorited_user_ids.member?(user.id)
   end
+
+  def favorited_by(user)
+    user.favorites.create(
+      favoritable_id: id,
+      favoritable_type: self.class.name
+    )
+  end
 end

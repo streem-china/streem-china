@@ -1,8 +1,12 @@
 FactoryGirl.define do
   factory :user do
-    name 'streem'
+    sequence :name do |n|
+      "streem#{n}"
+    end
+    sequence :email do |n|
+      "#{n}@streem-china.org"
+    end
     avatar 'http://streem-china.org/avatar.png'
-    email 'us@streem-china.org'
     password '123456'
 
     confirmed_at Time.now

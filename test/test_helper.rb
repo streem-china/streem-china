@@ -10,3 +10,5 @@ end
 require 'codeclimate-test-reporter'
 
 CodeClimate::TestReporter.start
+
+require 'mocha/mini_test'

@@ -47,6 +47,7 @@ end
 
 group :test do
   gem 'codeclimate-test-reporter'
+  gem 'mocha'
 end
 
 group :development do
