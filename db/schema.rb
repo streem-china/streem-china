@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313131334) do
+ActiveRecord::Schema.define(version: 20150419054721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,23 +93,24 @@ ActiveRecord::Schema.define(version: 20150313131334) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.integer  "user_id",                            null: false
-    t.integer  "node_id",                            null: false
-    t.integer  "replies_count",          default: 0, null: false
-    t.integer  "favorites_count",        default: 0, null: false
+    t.integer  "user_id",                                null: false
+    t.integer  "node_id",                                null: false
+    t.integer  "replies_count",          default: 0,     null: false
+    t.integer  "favorites_count",        default: 0,     null: false
     t.integer  "last_replied_user_id"
-    t.string   "node_name",                          null: false
-    t.string   "title",                              null: false
+    t.string   "node_name",                              null: false
+    t.string   "title",                                  null: false
     t.string   "last_replied_user_name"
-    t.string   "user_name",                          null: false
-    t.string   "user_avatar",                        null: false
-    t.datetime "actived_at",                         null: false
+    t.string   "user_name",                              null: false
+    t.string   "user_avatar",                            null: false
+    t.datetime "actived_at",                             null: false
     t.datetime "last_replied_at"
-    t.text     "body",                               null: false
-    t.text     "body_html",                          null: false
+    t.text     "body",                                   null: false
+    t.text     "body_html",                              null: false
     t.datetime "deleted_at"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "stick",                  default: false
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree

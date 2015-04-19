@@ -23,6 +23,18 @@ class Topic < ActiveRecord::Base
   before_validation :set_node_name_before_validation
   after_create :update_user_read_topic_after_create
 
+  def stick?
+    stick
+  end
+
+  def stick!
+    update_attributes(stick: true)
+  end
+
+  def unstick!
+    update_attributes(stick: false)
+  end
+
   def has_replies?
     !replies_count.zero?
   end
@@ -58,7 +70,7 @@ class Topic < ActiveRecord::Base
   end
 
   def set_node_name_before_validation
-    self.node_name = node.name if node
+    self.node_name = node.name if node_id_changed?
   end
 
   def update_user_read_topic_after_create

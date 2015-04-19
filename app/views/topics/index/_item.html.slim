@@ -17,5 +17,9 @@
         '
         = timeago_tag topic.created_at
         = t('topic.create')
+      - if topic.stick?
+        '  &middot;
+        i.fa.fa-thumb-tack
+
   .replies-count
     = replies_count_link(topic)

@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action { @topbar = :community }
 
   def index
-    @topics = Topic.without_body.order(actived_at: :desc)
+    @topics = Topic.without_body.order(stick: :desc, actived_at: :desc)
 
     if params[:node]
       @node = Node.find_by_name(params[:node])
