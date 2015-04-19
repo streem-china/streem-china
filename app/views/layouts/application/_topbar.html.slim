@@ -14,12 +14,10 @@
         li class=(:active if topbar.eql?(:user))
           = link_to t('user_nav_link'), users_path
       ul.right
+        li.has-form.show-for-medium-up
+          = form_tag '/search', method: :get
+            = search_field_tag :q, nil, placeholder: 'Search'
         - if current_user
-          li
-            = link_to user_path(current_user.name) do
-              = image_tag current_user.avatar, size: '25'
-              '
-              = current_user.name
           li
             = link_to notifications_path do
               - if current_user.has_unread_notifications?
@@ -28,6 +26,11 @@
                 span.label.secondary.unread-notifications-count =current_user.unread_notifications_count
               '
               = t('notification.name')
+          li
+            = link_to user_path(current_user.name) do
+              = image_tag current_user.avatar, size: '25'
+              '
+              = current_user.name
           li.divider
           li =link_to t('sign_out'), destroy_user_session_path, data: { method: :delete }
         - else
