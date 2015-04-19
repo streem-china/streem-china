@@ -61,8 +61,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    if current_user.topics.find(params[:id])
-      TopicDestroyJob.perform_later(params[:id])
+    if topic = current_user.topics.find(params[:id])
+      topic.destroy
 
       flash[:success] = t('topic.deleted_success')
 
