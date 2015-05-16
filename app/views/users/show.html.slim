@@ -1,9 +1,10 @@
 - content_for :title
   | #{@user.name} &middot; Streem China
 .row.small-collapse.medium-uncollapse
-  .columns
+  .large-4.columns
     .box
       = render partial: 'user', locals: { user: @user }
+  .large-8.columns.no-padding-left-large-up
     .box
       = render partial: 'activity',
                locals: { user: @user,

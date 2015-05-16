@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action { @topbar = :user }
-  before_action :user, expect: :index
+  before_action :user, except: :index
 
   def show
     topics
@@ -39,7 +39,8 @@ class UsersController < ApplicationController
   private
 
   def user
-    @user ||= (User.where('lower(name) = ?', params[:username].downcase).first) ||
+    @user ||= (params[:username].present? &&
+               User.where('lower(name) = ?', params[:username].downcase).first) ||
                   (raise ActionController::RoutingError.new('Routing Error'))
   end
 end

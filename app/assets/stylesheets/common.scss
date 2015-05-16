@@ -1,3 +1,11 @@
+@import "foundation_and_overrides";
+
+@media #{$large-up} {
+  .no-padding-left-large-up {
+    padding-left: 0 !important;
+  }
+}
+
 .box {
   background-color: white;
   padding: .9375rem;
@@ -211,6 +219,10 @@ a.favorited {
   }
 }
 
+.static-input {
+  padding-top: 1rem;
+}
+
 .no-padding-left {
   padding-left: 0 !important;
 }
@@ -223,6 +235,3 @@ a.favorited {
   padding: 0 !important;
 }
 
-.static-input {
-  padding-top: 1rem;
-}

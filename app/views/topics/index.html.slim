@@ -8,5 +8,5 @@
           = render partial: 'topics/index/item', locals: { topic: topic }
       .clearfix
         = will_paginate(@topics, renderer: FoundationPagination::Rails)
-  .show-for-large-up.large-4.columns.no-padding-left
+  .show-for-medium-up.large-4.columns.no-padding-left-large-up
     = render partial: 'topics/index/side', locales: { node: @node }
