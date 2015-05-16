@@ -7,5 +7,6 @@
         = render partial: 'topics/show/replies', locals: { replies: @replies }
     .box
       = render partial: 'replies/form', locals: { topic: @topic, reply: @topic.replies.new }
-  .show-for-large-up.large-4.columns.no-padding-left
+
+  .show-for-medium-up.large-4.columns.no-padding-left-large-up
     = render partial: 'topics/show/side', locals: { topic: @topic }

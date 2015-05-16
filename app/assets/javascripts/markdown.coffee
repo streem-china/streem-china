@@ -7,6 +7,7 @@ class @Markdown
     if this.text
       $.ajax '/markdown_preview',
         context: this,
+        method: 'post'
         data:
           text: this.text,
         success: (data) ->

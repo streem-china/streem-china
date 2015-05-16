@@ -3,7 +3,7 @@ require 'test_helper'
 class MarkdownPreviewControllerTest < ActionController::TestCase
   describe 'show' do
     it 'should respond json content' do
-      get :show, text: '### H3'
+      post :show, text: '### H3'
 
       assert_response :ok
 
