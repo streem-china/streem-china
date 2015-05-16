@@ -1,10 +1,10 @@
 .box.other-topics-box
   .title =t('topic.node_others')
   ul
-    - topic.node_others(5).each do |topic|
+    - topic.node_others.each do |topic|
       li =link_to topic.title, topic_path(topic), class: 'topic-title'
 .box.other-topics-box
   .title =t('topic.user_others')
   ul
-    - topic.user_others(5).each do |topic|
+    - topic.user_others.each do |topic|
       li =link_to topic.title, topic_path(topic), class: 'topic-title'

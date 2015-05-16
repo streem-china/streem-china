@@ -43,23 +43,23 @@ class Topic < ActiveRecord::Base
     !favorites_count.zero?
   end
 
-  def node_others(count=0)
-    self.class.
-      where(node_id: node_id).
-      where('id != ?', id).
-      order(id: :desc).
-      first(count)
+  def node_others(count=5)
+    others(count, node_id: node_id)
   end
 
-  def user_others(count=0)
-    self.class.
-      where(user: user_id).
-      where('id != ?', id).
-      order(id: :desc).
-      first(count)
+  def user_others(count=5)
+    others(count, user_id: user_id)
   end
 
   private
+
+  def others(count, query)
+    self.class.
+      where(query).
+      where('id != ?', id).
+      order(id: :desc).
+      first(count)
+  end
 
   def set_attributes_before_validation
     assign_attributes(
