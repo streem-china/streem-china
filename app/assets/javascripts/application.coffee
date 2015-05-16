@@ -16,9 +16,7 @@
 #= require turbolinks
 #= require foundation/foundation
 #= require foundation/foundation.topbar
-#= require foundation/foundation.dropdown
 #= require foundation/foundation.alert
-#= require foundation/foundation.reveal
 #= require foundation/foundation.tab
 #= require foundation/foundation.tooltip
 #= require jquery.autosize.min
