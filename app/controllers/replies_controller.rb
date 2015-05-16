@@ -21,8 +21,9 @@ class RepliesController < ApplicationController
       flash[:success] = t('reply.updated_success')
 
       page = Reply.page_of_floor(@reply.floor)
+      anchor = "reply-#{@reply.floor}"
 
-      redirect_to topic_path(@reply.topic, page: page, anchor: "reply-#{@reply.floor}")
+      redirect_to topic_path(@reply.topic, page: page, anchor: anchor)
     else
       flash.now[:alert] = @reply.errors.full_messages.join(', ')
 

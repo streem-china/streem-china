@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   def index
     @notifications = current_user.
       notifications.
-      order('read asc, id desc').
+      order(read: :asc, id: :desc).
       paginate(page: params[:page])
 
     read_notifications(@notifications)
