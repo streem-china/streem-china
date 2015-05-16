@@ -41,4 +41,11 @@ describe Notification::Base do
       notification.read.must_equal true
     end
   end
+
+  describe '#unread!' do
+    it 'should update read to false' do
+      notification.unread!
+      notification.read.must_equal false
+    end
+  end
 end

@@ -13,12 +13,11 @@ class NotificationsController < ApplicationController
   private
 
   def read_notifications(notifications)
-    unread = notifications.select(&:unread?)
+    unread_notifications = notifications.select(&:unread?)
 
-    if unread.present?
-      current_user.notifications.where(id: unread.map(&:id)).each(&:read!)
-
-      unread.each { |n| n.read = false }
+    notifications.select(&:unread?).each do |unread_notification|
+      unread_notification.read!
+      unread_notification.read = false
     end
   end
 end

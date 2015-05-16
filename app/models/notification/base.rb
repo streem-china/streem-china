@@ -16,6 +16,10 @@ module Notification
       !read?
     end
 
+    def unread!
+      update_attributes(read: false)
+    end
+
     def read!
       update_attributes(read: true)
     end
