@@ -1,6 +1,4 @@
-@import "foundation_and_overrides";
-
-@media #{$large-up} {
+@media only screen and (min-width: 64.063em) {
   .no-padding-left-large-up {
     padding-left: 0 !important;
   }
