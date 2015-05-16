@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class QiniuControllerTest < ActionController::TestCase
+class QiniuUptokenControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   before { sign_in create(:user) }
@@ -9,7 +9,7 @@ class QiniuControllerTest < ActionController::TestCase
     it 'should respond ok' do
       Qiniu.stubs(:generate_upload_token).returns('uptoken')
 
-      get :uptoken
+      get :show
 
       response.body.must_equal({ uptoken: 'uptoken'}.to_json)
 

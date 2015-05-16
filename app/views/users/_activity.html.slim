@@ -1,15 +1,21 @@
 .activity
-  ul.tabs data-tab=''
-    li.tab-title.active
-      a href='#topics' =t('user.latest_topics')
-    li.tab-title
-      a href='#replies' =t('user.latest_replies')
-    li.tab-title
-      a href='#favorites' =t('user.lastest_favorites')
+  ul.tabs
+    li.tab-title class=(:active if topics)
+      = link_to t('user.latest_topics'), topics_user_path(@user.name)
+    li.tab-title class=(:active if replies)
+      = link_to t('user.latest_replies'), replies_user_path(@user.name)
+    li.tab-title class=(:active if favorites)
+      = link_to t('user.latest_favorites'), favorites_user_path(@user.name)
   .tabs-content
-    .content.active#topics
-      = render partial: 'users/activity/topics', locals: { topics: topics }
-    .content#replies
-      = render partial: 'users/activity/replies', locals: { replies: replies }
-    .content#favorites
-      = render partial: 'users/activity/favorites', locals: { favorites: favorites }
+    - if topics
+      .content.active
+        = render partial: 'users/activity/topics', locals: { topics: topics }
+      = will_paginate(topics, renderer: FoundationPagination::Rails)
+    - if replies
+      .content.active
+        = render partial: 'users/activity/replies', locals: { replies: replies }
+      = will_paginate(replies, renderer: FoundationPagination::Rails)
+    - if favorites
+      .content.active
+        = render partial: 'users/activity/favorites', locals: { favorites: favorites }
+      = will_paginate(favorites, renderer: FoundationPagination::Rails)

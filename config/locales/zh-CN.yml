@@ -81,7 +81,7 @@ zh-CN:
     new_password: 新密码
     latest_topics: 最近发帖
     latest_replies: 最近回复
-    lastest_favorites: 最近收藏
+    latest_favorites: 最近收藏
     number_label: '第 %{number} 号会员'
     authorization_label: '来自 %{provider}'
     joined_time_label: '于 %{time} 加入'

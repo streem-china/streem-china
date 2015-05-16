@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class MarkdownControllerTest < ActionController::TestCase
-  describe 'convert' do
+class MarkdownPreviewControllerTest < ActionController::TestCase
+  describe 'show' do
     it 'should respond json content' do
-      post :convert, text: '### H3'
+      get :show, text: '### H3'
 
       assert_response :ok
 

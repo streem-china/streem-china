@@ -13,16 +13,21 @@ Rails.application.routes.draw do
 
   resources :topics
   resources :replies
-  resources :users, only: :index
+  resources :users, only: :index, param: :username do
+    get :topics, on: :member
+    get :replies, on: :member
+    get :favorites, on: :member
+  end
   resources :notifications, only: :index
   resources :favorites, only: [:create, :destroy] do
     delete :destroy, on: :collection
   end
   resource :avatar, only: :update
 
-  post 'markdown/convert', to: 'markdown#convert'
-  get 'qiniu/uptoken', to: 'qiniu#uptoken'
-  get 'search', to: 'search#perform'
+  get  'qiniu_uptoken', to: 'qiniu_uptoken#show'
+  post 'markdown_preview', to: 'markdown_preview#show'
+  get  'search', to: 'search#show'
+
   get ':username', to: 'users#show', username: /\w+/, as: :user
 
   root 'topics#index'

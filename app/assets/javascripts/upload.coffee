@@ -9,7 +9,7 @@ $(document).on 'ready page:load', ->
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
       browse_button: 'upload',
-      uptoken_url: '/qiniu/uptoken',
+      uptoken_url: '/qiniu_uptoken',
       max_file_size: '4mb',
       domain: domain,
       auto_start: true,
@@ -45,7 +45,7 @@ $(document).on 'ready page:load', ->
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
       browse_button: 'upload',
-      uptoken_url: '/qiniu/uptoken',
+      uptoken_url: '/qiniu_uptoken',
       max_file_size: '2mb',
       domain: domain,
       auto_start: true,

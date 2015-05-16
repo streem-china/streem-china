@@ -5,8 +5,7 @@ class @Markdown
 
   convert: ->
     if this.text
-      $.ajax '/markdown/convert',
-        method: 'post',
+      $.ajax '/markdown_preview',
         context: this,
         data:
           text: this.text,
