@@ -6,25 +6,25 @@
                locals: { notification: notification,
                          reply: notification.reply }
     - else
-      .content_deleted =t('notification.content_already_deleted')
+      .content-deleted =t('notification.content_already_deleted')
   - when Notification::Mention
     - if notification.mention
       = render partial: 'notifications/item/mention',
                locals: { notification: notification,
                          mention: notification.mention }
     - else
-      .content_deleted =t('notification.content_already_deleted')
+      .content-deleted =t('notification.content_already_deleted')
   - when Notification::Favorite
     - if notification.favorite
       = render partial: 'notifications/item/favorite',
                locals: { notification: notification,
                          favorite: notification.favorite }
     - else
-      .content_deleted =t('notification.content_already_deleted')
+      .content-deleted =t('notification.content_already_deleted')
   - when Notification::FavoritedReply
     - if notification.reply
       = render partial: 'notifications/item/favorited_reply',
                locals: { notification: notification,
                          reply: notification.reply }
     - else
-      .content_deleted =t('notification.content_already_deleted')
+      .content-deleted =t('notification.content_already_deleted')

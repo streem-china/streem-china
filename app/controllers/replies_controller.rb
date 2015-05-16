@@ -12,20 +12,12 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.find(params[:id])
   end
 
-  def destroy
-    if reply = current_user.replies.find(params[:id])
-      reply.destroy
-
-      head :no_content
-    else
-      head :not_found
-    end
-  end
-
   def update
-    @reply = current_user.replies.find(params[:id])
+    @reply = current_user.replies.find_by_id(params[:id])
 
-    if @reply.update_attributes(reply_params)
+    return(render :not_found) unless @reply
+
+    if @reply.update_attributes(body: reply_params[:body])
       flash[:success] = t('reply.updated_success')
 
       page = Reply.page_of_floor(@reply.floor)
@@ -35,6 +27,16 @@ class RepliesController < ApplicationController
       flash.now[:alert] = @reply.errors.full_messages.join(', ')
 
       render :edit
+    end
+  end
+
+  def destroy
+    if reply = current_user.replies.find_by_id(params[:id])
+      reply.destroy
+
+      head :no_content
+    else
+      head :not_found
     end
   end
 

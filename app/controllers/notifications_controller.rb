@@ -1,18 +1,19 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
-  after_action :read_notifications
 
   def index
     @notifications = current_user.
       notifications.
       order('read asc, id desc').
       paginate(page: params[:page])
+
+    read_notifications(@notifications)
   end
 
   private
 
-  def read_notifications
-    unread = @notifications.select(&:unread?)
+  def read_notifications(notifications)
+    unread = notifications.select(&:unread?)
 
     if unread.present?
       current_user.notifications.where(id: unread.map(&:id)).each(&:read!)

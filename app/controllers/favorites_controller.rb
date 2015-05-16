@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = if params[:id]
-                  current_user.favorites.find(params[:id])
+                  current_user.favorites.find_by_id(params[:id])
                 else
                   current_user.favorites.where(
                     favoritable_id: params[:favoritable_id],
