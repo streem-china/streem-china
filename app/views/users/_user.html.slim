@@ -16,7 +16,7 @@
     = link_to user.name, user_path(user.name), class: :username
     - if signed_in? && current_user.eql?(user) && current_user.authorization.blank?
       '
-      = link_to '', edit_user_registration_path(user), class: 'edit fa fa-edit'
+      = link_to '', edit_user_registration_path, class: 'edit fa fa-gears'
     .tips
       = t('user.number_label', number: user.id)
       ' ,
@@ -24,4 +24,3 @@
       - if user.authorization
         ' ,
         = t('user.authorization_label', provider: user.authorization.provider)
-
