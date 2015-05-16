@@ -1,9 +1,7 @@
 class Mention < ActiveRecord::Base
   belongs_to :user
   belongs_to :mentionable, polymorphic: true
-  has_one :notification,
-    class_name: 'Notification::Mention',
-    dependent: :destroy
+  has_one :notification, class_name: 'Notification::Mention'
 
   validates :user_id,
     presence: true,

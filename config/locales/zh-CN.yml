@@ -41,10 +41,12 @@ zh-CN:
     mention/reply_link: '%{user} 在回复主题 %{topic} 时提到了你'
     favorite/topic_link: '%{user} 喜欢了你的主题 %{topic}'
     favorite/reply_link: '%{user} 喜欢了你在主题 %{topic} 中的回复'
+    content_already_deleted: '相关内容已被删除'
   favorite:
     name: 收藏
     are_you_sure_delete: 确定删除该收藏?
     deleted_success: 收藏删除成功
+    content_already_deleted: 收藏内容已被删除
   topic:
     name: 主题
     create: 发布
@@ -59,6 +61,7 @@ zh-CN:
     deleted_success: 主题删除成功
     node_others: 节点其他主题
     user_others: 作者其他主题
+    already_deleted: '主题已被删除'
   reply:
     name: 回复
     floor: 楼

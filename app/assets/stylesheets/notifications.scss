@@ -25,6 +25,14 @@
       }
     }
 
+    .content-deleted {
+      text-align: center;
+      font-style: italic;
+      text-decoration: line-through;
+      color: #AAA;
+      font-size: .8rem;
+    }
+
     .info {
       display: table-cell;
       vertical-align: top;

@@ -7,14 +7,10 @@ class Reply < ActiveRecord::Base
 
   belongs_to :user, counter_cache: true
   belongs_to :topic, counter_cache: true
-  has_many :favorites, as: :favoritable, dependent: :destroy
-  has_many :mentions, as: :mentionable, dependent: :destroy
-  has_one :notification,
-    class_name: 'Notification::Reply',
-    dependent: :destroy
-  has_many :favorited_reply_notifications,
-    class_name: 'Notification::FavoritedReply',
-    dependent: :destroy
+  has_many :favorites, as: :favoritable
+  has_many :mentions, as: :mentionable
+  has_one :notification, class_name: 'Notification::Reply'
+  has_many :favorited_reply_notifications, class_name: 'Notification::FavoritedReply'
 
   validates :user_id, presence: true
   validates :user_name, presence: true

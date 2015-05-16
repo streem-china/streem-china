@@ -1,18 +1,30 @@
 .item class=(:unread if notification.unread?)
   - case notification
   - when Notification::Reply
-    = render partial: 'notifications/item/reply',
-             locals: { notification: notification,
-                       reply: notification.reply }
+    - if notification.reply
+      = render partial: 'notifications/item/reply',
+               locals: { notification: notification,
+                         reply: notification.reply }
+    - else
+      .content_deleted =t('notification.content_already_deleted')
   - when Notification::Mention
-    = render partial: 'notifications/item/mention',
-             locals: { notification: notification,
-                       mention: notification.mention }
+    - if notification.mention
+      = render partial: 'notifications/item/mention',
+               locals: { notification: notification,
+                         mention: notification.mention }
+    - else
+      .content_deleted =t('notification.content_already_deleted')
   - when Notification::Favorite
-    = render partial: 'notifications/item/favorite',
-             locals: { notification: notification,
-                       favorite: notification.favorite }
+    - if notification.favorite
+      = render partial: 'notifications/item/favorite',
+               locals: { notification: notification,
+                         favorite: notification.favorite }
+    - else
+      .content_deleted =t('notification.content_already_deleted')
   - when Notification::FavoritedReply
-    = render partial: 'notifications/item/favorited_reply',
-             locals: { notification: notification,
-                       reply: notification.reply }
+    - if notification.reply
+      = render partial: 'notifications/item/favorited_reply',
+               locals: { notification: notification,
+                         reply: notification.reply }
+    - else
+      .content_deleted =t('notification.content_already_deleted')

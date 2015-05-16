@@ -1,7 +1,10 @@
 - favorites.each do |favorite|
   .item
-    - case favorite.favoritable
-    - when Topic
-      = render partial: 'users/activity/favorites/topic', locals: { favorite: favorite, topic: favorite.favoritable }
-    - when Reply
-      = render partial: 'users/activity/favorites/reply', locals: { favorite: favorite, reply: favorite.favoritable }
+    - if favorite.favoritable
+      - case favorite.favoritable
+      - when Topic
+        = render partial: 'users/activity/favorites/topic', locals: { favorite: favorite, topic: favorite.favoritable }
+      - when Reply
+        = render partial: 'users/activity/favorites/reply', locals: { favorite: favorite, reply: favorite.favoritable }
+    - else
+      .favorite-content-deleted =t('favorite.content_already_deleted')

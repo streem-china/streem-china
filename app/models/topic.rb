@@ -7,9 +7,9 @@ class Topic < ActiveRecord::Base
 
   belongs_to :user, counter_cache: true
   belongs_to :node, counter_cache: true
-  has_many :replies, dependent: :destroy
-  has_many :favorites, as: :favoritable, dependent: :destroy
-  has_many :mentions, as: :mentionable, dependent: :destroy
+  has_many :replies
+  has_many :favorites, as: :favoritable
+  has_many :mentions, as: :mentionable
 
   validates :user_id, presence: true
   validates :user_name, presence: true
