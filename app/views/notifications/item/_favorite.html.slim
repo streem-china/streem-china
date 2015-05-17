@@ -17,6 +17,7 @@
           = link_to user_path(favorite.favoritable.user_name) do
             = image_tag favorite.favoritable.user_avatar
 
+        .info
           = render partial: 'notifications/item/favorite/reply',
                    locals: { notification: notification,
                              favorite: favorite,
