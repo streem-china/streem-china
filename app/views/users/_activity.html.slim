@@ -8,14 +8,14 @@
       = link_to t('user.latest_favorites'), favorites_user_path(@user.name)
   .tabs-content
     - if topics
-      .content.active
+      #topics.content.active
         = render partial: 'users/activity/topics', locals: { topics: topics }
       = will_paginate(topics, renderer: FoundationPagination::Rails)
     - if replies
-      .content.active
+      #replies.content.active
         = render partial: 'users/activity/replies', locals: { replies: replies }
       = will_paginate(replies, renderer: FoundationPagination::Rails)
     - if favorites
-      .content.active
+      #favorites.content.active
         = render partial: 'users/activity/favorites', locals: { favorites: favorites }
       = will_paginate(favorites, renderer: FoundationPagination::Rails)

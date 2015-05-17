@@ -9,7 +9,7 @@ class FavoriteTest < ActiveSupport::TestCase
       favorite.favoritable.favorited_user_ids.must_include(user.id)
     end
 
-    it 'should describe from redis after destroy' do
+    it 'should destroy from redis after destroy' do
       favoritable = favorite.favoritable
       favorite.destroy
       favoritable.favorited_user_ids.wont_include(user.id)
@@ -17,6 +17,22 @@ class FavoriteTest < ActiveSupport::TestCase
 
     it 'should create notification after create' do
       favorite.favoritable.user.notifications.to_a.wont_be_empty
+    end
+
+    it 'should decrement counter after destroy unless favoritable exists' do
+      favoritable = favorite.
+        favoritable_type.
+        constantize.
+        unscoped.
+        find(favorite.favoritable_id)
+
+      favoritable.destroy
+
+      favorite.destroy
+
+      favoritable.reload
+
+      favoritable.favorites_count.must_equal 0
     end
   end
 end

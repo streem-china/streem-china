@@ -1,19 +1,33 @@
 - if favorite.favoritable
-  .favorite
-    .avatar
-      = link_to user_path(favorite.favoritable.user_name) do
-        = image_tag favorite.favoritable.user_avatar
-    .info
-      - case favorite.favoritable
-      - when Topic
+  - case favorite.favoritable
+  - when Topic
+    .favorite
+      .avatar
+        = link_to user_path(favorite.favoritable.user_name) do
+          = image_tag favorite.favoritable.user_avatar
+      .info
         = render partial: 'notifications/item/favorite/topic',
                  locals: { notification: notification,
                            favorite: favorite,
                            topic: favorite.favoritable }
-      - when Reply
-        = render partial: 'notifications/item/favorite/reply',
-                 locals: { notification: notification,
-                           favorite: favorite,
-                           reply: favorite.favoritable }
+  - when Reply
+    - if favorite.favoritable.topic
+      .favorite
+        .avatar
+          = link_to user_path(favorite.favoritable.user_name) do
+            = image_tag favorite.favoritable.user_avatar
+
+          = render partial: 'notifications/item/favorite/reply',
+                   locals: { notification: notification,
+                             favorite: favorite,
+                             reply: favorite.favoritable }
+    - else
+      .content-deleted
+        = t('notification.content_already_deleted')
+        '
+        = link_to '', '#', data: { id: notification.id }, class: 'fa fa-close'
 - else
-  .content-deleted =t('notification.content_already_deleted')
+  .content-deleted
+    = t('notification.content_already_deleted')
+    '
+    = link_to '', '#', data: { id: notification.id }, class: 'fa fa-close'

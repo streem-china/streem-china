@@ -1,19 +1,36 @@
 - if mention.mentionable
-  .mention
-    .avatar
-      = link_to user_path(mention.mentionable) do
-        = image_tag mention.mentionable.user_avatar
-    .info
-      - case mention.mentionable
-      - when Topic
+  - case mention.mentionable
+  - when Topic
+    .mention
+      .avatar
+        = link_to user_path(mention.mentionable) do
+          = image_tag mention.mentionable.user_avatar
+      .info
         = render partial: 'notifications/item/mention/topic',
-                 locals: { notification: notification,
-                           topic: mention.mentionable }
-      - when Reply
-        = render partial: 'notifications/item/mention/reply',
-                 locals: { notification: notification,
-                           reply: mention.mentionable }
-    .body
-      = sanitize_body_html(mention.mentionable.body_html)
+                   locals: { notification: notification,
+                             topic: mention.mentionable }
+      .body
+        = sanitize_body_html(mention.mentionable.body_html)
+  - when Reply
+    - if mention.mentionable.topic
+      .mention
+        .avatar
+          = link_to user_path(mention.mentionable) do
+            = image_tag mention.mentionable.user_avatar
+        .info
+          = render partial: 'notifications/item/mention/reply',
+               locals: { notification: notification,
+                         reply: mention.mentionable }
+
+        .body
+          = sanitize_body_html(mention.mentionable.body_html)
+    - else
+      .content-deleted
+        = t('notification.content_already_deleted')
+        '
+        = link_to '', '#', data: { id: notification.id }, class: 'fa fa-close'
 - else
-  .content-deleted =t('notification.content_already_deleted')
+  .content-deleted
+    = t('notification.content_already_deleted')
+    '
+    = link_to '', '#', data: { id: notification.id }, class: 'fa fa-close'

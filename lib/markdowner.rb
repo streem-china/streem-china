@@ -1,11 +1,10 @@
 class Markdowner
   class << self
-    def renderer
-      CustomRenderer.new(
-        hard_wrap: true,
-        link_attributes: { target: :_blank }
-      )
+    def render(body)
+      html = markdowner.render(body)
     end
+
+    private
 
     def markdowner
       @markdowner ||=
@@ -15,22 +14,21 @@ class Markdowner
          strikethrough: true,
          space_after_headers: true,
          no_intra_emphasis: true,
-         table: true)
+         tables: true)
     end
 
-    def render(body)
-      html = markdowner.render(body)
+    def renderer
+      @renderer ||= CustomRenderer.new(link_attributes: { target: :_blank })
     end
   end
 
-  class CustomRenderer< Redcarpet::Render::HTML
+  class CustomRenderer < Redcarpet::Render::HTML
     require 'rouge/plugins/redcarpet'
 
     include Rouge::Plugins::Redcarpet
 
     def paragraph(text)
-      parse_new_line_to_br(text)
-      parse_reply_user_name(text)
+      parse_user_name(text)
       parse_reply_floor(text)
       parse_emoji(text)
 
@@ -43,18 +41,16 @@ class Markdowner
 
     private
 
-    def parse_new_line_to_br(text)
-      text.gsub!(/\n/, '<br>')
-    end
-
-    def parse_reply_user_name(text)
+    def parse_user_name(text)
       text.gsub!(/@(\w+)/) do |match|
         %(<a href='/#{$1}'> #{match} </a>)
       end
     end
 
     def parse_reply_floor(text)
-      text.gsub!(/#(\d+)楼/) do |match|
+      floor_name = I18n.t('reply.floor')
+
+      text.gsub!(/#(\d+)\s?#{floor_name}/) do |match|
         page = Reply.page_of_floor($1.to_i)
 
         %(<a href='?page=#{page}\#reply-#{$1}'> #{match} </a>)

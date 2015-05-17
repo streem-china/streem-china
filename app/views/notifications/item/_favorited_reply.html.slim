@@ -16,4 +16,7 @@
     .body
       = sanitize_body_html(reply.body_html)
 - else
-  .content-deleted =t('notification.content_already_deleted')
+  .content-deleted
+    = t('notification.content_already_deleted')
+    '
+    = link_to '', '#', data: { id: notification.id }, class: 'fa fa-close'

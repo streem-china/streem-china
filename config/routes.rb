@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get :replies, on: :member
     get :favorites, on: :member
   end
-  resources :notifications, only: :index
+  resources :notifications, only: [:index, :destroy]
   resources :favorites, only: [:create, :destroy] do
     delete :destroy, on: :collection
   end

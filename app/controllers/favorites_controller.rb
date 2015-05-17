@@ -2,12 +2,18 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    favorite = current_user.favorites.create(
-      favoritable_id: params[:favoritable_id],
-      favoritable_type: params[:favoritable_type]
-    )
+    favoritable = params[:favoritable_type].constantize.find_by_id(params[:favoritable_id])
 
-    head :created
+    if favoritable
+      current_user.favorites.create(
+        favoritable_id: params[:favoritable_id],
+        favoritable_type: params[:favoritable_type]
+      )
+
+      head :created
+    else
+      head :bad_request
+    end
   end
 
   def destroy

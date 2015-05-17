@@ -6,7 +6,6 @@ $ ->
   $(document).foundation()
 
 $(document).on 'ready page:load', ->
-
   if $('time').length
     $('time').timeago()
   if $('textarea').length
@@ -17,3 +16,4 @@ $(document).on 'ready page:load', ->
     $(document).foundation('tooltip', 'reflow')
   if $('.toggle-topbar').length
     $(document).foundation('topbar', 'reflow')
+

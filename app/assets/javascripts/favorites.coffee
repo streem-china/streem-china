@@ -67,3 +67,15 @@ $(document).on 'ready page:load', ->
       favorite.delete()
 
     false
+
+  $('body').on 'click', '.activity #favorites .content-deleted a', (e) ->
+    favoritable_id = $(this).data('favoritable-id')
+    favoritable_type = $(this).data('favoritable-type')
+
+    $(this).parents('.item').fadeOut 300, -> $(this).remove()
+
+    favorite = new Favorite(favoritable_id, favoritable_type)
+
+    favorite.delete()
+
+    false

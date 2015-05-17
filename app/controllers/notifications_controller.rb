@@ -10,6 +10,18 @@ class NotificationsController < ApplicationController
     read_notifications(@notifications)
   end
 
+  def destroy
+    notification = Notification::Base.find_by_id(params[:id])
+
+    if notification
+      notification.destroy
+
+      head :no_content
+    else
+      head :not_found
+    end
+  end
+
   private
 
   def read_notifications(notifications)
