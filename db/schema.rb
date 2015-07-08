@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150419054721) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   null: false
     t.string   "uid",        null: false
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true, using: :btree
+  add_index "authorizations", ["provider", "uid"], name: "index_authorizations_on_provider_and_uid", unique: true
 
   create_table "favorites", force: :cascade do |t|
     t.string   "favoritable_type", null: false
@@ -34,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true, using: :btree
+  add_index "favorites", ["user_id", "favoritable_id", "favoritable_type"], name: "user_favoritable", unique: true
 
   create_table "mentions", force: :cascade do |t|
     t.integer  "user_id",          null: false
@@ -44,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true, using: :btree
+  add_index "mentions", ["user_id", "mentionable_id", "mentionable_type"], name: "user_mentionable", unique: true
 
   create_table "nodes", force: :cascade do |t|
     t.string   "name"
@@ -64,10 +61,10 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id", using: :btree
-  add_index "notifications", ["mention_id"], name: "index_notifications_on_mention_id", using: :btree
-  add_index "notifications", ["reply_id"], name: "index_notifications_on_reply_id", using: :btree
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  add_index "notifications", ["favorite_id"], name: "index_notifications_on_favorite_id"
+  add_index "notifications", ["mention_id"], name: "index_notifications_on_mention_id"
+  add_index "notifications", ["reply_id"], name: "index_notifications_on_reply_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "replies", force: :cascade do |t|
     t.integer  "topic_id",                    null: false
@@ -83,8 +80,8 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true, using: :btree
-  add_index "replies", ["topic_id"], name: "index_replies_on_topic_id", using: :btree
+  add_index "replies", ["topic_id", "floor"], name: "index_replies_on_topic_id_and_floor", unique: true
+  add_index "replies", ["topic_id"], name: "index_replies_on_topic_id"
 
   create_table "tips", force: :cascade do |t|
     t.text     "body"
@@ -113,7 +110,7 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.boolean  "stick",                  default: false
   end
 
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                                   null: false
@@ -144,10 +141,10 @@ ActiveRecord::Schema.define(version: 20150419054721) do
     t.datetime "locked_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end
