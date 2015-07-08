@@ -29,10 +29,12 @@
         .columns.no-padding-right
           .clearfix
             .right
-              = link_to '', user_omniauth_authorize_path(:github),
-                class: 'fa fa-github fa-lg thirdpart-login'
+              - if Devise.omniauth_configs.has_key?(:github)
+                = link_to '', user_omniauth_authorize_path(:github),
+                  class: 'fa fa-github fa-lg thirdpart-login'
               '
-              = link_to '', user_omniauth_authorize_path(:twitter),
-                class: 'fa fa-twitter fa-lg thirdpart-login'
+              - if Devise.omniauth_configs.has_key?(:github)
+                = link_to '', user_omniauth_authorize_path(:twitter),
+                  class: 'fa fa-twitter fa-lg thirdpart-login'
               '
               = link_to t('forget_password'), new_user_password_path, class: 'forget-password'
