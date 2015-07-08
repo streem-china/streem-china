@@ -1,8 +1,12 @@
+.container {
+  margin: 1.25rem 0;
+}
+
 .box {
   background-color: white;
   padding: .9375rem;
   border: 1px solid #efefef;
-  margin: .8rem 0;
+  margin: 0 0 .8rem 0;
 
   > .title {
     padding: .6rem 0rem;
@@ -166,11 +170,6 @@ a.favorited {
   vertical-align: middle;
   padding-top: 7px;
   font-size: 11px;
-}
-
-.flash-container {
-  opacity: 0.9;
-  z-index: 9999;
 }
 
 .reply-form, .topic-form {
