@@ -26,9 +26,9 @@ class @Flash
 
     $('.flash').foundation('alert', 'reflow')
 
-    #setTimeout ->
-      #$('.flash').remove()
-    #, 5000
+    setTimeout ->
+      $('.flash').remove()
+    , 5000
 
 $(document).on 'ready page:load', ->
   $(document).scroll ->
