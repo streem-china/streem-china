@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
          omniauth_providers: [:github, :twitter]
 
   has_one :authorization
+  has_one :profile
   has_many :topics
   has_many :replies
   has_many :favorites

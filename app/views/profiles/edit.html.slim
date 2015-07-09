@@ -1,0 +1,34 @@
+.row.small-collapse.medium-uncollapse
+  .large-8.columns
+    .box
+      .title
+        h5 =t('profile.edit')
+      = form_for(@profile, url: profile_path) do |f|
+        .row
+          .small-3.columns.no-padding-left
+            = f.label :blog_link, class: 'right inline'
+          .small-9.columns.no-padding-right
+            = f.text_field :blog_link
+        .row
+          .small-3.columns.no-padding-left
+            = f.label :github_link, class: 'right inline'
+          .small-9.columns.no-padding-right
+            = f.text_field :github_link
+        .row
+          .small-3.columns.no-padding-left
+            = f.label :twitter_link, class: 'right inline'
+          .small-9.columns.no-padding-right
+            = f.text_field :twitter_link
+        .row
+          .small-3.columns.no-padding-left
+            = f.label :company, class: 'right inline'
+          .small-9.columns.no-padding-right
+            = f.text_field :company
+        .row
+          .small-3.columns.no-padding-left
+            = f.label :location, class: 'right inline'
+          .small-9.columns.no-padding-right
+            = f.text_field :location
+        .row
+          .small-9.small-offset-3.columns.no-padding-right
+           = f.submit class: 'button expand small'

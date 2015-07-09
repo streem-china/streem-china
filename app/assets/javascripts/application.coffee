@@ -14,11 +14,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require foundation/foundation
-#= require foundation/foundation.topbar
-#= require foundation/foundation.alert
-#= require foundation/foundation.tab
-#= require foundation/foundation.tooltip
+#= require foundation
 #= require jquery.autosize.min
 #= require rails-timeago
 #= require jquery.atwho

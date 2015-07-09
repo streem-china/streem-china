@@ -18,10 +18,10 @@ class RepliesController < ApplicationController
     return(render :not_found) unless @reply
 
     if @reply.update_attributes(body: reply_params[:body])
-      flash[:success] = t('reply.updated_success')
-
       page = Reply.page_of_floor(@reply.floor)
       anchor = "reply-#{@reply.floor}"
+
+      flash[:success] = t('reply.updated_success')
 
       redirect_to topic_path(@reply.topic, page: page, anchor: anchor)
     else

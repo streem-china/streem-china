@@ -98,3 +98,6 @@ zh-CN:
     list: 列表
     inline_code: 行内代码
     block_code: 块级代码
+  profile:
+    edit: 更新个人资料
+    updated_success: 个人资料更新成功

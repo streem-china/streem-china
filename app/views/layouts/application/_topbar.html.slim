@@ -1,5 +1,5 @@
 .contain-to-grid.sticky
-  nav.top-bar role='navigation' data-topbar='' aria-hidden='true' data-options="sticky_on: small"
+  nav.top-bar role='navigation' data-topbar='' data-options='sticky_on: small'
     ul.title-area
       li.name
         h1
@@ -26,12 +26,13 @@
                 span.label.secondary.unread-notifications-count =current_user.unread_notifications_count
               '
               = t('notification.name')
-          li
-            = link_to user_path(current_user.name) do
-              = image_tag current_user.avatar, size: '25'
-              '
-              = current_user.name
           li.divider
-          li =link_to t('sign_out'), destroy_user_session_path, data: { method: :delete }
+          li.has-dropdown
+            = link_to '#' do
+              = image_tag current_user.avatar, size: '25'
+            ul.dropdown
+              li =link_to current_user.name, user_path(current_user.name)
+              li.divider
+              li =link_to t('sign_out'), destroy_user_session_path, data: { method: :delete }
         - else
           li =link_to t('sign_in'), new_user_session_path

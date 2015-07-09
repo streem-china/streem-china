@@ -14,13 +14,14 @@
         = image_tag user.avatar
   .info
     = link_to user.name, user_path(user.name), class: :username
-    - if signed_in? && current_user.eql?(user) && current_user.authorization.blank?
+    br
+    - if signed_in? && current_user.eql?(user)
       '
-      = link_to '', edit_user_registration_path, class: 'edit fa fa-gears'
+      = link_to ' Edit Profile', edit_profile_path, class: 'edit fa fa-edit'
     .tips
       = t('user.number_label', number: user.id)
       ' ,
       = sanitize(t('user.joined_time_label', time: timeago_tag(user.created_at)), tags: %w(time))
       - if user.authorization
-        ' ,
+        br
         = t('user.authorization_label', provider: user.authorization.provider)
