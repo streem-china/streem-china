@@ -26,7 +26,7 @@
             .small-6.columns.no-padding
               = link_to t('register'), new_user_registration_path(resource), class: 'button expand small success'
       .row
-        .columns.no-padding-right
+        .columns.no-padding
           .right
             - if Devise.omniauth_configs.has_key?(:github)
               = link_to '', user_omniauth_authorize_path(:github),
@@ -36,4 +36,4 @@
               = link_to '', user_omniauth_authorize_path(:twitter),
                 class: 'fa fa-twitter fa-lg thirdpart-login'
             '
-            = link_to t('forget_password'), new_user_password_path, class: 'forget-password'
+            = link_to t('forget_password'), new_user_password_path, class: :small

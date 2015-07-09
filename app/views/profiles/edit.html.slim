@@ -5,6 +5,11 @@
         h5 =t('profile.edit')
       = form_for(@profile, url: profile_path) do |f|
         .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :email, t('user.email'), class: 'right inline'
+          .medium-9.columns.no-padding
+            p.static =current_user.email
+        .row
           .small-3.columns.no-padding-left
             = f.label :blog_link, t('profile.blog_link'), class: 'right inline'
           .small-9.columns.no-padding
@@ -32,3 +37,7 @@
         .row
           .small-9.small-offset-3.columns.no-padding
            = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
+        .row
+          .columns.no-padding
+            .right
+              = link_to t('change_password'), edit_user_registration_path, class: :small

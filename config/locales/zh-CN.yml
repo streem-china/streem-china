@@ -11,6 +11,7 @@ zh-CN:
   forget_password: 忘记密码?
   find_password: 找回密码
   change_password: 更改密码
+  setup_password: 设置密码
   had_not_received_confirmation: 没有收到确认邮件?
   community_nav_link: 社区
   user_nav_link: 会员
@@ -99,8 +100,8 @@ zh-CN:
     inline_code: 行内代码
     block_code: 块级代码
   profile:
-    edit: 更新个人资料
-    updated_success: 个人资料更新成功
+    edit: 修改资料
+    updated_success: 资料更新成功
     blog_link: 博客地址
     github_link: Github 地址
     twitter_link: Twitter 地址

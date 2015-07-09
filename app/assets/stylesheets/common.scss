@@ -154,14 +154,10 @@ a.favorited {
       color: #333;
     }
   }
+}
 
-  a.resend-confirmation {
-    font-size: .8rem;
-  }
-
-  a.forget-password {
-    font-size: .8rem;
-  }
+a.small {
+  font-size: .8rem;
 }
 
 .unread-notifications-count {
@@ -236,5 +232,14 @@ a.favorited {
   a {
     color: #666;
     font-size: .9rem;
+  }
+}
+
+form {
+  p.static {
+    line-height: 1.5;
+    font-size: 0.875rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5625rem 0;
   }
 }

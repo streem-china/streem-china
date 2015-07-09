@@ -43,6 +43,31 @@ class User < ActiveRecord::Base
       first
   end
 
+  def update_with_password(params, *options)
+    current_password = params.delete(:current_password)
+
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+
+    result = if encrypted_password
+               if valid_password?(current_password)
+                 update_attributes(params, *options)
+               else
+                 assign_attributes(params, *options)
+                 valid?
+                 errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+                 false
+               end
+             else
+               update_attributes(params, *options)
+             end
+
+    clean_up_passwords
+    result
+  end
+
   def has_unread_notifications?
     unread_notifications_count > 0
   end

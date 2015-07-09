@@ -2,7 +2,10 @@
   .large-8.columns
     .box.devise-box
       .title
-        h5 =t('change_password')
+        - if current_user.encrypted_password?
+          h5 =t('change_password')
+        - else
+          h5 =t('setup_password')
       = form_for(resource, url: registration_path(resource)) do |f|
         .row
           .medium-9.medium-offset-3.columns.no-padding
@@ -11,12 +14,13 @@
           .show-for-medium-up.medium-3.columns.no-padding-left
             = f.label :email, class: 'right inline'
           .medium-9.columns.no-padding
-            = f.email_field :email, disabled: true
-        .row
-          .show-for-medium-up.medium-3.columns.no-padding-left
-            = f.label :current_password, class: 'right inline'
-          .medium-9.columns.no-padding
-            = f.password_field :current_password, placeholder: t('user.current_password')
+            p.static =resource.email
+        - if current_user.encrypted_password
+          .row
+            .show-for-medium-up.medium-3.columns.no-padding-left
+              = f.label :current_password, class: 'right inline'
+            .medium-9.columns.no-padding
+              = f.password_field :current_password, placeholder: t('user.current_password')
         .row
           .show-for-medium-up.medium-3.columns.no-padding-left
             = f.label :password, t('user.new_password'), class: 'right inline'
@@ -27,6 +31,10 @@
             = f.label :password_confirmation, class: 'right inline'
           .medium-9.columns.no-padding
             = f.password_field :password_confirmation, placeholder: t('user.password_confirmation')
-          .medium-9.medium-offset-3
-            .columns.no-padding
-              = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
+        .row
+          .medium-9.medium-offset-3.columns.no-padding
+            = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
+        .row
+          .columns.no-padding
+            .right
+              = link_to t('profile.edit'), edit_profile_path, class: :small
