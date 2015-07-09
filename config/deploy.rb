@@ -2,7 +2,7 @@
 lock '3.3.5'
 
 set :application, 'streem-china'
-set :repo_url, 'git@gitcafe.com:streem-china/streem-china.git'
+set :repo_url, 'git@github.com:streem-china/streem-china.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
