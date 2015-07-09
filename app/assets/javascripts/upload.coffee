@@ -53,7 +53,7 @@ $(document).on 'ready page:load', ->
         FilesAdded: (up, files) ->
           plupload.each files, (file) ->
         BeforeUpload: (up, file) ->
-          uploader.html('<i class="fa fa-spin fa-spinner" style="position: absolute; left: 50px; top: 50px;"></i>')
+          uploader.html('<i class="fa fa-spin fa-spinner" style="position: absolute; left: 50px; top: 50px; color: black"></i>')
         UploadProgress: (up, file) ->
         FileUploaded: (up, file, info) ->
           url = domain + JSON.parse(info).key + '?imageView/1/w/150'

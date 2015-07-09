@@ -1,8 +1,7 @@
 .user
   .avatar
-    - if signed_in? && current_user.eql?(user)
-      = link_to user_path(user.name) do
-        = image_tag user.avatar
+    = link_to user_path(user.name) do
+      = image_tag user.avatar
   .info
     = link_to user.name, user_path(user.name), class: :username
     br
