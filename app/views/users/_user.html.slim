@@ -1,15 +1,6 @@
 .user
   .avatar
     - if signed_in? && current_user.eql?(user)
-      = link_to '#',
-        data: { tooltip: true,
-                user_id: user.id,
-                qiniu_domain: Rails.application.secrets.qiniu_domain },
-        class: 'has-tooltip',
-        id: 'upload',
-        title: t('user.change_avatar')  do
-        = image_tag user.avatar
-    - else
       = link_to user_path(user.name) do
         = image_tag user.avatar
   .info
@@ -20,7 +11,7 @@
       = link_to " #{t('profile.edit')}", edit_profile_path, class: 'edit fa fa-edit'
     .tips
       = t('user.number_label', number: user.id)
-      ' ,
+      br
       = sanitize(t('user.joined_time_label', time: timeago_tag(user.created_at)), tags: %w(time))
       - if user.authorization
         br

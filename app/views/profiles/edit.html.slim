@@ -6,9 +6,27 @@
       = form_for(@profile, url: profile_path) do |f|
         .row
           .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :avatar, t('user.avatar'), class: 'right inline'
+          .medium-9.columns.no-padding
+            p.static.avatar
+              = link_to '#',
+                data: { tooltip: true,
+                        user_id: current_user.id,
+                        qiniu_domain: Rails.application.secrets.qiniu_domain },
+                class: 'has-tooltip',
+                id: 'upload-avatar',
+                title: t('user.change_avatar')  do
+                = image_tag current_user.avatar, width: 100
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
             = f.label :email, t('user.email'), class: 'right inline'
           .medium-9.columns.no-padding
             p.static =current_user.email
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :name, t('user.name'), class: 'right inline'
+          .medium-9.columns.no-padding
+            p.static =current_user.name
         .row
           .small-3.columns.no-padding-left
             = f.label :blog_link, t('profile.blog_link'), class: 'right inline'

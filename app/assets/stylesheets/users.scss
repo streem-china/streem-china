@@ -23,6 +23,7 @@
     padding-left: .8rem;
 
     .edit {
+      margin-bottom: 1rem;
       font-size: .8rem;
       color: #666;
     }
@@ -84,6 +85,17 @@
 
   i {
     color: #AAA;
+  }
+}
+
+.edit_profile {
+  .avatar {
+    width: 100px;
+    height: 115px;
+
+    img {
+      background-color: #e8e8e8;
+    }
   }
 }
 

@@ -15,7 +15,7 @@
           = link_to t('user_nav_link'), users_path
       ul.right
         li.has-form.show-for-medium-up
-          = form_tag '/search', method: :get
+          = form_tag '/search', class: :search, method: :get
             = search_field_tag :q, nil, placeholder: 'Search'
         - if current_user
           li
@@ -29,7 +29,7 @@
           li.divider
           li.has-dropdown
             = link_to '#' do
-              = image_tag current_user.avatar, size: '25'
+              = image_tag current_user.avatar, width: 25, class: :avatar
             ul.dropdown
               li =link_to current_user.name, user_path(current_user.name)
               li.divider

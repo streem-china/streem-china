@@ -36,15 +36,15 @@ $(document).on 'ready page:load', ->
         Key: (up, file) ->
           "topics/#{topic_id}/#{md5(Date.now())}"
 
-  if $('.user .avatar #upload').length
-    uploader = $('#upload')
+  if $('#upload-avatar').length
+    uploader = $('#upload-avatar')
     old_url = uploader.find('img').attr('src')
     domain = uploader.data('qiniu-domain')
     user_id = uploader.data('user-id')
 
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
-      browse_button: 'upload',
+      browse_button: 'upload-avatar',
       uptoken_url: '/qiniu_uptoken',
       max_file_size: '2mb',
       domain: domain,
@@ -53,7 +53,7 @@ $(document).on 'ready page:load', ->
         FilesAdded: (up, files) ->
           plupload.each files, (file) ->
         BeforeUpload: (up, file) ->
-          uploader.html('<i class="fa fa-spin fa-spinner" style="position: absolute; left: 1rem; top: 1rem;"></i>')
+          uploader.html('<i class="fa fa-spin fa-spinner" style="position: absolute; left: 50px; top: 50px;"></i>')
         UploadProgress: (up, file) ->
         FileUploaded: (up, file, info) ->
           url = domain + JSON.parse(info).key + '?imageView/1/w/150'
@@ -63,6 +63,8 @@ $(document).on 'ready page:load', ->
             data:
               url: url
           uploader.html(image)
+
+          $('.top-bar .avatar').attr('src', url)
 
           Flash.notify(I18n.t('user.change_avatar_success'), 'success')
         Error: (up, err, errTip) ->

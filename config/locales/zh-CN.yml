@@ -76,6 +76,7 @@ zh-CN:
     login: 邮箱/昵称
     email: 邮箱
     name: 昵称
+    avatar: 头像
     password: 密码
     password_confirmation: 密码确认
     current_password: 当前密码

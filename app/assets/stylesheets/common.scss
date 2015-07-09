@@ -122,6 +122,10 @@ a.favorited {
   }
 }
 
+a.small {
+  font-size: .8rem;
+}
+
 .nodes-box {
   .label {
     font-size: .9rem;
@@ -154,10 +158,6 @@ a.favorited {
       color: #333;
     }
   }
-}
-
-a.small {
-  font-size: .8rem;
 }
 
 .unread-notifications-count {

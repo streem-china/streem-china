@@ -17,3 +17,9 @@ $(document).on 'ready page:load', ->
   if $('.toggle-topbar').length
     $(document).foundation('topbar', 'reflow')
 
+  $('.search #q').focus ->
+    $(this).animate
+      'margin-right': '100px'
+  .focusout ->
+    $(this).animate
+      'margin-right': 0

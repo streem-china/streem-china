@@ -4,8 +4,9 @@
   .large-4.columns
     .box
       = render partial: 'user', locals: { user: @user }
-    .box
-      = render partial: 'profile', locals: { profile: @user.profile } if @user.profile
+    - if @user.profile
+      .box
+        = render partial: 'profile', locals: { profile: @user.profile }
   .large-8.columns.no-padding-left-large-up
     .box
       = render partial: 'activity',
