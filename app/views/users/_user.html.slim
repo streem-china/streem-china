@@ -17,7 +17,7 @@
     br
     - if signed_in? && current_user.eql?(user)
       '
-      = link_to ' Edit Profile', edit_profile_path, class: 'edit fa fa-edit'
+      = link_to t('profile.edit'), edit_profile_path, class: 'edit fa fa-edit'
     .tips
       = t('user.number_label', number: user.id)
       ' ,

@@ -101,3 +101,8 @@ zh-CN:
   profile:
     edit: 更新个人资料
     updated_success: 个人资料更新成功
+    blog_link: 博客地址
+    github_link: Github 地址
+    twitter_link: Twitter 地址
+    company: 公司/组织
+    location: 国家/城市

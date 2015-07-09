@@ -6,29 +6,29 @@
       = form_for(@profile, url: profile_path) do |f|
         .row
           .small-3.columns.no-padding-left
-            = f.label :blog_link, class: 'right inline'
-          .small-9.columns.no-padding-right
+            = f.label :blog_link, t('profile.blog_link'), class: 'right inline'
+          .small-9.columns.no-padding
             = f.text_field :blog_link
         .row
           .small-3.columns.no-padding-left
-            = f.label :github_link, class: 'right inline'
-          .small-9.columns.no-padding-right
+            = f.label :github_link, t('profile.github_link'), class: 'right inline'
+          .small-9.columns.no-padding
             = f.text_field :github_link
         .row
           .small-3.columns.no-padding-left
-            = f.label :twitter_link, class: 'right inline'
-          .small-9.columns.no-padding-right
+            = f.label :twitter_link, t('profile.twitter_link'), class: 'right inline'
+          .small-9.columns.no-padding
             = f.text_field :twitter_link
         .row
           .small-3.columns.no-padding-left
-            = f.label :company, class: 'right inline'
-          .small-9.columns.no-padding-right
+            = f.label :company, t('profile.company'), class: 'right inline'
+          .small-9.columns.no-padding
             = f.text_field :company
         .row
           .small-3.columns.no-padding-left
-            = f.label :location, class: 'right inline'
-          .small-9.columns.no-padding-right
+            = f.label :location, t('profile.location'), class: 'right inline'
+          .small-9.columns.no-padding
             = f.text_field :location
         .row
-          .small-9.small-offset-3.columns.no-padding-right
-           = f.submit class: 'button expand small'
+          .small-9.small-offset-3.columns.no-padding
+           = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
