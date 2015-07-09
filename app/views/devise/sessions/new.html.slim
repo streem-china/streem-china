@@ -4,22 +4,22 @@
       .title
         h5 =t('sign_in')
       = form_for(resource, url: session_path(resource)) do |f|
-        .row.small-collapse
-          .clearfix
-            .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :login, class: 'right inline'
-            .medium-9.columns.no-padding
-              = f.text_field :login, placeholder: t('user.login')
-          .clearfix
-            .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :password, class: 'right inline'
-            .medium-9.columns.no-padding
-              = f.password_field :password, placeholder: t('user.password')
-          .clearfix
-            .show-for-medium-up.medium-3.columns.no-padding-left
-            .medium-9.columns.no-padding
-              = f.check_box :remember_me
-              = f.label :remember_me
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :login, class: 'right inline'
+          .medium-9.columns.no-padding
+            = f.text_field :login, placeholder: t('user.login')
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :password, class: 'right inline'
+          .medium-9.columns.no-padding
+            = f.password_field :password, placeholder: t('user.password')
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+          .medium-9.columns.no-padding
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .row
           .medium-9.medium-offset-3
             .small-6.columns.no-padding-left
               = f.submit t('sign_in'), class: 'button expand small', data: { disable_with: t('signing_in') }
@@ -27,14 +27,13 @@
               = link_to t('register'), new_user_registration_path(resource), class: 'button expand small success'
       .row
         .columns.no-padding-right
-          .clearfix
-            .right
-              - if Devise.omniauth_configs.has_key?(:github)
-                = link_to '', user_omniauth_authorize_path(:github),
-                  class: 'fa fa-github fa-lg thirdpart-login'
-              '
-              - if Devise.omniauth_configs.has_key?(:github)
-                = link_to '', user_omniauth_authorize_path(:twitter),
-                  class: 'fa fa-twitter fa-lg thirdpart-login'
-              '
-              = link_to t('forget_password'), new_user_password_path, class: 'forget-password'
+          .right
+            - if Devise.omniauth_configs.has_key?(:github)
+              = link_to '', user_omniauth_authorize_path(:github),
+                class: 'fa fa-github fa-lg thirdpart-login'
+            '
+            - if Devise.omniauth_configs.has_key?(:github)
+              = link_to '', user_omniauth_authorize_path(:twitter),
+                class: 'fa fa-twitter fa-lg thirdpart-login'
+            '
+            = link_to t('forget_password'), new_user_password_path, class: 'forget-password'

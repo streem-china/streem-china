@@ -4,25 +4,20 @@
       .title
         h5 =t('change_password')
       = form_for(resource, url: password_path(resource), html: { method: :put }) do |f|
-        .row.small-collapse
-          .medium-9.medium-offset-3.columns
-            .columns.no-padding
-              = devise_error_messages!
-              = f.hidden_field :reset_password_token
-          .clearfix
-            .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :password, t('user.new_password'), class: 'right inline'
-            .medium-9.columns.no-padding
-              = f.password_field :password, placeholder: t('user.password')
-          .clearfix
-            .show-for-medium-up.medium-3.columns.no-padding-left
-              = f.label :password_confirmation, class: 'right inline'
-            .medium-9.columns.no-padding
-              = f.password_field :password_confirmation, placeholder: t('user.password_confirmation')
-          .medium-9.medium-offset-3.columns
-            .columns.no-padding
-              = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
-
-
-
-= render partial: 'form', locals: { resource: resource }
+        .row
+          .medium-9.medium-offset-3.columns.no-padding
+            = devise_error_messages!
+            = f.hidden_field :reset_password_token
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :password, t('user.new_password'), class: 'right inline'
+          .medium-9.columns.no-padding
+            = f.password_field :password, placeholder: t('user.password')
+        .row
+          .show-for-medium-up.medium-3.columns.no-padding-left
+            = f.label :password_confirmation, class: 'right inline'
+          .medium-9.columns.no-padding
+            = f.password_field :password_confirmation, placeholder: t('user.password_confirmation')
+        .row
+          .medium-9.medium-offset-3.columns.no-padding
+            = f.submit t('submit'), class: 'button expand small', data: { disable_with: t('submiting') }
