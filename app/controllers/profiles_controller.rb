@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action { @topbar = :user }
+
   def edit
     @profile = current_user.profile || current_user.build_profile
   end
