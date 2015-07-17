@@ -16,7 +16,6 @@ $(document).on 'ready page:load', ->
 
     false
 
-
   $('body').on 'click', '.replies .item .delete', (e) ->
     result = confirm(I18n.t('reply.are_you_sure_delete'))
 
