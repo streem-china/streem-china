@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   before_save :set_default_avatar_before_save, unless: :has_avatar?
   after_update :set_topics_and_replies_user_avatar_after_update, if: :avatar_changed?
-  after_update :broadcast_unread_notifications_count_after_update, if: :unread_notifications_count_changed?
+  after_update :notify_unread_notifications_count_after_update, if: :unread_notifications_count_changed?
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -88,8 +88,8 @@ class User < ActiveRecord::Base
 
   private
 
-  def broadcast_unread_notifications_count_after_update
-    ActionCableJobs::UpdateUnreadNotificationsCount.perform_later(id)
+  def notify_unread_notifications_count_after_update
+    ActionCableJobs::UpdateUnreadNotificationsCount.perform_later(id, unread_notifications_count)
   end
 
   def set_default_avatar_before_save
