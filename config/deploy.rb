@@ -23,18 +23,20 @@ set :repo_url, 'git@github.com:streem-china/streem-china.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml',
-                                                 'config/secrets.yml',
-                                                 'config/newrelic.yml',
-                                                 'db/production.sqlite3')
+set :linked_files, ['config/database.yml',
+                    'config/secrets.yml',
+                    'config/newrelic.yml',
+                    'db/production.sqlite3']
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('bin',
-                                               'log',
-                                               'tmp/pids',
-                                               'tmp/cache',
-                                               'tmp/sockets',
-                                               'vendor/bundle')
+set :linked_dirs, ['bin',
+                   'log',
+                   'tmp/pids',
+                   'tmp/cache',
+                   'tmp/sockets',
+                   'vendor/bundle',
+                   'cable/log',
+                   'cable/tmp/pids']
 
 set :bundle_without, %w{development test mysql postgres}.join(' ')
 
