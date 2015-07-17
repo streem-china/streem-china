@@ -88,10 +88,6 @@ class User < ActiveRecord::Base
 
   private
 
-  def notify_unread_notifications_count_after_update
-    ActionCableJobs::UpdateUnreadNotificationsCount.perform_later(id, unread_notifications_count)
-  end
-
   def set_default_avatar_before_save
     self.avatar = DEFAULT_AVATAR if avatar.blank?
   end
@@ -99,5 +95,9 @@ class User < ActiveRecord::Base
   def set_topics_and_replies_user_avatar_after_update
     topics.update_all(user_avatar: avatar)
     replies.update_all(user_avatar: avatar)
+  end
+
+  def notify_unread_notifications_count_after_update
+    ActionCableJobs::NotifyUnreadNotificationsCount.perform_later(id, unread_notifications_count)
   end
 end

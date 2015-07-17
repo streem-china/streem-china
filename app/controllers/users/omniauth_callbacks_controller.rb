@@ -31,6 +31,7 @@ module Users
 
         unless user.save
           flash[:alert] = user.errors.full_messages.join(', ')
+
           return(redirect_to new_user_session_path)
         end
       end

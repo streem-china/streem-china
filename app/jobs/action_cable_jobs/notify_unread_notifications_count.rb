@@ -1,5 +1,5 @@
 module ActionCableJobs
-  class UpdateUnreadNotificationsCount < ActiveJob::Base
+  class NotifyUnreadNotificationsCount < ActiveJob::Base
     queue_as :actioncable
 
     def perform(user_id, user_unread_notifications_count)
