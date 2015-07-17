@@ -1,13 +1,5 @@
 .profile
   p
-    i.fa.fa-fw.fa-users
-    ' &nbsp;&nbsp;
-    span =profile.company
-  p
-    i.fa.fa-fw.fa-map-marker
-    ' &nbsp;&nbsp;
-    span =profile.location
-  p
     i.fa.fa-fw.fa-chain
     ' &nbsp;&nbsp;
     = link_to profile.blog_link, profile.blog_link
@@ -19,3 +11,11 @@
     i.fa.fa-fw.fa-twitter
     ' &nbsp;&nbsp;
     = link_to profile.twitter_link, profile.twitter_link
+  p
+    i.fa.fa-fw.fa-users
+    ' &nbsp;&nbsp;
+    span =profile.company
+  p
+    i.fa.fa-fw.fa-map-marker
+    ' &nbsp;&nbsp;
+    span =profile.location
