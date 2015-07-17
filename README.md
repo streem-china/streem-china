@@ -35,6 +35,8 @@ cp config/database.sqlite.yml config/database.yml
 cp config/secrets.example.yml config/secrets.yml
 cp config/newrelic.example.yml config/newrelic.yml
 bundle exec rake db:setup
+bundle exec sidekiq -C config/sidekiq.yml
+bundle exec puma -p 28080 cable/config.ru
 bundle exec rails s
 ```
 
