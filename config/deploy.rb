@@ -47,17 +47,6 @@ set :bundle_without, %w{development test mysql postgres}.join(' ')
 set :rbenv_ruby, '2.2.0'
 
 set :puma_workers, 1
-set :puma_threads, [8, 8]
+set :puma_threads, [4, 8]
 
-namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-
-end
+after 'deploy:published', 'actioncable:restart'

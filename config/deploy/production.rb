@@ -8,7 +8,6 @@ role :app, %w{deploy@streem-china.org}
 role :web, %w{deploy@streem-china.org}
 role :db,  %w{deploy@streem-china.org}
 
-
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
