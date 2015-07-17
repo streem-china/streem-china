@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/rails/actioncable.git
+  revision: 130b8f9ddf321d49f43b730b6677bb25e51d4c32
+  specs:
+    actioncable (0.1.0)
+      actionpack (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      celluloid (~> 0.16.0)
+      em-hiredis (~> 0.3.0)
+      faye-websocket (~> 0.9.2)
+      redis (~> 3.0)
+      websocket-driver (= 0.5.4)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -87,7 +100,11 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
+    em-hiredis (0.3.0)
+      eventmachine (~> 1.0)
+      hiredis (~> 0.5.0)
     erubis (2.7.0)
+    eventmachine (1.0.7)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -96,6 +113,9 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    faye-websocket (0.9.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     foundation-rails (5.5.2.1)
@@ -106,6 +126,7 @@ GEM
       activesupport (>= 4.1.0)
     hashie (3.3.2)
     hike (1.2.3)
+    hiredis (0.5.2)
     hitimes (1.2.2)
     i18n (0.7.0)
     i18n-js (2.1.2)
@@ -287,6 +308,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.5.4)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     will_paginate (3.0.7)
     will_paginate-foundation (5.3.4)
       will_paginate (>= 3.0.3)
@@ -295,6 +319,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actioncable!
   byebug
   capistrano
   capistrano-bundler

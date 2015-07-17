@@ -4,8 +4,6 @@ $(document).on 'ready page:load', ->
     domain = uploader.data('qiniu-domain')
     topic_id = uploader.data('topic-id')
 
-    console.log(domain)
-
     Qiniu.uploader
       runtimes: 'html5,flash,html4',
       browse_button: 'upload',

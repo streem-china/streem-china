@@ -25,6 +25,7 @@ gem 'mailgun_rails'
 gem 'newrelic_rpm'
 gem 'sidekiq'
 gem 'sinatra'
+gem 'actioncable', github: 'rails/actioncable'
 
 gem 'jquery-rails'
 gem 'turbolinks'
