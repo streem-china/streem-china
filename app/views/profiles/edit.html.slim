@@ -29,17 +29,17 @@
           .small-3.columns.no-padding-left
             = f.label :blog_link, t('profile.blog_link'), class: 'right inline'
           .small-9.columns.no-padding
-            = f.text_field :blog_link
+            = f.text_field :blog_link, placeholder: 'http://'
         .row
           .small-3.columns.no-padding-left
             = f.label :github_link, t('profile.github_link'), class: 'right inline'
           .small-9.columns.no-padding
-            = f.text_field :github_link
+            = f.text_field :github_link, placeholder: "http://github.com/#{current_user.name}"
         .row
           .small-3.columns.no-padding-left
             = f.label :twitter_link, t('profile.twitter_link'), class: 'right inline'
           .small-9.columns.no-padding
-            = f.text_field :twitter_link
+            = f.text_field :twitter_link, placeholder: "http://twitter.com/#{current_user.name}"
         .row
           .small-3.columns.no-padding-left
             = f.label :company, t('profile.company'), class: 'right inline'
