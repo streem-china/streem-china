@@ -32,7 +32,7 @@ class @Flash
 
 $(document).on 'ready page:load', ->
   $(document).scroll ->
-    if $(document).scrollTop()
+    if $(document).scrollTop() >= 42.750
       unless $('.flash').hasClass('fixed')
         $('.flash').addClass('fixed')
         $('.flash .column').css('opacity', .9)
