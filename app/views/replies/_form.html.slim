@@ -3,9 +3,13 @@
     .tools
       .clearfix
         = link_to '', '#', class: 'fa fa-eye left preview'
+        = link_to '', '#',
+          class: 'fa fa-info fa-fw right',
+          data: { reveal_id: 'markdown-tips-modal' },
+          id: 'markdown-tips-link'
         - if signed_in?
           = link_to '', '#',
-            class: 'fa fa-image right',
+            class: 'fa fa-image fa-fw right',
             id: 'upload',
             data: { qiniu_domain: Rails.application.secrets.qiniu_domain,
                     topic_id: topic.id }
@@ -13,3 +17,9 @@
     = f.text_area :body, placeholder: t('reply.body'), size: "x#{reply.new_record? ? 10 : 20}"
     .clearfix
       = f.submit t('submit'), class: 'button small right', data: { disable_with: t('submiting') }
+
+#markdown-tips-modal.reveal-modal data-reveal='' aria-labelledby='' aria-hidden='true' role='dialog'
+  a.close-reveal-modal aria-label='Close' &#215
+  br
+  br
+  = render partial: 'common/markdown_tips'
