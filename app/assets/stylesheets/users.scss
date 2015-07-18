@@ -90,11 +90,24 @@
 
 .edit_profile {
   .avatar {
-    width: 100px;
-    height: 115px;
+    a {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: #e8e8e8;
+    }
+
+    a:hover {
+      background-color: black;
+
+      img {
+        opacity: 0.5;
+      }
+    }
 
     img {
-      background-color: #e8e8e8;
+      width: 100px;
+      height: 100px;
     }
   }
 }
