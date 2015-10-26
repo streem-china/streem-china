@@ -1,7 +1,7 @@
 if ENV['TRAVIS']
   source 'https://rubygems.org'
 else
-  source 'http://ruby.taobao.org'
+  source 'https://ruby.taobao.org'
 end
 
 gem 'rails', '4.2.0'

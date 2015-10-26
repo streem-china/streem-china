@@ -25,8 +25,7 @@ set :repo_url, 'git@github.com:streem-china/streem-china.git'
 # Default value for :linked_files is []
 set :linked_files, ['config/database.yml',
                     'config/secrets.yml',
-                    'config/newrelic.yml',
-                    'db/production.sqlite3']
+                    'config/newrelic.yml']
 
 # Default value for linked_dirs is []
 set :linked_dirs, ['bin',
