@@ -37,7 +37,7 @@ set :linked_dirs, ['bin',
                    'cable/log',
                    'cable/tmp/pids']
 
-set :bundle_without, %w{development test mysql postgres}.join(' ')
+set :bundle_without, %w{development test sqlite postgres}.join(' ')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -49,5 +49,7 @@ set :rbenv_ruby, '2.2.0'
 
 set :puma_workers, 1
 set :puma_threads, [4, 8]
+
+set :nginx_server_name, 'streem-china.org'
 
 after 'deploy:published', 'actioncable:restart'
