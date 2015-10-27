@@ -3,7 +3,7 @@
     .box
       h5 =t('user_center_title')
       .users
-        ul.clearing-thumbs data-clearing=''
+        ul.clearing-thumbs
           - @users.each do |user|
             li
               = link_to user_path(user.name)
