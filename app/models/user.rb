@@ -86,6 +86,10 @@ class User < ActiveRecord::Base
     authorization.blank? && super
   end
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
 
   def set_default_avatar_before_save
